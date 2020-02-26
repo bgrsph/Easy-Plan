@@ -11,16 +11,16 @@
 
     <LinearLayout
         android:id="@+id/formLayout"
-        android:layout_width="216dp"
-        android:layout_height="368dp"
-        android:background="#69FFFFFF"
+        android:layout_width="303dp"
+        android:layout_height="558dp"
+        android:background="#4A070707"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="186dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="100dp"
             android:fontFamily="sans-serif-smallcaps"
             android:text="@string/app_name"
             android:textAlignment="center"
@@ -35,9 +35,12 @@
             android:layout_marginTop="50dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/textColorGreen"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
             android:textSize="12dp"
             android:textStyle="italic" />
+
 
         <EditText
             android:id="@+id/logPassword"
@@ -45,9 +48,25 @@
             android:layout_height="wrap_content"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColor="@color/white"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
             android:textSize="12dp"
             android:textStyle="italic" />
+
+        <CheckBox
+            android:id="@+id/loginCheckBox"
+            style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/rememberme"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textColorHighlight="#00B40000"
+            android:buttonTint="@color/mainColor"
+            android:textColorLink="#C8F9FBFF"
+            android:textSize="10dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -58,13 +77,15 @@
             android:orientation="horizontal">
 
 
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="13dp"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/wanttoregister"
-                android:textColor="@color/textColor"
+                android:textColor="#EBEBEB"
                 android:textSize="10dp" />
 
             <TextView
@@ -75,8 +96,9 @@
                 android:fontFamily="sans-serif"
                 android:linksClickable="true"
                 android:text="@string/signup"
-                android:textColor="@color/hyperlinkBlueDark"
-                android:textSize="10dp" />
+                android:textColor="@color/mainColor"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -86,7 +108,7 @@
             android:fontFamily="sans-serif-light"
             android:gravity="center"
             android:text="@string/forgetpassword"
-            android:textColor="@color/textColor"
+            android:textColor="#FFFAFA"
             android:textSize="10dp" />
 
 
@@ -113,9 +135,9 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:text="@string/kumailconstraint"
-            android:textColor="@color/textColorGreen"
+            android:textColor="@color/textColorAlmostWhite"
             android:textSize="8dp"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
