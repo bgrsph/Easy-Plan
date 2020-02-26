@@ -3,7 +3,7 @@
     package="com.example.easyplan.test" >
 
     <uses-sdk
-        android:minSdkVersion="23"
+        android:minSdkVersion="18"
         android:targetSdkVersion="29" />
 
     <instrumentation

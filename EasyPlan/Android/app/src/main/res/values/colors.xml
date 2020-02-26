@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="mainColor">#EF946C</color>
+    <color name="textColor">#454372</color>
+    <color name="textColorGreen">#70877F</color>
+    <color name="textColorLight">#55547E</color>
+    <color name = "black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#70877F</color>
+    <color name="hyperlinkBlue">#2F2963</color>
+    <color name="hyperlinkBlueDark">#2F2963</color>
 </resources>
