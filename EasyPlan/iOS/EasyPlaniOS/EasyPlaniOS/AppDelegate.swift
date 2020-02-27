@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  EasyPlan
+//  EasyPlaniOS
 //
-//  Created by Buğra Sipahioğlu on 24.02.2020.
-//  Copyright © 2020 Buğra Sipahioğlu. All rights reserved.
+//  Created by Buğra Sipahioğlu on 27.02.2020.
+//  Copyright © 2020 Easy Plan. All rights reserved.
 //
 
 import UIKit
