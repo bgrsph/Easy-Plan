@@ -138,7 +138,7 @@
             android:text="@string/kumailconstraint"
             android:textColor="@color/textColorAlmostWhite"
             android:textSize="8dp"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
     </LinearLayout>
 
