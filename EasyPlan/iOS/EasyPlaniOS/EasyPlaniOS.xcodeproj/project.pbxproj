@@ -3,10 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */; };
+		36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCB24082FD40017AB05 /* SignUpViewController.swift */; };
+		36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCD24082FF60017AB05 /* LoginViewController.swift */; };
+		36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCF240830080017AB05 /* HomeViewController.swift */; };
+		36E66FD524083BF50017AB05 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FD424083BF50017AB05 /* Utilities.swift */; };
+		B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */; };
 		F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */; };
 		F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */; };
 		F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FD240816B5001C7FB1 /* ViewController.swift */; };
@@ -16,6 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36E66FCB24082FD40017AB05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		36E66FCD24082FF60017AB05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		36E66FCF240830080017AB05 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		36E66FD424083BF50017AB05 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.release.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.release.xcconfig"; sourceTree = "<group>"; };
+		AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPlaniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlaniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +45,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36E66FCA24082F9E0017AB05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F9B7E4FD240816B5001C7FB1 /* ViewController.swift */,
+				36E66FCB24082FD40017AB05 /* SignUpViewController.swift */,
+				36E66FCD24082FF60017AB05 /* LoginViewController.swift */,
+				36E66FCF240830080017AB05 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		36E66FD124083B030017AB05 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				36E66FD424083BF50017AB05 /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3B897DB5E4D30B1E8C3E3B53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDCBC4B9346A9EF4B07B75EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */,
+				7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F9B7E4ED240816B5001C7FB1 = {
 			isa = PBXGroup;
 			children = (
 				F9B7E4F8240816B5001C7FB1 /* EasyPlaniOS */,
 				F9B7E4F7240816B5001C7FB1 /* Products */,
+				BDCBC4B9346A9EF4B07B75EE /* Pods */,
+				3B897DB5E4D30B1E8C3E3B53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +109,15 @@
 		F9B7E4F8240816B5001C7FB1 /* EasyPlaniOS */ = {
 			isa = PBXGroup;
 			children = (
+				36E66FD124083B030017AB05 /* Helpers */,
+				36E66FCA24082F9E0017AB05 /* ViewControllers */,
 				F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */,
 				F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */,
-				F9B7E4FD240816B5001C7FB1 /* ViewController.swift */,
 				F9B7E4FF240816B5001C7FB1 /* Main.storyboard */,
 				F9B7E502240816B8001C7FB1 /* Assets.xcassets */,
 				F9B7E504240816B8001C7FB1 /* LaunchScreen.storyboard */,
 				F9B7E507240816B8001C7FB1 /* Info.plist */,
+				36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */,
 			);
 			path = EasyPlaniOS;
 			sourceTree = "<group>";
@@ -74,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9B7E50A240816B8001C7FB1 /* Build configuration list for PBXNativeTarget "EasyPlaniOS" */;
 			buildPhases = (
+				137700447059C536297C94E6 /* [CP] Check Pods Manifest.lock */,
 				F9B7E4F2240816B5001C7FB1 /* Sources */,
 				F9B7E4F3240816B5001C7FB1 /* Frameworks */,
 				F9B7E4F4240816B5001C7FB1 /* Resources */,
+				A292CC816F8B60C07DA94DC2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +183,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
+				36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */,
 				F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */,
 				F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		137700447059C536297C94E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EasyPlaniOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A292CC816F8B60C07DA94DC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9B7E4F2240816B5001C7FB1 /* Sources */ = {
@@ -140,7 +240,11 @@
 			files = (
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
+				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
+				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
+				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
+				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,10 +386,13 @@
 		};
 		F9B7E50B240816B8001C7FB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R4A8L9UTY2;
 				INFOPLIST_FILE = EasyPlaniOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,10 +406,13 @@
 		};
 		F9B7E50C240816B8001C7FB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R4A8L9UTY2;
 				INFOPLIST_FILE = EasyPlaniOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
