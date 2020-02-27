@@ -6,49 +6,57 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="18"
-8-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml
+8-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml
+9-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:5:5-22:19
+11-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:5:5-27:19
 12        android:allowBackup="true"
-12-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:6:9-35
+12-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\8f8ab13dc8f4e84e14a8bb3d9ac92bc4\core-1.0.1\AndroidManifest.xml:22:18-86
+13-->[androidx.core:core:1.0.1] C:\Users\BobLoblaw\.gradle\caches\transforms-2\files-2.1\8f8ab13dc8f4e84e14a8bb3d9ac92bc4\core-1.0.1\AndroidManifest.xml:22:18-86
 14        android:debuggable="true"
 15        android:icon="@mipmap/ic_launcher"
-15-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:7:9-43
+15-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:7:9-43
 16        android:label="@string/app_name"
-16-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:8:9-41
+16-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:8:9-41
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:9:9-54
+17-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
-18-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:10:9-35
+18-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
-20-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:11:9-40
-21        <activity android:name="com.example.easyplan.MainActivity" >
-21-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:12:9-18:20
-21-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:12:19-47
-22            <intent-filter>
-22-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:13:13-17:29
-23                <action android:name="android.intent.action.MAIN" />
-23-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:17-69
-23-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:25-66
-24
-25                <category android:name="android.intent.category.LAUNCHER" />
-25-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:17-77
-25-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:27-74
-26            </intent-filter>
-27        </activity>
+20-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity
+21-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:12:9-15:68
+22            android:name="com.example.easyplan.SignUp"
+22-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:13:13-35
+23            android:label="@string/title_activity_sign_up"
+23-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:13-59
+24            android:theme="@style/AppTheme.NoActionBar" />
+24-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:15:13-56
+25        <activity android:name="com.example.easyplan.MainActivity" >
+25-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:9-22:20
+25-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:19-47
+26            <intent-filter>
+26-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:17:13-21:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:18:17-69
+27-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:18:25-66
 28
-29        <meta-data
-29-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:19:9-21:57
-30            android:name="preloaded_fonts"
-30-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:20:13-43
-31            android:resource="@array/preloaded_fonts" />
-31-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:21:13-54
-32    </application>
-33
-34</manifest>
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:20:17-77
+29-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:20:27-74
+30            </intent-filter>
+31        </activity>
+32
+33        <meta-data
+33-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:24:9-26:57
+34            android:name="preloaded_fonts"
+34-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:25:13-43
+35            android:resource="@array/preloaded_fonts" />
+35-->C:\Users\BobLoblaw\Desktop\Etc\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:26:13-54
+36    </application>
+37
+38</manifest>

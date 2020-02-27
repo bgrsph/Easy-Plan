@@ -9,4 +9,5 @@
     <string name="usernotfound">"Username or password is wrong."</string>
     <string name="kumailconstraint">"The email is not valid. Please try with your KU email."</string>
     <string name="rememberme">Remember Me</string>
+    <string name="title_activity_sign_up">SignUp</string>
 </resources>

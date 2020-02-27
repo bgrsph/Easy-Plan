@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/banner2"
+    android:gravity="center"
+    tools:context=".SignUp">
+
+    <LinearLayout
+        android:id="@+id/formLayout"
+        android:layout_width="303dp"
+        android:layout_height="558dp"
+        android:background="#4A070707"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="186dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="100dp"
+            android:textStyle="bold"
+            app:srcCompat="@drawable/logo1" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/passwordAgain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Retype Password"
+            android:inputType="textPassword"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+
+
+        <Button
+            android:id="@+id/signupButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/btn_login"
+            android:clickable="true"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:onClick="signUp"
+            android:stateListAnimator="@null"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textColor="@color/mainColor"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="195dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:text="@string/kumailconstraint"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="8dp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+

@@ -96,6 +96,7 @@
                 android:fontFamily="sans-serif"
                 android:linksClickable="true"
                 android:text="@string/signup"
+                android:onClick="goToSignUp"
                 android:textColor="@color/mainColor"
                 android:textSize="10dp"
                 android:textStyle="bold" />
