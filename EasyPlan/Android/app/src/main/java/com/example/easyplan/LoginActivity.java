@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText logEmail, logPass;
     Button loginBtn;
     TextView logSign;
     TextView loginError;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.logButton);
         logSign = findViewById(R.id.logSign);
         loginError = findViewById(R.id.loginError);
+
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToSignUp(View view) {
-        Intent intent = new Intent(MainActivity.this, SignUp.class);
+        Intent intent = new Intent(LoginActivity.this, SignUp.class);
         startActivity(intent);
     }
 }

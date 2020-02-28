@@ -2,17 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/regPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@drawable/banner2"
-    android:gravity="center"
+    android:gravity="bottom|center"
     tools:context=".SignUp">
 
     <LinearLayout
         android:id="@+id/formLayout"
-        android:layout_width="303dp"
-        android:layout_height="558dp"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
         android:background="#4A070707"
         android:gravity="center"
         android:orientation="vertical">
@@ -25,10 +26,35 @@
             app:srcCompat="@drawable/logo1" />
 
         <EditText
+            android:id="@+id/firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190dp"
+            android:hint="@string/firstname"
+            android:inputType="textPersonName"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+
+
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/lastname"
+            android:inputType="textEmailAddress"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textColorHint="@color/textHintColorEmailPass"
+            android:textSize="12dp"
+            android:textStyle="italic" />
+
+        <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:shadowColor="#F5F0F0"
@@ -73,23 +99,12 @@
             android:clickable="true"
             android:enabled="true"
             android:fontFamily="sans-serif-smallcaps"
-            android:onClick="signUp"
             android:stateListAnimator="@null"
             android:text="Sign Up"
             android:textAllCaps="false"
             android:textColor="@color/mainColor"
             android:textSize="14dp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/error"
-            android:layout_width="195dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:text="@string/kumailconstraint"
-            android:textColor="@color/textColorAlmostWhite"
-            android:textSize="8dp"
-            android:visibility="invisible" />
 
     </LinearLayout>
 

@@ -10,5 +10,6 @@
     <string name="kumailconstraint">"The email is not valid. Please try with your KU email."</string>
     <string name="rememberme">Remember Me</string>
     <string name="title_activity_sign_up">SignUp</string>
-    <string name="melike">Melike</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
 </resources>

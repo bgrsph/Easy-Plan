@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@drawable/banner2"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:id="@+id/formLayout"
