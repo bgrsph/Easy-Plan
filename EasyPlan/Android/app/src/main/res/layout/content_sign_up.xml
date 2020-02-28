@@ -12,8 +12,8 @@
 
     <LinearLayout
         android:id="@+id/formLayout"
-        android:layout_width="331dp"
-        android:layout_height="wrap_content"
+        android:layout_width="330dp"
+        android:layout_height="550dp"
         android:background="#4A070707"
         android:gravity="center"
         android:orientation="vertical">
@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="186dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="140dp"
             android:textStyle="bold"
             app:srcCompat="@drawable/logo1" />
 
@@ -29,7 +29,7 @@
             android:id="@+id/firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="190dp"
+            android:layout_marginTop="100dp"
             android:hint="@string/firstname"
             android:inputType="textPersonName"
             android:shadowColor="#F5F0F0"
@@ -92,7 +92,7 @@
         <Button
             android:id="@+id/signupButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:background="@drawable/btn_login"

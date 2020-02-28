@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@drawable/banner2"
-    android:gravity="center"
+    android:gravity="bottom | center"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:id="@+id/formLayout"
-        android:layout_width="303dp"
-        android:layout_height="558dp"
+        android:layout_width="330dp"
+        android:layout_height="550dp"
         android:background="#4A070707"
         android:gravity="center"
         android:orientation="vertical">
@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="186dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="300dp"
             android:fontFamily="sans-serif-smallcaps"
             android:text="@string/app_name"
             android:textAlignment="center"
@@ -32,7 +32,6 @@
             android:id="@+id/logEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:shadowColor="#F5F0F0"
@@ -129,16 +128,6 @@
             android:textColor="@color/mainColor"
             android:textSize="14dp"
             android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/loginError"
-            android:layout_width="195dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:text="@string/kumailconstraint"
-            android:textColor="@color/textColorAlmostWhite"
-            android:textSize="8dp"
-            android:visibility="invisible" />
 
     </LinearLayout>
 

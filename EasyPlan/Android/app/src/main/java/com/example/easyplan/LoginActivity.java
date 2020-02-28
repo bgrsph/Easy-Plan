@@ -14,7 +14,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText logEmail, logPass;
     Button loginBtn;
     TextView logSign;
-    TextView loginError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
         logPass = findViewById(R.id.logPassword);
         loginBtn = findViewById(R.id.logButton);
         logSign = findViewById(R.id.logSign);
-        loginError = findViewById(R.id.loginError);
 
 
 
@@ -35,9 +33,9 @@ public class LoginActivity extends AppCompatActivity {
                 String email, pass;
                 email = logEmail.getText().toString();
                 if(!email.contains("@ku.edu.tr")){
-                    loginError.setVisibility(View.VISIBLE);
+                    //buraya register gibi TOAST ekleyebiliriz.
                 }else {
-                    loginError.setVisibility(View.INVISIBLE);
+                    //buraya register gibi TOAST ekleyebiliriz.
                 }
                 pass = logPass.getText().toString();
 
