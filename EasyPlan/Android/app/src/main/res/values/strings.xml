@@ -12,4 +12,5 @@
     <string name="title_activity_sign_up">SignUp</string>
     <string name="firstname">First Name</string>
     <string name="lastname">Last Name</string>
+    <string name="Logout">Logout</string>
 </resources>

@@ -15,4 +15,8 @@
     <color name="textHintColorEmailPass">#97F3F1F1</color>
     <color name="textColorAlmostWhite">#EBEBEB</color>
     <color name="mainColorDarker">#DA8763</color>
+    <color name="seablue">#007991</color>
+    <color name="silversand">#BCD8C1</color>
+
+
 </resources>

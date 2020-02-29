@@ -31,7 +31,20 @@ public class LoginActivity extends AppCompatActivity {
     TextView logForget;
     CheckBox logRemember;
     FirebaseAuth auth;
+    String checkbox;
+    SharedPreferences sp;
+    public static LoginActivity la;
 
+    public static LoginActivity getInstance(){
+        if(la == null){
+            la = new LoginActivity();
+        }
+        return la;
+    };
+
+    public void setCheckbox(String bool){
+        this.checkbox = sp.getString("remember", bool);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +57,11 @@ public class LoginActivity extends AppCompatActivity {
         logRemember = findViewById(R.id.loginRemember);
         auth = FirebaseAuth.getInstance();
 
+        sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+       checkbox = sp.getString("remember", "");
 
 
-        SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
-        String checkbox = sp.getString("remember", "");
+
 
         
         if(checkbox.equals("true")){
