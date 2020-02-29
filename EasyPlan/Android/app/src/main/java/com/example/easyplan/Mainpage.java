@@ -26,9 +26,11 @@ public class Mainpage extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Mainpage.this, LoginActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                startActivity(intent);
+                SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sp.edit();
+                editor.remove("remember");
+                editor.commit();
+                finish();
             }
         });
     }
