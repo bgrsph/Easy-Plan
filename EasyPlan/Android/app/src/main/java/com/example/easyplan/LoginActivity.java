@@ -53,6 +53,12 @@ public class LoginActivity extends AppCompatActivity {
         logRemember = findViewById(R.id.loginRemember);
         auth = FirebaseAuth.getInstance();
 
+        SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+        String check = sp.getString("remember", "");
+        if(check.equals("true")){
+            startActivity(new Intent(LoginActivity.this, Mainpage.class));
+        }
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +77,9 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             FirebaseUser user = auth.getCurrentUser();
                             if(task.isSuccessful()){
-                                if(user.isEmailVerified()){
+                                if(user.isEmailVerified())
+                                    {logEmail.setText("");
+                                    logPass.setText("");
                                     startActivity(new Intent(LoginActivity.this, Mainpage.class));
                                 }else {
                                     Toast.makeText(LoginActivity.this, "Please verify your e-mail.", Toast.LENGTH_SHORT).show();
@@ -123,8 +131,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        logEmail.setText("");
-        logPass.setText("");
+
     }
 
 
