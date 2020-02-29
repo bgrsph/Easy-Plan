@@ -73,8 +73,17 @@ public class SignUp extends AppCompatActivity {
                                 Toast.makeText(SignUp.this, "This e-mail is already used.",
                                         Toast.LENGTH_SHORT).show();
                             }else{
+
+                                final FirebaseUser user =   auth.getCurrentUser();
+                                user.sendEmailVerification().addOnCompleteListener(SignUp.this, new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(SignUp.this, "Verification is sent to your e-mail adress.", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
                                 startActivity(new Intent(SignUp.this, LoginActivity.class));
-                                Toast.makeText(SignUp.this, "Registration is successfull", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                         }

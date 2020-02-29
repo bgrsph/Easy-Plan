@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText logEmail, logPass;
     Button loginBtn;
     TextView logSign;
+    TextView logForget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         logPass = findViewById(R.id.logPassword);
         loginBtn = findViewById(R.id.logButton);
         logSign = findViewById(R.id.logSign);
+        logForget  =findViewById(R.id.forgetPass);
 
 
 
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //Buraya forgeti bağlayacağım.
     }
 
     public void goToSignUp(View view) {
