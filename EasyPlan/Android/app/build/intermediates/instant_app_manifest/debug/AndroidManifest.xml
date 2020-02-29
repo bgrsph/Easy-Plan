@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.easyplan.Mainpage" />
         <activity android:name="com.example.easyplan.WelcomePage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,8 +31,7 @@
             android:name="com.example.easyplan.SignUp"
             android:label="@string/title_activity_sign_up"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.easyplan.LoginActivity" >
-        </activity>
+        <activity android:name="com.example.easyplan.LoginActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
