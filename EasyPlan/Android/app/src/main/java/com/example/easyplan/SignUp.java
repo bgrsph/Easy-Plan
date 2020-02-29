@@ -60,9 +60,8 @@ public class SignUp extends AppCompatActivity {
                     Toast.makeText(SignUp.this, "Email cnanot be empty", Toast.LENGTH_SHORT).show();
                 }else if(!mail.contains("@ku.edu.tr")){
                     Toast.makeText(SignUp.this, "You can sign up only with a valid KU e-mail.", Toast.LENGTH_LONG).show();
-                }else if (!isValidPassword(pass)){
-                    //error.setText("Password must be at least 8 characters and should include at least 1 uppercase, symbol and number.");
-                    Toast.makeText(SignUp.this, "Password must be at least 8 characters and should include at least 1 uppercase, symbol and number.", Toast.LENGTH_LONG).show();
+                }else if (pass.length() < 6){
+                    Toast.makeText(SignUp.this, "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
                 }else if(!pass.equals(passAgain)) {
                     Toast.makeText(SignUp.this, "Passwords do not match. Try again.", Toast.LENGTH_LONG).show();
                 }else {
