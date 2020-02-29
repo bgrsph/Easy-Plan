@@ -38,8 +38,6 @@ public class LoginActivity extends AppCompatActivity {
                     //buraya register gibi TOAST ekleyebiliriz.
                 }
                 pass = logPass.getText().toString();
-
-
             }
         });
 

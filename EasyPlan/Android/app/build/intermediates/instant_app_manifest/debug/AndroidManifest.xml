@@ -19,16 +19,18 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.example.easyplan.SignUp"
-            android:label="@string/title_activity_sign_up"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.example.easyplan.LoginActivity" >
+        <activity android:name="com.example.easyplan.WelcomePage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.easyplan.SignUp"
+            android:label="@string/title_activity_sign_up"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.example.easyplan.LoginActivity" >
         </activity>
 
         <meta-data

@@ -63,7 +63,6 @@ public class SignUp extends AppCompatActivity {
                 }else if (!isValidPassword(pass)){
                     //error.setText("Password must be at least 8 characters and should include at least 1 uppercase, symbol and number.");
                     Toast.makeText(SignUp.this, "Password must be at least 8 characters and should include at least 1 uppercase, symbol and number.", Toast.LENGTH_LONG).show();
-                    error.setVisibility(View.VISIBLE);
                 }else if(!pass.equals(passAgain)) {
                     Toast.makeText(SignUp.this, "Passwords do not match. Try again.", Toast.LENGTH_LONG).show();
                 }else {

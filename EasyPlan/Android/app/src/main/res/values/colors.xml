@@ -14,4 +14,5 @@
     <color name="hyperlinkBlueDark">#2F2963</color>
     <color name="textHintColorEmailPass">#97F3F1F1</color>
     <color name="textColorAlmostWhite">#EBEBEB</color>
+    <color name="mainColorDarker">#DA8763</color>
 </resources>

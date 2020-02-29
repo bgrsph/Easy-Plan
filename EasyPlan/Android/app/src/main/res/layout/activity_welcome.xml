@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/welcomepage"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/banner2"
+    android:orientation="horizontal"
+    android:layout_gravity="top"
+    android:gravity="top"
+    tools:context=".WelcomePage">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo1"/>
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="6dp"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/welcomeLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/button_design"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Login"
+                android:textColor="@color/common_google_signin_btn_text_light_focused" />
+
+            <Button
+                android:id="@+id/welcomeSignUP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:background="@drawable/button_design"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="SignUp"
+                android:textColor="@color/common_google_signin_btn_text_light_focused"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
