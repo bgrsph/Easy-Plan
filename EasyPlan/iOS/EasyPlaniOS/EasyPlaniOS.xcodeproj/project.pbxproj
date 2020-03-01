@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362C1889240BF76600A55368 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 362C1888240BF76600A55368 /* koc_tanitim.mp4 */; };
 		36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */; };
 		36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCB24082FD40017AB05 /* SignUpViewController.swift */; };
 		36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCD24082FF60017AB05 /* LoginViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		362C1888240BF76600A55368 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
 		36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36E66FCB24082FD40017AB05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		36E66FCD24082FF60017AB05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		362C1885240BE97800A55368 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				362C1888240BF76600A55368 /* koc_tanitim.mp4 */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
 		36E66FCA24082F9E0017AB05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		F9B7E4F8240816B5001C7FB1 /* EasyPlaniOS */ = {
 			isa = PBXGroup;
 			children = (
+				362C1885240BE97800A55368 /* Media */,
 				36E66FD124083B030017AB05 /* Helpers */,
 				36E66FCA24082F9E0017AB05 /* ViewControllers */,
 				F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */,
@@ -183,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
+				362C1889240BF76600A55368 /* koc_tanitim.mp4 in Resources */,
 				36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */,
 				F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */,
 				F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */,

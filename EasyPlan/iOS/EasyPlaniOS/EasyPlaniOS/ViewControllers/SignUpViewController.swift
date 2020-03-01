@@ -20,20 +20,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
-        
-        // Do any additional setup after loading the view.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     @IBAction func signUpTapped(_ sender: Any) {
         let error = validateFields()
         if error != nil {
@@ -90,8 +78,6 @@ class SignUpViewController: UIViewController {
         if !Utilities.isPasswordValid(password) {
             return "Password should be at least 6 characters"
         }
-        
-        
         
         return nil
     }
