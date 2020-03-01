@@ -83,12 +83,12 @@ class SignUpViewController: UIViewController {
         
         let email = emailTextField.text!
         if !Utilities.isValidEmail(email){
-            return "Email should be valid"
+            return "Please enter a valid ku student email"
         }
         
         let password = passwordTextField.text!
         if !Utilities.isPasswordValid(password) {
-            return "Password should be at least 8 characters, containing a special character and a number"
+            return "Password should be at least 6 characters"
         }
         
         
