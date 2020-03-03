@@ -11,7 +11,8 @@
     android:layout_gravity="top"
     android:gravity="top"
     android:weightSum="100"
-    tools:context=".WelcomePage">
+    tools:context=".WelcomePage"
+    >
     <!--
 android:background="@drawable/banner2"
 -->
@@ -51,7 +52,7 @@ android:background="@drawable/banner2"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
 
-                android:background="@drawable/button_design"
+                android:background="@drawable/green_button"
                 android:fontFamily="sans-serif-smallcaps"
                 android:text="Log in"
 
@@ -89,9 +90,9 @@ android:background="@drawable/banner2"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
 
-            android:background="@drawable/button_design"
+            android:background="@drawable/green_button"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="SignUp"
+            android:text="Sign Up"
             android:layout_weight="7"
             android:textColor="@color/common_google_signin_btn_text_light_focused"
             app:layout_constraintBottom_toBottomOf="parent" />
