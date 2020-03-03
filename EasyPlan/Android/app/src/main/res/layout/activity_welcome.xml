@@ -25,7 +25,7 @@ android:background="@drawable/banner2"
     android:layout_marginEnd="6dp"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:layout_weight="50"
+    android:layout_weight="30"
     >
         <ImageView
             android:layout_width="wrap_content"
@@ -35,27 +35,34 @@ android:background="@drawable/banner2"
 
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/welcomeLayout1"
+        android:id="@+id/welcomeLayout5"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_alignParentEnd="true"
         android:layout_marginEnd="6dp"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:weightSum="100"
+        android:layout_weight="15"
+        />
+    <LinearLayout
+        android:id="@+id/welcomeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
         android:layout_weight="5"
         >
         <Button
                 android:id="@+id/welcomeLogin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginLeft="70dp"
 
                 android:background="@drawable/green_button"
                 android:fontFamily="sans-serif-smallcaps"
                 android:text="Log in"
-
+            android:textAllCaps="false"
                 android:textColor="@color/common_google_signin_btn_text_light_focused" />
     </LinearLayout>
 
@@ -63,21 +70,17 @@ android:background="@drawable/banner2"
         android:id="@+id/welcomeLayout3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_alignParentEnd="true"
         android:layout_marginEnd="6dp"
         android:gravity="bottom"
         android:orientation="vertical"
         android:layout_weight="10"
         >
-
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/welcomeLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_alignParentEnd="true"
         android:layout_marginEnd="6dp"
         android:gravity="bottom"
         android:orientation="vertical"
@@ -87,13 +90,13 @@ android:background="@drawable/banner2"
             android:id="@+id/welcomeSignUP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp"
 
             android:background="@drawable/green_button"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Sign Up"
-            android:layout_weight="7"
+            android:textAllCaps="false"
             android:textColor="@color/common_google_signin_btn_text_light_focused"
             app:layout_constraintBottom_toBottomOf="parent" />
     </LinearLayout>
