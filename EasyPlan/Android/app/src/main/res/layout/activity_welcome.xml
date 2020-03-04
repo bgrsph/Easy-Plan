@@ -55,13 +55,14 @@ android:background="@drawable/banner2"
         <Button
                 android:id="@+id/welcomeLogin"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginLeft="70dp"
 
                 android:background="@drawable/green_button"
                 android:fontFamily="sans-serif-smallcaps"
                 android:text="Log in"
+            android:textStyle="bold"
             android:textAllCaps="false"
                 android:textColor="@color/common_google_signin_btn_text_light_focused" />
     </LinearLayout>
@@ -89,7 +90,7 @@ android:background="@drawable/banner2"
         <Button
             android:id="@+id/welcomeSignUP"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="30dp"
             android:layout_marginRight="70dp"
             android:layout_marginLeft="70dp"
 
@@ -97,6 +98,7 @@ android:background="@drawable/banner2"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Sign Up"
             android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="@color/common_google_signin_btn_text_light_focused"
             app:layout_constraintBottom_toBottomOf="parent" />
     </LinearLayout>

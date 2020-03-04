@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     TextView logSign;
     TextView logForget;
-    CheckBox logRemember;
+    Switch logRemember;
     FirebaseAuth auth;
 //    public static LoginActivity la;
 //
