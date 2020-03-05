@@ -1,5 +1,6 @@
 package com.example.easyplan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -17,16 +18,31 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Mainpage extends AppCompatActivity {
 
     Button logout;
     BottomNavigationView bottomMenu;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mGetReference;
+    private static final String TAG = "MyActivity";
+    private String a;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         bottomMenu = findViewById(R.id.NavigationBot);
+
+
+
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
         //logout = findViewById(R.id.logoutBtn);
 
@@ -43,6 +59,7 @@ public class Mainpage extends AppCompatActivity {
 
     }
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener NavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener()
     {
         @Override
@@ -52,7 +69,24 @@ public class Mainpage extends AppCompatActivity {
             {
                 case R.id.search:
                     //fragment = new HomeFragment();
-                    Toast.makeText(Mainpage.this, "This is where you search for courses.", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Mainpage.this, "This is where you search for courses.", Toast.LENGTH_SHORT).show();
+                    mDatabase = FirebaseDatabase.getInstance();
+
+                    mGetReference = FirebaseDatabase.getInstance().getReference().child("melikemellow-5fa45").child("user").child("0").child("name");
+                    mGetReference.addValueEventListener(new ValueEventListener() {
+
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                a = dataSnapshot.getValue(String.class);
+                            Toast.makeText(Mainpage.this, a, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                     break;
                 case R.id.plans:
                     //fragment = new InboxFragment();
@@ -71,4 +105,18 @@ public class Mainpage extends AppCompatActivity {
             return false;
         }
     };
+
+    /*private ValueEventListener ab = new ValueEventListener() {
+
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            Toast.makeText(Mainpage.this, "onChildChanged", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };*/
+
 }
