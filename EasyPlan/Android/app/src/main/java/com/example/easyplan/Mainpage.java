@@ -20,18 +20,17 @@ public class Mainpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
-        logout = findViewById(R.id.logoutBtn);
+        //logout = findViewById(R.id.logoutBtn);
 
 
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.remove("remember");
-                editor.commit();
-                finish();
-            }
-        });
+        //logout.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+          //  public void onClick(View v) {
+         //       SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+           //     SharedPreferences.Editor editor = sp.edit();
+             // editor.commit();
+               // finish();
+           // }
+        //});
     }
 }

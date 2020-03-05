@@ -8,119 +8,10 @@
     android:layout_height="match_parent"
     android:background="@color/textColorAlmostWhite"
     android:orientation="vertical"
-    android:weightSum="7"
+    android:weightSum="60"
     tools:context=".Mainpage">
 
-    <LinearLayout
-        android:id="@+id/mainPageHeader"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_weight="1"
-        android:background="@drawable/logo1"
-        android:orientation="horizontal">
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/mainpageRow1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:weightSum="3"
-        android:orientation="horizontal">
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/mainPageRow1half"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:orientation="horizontal">
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/mainPageRow2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/mainPageRow3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:id="@+id/mainPageRow5"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main"
-            android:layout_margin="5dp"/>F
-
+<!--
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="0dp"
@@ -132,24 +23,36 @@
             android:text="@string/Logout"
             android:textAlignment="gravity"
             android:textColor="@color/hyperlinkBlueDark"
-            android:textSize="20dp" />
-    </LinearLayout>
-
+            android:textSize="20dp" /> -->
     <LinearLayout
-        android:id="@+id/mainPageRow6half"
+        android:id="@+id/welcomeLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:orientation="horizontal">
-    </LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="6dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:layout_weight="55"
+        />
+
     <LinearLayout
-        android:id="@+id/mainPageFooter"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-    </LinearLayout>
+        android:orientation="vertical"
+        android:layout_weight="5"
+        android:weightSum="20">
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/NavigationBot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_navigation_bar"
+            android:background="?android:attr/windowBackground"
+            />
+
+    </LinearLayout>
 
 
 </LinearLayout>

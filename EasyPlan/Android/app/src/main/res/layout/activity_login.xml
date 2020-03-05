@@ -136,6 +136,7 @@
             android:checked="false"
             android:fontFamily="sans-serif-light"
             android:text="Don't have an account? Sign up!"
+            android:onClick="goToSignUp"
             android:layout_gravity="center"
             android:textColorHighlight="#00B40000"
             android:textColorLink="#C8F9FBFF"
