@@ -1,18 +1,18 @@
 //
-//  HomeViewController.swift
+//  HelpViewController.swift
 //  EasyPlaniOS
 //
-//  Created by Sitare Arslantürk on 27.02.2020.
+//  Created by Sitare Arslantürk on 9.03.2020.
 //  Copyright © 2020 Easy Plan. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HelpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.tabBarController?.navigationItem.hidesBackButton = true
+
         // Do any additional setup after loading the view.
     }
     
