@@ -242,14 +242,14 @@
         <!--Profile-->
         <scene sceneID="CjI-QQ-JFp">
             <objects>
-                <viewController id="zIB-ZC-Oiq" sceneMemberID="viewController">
+                <viewController id="zIB-ZC-Oiq" customClass="ProfileViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShY-DW-kX2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="HoP-Qj-JHV"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="GdV-mJ-lOb"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="GdV-mJ-lOb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SqV-f6-K5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -258,14 +258,14 @@
         <!--Help Center-->
         <scene sceneID="TQj-sc-fOS">
             <objects>
-                <viewController id="qFS-sK-Pb6" sceneMemberID="viewController">
+                <viewController id="qFS-sK-Pb6" customClass="HelpViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFx-h9-U4y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="svZ-xO-LF5"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Help Center" id="Qjg-AS-Jwb"/>
+                    <tabBarItem key="tabBarItem" title="Help Center" image="questionmark.square" catalog="system" id="Qjg-AS-Jwb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PxF-nM-03W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,14 +274,14 @@
         <!--Plans-->
         <scene sceneID="jls-R7-7YU">
             <objects>
-                <viewController id="0uL-84-o1h" sceneMemberID="viewController">
+                <viewController id="0uL-84-o1h" customClass="PlanViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ifk-U6-JUn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="53T-ui-Gtc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Plans" id="V0E-fW-7K5"/>
+                    <tabBarItem key="tabBarItem" title="Plans" image="calendar" catalog="system" id="V0E-fW-7K5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd2-yf-04I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,7 +306,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lTo-aY-f2f"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Class Search" id="irH-Q4-iL7"/>
+                    <tabBarItem key="tabBarItem" title="Class Search" image="magnifyingglass" catalog="system" id="irH-Q4-iL7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPn-Eb-zAQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,6 +331,12 @@
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="60"/>
+        <image name="person" catalog="system" width="64" height="60"/>
+        <image name="questionmark.square" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fg1-f4-RmX"/>
     </inferredMetricsTieBreakers>
