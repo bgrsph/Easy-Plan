@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -16,6 +17,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +33,8 @@ import java.time.format.TextStyle;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HelpFragment extends Fragment {
-    TextView faqView;
+public class HelpFragment extends Fragment implements View.OnClickListener{
+    CardView faqView, contactUs, kusisMail, regCall;
 
     public HelpFragment() {
         // Required empty public constructor
@@ -46,48 +48,52 @@ public class HelpFragment extends Fragment {
 
 
         View view =  inflater.inflate(R.layout.fragment_help, container, false);
-        faqView = (TextView) view.findViewById(R.id.faq_text);
-        String faq_msg = getResources().getString(R.string.FAQ_msg);
-        String faq_click_msg = getResources().getString(R.string.FAQ_msg_click);
-        faqView.setText(faq_msg + faq_click_msg, TextView.BufferType.SPANNABLE);
-        Spannable span = (Spannable) faqView.getText();
-        int start = faq_msg.length();
-        int end = start + faq_click_msg.length();
-        span.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.button_red)), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        span.setSpan(new StyleSpan(Typeface.BOLD),start, end,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        final ClickableSpan clickSpan = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                FAQ_fragment faq = new FAQ_fragment();
-                FragmentTransaction faq_tr = getFragmentManager().beginTransaction();
-                faq_tr.replace(R.id.fragment, faq, "FAQ_page");
-                faq_tr.commit();
-              //  Toast.makeText(getActivity(), "Works", Toast.LENGTH_LONG).show();
-            }
-        };
-
-        span.setSpan(clickSpan, start, end, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-
-
-        faqView.setMovementMethod(LinkMovementMethod.getInstance());
-
-
-
-
+        faqView = view.findViewById(R.id.faq_text);
+        faqView.setOnClickListener(this);
+        contactUs = view.findViewById(R.id.contactUS);
+        contactUs.setOnClickListener(this);
+        kusisMail = view.findViewById(R.id.kusismail);
+        kusisMail.setOnClickListener(this);
+        regCall = view.findViewById(R.id.registeationCall);
+        regCall.setOnClickListener(this);
 
         return view;
     }
 
+    @Override
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.faq_text:
+                FAQ_fragment faq = new FAQ_fragment();
+                FragmentTransaction faq_tr = getFragmentManager().beginTransaction();
+                faq_tr.replace(R.id.fragment, faq, "FAQ_page");
+                faq_tr.commit();
+                break;
+            case R.id.contactUS:
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setType("message/rfc822");
+                intent.putExtra(Intent.EXTRA_EMAIL, getResources().getString(R.string.contactUsEmail));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Easy Plan");
+                intent.putExtra(Intent.EXTRA_TEXT, "Hello Easy Plan Team,\n");
+                intent.setData(Uri.parse("mailto:" + getResources().getString(R.string.contactUsEmail)));
+                startActivity(Intent.createChooser(intent, "Send e-mail to"));
+                break;
+            case R.id.kusismail:
+                Intent intent2 = new Intent(Intent.ACTION_SENDTO);
+                intent2.setType("message/rfc822");
+                intent2.putExtra(Intent.EXTRA_EMAIL, getResources().getString(R.string.kusis_help_email));
+                intent2.setData(Uri.parse("mailto:" + getResources().getString(R.string.kusis_help_email)));
+                startActivity(Intent.createChooser(intent2, "Send e-mail to"));
+                break;
+            case R.id.registeationCall:
+                Uri phone = Uri.parse(getResources().getString(R.string.registration_phone));
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, phone);
+                startActivity(callIntent);
 
+        }
 
-    public void callKUSIS(View view) {
-
-        Uri u = Uri.parse("tel:" + "+90 212 338 10 00");
-        Intent i = new Intent(Intent.ACTION_DIAL, u);
-        startActivity(i);
     }
+
 }
 
 
