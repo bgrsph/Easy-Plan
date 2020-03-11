@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		362C1889240BF76600A55368 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 362C1888240BF76600A55368 /* koc_tanitim.mp4 */; };
+		36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBA2415AA1D00F86894 /* PlanViewController.swift */; };
+		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
+		36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBE2415AA4300F86894 /* ProfileViewController.swift */; };
 		36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */; };
 		36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCB24082FD40017AB05 /* SignUpViewController.swift */; };
 		36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCD24082FF60017AB05 /* LoginViewController.swift */; };
@@ -24,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		362C1888240BF76600A55368 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
+		36B52EBA2415AA1D00F86894 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		36B52EBC2415AA3500F86894 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		36B52EBE2415AA4300F86894 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36E66FCB24082FD40017AB05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		36E66FCD24082FF60017AB05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				36E66FCB24082FD40017AB05 /* SignUpViewController.swift */,
 				36E66FCD24082FF60017AB05 /* LoginViewController.swift */,
 				36E66FCF240830080017AB05 /* HomeViewController.swift */,
+				36B52EBA2415AA1D00F86894 /* PlanViewController.swift */,
+				36B52EBC2415AA3500F86894 /* HelpViewController.swift */,
+				36B52EBE2415AA4300F86894 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -145,6 +154,7 @@
 				F9B7E4F3240816B5001C7FB1 /* Frameworks */,
 				F9B7E4F4240816B5001C7FB1 /* Resources */,
 				A292CC816F8B60C07DA94DC2 /* [CP] Embed Pods Frameworks */,
+				2FD835701F77EE8EEACEC28B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,6 +236,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2FD835701F77EE8EEACEC28B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A292CC816F8B60C07DA94DC2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,9 +279,12 @@
 			files = (
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
+				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
+				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
 				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
+				36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */,
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
 				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
 			);

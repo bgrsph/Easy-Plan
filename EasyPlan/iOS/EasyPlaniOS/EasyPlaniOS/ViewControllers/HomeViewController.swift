@@ -4,7 +4,7 @@
 //
 //  Created by Sitare Arslantürk on 27.02.2020.
 //  Copyright © 2020 Easy Plan. All rights reserved.
-//
+//  <a target="_blank" href="https://icons8.com/icons/set/search">Search icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 import UIKit
 
@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.tabBarController?.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
     
