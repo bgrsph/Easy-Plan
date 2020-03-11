@@ -35,6 +35,7 @@ class SignUpViewController: UIViewController, GIDSignInDelegate {
     @IBAction func signInGoogleTapped(_ sender: Any) {
         
         GIDSignIn.sharedInstance().signIn()
+        self.performSegue(withIdentifier: "SignUpToHome", sender: self)
     }
     @IBAction func signUpTapped(_ sender: Any) {
         let error = validateFields()
