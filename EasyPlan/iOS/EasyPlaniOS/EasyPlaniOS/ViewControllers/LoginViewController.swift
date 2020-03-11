@@ -15,6 +15,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
+
+    @IBOutlet weak var rememberMeSwitch: UISwitch!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
