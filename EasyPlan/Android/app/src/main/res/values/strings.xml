@@ -13,4 +13,15 @@
     <string name="firstname">First Name</string>
     <string name="lastname">Last Name</string>
     <string name="Logout">Logout</string>
+    <string name="alreadyhaveaccount">"Already registered?"</string>
+
+
+    <string name="classsearch">Class Search</string>
+    <string name="plans">Plans</string>
+    <string name="helpcenter">Help Center</string>
+    <string name="profile">Profile</string>
+    <string name="title_activity_bottom_navigation">bottom_navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

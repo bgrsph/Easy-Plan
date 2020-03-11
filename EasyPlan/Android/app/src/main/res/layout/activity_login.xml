@@ -15,97 +15,98 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginEnd="6dp"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:layout_weight="30"
-        >
+        android:layout_weight="15"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/logo1"/>
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logo1" />
+
+
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"></LinearLayout>
+
     <LinearLayout
         android:id="@+id/welcomeLayout1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:layout_weight="10"
-        >
+        android:layout_weight="7"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <EditText
+            android:id="@+id/logEmail"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/text_style"
-            android:id="@+id/logEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:hint="  E-Mail"
             android:inputType="textEmailAddress"
             android:shadowColor="#F5F0F0"
-            android:textSize="20sp"
+            android:textSize="14dp"
             android:textStyle="italic" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/welcomeLayout2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:gravity="bottom"
+        android:gravity="center"
         android:orientation="vertical"
-        android:layout_weight="10"
-        >
+        android:layout_weight="7">
         <EditText
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/text_style"
             android:id="@+id/logPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
             android:hint="  Password"
             android:inputType="textPassword"
             android:shadowColor="#F5F0F0"
-            android:textSize="20sp"
-            android:textStyle="italic" />
+            android:textSize="14dp"
+            android:textStyle="italic"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_style"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/welcomeLayout3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginEnd="6dp"
-        android:gravity="bottom"
+        android:gravity="center"
         android:orientation="vertical"
-        android:layout_weight="10"
-        >
+        android:layout_weight="10">
+
         <Button
             android:id="@+id/logButton"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_welcome"
             android:layout_gravity="center"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:background="@drawable/green_button"
             android:clickable="true"
             android:enabled="true"
+            android:textColor="@color/textColorAlmostWhite"
             android:fontFamily="sans-serif-smallcaps"
             android:stateListAnimator="@null"
             android:text="@string/login"
             android:textAllCaps="false"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            android:textSize="15dp"/>
 
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center"
+            android:gravity="bottom"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:orientation="vertical"
-            android:layout_weight="5">
+            android:layout_weight="6">
 
             <Switch
                 android:id="@+id/loginRemember"
@@ -113,46 +114,21 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:fontFamily="sans-serif-light"
-                android:text="Remember Me      "
+                android:text="Remember Me  "
                 android:layout_gravity="center"
                 android:textColorHighlight="#00B40000"
                 android:textColorLink="#C8F9FBFF"
-                android:textSize="10dp" />
+                android:textSize="14dp" />
 
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:layout_weight="3">
-
-        <TextView
-            android:id="@+id/logSign"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:fontFamily="sans-serif-light"
-            android:text="Don't have an account? Sign up!"
-            android:onClick="goToSignUp"
-            android:layout_gravity="center"
-            android:textColorHighlight="#00B40000"
-            android:textColorLink="#C8F9FBFF"
-            android:textSize="10sp"
-            android:textColor="@color/black"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical"
-        android:layout_weight="32">
-
         <TextView
             android:id="@+id/forgetPass"
             android:layout_width="match_parent"
@@ -161,9 +137,45 @@
             android:gravity="center"
             android:text="I forgot my password!"
             android:clickable="true"
-            android:textSize="10sp"
+            android:textSize="15dp"
             android:textColor="@color/black"/>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="5dp"
+            android:checked="false"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/wanttoregister"
+            android:textColor="@color/black"
+            android:textColorHighlight="#00B40000"
+            android:textColorLink="#C8F9FBFF"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/logSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:checked="false"
+            android:fontFamily="sans-serif-light"
+            android:onClick="goToSignUp"
+            android:text="@string/signup"
+            android:textColor="@color/button_red"
+            android:textSize="15dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 

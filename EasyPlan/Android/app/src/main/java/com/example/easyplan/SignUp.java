@@ -31,6 +31,8 @@ public class SignUp extends AppCompatActivity {
     TextView error;
     TextView firstName;
     TextView lastName;
+    TextView login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,9 @@ public class SignUp extends AppCompatActivity {
         signupButton = findViewById(R.id.signupButton);
         firstName = findViewById(R.id.firstName);
         lastName = findViewById(R.id.lastName);
+
+        login = findViewById(R.id.regLogin);
+
 
 
         signupButton.setOnClickListener(new View.OnClickListener(){
@@ -57,7 +62,7 @@ public class SignUp extends AppCompatActivity {
                 }else if(lastName.length() == 0) {
                     Toast.makeText(SignUp.this, "Last name cannot be empty.", Toast.LENGTH_SHORT).show();
                 }else if(mail.length() == 0){
-                    Toast.makeText(SignUp.this, "Email cnanot be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
                 }else if(!mail.contains("@ku.edu.tr")){
                     Toast.makeText(SignUp.this, "You can sign up only with a valid KU e-mail.", Toast.LENGTH_LONG).show();
                 }else if (pass.length() < 6){
@@ -90,7 +95,15 @@ public class SignUp extends AppCompatActivity {
 
             }
         });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUp.this, LoginActivity.class));
+            }
+        });
     }
+
 
     public boolean isValidPassword(String pass){
         boolean validLength = false;

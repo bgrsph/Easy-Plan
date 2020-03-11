@@ -17,6 +17,7 @@
     <color name="mainColorDarker">#DA8763</color>
     <color name="seablue">#007991</color>
     <color name="silversand">#BCD8C1</color>
-
+    <color name="button_green">#369F3B</color>
+    <color name="button_red">#A3424F</color>
 
 </resources>

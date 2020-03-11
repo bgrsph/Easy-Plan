@@ -3,18 +3,22 @@
 
     <item
         android:id="@+id/search"
-        android:title="Search"/>
+        android:icon="@drawable/search_menu"
+        android:title="@string/classsearch"/>
 
     <item
         android:id="@+id/plans"
-        android:title="Plans"/>
+        android:icon="@drawable/plans_menu"
+        android:title="@string/plans"/>
 
     <item
         android:id="@+id/help"
-        android:title="Help"/>
+        android:icon="@drawable/help_menu"
+        android:title="@string/helpcenter"/>
 
     <item
-        android:id="@+id/settings"
-        android:title="Settings"/>
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_menu"
+        android:title="@string/profile"/>
 
 </menu>

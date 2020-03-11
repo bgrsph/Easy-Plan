@@ -44,18 +44,7 @@ public class Mainpage extends AppCompatActivity {
 
 
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
-        //logout = findViewById(R.id.logoutBtn);
 
-
-        //logout.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-          //  public void onClick(View v) {
-         //       SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
-           //     SharedPreferences.Editor editor = sp.edit();
-             // editor.commit();
-               // finish();
-           // }
-        //});
 
     }
 
@@ -65,8 +54,7 @@ public class Mainpage extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(MenuItem item)
         {
-            switch (item.getItemId())
-            {
+            switch (item.getItemId()){
                 case R.id.search:
                     //fragment = new HomeFragment();
                     //Toast.makeText(Mainpage.this, "This is where you search for courses.", Toast.LENGTH_SHORT).show();
@@ -97,8 +85,9 @@ public class Mainpage extends AppCompatActivity {
                     Toast.makeText(Mainpage.this, "If you, for whatever stupid reason, cannot use this app, come here.", Toast.LENGTH_SHORT).show();
                     //startActivity(intent);
                     return true;
-                case R.id.settings:
+                case R.id.profile:
                     Toast.makeText(Mainpage.this, "To change your settings.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(Mainpage.this, Profile.class));
                     //fragment = new HistoryFragment();
                     break;
             }
