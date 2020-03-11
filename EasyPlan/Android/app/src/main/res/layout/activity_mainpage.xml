@@ -28,16 +28,16 @@
         android:layout_weight="5"
         android:weightSum="20">
 
+        <include layout="@layout/activity_bottom_navigator"></include>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+ <!--       <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/NavigationBot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_navigation_bar"
-            android:background="?android:attr/windowBackground"/>
-
+            android:background="?android:attr/windowBackground"/>-->
     </LinearLayout>
 
 

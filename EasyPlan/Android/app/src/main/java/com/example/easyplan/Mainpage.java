@@ -40,12 +40,7 @@ public class Mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         bottomMenu = findViewById(R.id.NavigationBot);
-
-
-
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
-
-
     }
 
 
@@ -74,20 +69,23 @@ public class Mainpage extends AppCompatActivity {
 
                         }
                     });
-
+                    bottomMenu.getMenu().getItem(0).setChecked(true);
                     break;
                 case R.id.plans:
                     //fragment = new InboxFragment();
                     Toast.makeText(Mainpage.this, "This is where you see your plans.", Toast.LENGTH_SHORT).show();
+                    bottomMenu.getMenu().getItem(1).setChecked(true);
                     break;
                 case R.id.help:
                     //Intent intent = new Intent(this, AddActivity.class);
                     Toast.makeText(Mainpage.this, "If you, for whatever stupid reason, cannot use this app, come here.", Toast.LENGTH_SHORT).show();
+                    bottomMenu.getMenu().getItem(2).setChecked(true);
                     //startActivity(intent);
                     return true;
                 case R.id.profile:
                     Toast.makeText(Mainpage.this, "To change your settings.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Mainpage.this, Profile.class));
+                    bottomMenu.getMenu().getItem(3).setChecked(true);
                     //fragment = new HistoryFragment();
                     break;
             }
