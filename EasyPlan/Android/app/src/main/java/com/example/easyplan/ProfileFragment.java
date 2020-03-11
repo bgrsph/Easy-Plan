@@ -13,13 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ProfileFragment extends Fragment {
     Button logout;
-
+    FirebaseAuth auth;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -41,7 +43,8 @@ public class ProfileFragment extends Fragment {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.remove("remember");
                 editor.commit();
-//                finish();
+                getActivity().finish();
+
                 startActivity(new Intent(getActivity(), WelcomePage.class));
             }
         });

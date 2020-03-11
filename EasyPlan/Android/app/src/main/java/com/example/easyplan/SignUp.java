@@ -56,10 +56,9 @@ public class SignUp extends AppCompatActivity {
                 String lName = lastName.getText().toString();
                 String mail = email.getText().toString();
                 String pass = password.getText().toString();
-                String passAgain = passwordAgain.getText().toString();
-                if(firstName.length() == 0) {
+                if(fName.length() == 0) {
                     Toast.makeText(SignUp.this, "First name cannot be empty", Toast.LENGTH_SHORT).show();
-                }else if(lastName.length() == 0) {
+                }else if(lName.length() == 0) {
                     Toast.makeText(SignUp.this, "Last name cannot be empty.", Toast.LENGTH_SHORT).show();
                 }else if(mail.length() == 0){
                     Toast.makeText(SignUp.this, "Email cannot be empty", Toast.LENGTH_SHORT).show();
@@ -104,19 +103,4 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
-
-    public boolean isValidPassword(String pass){
-        boolean validLength = false;
-        if(pass.length() >= 8) {
-            validLength = true;
-        }
-        Pattern special = Pattern.compile ("[!@#$%&*()_+=|<>?{}\\[\\]~-]");
-        Matcher specialMatch = special.matcher(pass);
-        Pattern upperCase = Pattern.compile("[A-Z]");
-        Matcher upperMatch = upperCase.matcher(pass);
-        Pattern number = Pattern.compile("[0-9]");
-        Matcher numberMatch = number.matcher(pass);
-
-        return specialMatch.find() && upperMatch.find() && numberMatch.find() && validLength;
-    }
 }
