@@ -24,7 +24,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:shadowColor="#F5F0F0"
-            android:textColor="#CFCFCF"
+            android:textColor="#000000"
             android:textSize="15dp"
             android:textStyle="italic" />
     </LinearLayout>
