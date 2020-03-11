@@ -17,9 +17,9 @@ public class PlansFragment extends Fragment {
 
 
     public PlansFragment() {
+
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
