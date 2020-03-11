@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".bottom_navigator"></activity>
-        <activity android:name=".Profile" />
         <activity android:name=".Mainpage" />
         <activity android:name=".WelcomePage">
             <intent-filter>

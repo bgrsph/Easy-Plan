@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainPageLayout"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/textColorAlmostWhite"
-    android:orientation="vertical"
-    android:weightSum="60"
     tools:context=".Mainpage">
 
-    <LinearLayout
-        android:id="@+id/welcomeLayout"
+    <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="6dp"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:layout_weight="55"/>
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
 
-    <LinearLayout
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/NavigationBot"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="5"
-        android:weightSum="20">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_bar" />
 
-        <include layout="@layout/activity_bottom_navigator"></include>
+    <!-- <LinearLayout
+         android:id="@+id/welcomeLayout"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_alignParentEnd="true"
+         android:layout_marginEnd="6dp"
+         android:gravity="bottom"
+         android:orientation="vertical"
+         android:layout_weight="55"/>
 
- <!--       <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/NavigationBot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:labelVisibilityMode="labeled"
-            app:menu="@menu/bottom_navigation_bar"
-            android:background="?android:attr/windowBackground"/>-->
-    </LinearLayout>
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:orientation="vertical"
+         android:layout_weight="5"
+         android:weightSum="20">
 
 
-</LinearLayout>
+  &lt;!&ndash;       <com.google.android.material.bottomnavigation.BottomNavigationView
+             android:id="@+id/NavigationBot"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_gravity="bottom"
+             app:labelVisibilityMode="labeled"
+             app:menu="@menu/bottom_navigation_bar"
+             android:background="?android:attr/windowBackground"/>&ndash;&gt;
+     </LinearLayout>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

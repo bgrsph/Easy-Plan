@@ -19,7 +19,7 @@
         android:layout_weight="10"
         android:gravity="center"
         android:orientation="horizontal">
-        <Button
+       <!-- <Button
             android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:layout_gravity="center"
             android:clickable="true"
             android:drawableLeft="@drawable/logout"
-            android:background="@color/white"/>
+            android:background="@color/white"/>-->
     </LinearLayout>
 
     <LinearLayout
