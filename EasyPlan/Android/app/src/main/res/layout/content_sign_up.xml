@@ -137,7 +137,7 @@
             android:id="@+id/signupButton"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:background="@drawable/btn_welcome"
+            android:background="@drawable/btn_main"
             android:layout_gravity="center"
             android:clickable="true"
             android:enabled="true"
@@ -147,6 +147,7 @@
             android:text="@string/signup"
             android:textAllCaps="false"
             android:textSize="15dp" />
+
 
     </LinearLayout>
     <LinearLayout

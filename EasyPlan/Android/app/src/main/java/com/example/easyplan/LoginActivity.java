@@ -17,6 +17,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView logForget;
     Switch logRemember;
     FirebaseAuth auth;
+
 //    public static LoginActivity la;
 //
 //    public static LoginActivity getInstance(){
@@ -53,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         logForget = findViewById(R.id.forgetPass);
         logRemember = findViewById(R.id.loginRemember);
         auth = FirebaseAuth.getInstance();
+
 
         SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
         String check = sp.getString("remember", "");

@@ -83,13 +83,13 @@
         android:layout_marginEnd="6dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_weight="10">
+        android:layout_weight="15">
 
         <Button
             android:id="@+id/logButton"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:background="@drawable/btn_welcome"
+            android:background="@drawable/btn_main"
             android:layout_gravity="center"
             android:clickable="true"
             android:enabled="true"
@@ -99,6 +99,12 @@
             android:text="@string/login"
             android:textAllCaps="false"
             android:textSize="15dp"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/loginGoogle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
         <LinearLayout

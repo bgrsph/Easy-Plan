@@ -14,9 +14,12 @@ MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\Mellow\.grad
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\06482c8496c7881eda29e8e3fdd8540d\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ad597f9db74210acc8d949d4ef87c8a9\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.navigation:navigation-fragment:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\0cfe24f78020511913b3977ac9926b4e\navigation-fragment-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:16:1-26:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\32da5c96aa01219acdf81cbbf27ea89d\lifecycle-extensions-2.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\0d591564b3e6b778da35397d9aa9ac79\play-services-flags-16.0.1\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7641b3672c2650ff26c601f70021039e\jetified-firebase-auth-interop-16.0.1\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\eefe92ff62691ba541a3f0c68de86273\jetified-play-services-auth-api-phone-11.6.0\AndroidManifest.xml:2:1-4:12
+MERGED from [com.google.android.gms:play-services-auth-base:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7c32d5d5c331e3cae1935909ebee303b\jetified-play-services-auth-base-11.6.0\AndroidManifest.xml:2:1-5:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2bd06e09e75df74d99d7c1718b0e57ec\jetified-play-services-tasks-16.0.1\AndroidManifest.xml:2:1-9:12
@@ -56,6 +59,8 @@ MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] C:\Users\Mellow\.gradle
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2c7550b326037ca9da2ff8634b91d68c\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\a86cec402db0cf6f732d23e6f9d53cb5\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7c12716567d2ccb33355e656712d39a4\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ce425605efe7161a1bf463b8957301ed\play-services-auth-api-phone-license-11.6.0\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\edeba837b0498876f7065013f08fdebe\play-services-auth-base-license-11.6.0\AndroidManifest.xml:2:1-6:12
 INJECTED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:2:1-33:12
 INJECTED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:2:1-33:12
 INJECTED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:2:1-33:12
@@ -81,6 +86,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Mellow\.
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\3586cf9e5d37a5be2bbe710dbdaeb36f\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:19:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\32da5c96aa01219acdf81cbbf27ea89d\lifecycle-extensions-2.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\32da5c96aa01219acdf81cbbf27ea89d\lifecycle-extensions-2.0.0\AndroidManifest.xml:22:5-23:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7641b3672c2650ff26c601f70021039e\jetified-firebase-auth-interop-16.0.1\AndroidManifest.xml:7:5-8:19
@@ -99,6 +106,10 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Me
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1e5b3e7ff90977513d02b308ca82682\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:22:5-28:19
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ce425605efe7161a1bf463b8957301ed\play-services-auth-api-phone-license-11.6.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ce425605efe7161a1bf463b8957301ed\play-services-auth-api-phone-license-11.6.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\edeba837b0498876f7065013f08fdebe\play-services-auth-base-license-11.6.0\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\edeba837b0498876f7065013f08fdebe\play-services-auth-base-license-11.6.0\AndroidManifest.xml:5:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e91594602c73eba9f0c6fb1745d43dba\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
@@ -181,12 +192,18 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Mellow\.grad
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ad597f9db74210acc8d949d4ef87c8a9\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.navigation:navigation-fragment:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\0cfe24f78020511913b3977ac9926b4e\navigation-fragment-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.navigation:navigation-fragment:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\0cfe24f78020511913b3977ac9926b4e\navigation-fragment-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:17:5-43
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\32da5c96aa01219acdf81cbbf27ea89d\lifecycle-extensions-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\32da5c96aa01219acdf81cbbf27ea89d\lifecycle-extensions-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\0d591564b3e6b778da35397d9aa9ac79\play-services-flags-16.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\0d591564b3e6b778da35397d9aa9ac79\play-services-flags-16.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7641b3672c2650ff26c601f70021039e\jetified-firebase-auth-interop-16.0.1\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7641b3672c2650ff26c601f70021039e\jetified-firebase-auth-interop-16.0.1\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\eefe92ff62691ba541a3f0c68de86273\jetified-play-services-auth-api-phone-11.6.0\AndroidManifest.xml:3:3-41
+MERGED from [com.google.android.gms:play-services-auth-api-phone:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\eefe92ff62691ba541a3f0c68de86273\jetified-play-services-auth-api-phone-11.6.0\AndroidManifest.xml:3:3-41
+MERGED from [com.google.android.gms:play-services-auth-base:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7c32d5d5c331e3cae1935909ebee303b\jetified-play-services-auth-base-11.6.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7c32d5d5c331e3cae1935909ebee303b\jetified-play-services-auth-base-11.6.0\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:5:5-7:41
@@ -265,6 +282,10 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Mellow\.grad
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\a86cec402db0cf6f732d23e6f9d53cb5\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7c12716567d2ccb33355e656712d39a4\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\7c12716567d2ccb33355e656712d39a4\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ce425605efe7161a1bf463b8957301ed\play-services-auth-api-phone-license-11.6.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\ce425605efe7161a1bf463b8957301ed\play-services-auth-api-phone-license-11.6.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\edeba837b0498876f7065013f08fdebe\play-services-auth-base-license-11.6.0\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-auth-base-license:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\edeba837b0498876f7065013f08fdebe\play-services-auth-base-license-11.6.0\AndroidManifest.xml:4:5-43
 INJECTED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
@@ -311,6 +332,24 @@ uses-permission#android.permission.INTERNET
 ADDED from [com.google.firebase:firebase-database:16.0.4] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\204444d268f84b1300ee92acbe8a4605\jetified-firebase-database-16.0.4\AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from [com.google.firebase:firebase-database:16.0.4] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\204444d268f84b1300ee92acbe8a4605\jetified-firebase-database-16.0.4\AndroidManifest.xml:23:22-64
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:20:129-162
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:20:163-187
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:20:69-128
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:20:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:24:9-184
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:24:64-87
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:24:88-182
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:11.6.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\b1dbc4817a01437a0d082c95d09cb550\jetified-play-services-auth-11.6.0\AndroidManifest.xml:24:18-63
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
 	android:exported
