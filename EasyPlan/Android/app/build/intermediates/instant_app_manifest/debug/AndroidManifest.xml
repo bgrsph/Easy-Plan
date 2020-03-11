@@ -22,6 +22,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.easyplan.Video_Background" />
         <activity android:name="com.example.easyplan.bottom_navigator" />
         <activity android:name="com.example.easyplan.Mainpage" />
         <activity android:name="com.example.easyplan.WelcomePage" >

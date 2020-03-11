@@ -18,7 +18,7 @@
 12-->[com.google.firebase:firebase-database:16.0.4] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\204444d268f84b1300ee92acbe8a4605\jetified-firebase-database-16.0.4\AndroidManifest.xml:23:22-64
 13
 14    <application
-14-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:5:5-30:19
+14-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:5:5-31:19
 15        android:allowBackup="true"
 15-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:6:9-35
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -35,111 +35,114 @@
 22        android:testOnly="true"
 23        android:theme="@style/AppTheme" >
 23-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:11:9-40
-24        <activity android:name="com.example.easyplan.bottom_navigator" />
+24        <activity android:name="com.example.easyplan.Video_Background" />
 24-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:12:9-63
 24-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:12:19-51
-25        <activity android:name="com.example.easyplan.Mainpage" />
-25-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:13:9-46
-25-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:13:19-43
-26        <activity android:name="com.example.easyplan.WelcomePage" >
-26-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:9-20:20
-26-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:19-46
-27            <intent-filter>
-27-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:15:13-19:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:17-69
-28-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:18:17-77
-30-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:18:27-74
-31            </intent-filter>
-32        </activity>
-33        <activity
-33-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:21:9-24:59
-34            android:name="com.example.easyplan.SignUp"
-34-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:22:13-35
-35            android:label="@string/title_activity_sign_up"
-35-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:23:13-59
-36            android:theme="@style/AppTheme.NoActionBar" />
-36-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:24:13-56
-37        <activity android:name="com.example.easyplan.LoginActivity" />
-37-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:25:9-51
-37-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:25:19-48
-38
-39        <meta-data
-39-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:27:9-29:57
-40            android:name="preloaded_fonts"
-40-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:28:13-43
-41            android:resource="@array/preloaded_fonts" />
-41-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:29:13-54
-42
-43        <activity
-43-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:24:9-31:50
-44            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-44-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:25:13-85
-45            android:excludeFromRecents="true"
-45-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:26:13-46
-46            android:exported="true"
-46-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:27:13-36
-47            android:launchMode="singleTask"
-47-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:28:13-44
-48            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-48-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:29:13-102
-49            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-49-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:30:13-72
-50
-51        <service
-51-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:33:9-39:19
-52            android:name="com.google.firebase.components.ComponentDiscoveryService"
-52-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:34:13-84
-53            android:exported="false" >
-53-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:35:13-37
-54            <meta-data
-54-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:36:13-38:85
-55                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-55-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:37:17-109
-56                android:value="com.google.firebase.components.ComponentRegistrar" />
-56-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:38:17-82
-57        </service>
-58
-59        <activity
-59-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
-60            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-60-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:24:13-79
-61            android:exported="false"
-61-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:25:13-37
-62            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-62-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:26:13-72
-63
-64        <provider
-64-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:10:9-14:39
-65            android:name="com.google.firebase.provider.FirebaseInitProvider"
-65-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:11:13-77
-66            android:authorities="com.example.easyplan.firebaseinitprovider"
-66-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:12:13-72
-67            android:exported="false"
-67-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:13:13-37
-68            android:initOrder="100" />
-68-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:14:13-36
-69
-70        <meta-data
-70-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\c86ab879a9a92a25223c6873fd933b20\jetified-play-services-basement-16.1.0\AndroidManifest.xml:23:9-25:69
-71            android:name="com.google.android.gms.version"
-71-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\c86ab879a9a92a25223c6873fd933b20\jetified-play-services-basement-16.1.0\AndroidManifest.xml:24:13-58
-72            android:value="@integer/google_play_services_version" />
-72-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\c86ab879a9a92a25223c6873fd933b20\jetified-play-services-basement-16.1.0\AndroidManifest.xml:25:13-66
-73
-74        <provider
-74-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
-75            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-75-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
-76            android:authorities="com.example.easyplan.lifecycle-process"
-76-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
-77            android:exported="false"
-77-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
-78            android:multiprocess="true" />
-78-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
-79    </application>
-80
-81</manifest>
+25        <activity android:name="com.example.easyplan.bottom_navigator" />
+25-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:13:9-54
+25-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:13:19-51
+26        <activity android:name="com.example.easyplan.Mainpage" />
+26-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:9-46
+26-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:14:19-43
+27        <activity android:name="com.example.easyplan.WelcomePage" >
+27-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:15:9-21:20
+27-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:15:19-46
+28            <intent-filter>
+28-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:16:13-20:29
+29                <action android:name="android.intent.action.MAIN" />
+29-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:17:17-69
+29-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:17:25-66
+30
+31                <category android:name="android.intent.category.LAUNCHER" />
+31-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:19:17-77
+31-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:19:27-74
+32            </intent-filter>
+33        </activity>
+34        <activity
+34-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:22:9-25:59
+35            android:name="com.example.easyplan.SignUp"
+35-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:23:13-35
+36            android:label="@string/title_activity_sign_up"
+36-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:24:13-59
+37            android:theme="@style/AppTheme.NoActionBar" />
+37-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:25:13-56
+38        <activity android:name="com.example.easyplan.LoginActivity" />
+38-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:26:9-51
+38-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:26:19-48
+39
+40        <meta-data
+40-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:28:9-30:57
+41            android:name="preloaded_fonts"
+41-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:29:13-43
+42            android:resource="@array/preloaded_fonts" />
+42-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:30:13-54
+43
+44        <activity
+44-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:24:9-31:50
+45            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+45-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:25:13-85
+46            android:excludeFromRecents="true"
+46-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:26:13-46
+47            android:exported="true"
+47-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:27:13-36
+48            android:launchMode="singleTask"
+48-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:28:13-44
+49            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+49-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:29:13-102
+50            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+50-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:30:13-72
+51
+52        <service
+52-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:33:9-39:19
+53            android:name="com.google.firebase.components.ComponentDiscoveryService"
+53-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:34:13-84
+54            android:exported="false" >
+54-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:35:13-37
+55            <meta-data
+55-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:36:13-38:85
+56                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+56-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:37:17-109
+57                android:value="com.google.firebase.components.ComponentRegistrar" />
+57-->[com.google.firebase:firebase-auth:16.0.5] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\e205aa869e9b07040d3a450e5bb21a21\jetified-firebase-auth-16.0.5\AndroidManifest.xml:38:17-82
+58        </service>
+59
+60        <activity
+60-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
+61            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+61-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:24:13-79
+62            android:exported="false"
+62-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:25:13-37
+63            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+63-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\77d9919dc6af117cf79282b83fc47257\jetified-play-services-base-16.0.1\AndroidManifest.xml:26:13-72
+64
+65        <provider
+65-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:10:9-14:39
+66            android:name="com.google.firebase.provider.FirebaseInitProvider"
+66-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:11:13-77
+67            android:authorities="com.example.easyplan.firebaseinitprovider"
+67-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:12:13-72
+68            android:exported="false"
+68-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:13:13-37
+69            android:initOrder="100" />
+69-->[com.google.firebase:firebase-common:16.0.3] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\2dc91890574ede5ecd150a7970d27305\jetified-firebase-common-16.0.3\AndroidManifest.xml:14:13-36
+70
+71        <meta-data
+71-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\c86ab879a9a92a25223c6873fd933b20\jetified-play-services-basement-16.1.0\AndroidManifest.xml:23:9-25:69
+72            android:name="com.google.android.gms.version"
+72-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\c86ab879a9a92a25223c6873fd933b20\jetified-play-services-basement-16.1.0\AndroidManifest.xml:24:13-58
+73            android:value="@integer/google_play_services_version" />
+73-->[com.google.android.gms:play-services-basement:16.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\c86ab879a9a92a25223c6873fd933b20\jetified-play-services-basement-16.1.0\AndroidManifest.xml:25:13-66
+74
+75        <provider
+75-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+76            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+76-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+77            android:authorities="com.example.easyplan.lifecycle-process"
+77-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+78            android:exported="false"
+78-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+79            android:multiprocess="true" />
+79-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\481e98c58dcdecefc648e2ff1ea7034b\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+80    </application>
+81
+82</manifest>

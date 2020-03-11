@@ -1,57 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/welcomepage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     android:layout_gravity="top"
     android:gravity="top"
     android:weightSum="5"
-    tools:context=".WelcomePage"
-    >
+    tools:context=".WelcomePage">
     <!--
 android:background="@drawable/banner2"
 -->
-
+    <include layout="@layout/activity_video_background"/>
     <LinearLayout
-    android:id="@+id/welcomeLayout"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_alignParentEnd="true"
-    android:layout_marginEnd="6dp"
-    android:gravity="bottom"
-    android:orientation="vertical"
-    android:layout_weight="1.5"
-    >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/logo1"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/welcomeLayout5"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:gravity="bottom"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="2"
-        />
- 
-    <LinearLayout
-        android:id="@+id/welcomeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_weight="0.5">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center">
 
         <Button
             android:id="@+id/welcomeLogin"
@@ -59,28 +28,25 @@ android:background="@drawable/banner2"
             android:layout_height="40dp"
             android:background="@drawable/btn_welcome"
             android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center|center_horizontal|center_vertical"
             android:text="@string/login"
-            android:textColor="@color/textColorAlmostWhite" />
-    </LinearLayout>
+            android:textColor="@color/textColorAlmostWhite"
+            android:layout_marginBottom="10dp"/>
 
-    <LinearLayout
-        android:id="@+id/welcomeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:layout_weight="0.5"
-        android:gravity="center"
-        android:orientation="vertical">
+
 
         <Button
             android:id="@+id/welcomeSignUP"
             android:layout_width="150dp"
             android:layout_height="40dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/btn_welcome"
             android:fontFamily="sans-serif-smallcaps"
             android:text="@string/signup"
-            android:textColor="@color/textColorAlmostWhite" />
-    </LinearLayout>
+            android:textColor="@color/textColorAlmostWhite"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-</LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
