@@ -1,0 +1,6 @@
+framework module Pods_EasyPlaniOS {
+  umbrella header "Pods-EasyPlaniOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
