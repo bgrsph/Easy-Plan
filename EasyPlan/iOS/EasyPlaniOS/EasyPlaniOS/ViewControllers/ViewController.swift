@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import Firebase
 
 class ViewController: UIViewController {
 
@@ -24,11 +25,14 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setUpVideo()
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     func setUpElements(){
-        Utilities.styleFilledButton(loginButton)
+//        Utilities.styleFilledButton(loginButton)
         Utilities.styleHollowButton(signUpButton)
+        Utilities.styleHollowButton(loginButton)
+
            }
     
     func setUpVideo(){
@@ -47,13 +51,28 @@ class ViewController: UIViewController {
 //        create the layer
         videoPlayerLayer = AVPlayerLayer(player: videoPlayer!)
 //        set frame
-        videoPlayerLayer?.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-//        videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height)
+//        videoPlayerLayer?.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        videoPlayerLayer?.frame = CGRect(x: -self.view.frame.size.width*1.5, y: 0, width: self.view.frame.size.width*4, height: self.view.frame.size.height)
         view.layer.insertSublayer(videoPlayerLayer!, at: 0)
 //        adjust the size and frame
         videoPlayer?.playImmediately(atRate: 1)
         
+        
     }
-
+    
+    
+    @IBAction func SignUpTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "signup", sender: self)
+        videoPlayer?.pause()
+    }
+    
+    @IBAction func LoginTapped(_ sender: Any) {
+        videoPlayer?.pause()
+        if Auth.auth().currentUser != nil {
+                 performSegue(withIdentifier: "directPass", sender: self)
+             } else {
+        self.performSegue(withIdentifier: "login", sender: self)
+        }
+    }
 }
 

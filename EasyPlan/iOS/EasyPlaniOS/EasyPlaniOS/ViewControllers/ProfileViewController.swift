@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
@@ -16,7 +17,12 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        // Hide the navigation bar on the this view controller
+        self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
     /*
     // MARK: - Navigation
 
@@ -27,4 +33,15 @@ class ProfileViewController: UIViewController {
     }
     */
 
+    
+    @IBAction func LogOutTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+           do {
+               try firebaseAuth.signOut()
+            self.tabBarController?.navigationController?.popToRootViewController(animated: true)
+           } catch let signOutError as NSError {
+               print("Error signing out: %@", signOutError)
+           }
+    }
+    
 }
