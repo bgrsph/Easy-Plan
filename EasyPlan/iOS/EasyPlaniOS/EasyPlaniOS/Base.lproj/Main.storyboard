@@ -129,7 +129,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux8-rq-VQh">
                                         <rect key="frame" x="0.0" y="400" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -213,7 +213,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AT-HN-Mj5">
                                         <rect key="frame" x="0.0" y="261" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -553,7 +553,7 @@
             </objects>
             <point key="canvasLocation" x="5392.753623188406" y="-44.196428571428569"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Class Search-->
         <scene sceneID="aDl-cR-o14">
             <objects>
                 <viewController id="RYy-TE-QYp" customClass="HomeViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -561,48 +561,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Faculty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WVi-lI-Cet">
-                                <rect key="frame" x="59" y="201" width="305" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Course Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUb-ge-WmV">
-                                <rect key="frame" x="59" y="292" width="305" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Timeslot" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIZ-lx-omg">
-                                <rect key="frame" x="59" y="389" width="305" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fill in at least one of the fields below to search for courses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fp7-2p-h2O">
-                                <rect key="frame" x="59" y="124" width="305" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E62-Mq-kFM">
-                                <rect key="frame" x="59" y="482" width="305" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search Courses"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ns9-1j-Oxi">
+                                <rect key="frame" x="0.0" y="88" width="414" height="236"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDF-jH-ivH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
+                                        <textInputTraits key="textInputTraits" smartInsertDeleteType="yes"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GUb-aP-fzi">
+                                        <rect key="frame" x="0.0" y="71" width="414" height="165"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="21O-fL-3Eu" rowHeight="55" style="IBUITableViewCellStyleDefault" id="KY6-OD-Mey">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="55"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KY6-OD-Mey" id="IcP-Gk-jrZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="21O-fL-3Eu">
+                                                            <rect key="frame" x="20" y="0.0" width="374" height="55"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="RYy-TE-QYp" id="gU0-Ne-O29"/>
+                                            <outlet property="delegate" destination="RYy-TE-QYp" id="DEU-tY-gdk"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ns9-1j-Oxi" firstAttribute="top" secondItem="lTo-aY-f2f" secondAttribute="top" id="eX0-pv-Ab6"/>
+                            <constraint firstItem="lTo-aY-f2f" firstAttribute="bottom" secondItem="Ns9-1j-Oxi" secondAttribute="bottom" constant="489" id="jzN-5P-LNx"/>
+                            <constraint firstItem="Ns9-1j-Oxi" firstAttribute="leading" secondItem="lTo-aY-f2f" secondAttribute="leading" id="lnO-a5-WLJ"/>
+                            <constraint firstItem="Ns9-1j-Oxi" firstAttribute="trailing" secondItem="lTo-aY-f2f" secondAttribute="trailing" id="lov-dY-KMz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lTo-aY-f2f"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BDW-Ut-y3l">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="5qf-ei-sfC"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Class Search" id="BDW-Ut-y3l"/>
                     <connections>
-                        <outlet property="courseCodeTextField" destination="zUb-ge-WmV" id="v4I-ov-3qu"/>
-                        <outlet property="facultyTextField" destination="WVi-lI-Cet" id="GFF-Lb-0wa"/>
-                        <outlet property="searchCourseButton" destination="E62-Mq-kFM" id="w6O-iK-kOA"/>
-                        <outlet property="timeslotTextField" destination="LIZ-lx-omg" id="b5s-Iw-PQz"/>
+                        <outlet property="searchBar" destination="xDF-jH-ivH" id="X5H-Ok-Wax"/>
+                        <outlet property="tableView" destination="GUb-aP-fzi" id="KD5-Jg-IqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nPn-Eb-zAQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -711,7 +723,6 @@
         <image name="magnifyingglass" catalog="system" width="64" height="60"/>
         <image name="person" catalog="system" width="64" height="60"/>
         <image name="phone.circle.fill" catalog="system" width="64" height="62"/>
-        <image name="plus" catalog="system" width="64" height="58"/>
         <image name="questionmark.circle.fill" catalog="system" width="64" height="62"/>
         <image name="questionmark.square" catalog="system" width="64" height="56"/>
     </resources>

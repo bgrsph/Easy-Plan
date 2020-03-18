@@ -11,16 +11,16 @@ import UIKit
 class HomeViewController: UIViewController {
     
    let timePicker = UIDatePicker()
-    
-    @IBOutlet weak var facultyTextField: UITextField!
-    @IBOutlet weak var courseCodeTextField: UITextField!
-    @IBOutlet weak var timeslotTextField: UITextField!
+    let courses = ["comp491", "comp303", "comp302", "comp301", "comp304", "comp305", "acct201", "acct202"]
+    @IBOutlet weak var searchBar: UISearchBar!
+   
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchCourseButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpElements()
-        createDatePicker()
+//        setUpNavBar()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
        
     }
     
@@ -29,81 +29,20 @@ class HomeViewController: UIViewController {
         
         // Hide the navigation bar on the this view controller
         self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    func setUpElements(){
-        
-        Utilities.styleTextField(facultyTextField)
-        Utilities.styleTextField(courseCodeTextField)
-        Utilities.styleTextField(timeslotTextField)
-        Utilities.styleFilledButton(searchCourseButton)
         
     }
     
-    func getTimeIntervalForDate()->(min : Date, max : Date){
-
-    let calendar = Calendar.current
-        var minDateComponent = calendar.dateComponents([.hour, .minute], from: Date())
-    minDateComponent.hour = 08 // Start time
-    minDateComponent.minute = 30
-
-    let formatter = DateFormatter()
-    formatter.dateFormat = "h:mma"
-    let minDate = calendar.date(from: minDateComponent)
-//    print(" min date : \(formatter.string(from: minDate!))")
-
-    var maxDateComponent = calendar.dateComponents([.hour, .minute], from: Date())
-    maxDateComponent.hour = 16 //EndTime
-    maxDateComponent.minute = 0
-
-    let maxDate = calendar.date(from: maxDateComponent)
-//    print(" max date : \(formatter.string(from: maxDate!))")
-
-    return (minDate!,maxDate!)
-    }
-    
-    func createDatePicker(){
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-//        bar done button
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
-        toolbar.setItems([cancelButton,spaceButton,doneButton], animated: true)
-        //    assign toolbar
-        timeslotTextField.inputAccessoryView = toolbar
-        timePicker.addTarget(self, action: #selector(HomeViewController.dateChanged(timePicker:)), for: .valueChanged)
-        timeslotTextField.inputView = timePicker
-        
-        timePicker.datePickerMode = .time
-        timePicker.minuteInterval = 30
-        let dates = getTimeIntervalForDate()
-        timePicker.minimumDate = dates.min
-        timePicker.maximumDate = dates.max
-
-    }
-    
-    @objc func cancelPressed(){
-        self.view.endEditing(true)
-        timeslotTextField.text = ""
-    }
-    
-    @objc func dateChanged(timePicker: UIDatePicker){
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
-        timeslotTextField.text = dateFormatter.string(from: timePicker.date)
+    func setUpNavBar(){
+        navigationItem.hidesSearchBarWhenScrolling = false
+//        öteki VC için
+//        navigationItem.largeTitleDisplayMode = .never
+//        let searchController = UISearchController(searchResultsController: nil)
+//        navigationItem.searchController = searchController
+//
+//        searchController.automaticallyShowsCancelButton = true
+       
         
     }
-
-    @objc func donePressed(){
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        timeslotTextField.text = formatter.string(from: timePicker.date)
-        self.view.endEditing(true)
-    }
-    
     
     /*
      // MARK: - Navigation
@@ -114,5 +53,19 @@ class HomeViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return courses.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        cell?.textLabel?.text = courses[indexPath.row]
+        return cell!
+    }
+    
     
 }
