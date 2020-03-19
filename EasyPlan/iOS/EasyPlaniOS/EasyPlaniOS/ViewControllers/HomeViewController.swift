@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     
     let timePicker = UIDatePicker()
    
-    var courses = [ Course(selected: false, name: "Comp491"), Course(selected: false, name: "Comp319"), Course(selected: false, name: "Comp130"),Course(selected: false, name: "Comp305"), Course(selected: false, name: "Comp301"),Course(selected: false, name: "Comp302"), Course(selected: false, name: "Comp302"),Course(selected: false, name: "Ethr113"),Course(selected: false, name: "Ethr102"), Course(selected: false, name: "Ethr105"), Course(selected: false, name: "Acct201"), Course(selected: false, name: "Acct202")]
+    var courses = [ Course(selected: false, name: "Comp491"), Course(selected: false, name: "Comp319"), Course(selected: false, name: "Comp130"),Course(selected: false, name: "Comp305"), Course(selected: false, name: "Comp301"),Course(selected: false, name: "Comp303"), Course(selected: false, name: "Comp302"),Course(selected: false, name: "Ethr113"),Course(selected: false, name: "Ethr102"), Course(selected: false, name: "Ethr105"), Course(selected: false, name: "Acct201"), Course(selected: false, name: "Acct202")]
     
     var searchCourse = [Course]()
     var filtered:[String] = []
@@ -63,25 +63,26 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CourseSearchTableViewCell
+       
         if searching {
-            cell?.textLabel?.text = searchCourse[indexPath.row].name
+            cell.courseNameLabel.text = searchCourse[indexPath.row].name
             if searchCourse[indexPath.row].selected {
-               cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
+                cell.accessoryType = UITableViewCell.AccessoryType.checkmark
             } else {
-                cell?.accessoryType = UITableViewCell.AccessoryType.none
+                cell.accessoryType = UITableViewCell.AccessoryType.none
             }
         } else {
-            cell?.textLabel?.text = courses[indexPath.row].name
+            cell.courseNameLabel.text = courses[indexPath.row].name
             if courses[indexPath.row].selected {
-               cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
+                cell.accessoryType = UITableViewCell.AccessoryType.checkmark
             } else {
-                cell?.accessoryType = UITableViewCell.AccessoryType.none
+                cell.accessoryType = UITableViewCell.AccessoryType.none
             }
         }
-        
-        return cell!
+        cell.cellDelegate = self
+        cell.index = indexPath
+        return cell
         
     }
     
@@ -122,7 +123,13 @@ extension HomeViewController: UISearchBarDelegate{
         searching = true
         tableView.reloadData()
     }
-    
+}
+
+
+extension HomeViewController: TableViewNew {
+    func onClickCellInfo(index: Int) {
+        print("Info Clicked")
+    }
     
     
 }
