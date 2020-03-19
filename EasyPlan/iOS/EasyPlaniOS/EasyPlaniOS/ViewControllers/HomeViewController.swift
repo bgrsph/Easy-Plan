@@ -11,8 +11,10 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let timePicker = UIDatePicker()
-    let courses = ["comp491", "comp303", "comp302", "comp301", "comp304", "comp305", "acct201", "acct202", "ethr113","hums108"]
-    var searchCourse = [String]()
+   
+    var courses = [ Course(selected: false, name: "Comp491"), Course(selected: false, name: "Comp319"), Course(selected: false, name: "Comp130"),Course(selected: false, name: "Comp305"), Course(selected: false, name: "Comp301"),Course(selected: false, name: "Comp302"), Course(selected: false, name: "Comp302"),Course(selected: false, name: "Ethr113"),Course(selected: false, name: "Ethr102"), Course(selected: false, name: "Ethr105"), Course(selected: false, name: "Acct201"), Course(selected: false, name: "Acct202")]
+    
+    var searchCourse = [Course]()
     var filtered:[String] = []
     var searching = false
     @IBOutlet weak var searchBar: UISearchBar!
@@ -62,22 +64,65 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        
         if searching {
-            cell?.textLabel?.text = searchCourse[indexPath.row]
+            cell?.textLabel?.text = searchCourse[indexPath.row].name
+            if searchCourse[indexPath.row].selected {
+               cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            } else {
+                cell?.accessoryType = UITableViewCell.AccessoryType.none
+            }
         } else {
-            cell?.textLabel?.text = courses[indexPath.row]
+            cell?.textLabel?.text = courses[indexPath.row].name
+            if courses[indexPath.row].selected {
+               cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            } else {
+                cell?.accessoryType = UITableViewCell.AccessoryType.none
+            }
         }
+        
         return cell!
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
+           tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            if searching {
+            searchCourse[indexPath.row].selected = false
+            } else {
+            courses[indexPath.row].selected = false
+            }
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            if searching {
+            searchCourse[indexPath.row].selected = true
+            } else {
+            courses[indexPath.row].selected = true
+            }
+        }
+    }
+    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == UITableViewCell.EditingStyle.delete {
+//           if searching {
+//            searchCourse.remove(at: indexPath.row)
+//            } else {
+//            courses.remove(at: indexPath.row)
+//            }
+//            tableView.reloadData()
+//        }
+//    }
 }
 
 extension HomeViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let text = searchText.lowercased()
-        searchCourse = courses.filter({$0.prefix(text.count) == text})
+        searchCourse = courses.filter({$0.name.lowercased().prefix(text.count) == text})
         searching = true
         tableView.reloadData()
     }
+    
+    
     
 }

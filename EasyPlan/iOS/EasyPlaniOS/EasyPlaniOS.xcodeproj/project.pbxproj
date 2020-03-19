@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364CC0D42423AD0E0098D42D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D32423AD0E0098D42D /* Course.swift */; };
 		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
 		36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBA2415AA1D00F86894 /* PlanViewController.swift */; };
 		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		364CC0D32423AD0E0098D42D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
 		36B52EBA2415AA1D00F86894 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		36B52EBC2415AA3500F86894 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 				365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		364CC0D22423ACF00098D42D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				364CC0D32423AD0E0098D42D /* Course.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		36E66FCA24082F9E0017AB05 /* ViewControllers */ = {
@@ -130,6 +140,7 @@
 			children = (
 				362C1885240BE97800A55368 /* Media */,
 				36E66FD124083B030017AB05 /* Helpers */,
+				364CC0D22423ACF00098D42D /* Model */,
 				36E66FCA24082F9E0017AB05 /* ViewControllers */,
 				F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */,
 				F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */,
@@ -278,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
+				364CC0D42423AD0E0098D42D /* Course.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
