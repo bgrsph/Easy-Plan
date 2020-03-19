@@ -643,7 +643,10 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="uJ6-dn-EhM"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="finishLabel" destination="6OV-nb-Uf4" id="cph-HM-s4y"/>
+                        <outlet property="planLabel" destination="GoG-WU-5H3" id="5E6-Ap-bwd"/>
                         <outlet property="searchBar" destination="xDF-jH-ivH" id="X5H-Ok-Wax"/>
+                        <outlet property="startLabel" destination="HMS-ls-or7" id="FlM-W0-Myh"/>
                         <outlet property="tableView" destination="GUb-aP-fzi" id="KD5-Jg-IqS"/>
                     </connections>
                 </viewController>
