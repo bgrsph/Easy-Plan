@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BD252242631BD00B40158 /* ConstraintViewController.swift */; };
 		364CC0D42423AD0E0098D42D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D32423AD0E0098D42D /* Course.swift */; };
 		364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */; };
 		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363BD252242631BD00B40158 /* ConstraintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintViewController.swift; sourceTree = "<group>"; };
 		364CC0D32423AD0E0098D42D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchTableViewCell.swift; sourceTree = "<group>"; };
 		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				36B52EBA2415AA1D00F86894 /* PlanViewController.swift */,
 				36B52EBC2415AA3500F86894 /* HelpViewController.swift */,
 				36B52EBE2415AA4300F86894 /* ProfileViewController.swift */,
+				363BD252242631BD00B40158 /* ConstraintViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				364CC0D42423AD0E0098D42D /* Course.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
+				363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
