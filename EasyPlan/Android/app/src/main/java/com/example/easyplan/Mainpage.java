@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 public class Mainpage extends AppCompatActivity {
 
     Button logout;
@@ -24,19 +27,27 @@ public class Mainpage extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
     private static final String TAG = "MyActivity";
-    private String a;
+    private String accEmail;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        accEmail = getIntent().getStringExtra("accEmail");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
+
         bottomMenu = findViewById(R.id.NavigationBot);
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
+        Bundle bundle = new Bundle();
+        bundle.putString("accEmail", accEmail );
         ClassSearchFragment classSearchFragment = new ClassSearchFragment();
+        classSearchFragment.setArguments(bundle);
         FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction1.replace(R.id.fragment, classSearchFragment, "ClassSearch");
         fragmentTransaction1.commit();
+
     }
 
 
@@ -64,10 +75,16 @@ public class Mainpage extends AppCompatActivity {
 
                         }
                     });*/
+                    Bundle bundle = new Bundle();
+                    bundle.putString("accEmail", accEmail );
+
                     ClassSearchFragment classSearchFragment = new ClassSearchFragment();
+                    classSearchFragment.setArguments(bundle);
+
                     FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction1.replace(R.id.fragment, classSearchFragment, "ClassSearch");
                     fragmentTransaction1.commit();
+
                     return true;
                 case R.id.plans:
                     //fragment = new InboxFragment();

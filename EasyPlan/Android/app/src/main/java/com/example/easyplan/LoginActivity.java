@@ -22,6 +22,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     TextView logForget;
     Switch logRemember;
     FirebaseAuth auth;
+    SignInButton signInButton;
+    GoogleSignInClient mGoogleSignInClient;
 
 //    public static LoginActivity la;
 //
@@ -59,13 +63,27 @@ public class LoginActivity extends AppCompatActivity {
         logForget = findViewById(R.id.forgetPass);
         logRemember = findViewById(R.id.loginRemember);
         auth = FirebaseAuth.getInstance();
+        signInButton = findViewById(R.id.loginGoogle);
 
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
         String check = sp.getString("remember", "");
         if(check.equals("true")){
             startActivity(new Intent(LoginActivity.this, Mainpage.class));
         }
+
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent, 1);
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,8 +160,34 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == 1) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+        }
+    }
 
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            // Signed in successfully, show authenticated UI.
+            Intent intent = new Intent(LoginActivity.this, Mainpage.class);
+            String a = account.getEmail();
+            intent.putExtra("accEmail", a);
+            startActivity(intent);
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            //Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
+            //updateUI(null);
+        }
+    }
 
     public void goToSignUp(View view) {
         Intent intent = new Intent(LoginActivity.this, SignUp.class);
