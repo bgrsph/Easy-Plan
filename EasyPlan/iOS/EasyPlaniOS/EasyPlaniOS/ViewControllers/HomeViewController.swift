@@ -10,8 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var courses = [ Course(selected: false, name: "Comp491"), Course(selected: false, name: "Comp130"), Course(selected: false, name: "Comp131"),Course(selected: false, name: "Comp132"), Course(selected: false, name: "Comp200"),Course(selected: false, name: "Comp202"), Course(selected: false, name: "Comp301"), Course(selected: false, name: "Comp302"),Course(selected: false, name: "Comp303"), Course(selected: false, name: "Comp304"),Course(selected: false, name: "Comp305"), Course(selected: false, name: "Comp306"),Course(selected: false, name: "Ethr113"),Course(selected: false, name: "Ethr102"), Course(selected: false, name: "Ethr105"), Course(selected: false, name: "Acct201"), Course(selected: false, name: "Acct202")]
+    var courses = [ Course(selected: false, name: "Comp491", id: 1), Course(selected: false, name: "Comp130", id: 2), Course(selected: false, name: "Comp131", id: 3), Course(selected: false, name: "Comp132", id: 4), Course(selected: false, name: "Comp200", id: 5), Course(selected: false, name: "Comp202", id: 6), Course(selected: false, name: "Comp301", id: 7), Course(selected: false, name: "Comp302", id: 8), Course(selected: false, name: "Comp303", id: 9), Course(selected: false, name: "Comp304", id: 10), Course(selected: false, name: "Comp305", id: 11), Course(selected: false, name: "Comp306", id: 12), Course(selected: false, name: "Econ100", id: 13), Course(selected: false, name: "Econ101", id: 14), Course(selected: false, name: "Econ102", id: 15) ]
     
+    var courseDictionary : [Course:Int] = [:]
+    let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
     var selectedCourses:Int = 0
     var searchCourse = [Course]()
     var filtered:[String] = []
@@ -26,7 +28,7 @@ class HomeViewController: UIViewController {
         setUpSearchBar()
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
+       
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -48,11 +50,15 @@ class HomeViewController: UIViewController {
     
     func setUpHeader(){
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45))
-        header.layer.borderColor = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00).cgColor
+        header.layer.borderColor = burgundy.cgColor
         header.layer.borderWidth = 5
         let selectionLabel = UILabel(frame: header.bounds)
-        selectionLabel.text = "0 Course Selected"
-        selectionLabel.textColor = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
+        if (selectedCourses==1){
+             selectionLabel.text = " \(selectedCourses) Course Selected"
+        } else {
+        selectionLabel.text = " \(selectedCourses) Courses Selected"
+        }
+        selectionLabel.textColor = burgundy
         selectionLabel.textAlignment = .center
         header.addSubview(selectionLabel)
         tableView.tableHeaderView = header
@@ -61,14 +67,18 @@ class HomeViewController: UIViewController {
     
     func setUpSearchBar(){
         searchBar.placeholder = "Search"
+//        searchBar.barTintColor = burgundy
         //        navigationItem.hidesSearchBarWhenScrolling = false
         //        öteki VC için
         //        navigationItem.largeTitleDisplayMode = .never
     }
     
+   
+    
     
     @IBAction func nextTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "constraint", sender: self)
+        
     }
 }
 
@@ -112,23 +122,31 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-            selectedCourses -= 1
             if searching {
                 searchCourse[indexPath.row].selected = false
+                selectedCourses -= 1
+                courseDictionary.removeValue(forKey: searchCourse[indexPath.row])
+                print(courseDictionary)
             } else {
                 courses[indexPath.row].selected = false
+                selectedCourses -= 1
+                courseDictionary.removeValue(forKey: courses[indexPath.row])
+                print(courseDictionary)
             }
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
             selectedCourses += 1
             if searching {
                 searchCourse[indexPath.row].selected = true
+                courseDictionary[searchCourse[indexPath.row]] = selectedCourses
+                print(courseDictionary)
             } else {
                 courses[indexPath.row].selected = true
+                courseDictionary[courses[indexPath.row]] = selectedCourses
+                print(courseDictionary)
             }
         }
-        
-        print(selectedCourses)
+        setUpHeader()
     }
     
     //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
