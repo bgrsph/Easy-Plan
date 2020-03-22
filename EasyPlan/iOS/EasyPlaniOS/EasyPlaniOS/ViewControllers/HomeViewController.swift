@@ -48,6 +48,21 @@ class HomeViewController: UIViewController {
         
     }
     
+    
+       // MARK: - Navigation
+
+       // In a storyboard-based application, you will often want to do a little preparation before navigation
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           // Get the new view controller using segue.destination.
+           // Pass the selected object to the new view controller.
+        guard let destination = segue.destination as? ConstraintViewController else {
+            return
+        }
+        let arr = courseDictionary.map {$0.key}
+        destination.myCourses = arr
+       }
+  
+    
     func setUpHeader(){
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 45))
         header.layer.borderColor = burgundy.cgColor

@@ -13,6 +13,11 @@ class ConstraintViewController: UIViewController {
     @IBOutlet weak var startLabel: UITextField!
     @IBOutlet weak var finishLabel: UITextField!
     
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var myCourses: [Course]?
+    
     let start_picker = UIPickerView()
     let start_time = ["8:30", "10:00", "11:30", "13:00", "14:30", "16:00", "17:30"]
     
@@ -35,6 +40,9 @@ class ConstraintViewController: UIViewController {
         
         plan_picker.delegate = self
         plan_picker.dataSource = self
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         // Do any additional setup after loading the view.
     }
@@ -123,4 +131,21 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
             startLabel.text = start_time[row]
         }
     }
+}
+
+extension ConstraintViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return myCourses!.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "constraintCollection", for: indexPath) as! CourseConstraintCollectionViewCell
+        
+        cell.courseLabel.text = myCourses![indexPath.row].name
+        Utilities.styleHollowLabel(cell.courseLabel)
+        return cell
+    }
+    
+    
 }

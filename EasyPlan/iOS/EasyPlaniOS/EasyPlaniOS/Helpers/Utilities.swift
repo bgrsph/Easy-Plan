@@ -47,6 +47,18 @@ class Utilities {
         button.tintColor = UIColor.white
     }
     
+    static func styleHollowLabel(_ label:UILabel) {
+           
+           // Hollow rounded corner style
+           label.layer.borderWidth = 1
+           label.layer.borderColor = UIColor.black.cgColor
+//           label.layer.borderColor = UIColor.white.cgColor
+           label.layer.cornerRadius = 10.0
+           label.tintColor = UIColor.black
+//           label.tintColor = UIColor.white
+       }
+    
+    
     static func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^[A-Za-z\\d$@$#!%*?&]{6,}")
