@@ -13,9 +13,47 @@ class ConstraintViewController: UIViewController {
     @IBOutlet weak var startLabel: UITextField!
     @IBOutlet weak var finishLabel: UITextField!
     
+    @IBOutlet weak var frCheck: UIImageView!
+    @IBOutlet weak var tuThCheck: UIImageView!
+    @IBOutlet weak var moWeCheck: UIImageView!
+    enum Mode {
+        case view
+        case select
+    }
+    
+    var mMode: Mode = .view {
+        didSet {
+            switch mMode {
+            case .view:
+                for (key, value) in indexPathDictionary{
+                    if value {
+                        collectionView.deselectItem(at: key, animated: true)
+                    }
+                }
+                indexPathDictionary.removeAll()
+                selectBarButton.title = "Edit"
+                navigationItem.rightBarButtonItems = [selectBarButton]
+                collectionView.allowsMultipleSelection = false
+            case .select:
+                selectBarButton.title = "Cancel"
+                navigationItem.rightBarButtonItems = [selectBarButton, deleteBarButton]
+                collectionView.allowsMultipleSelection = true
+            }
+        }
+    }
+    lazy var selectBarButton: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(didEditButtonClicked(_sender:)))
+        return barButtonItem
+    }()
+    
+    lazy var deleteBarButton: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didDeleteButtonClicked(_sender:)))
+          return barButtonItem
+      }()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var indexPathDictionary: [IndexPath:Bool] = [:]
     var myCourses: [Course]?
     
     let start_picker = UIPickerView()
@@ -27,10 +65,13 @@ class ConstraintViewController: UIViewController {
     let plan_picker = UIPickerView()
     let plan_no = ["Plan 1", "Plan 2", "Plan 3", "Plan 4", "Plan 5", "Plan 6", "Plan 7", "Plan 8", "Plan 9", "Plan 10"]
     
+    var colorChooser = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createPicker()
+        setUpBarButton()
         
         start_picker.delegate = self
         start_picker.dataSource = self
@@ -67,6 +108,10 @@ class ConstraintViewController: UIViewController {
         planLabel.inputView = plan_picker
     }
     
+    func setUpBarButton(){
+        navigationItem.rightBarButtonItem = selectBarButton
+    }
+    
     @objc func cancelPressed(){
         self.view.endEditing(true)
         startLabel.text = ""
@@ -82,6 +127,25 @@ class ConstraintViewController: UIViewController {
     @objc func donePressed(){
         self.view.endEditing(true)
     }
+    
+    @objc func didEditButtonClicked(_sender: UIBarButtonItem){
+        mMode = mMode == .view ? .select : .view
+    }
+    
+    @objc func didDeleteButtonClicked(_sender: UIBarButtonItem){
+        var  deleteNeededIndexPaths : [IndexPath] = []
+        for (key, value) in indexPathDictionary {
+            if value {
+                deleteNeededIndexPaths.append(key)
+            }
+        }
+        for i in deleteNeededIndexPaths.sorted(by: {$0.item > $1.item}){
+            myCourses?.remove(at: i.item)
+        }
+        
+        collectionView.deleteItems(at: deleteNeededIndexPaths)
+        indexPathDictionary.removeAll()
+       }
 
     /*
     // MARK: - Navigation
@@ -92,7 +156,34 @@ class ConstraintViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func frTapped(_ sender: Any) {
+        if frCheck.image == UIImage(systemName: "square"){
+        frCheck.image = UIImage(systemName: "checkmark.square")
+        } else {
+             frCheck.image = UIImage(systemName: "square")
+        }
+    }
+    
+    
+    @IBAction func tuThTapped(_ sender: Any) {
+        if tuThCheck.image == UIImage(systemName: "square"){
+        tuThCheck.image = UIImage(systemName: "checkmark.square")
+        } else {
+             tuThCheck.image = UIImage(systemName: "square")
+        }
+    }
+    
+    
+    @IBAction func moWeTapped(_ sender: Any) {
+        if moWeCheck.image == UIImage(systemName: "square"){
+        moWeCheck.image = UIImage(systemName: "checkmark.square")
+        } else {
+             moWeCheck.image = UIImage(systemName: "square")
+        }
+    }
+    
 }
 
 
@@ -143,8 +234,25 @@ extension ConstraintViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "constraintCollection", for: indexPath) as! CourseConstraintCollectionViewCell
         
         cell.courseLabel.text = myCourses![indexPath.row].name
-        Utilities.styleHollowLabel(cell.courseLabel)
+        Utilities.styleHollowLabel(cell.courseLabel, i:colorChooser)
+        colorChooser = (colorChooser + 1) % 8
+        print(colorChooser)
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      if mMode == .select {
+            indexPathDictionary[indexPath] = true
+      } else if mMode == .view  {
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if mMode == .select {
+            indexPathDictionary[indexPath] = false
+        }
     }
     
     
