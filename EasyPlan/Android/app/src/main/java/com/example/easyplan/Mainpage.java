@@ -1,39 +1,55 @@
 package com.example.easyplan;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
+import java.util.List;
 
 public class Mainpage extends AppCompatActivity {
 
     Button logout;
     BottomNavigationView bottomMenu;
+
+    private String accEmail;
+    private List<User> courseList;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-    private static final String TAG = "MyActivity";
-    private String accEmail;
-
-
+    private FirebaseHelper a = new FirebaseHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         accEmail = getIntent().getStringExtra("accEmail");
+
+        a.readData(new FirebaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<User> courses, List<String> keys) {
+                    courseList = courses;
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
@@ -41,6 +57,13 @@ public class Mainpage extends AppCompatActivity {
         bottomMenu = findViewById(R.id.NavigationBot);
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
         Bundle bundle = new Bundle();
+        mDatabase = FirebaseDatabase.getInstance();
+        mGetReference = mDatabase.getReference("asda");
+
+        Log.d("DENEME", "sonunda oldu amk");
+
+        //bundle.putString("course1", a.userList.get(0).name);
+
         bundle.putString("accEmail", accEmail );
         ClassSearchFragment classSearchFragment = new ClassSearchFragment();
         classSearchFragment.setArguments(bundle);
@@ -57,24 +80,7 @@ public class Mainpage extends AppCompatActivity {
         public boolean onNavigationItemSelected(MenuItem item){
             switch (item.getItemId()){
                 case R.id.search:
-          /*          //fragment = new HomeFragment();
-                    //Toast.makeText(Mainpage.this, "This is where you search for courses.", Toast.LENGTH_SHORT).show();
-                    mDatabase = FirebaseDatabase.getInstance();
 
-                    mGetReference = FirebaseDatabase.getInstance().getReference().child("melikemellow-5fa45").child("user").child("0").child("name");
-                    mGetReference.addValueEventListener(new ValueEventListener() {
-
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                a = dataSnapshot.getValue(String.class);
-                            Toast.makeText(Mainpage.this, a, Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });*/
                     Bundle bundle = new Bundle();
                     bundle.putString("accEmail", accEmail );
 

@@ -30,6 +30,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
+
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mGetReference;
 
 //    public static LoginActivity la;
 //
@@ -65,6 +73,22 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         signInButton = findViewById(R.id.loginGoogle);
 
+        mDatabase = FirebaseDatabase.getInstance();
+        mGetReference = mDatabase.getReference().child("user");
+        mGetReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    String name = ds.child("name").getValue(String.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
