@@ -10,14 +10,14 @@ import Foundation
 
 class Course{
     
-    let id:Int
-    var selected:Bool
-    let name:String
+    let id:String
+    let catalog:String
+    let subject:String
   
     
-    init(selected:Bool, name:String, id:Int) {
-        self.selected = selected
-        self.name = name
+    init(subject:String, id:String, catalog:String) {
+        self.catalog = catalog
+        self.subject = subject
         self.id = id
     }
 }
@@ -29,6 +29,6 @@ extension Course : Hashable {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
-        hasher.combine(name)
+        hasher.combine(subject)
     }
 }

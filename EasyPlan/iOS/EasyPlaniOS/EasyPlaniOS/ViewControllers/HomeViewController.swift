@@ -8,15 +8,34 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, EditItemViewControllerDelegate {
-    func shouldAdd(param: String) {
-       pleasework = param
+extension HomeViewController: CourseServiceDelegate {
+    func courseDictionaryLoaded(courseDictionary: [Course : Bool]) {
+        self.courseDict = courseDictionary
+        let keys = courseDict.keys
+        var sortCourses : [Course] = []
+        sortCourses.append(contentsOf: keys)
+        self.courses = sortCourses.sorted { $0.subject.lowercased() < $1.subject.lowercased() }
+        self.tableView.reloadData()
+
     }
     
     
-    var courses = [ Course(selected: false, name: "Comp491", id: 1), Course(selected: false, name: "Comp130", id: 2), Course(selected: false, name: "Comp131", id: 3), Course(selected: false, name: "Comp132", id: 4), Course(selected: false, name: "Comp200", id: 5), Course(selected: false, name: "Comp202", id: 6), Course(selected: false, name: "Comp301", id: 7), Course(selected: false, name: "Comp302", id: 8), Course(selected: false, name: "Comp303", id: 9), Course(selected: false, name: "Comp304", id: 10), Course(selected: false, name: "Comp305", id: 11), Course(selected: false, name: "Comp306", id: 12), Course(selected: false, name: "Econ100", id: 13), Course(selected: false, name: "Econ101", id: 14), Course(selected: false, name: "Econ102", id: 15) ]
+}
+
+class HomeViewController: UIViewController, EditItemViewControllerDelegate {
+    func shouldAdd(param: [Course], param2: [Course]) {
+        selectedCourses = param2.count
+        for course in param {
+            courseDict[course]=false
+            courseDictionary.removeValue(forKey: course)
+        }
+        
+    }
     
-    var pleasework = ""
+    let courseService = CourseService()
+    var courses = [Course]()
+    var courseDict : [Course:Bool] = [:]
+
     var courseDictionary : [Course:Int] = [:]
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
     var selectedCourses:Int = 0
@@ -41,13 +60,14 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
 
         searchBar.delegate = self
         
+        courseService.delegate = self
+        courseService.loadCourses()
 
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(pleasework)
         // Hide the navigation bar on the this view controller
         self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
         tableView.reloadData()
@@ -119,17 +139,19 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CourseSearchTableViewCell
-
-        if searching {
-            cell.courseNameLabel.text = searchCourse[indexPath.row].name
-            if searchCourse[indexPath.row].selected {
+// DispatchQueue.main.async  {
+    if self.searching {
+        let selectionCourse = searchCourse[indexPath.row]
+            cell.courseNameLabel.text = selectionCourse.subject + selectionCourse.catalog
+        if courseDict[selectionCourse]! {
                 cell.accessoryType = UITableViewCell.AccessoryType.checkmark
             } else {
                 cell.accessoryType = UITableViewCell.AccessoryType.none
             }
         } else {
-            cell.courseNameLabel.text = courses[indexPath.row].name
-            if courses[indexPath.row].selected {
+        let selectionCourse = courses[indexPath.row]
+            cell.courseNameLabel.text = selectionCourse.subject + selectionCourse.catalog
+        if courseDict[selectionCourse]! {
                 cell.accessoryType = UITableViewCell.AccessoryType.checkmark
             } else {
                 cell.accessoryType = UITableViewCell.AccessoryType.none
@@ -137,35 +159,41 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.cellDelegate = self
         cell.index = indexPath
+//        }
+        setUpHeader()
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+       
+        let selected = courses[indexPath.row]
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
             if searching {
-                searchCourse[indexPath.row].selected = false
+                let searchSelected = searchCourse[indexPath.row]
+                courseDict[searchSelected] = false
                 selectedCourses -= 1
                 courseDictionary.removeValue(forKey: searchCourse[indexPath.row])
-                print(courseDictionary)
+               
             } else {
-                courses[indexPath.row].selected = false
+                courseDict[selected] = false
                 selectedCourses -= 1
                 courseDictionary.removeValue(forKey: courses[indexPath.row])
-                print(courseDictionary)
+                
             }
         } else {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
             selectedCourses += 1
             if searching {
-                searchCourse[indexPath.row].selected = true
+                let searchSelected = searchCourse[indexPath.row]
+                courseDict[searchSelected] = true
                 courseDictionary[searchCourse[indexPath.row]] = selectedCourses
-                print(courseDictionary)
+                
             } else {
-                courses[indexPath.row].selected = true
+                courseDict[selected] = true
                 courseDictionary[courses[indexPath.row]] = selectedCourses
-                print(courseDictionary)
+                
             }
         }
         setUpHeader()
@@ -186,7 +214,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 extension HomeViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let text = searchText.lowercased()
-        searchCourse = courses.filter({$0.name.lowercased().prefix(text.count) == text})
+        searchCourse = courses.filter({($0.subject.lowercased()+$0.catalog).prefix(text.count) == text})
         searching = true
         tableView.reloadData()
     }

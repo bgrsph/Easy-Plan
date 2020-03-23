@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EditItemViewControllerDelegate {
-    func shouldAdd(param: String)
+    func shouldAdd(param: [Course], param2: [Course])
 }
 
 class ConstraintViewController: UIViewController {
@@ -61,6 +61,7 @@ class ConstraintViewController: UIViewController {
     
     var indexPathDictionary: [IndexPath:Bool] = [:]
     var myCourses: [Course]?
+    var deletedCourses: [Course] = []
     
     let start_picker = UIPickerView()
     let start_time = ["8:30", "10:00", "11:30", "13:00", "14:30", "16:00", "17:30"]
@@ -72,6 +73,7 @@ class ConstraintViewController: UIViewController {
     let plan_no = ["Plan 1", "Plan 2", "Plan 3", "Plan 4", "Plan 5", "Plan 6", "Plan 7", "Plan 8", "Plan 9", "Plan 10"]
     
     var colorChooser = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,13 +148,15 @@ class ConstraintViewController: UIViewController {
             }
         }
         for i in deleteNeededIndexPaths.sorted(by: {$0.item > $1.item}){
+            deletedCourses.append(myCourses![i.item])
             myCourses?.remove(at: i.item)
+          
         }
         
         collectionView.deleteItems(at: deleteNeededIndexPaths)
         indexPathDictionary.removeAll()
         if let delegate = delegate {
-            delegate.shouldAdd(param: "Pretty please")
+            delegate.shouldAdd(param: deletedCourses, param2: myCourses!)
         }
        }
 
@@ -242,10 +246,10 @@ extension ConstraintViewController: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "constraintCollection", for: indexPath) as! CourseConstraintCollectionViewCell
         
-        cell.courseLabel.text = myCourses![indexPath.row].name
+        cell.courseLabel.text = myCourses![indexPath.row].subject + myCourses![indexPath.row].catalog
         Utilities.styleHollowLabel(cell.courseLabel, i:colorChooser)
         colorChooser = (colorChooser + 1) % 8
-        print(colorChooser)
+//        print(colorChooser)
         
         return cell
     }
