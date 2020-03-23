@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.loginGoogle);
 
         mDatabase = FirebaseDatabase.getInstance();
-        mGetReference = mDatabase.getReference().child("user");
+        mGetReference = mDatabase.getReference().child("coursesTest");
         mGetReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
