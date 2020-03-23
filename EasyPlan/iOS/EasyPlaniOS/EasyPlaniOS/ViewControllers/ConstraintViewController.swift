@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol EditItemViewControllerDelegate {
+    func shouldAdd(param: String)
+}
+
 class ConstraintViewController: UIViewController {
+    
+    var delegate: EditItemViewControllerDelegate!
     @IBOutlet weak var planLabel: UITextField!
     @IBOutlet weak var startLabel: UITextField!
     @IBOutlet weak var finishLabel: UITextField!
@@ -145,6 +151,9 @@ class ConstraintViewController: UIViewController {
         
         collectionView.deleteItems(at: deleteNeededIndexPaths)
         indexPathDictionary.removeAll()
+        if let delegate = delegate {
+            delegate.shouldAdd(param: "Pretty please")
+        }
        }
 
     /*

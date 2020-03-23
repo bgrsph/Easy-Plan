@@ -8,10 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, EditItemViewControllerDelegate {
+    func shouldAdd(param: String) {
+       pleasework = param
+    }
+    
     
     var courses = [ Course(selected: false, name: "Comp491", id: 1), Course(selected: false, name: "Comp130", id: 2), Course(selected: false, name: "Comp131", id: 3), Course(selected: false, name: "Comp132", id: 4), Course(selected: false, name: "Comp200", id: 5), Course(selected: false, name: "Comp202", id: 6), Course(selected: false, name: "Comp301", id: 7), Course(selected: false, name: "Comp302", id: 8), Course(selected: false, name: "Comp303", id: 9), Course(selected: false, name: "Comp304", id: 10), Course(selected: false, name: "Comp305", id: 11), Course(selected: false, name: "Comp306", id: 12), Course(selected: false, name: "Econ100", id: 13), Course(selected: false, name: "Econ101", id: 14), Course(selected: false, name: "Econ102", id: 15) ]
     
+    var pleasework = ""
     var courseDictionary : [Course:Int] = [:]
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
     var selectedCourses:Int = 0
@@ -42,10 +47,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print(pleasework)
         // Hide the navigation bar on the this view controller
         self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
-        
+        tableView.reloadData()
     }
     
     
@@ -58,6 +63,8 @@ class HomeViewController: UIViewController {
         guard let destination = segue.destination as? ConstraintViewController else {
             return
         }
+        destination.delegate = self
+        searching = false
         let arr = courseDictionary.map {$0.key}
         destination.myCourses = arr
        }
