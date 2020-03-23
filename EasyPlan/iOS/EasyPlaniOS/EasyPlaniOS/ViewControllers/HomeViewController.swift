@@ -42,10 +42,12 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
     var searchCourse = [Course]()
     var filtered:[String] = []
     var searching = false
+    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     
+ 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchCourseButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +73,9 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
         // Hide the navigation bar on the this view controller
         self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
         tableView.reloadData()
+        if selectedCourses < 1 {
+            filterButton.isEnabled = false
+        }
     }
     
     
@@ -117,6 +122,14 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
     
    
     
+    @IBAction func clearAllTapped(_ sender: Any) {
+        for course in courseDictionary.keys {
+            courseDict[course] = false
+        }
+        courseDictionary.removeAll()
+        selectedCourses = 0
+        tableView.reloadData()
+    }
     
     @IBAction func nextTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "constraint", sender: self)
@@ -197,6 +210,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         setUpHeader()
+        
+        if selectedCourses < 1 {
+            filterButton.isEnabled = false
+        } else {
+             filterButton.isEnabled = true
+        }
     }
     
     //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

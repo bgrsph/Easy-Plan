@@ -41,7 +41,7 @@ class ConstraintViewController: UIViewController {
                 navigationItem.rightBarButtonItems = [selectBarButton]
                 collectionView.allowsMultipleSelection = false
             case .select:
-                selectBarButton.title = "Cancel"
+                selectBarButton.title = "Done"
                 navigationItem.rightBarButtonItems = [selectBarButton, deleteBarButton]
                 collectionView.allowsMultipleSelection = true
             }
@@ -73,7 +73,9 @@ class ConstraintViewController: UIViewController {
     let plan_no = ["Plan 1", "Plan 2", "Plan 3", "Plan 4", "Plan 5", "Plan 6", "Plan 7", "Plan 8", "Plan 9", "Plan 10"]
     
     var colorChooser = 0
-    
+    var planPickerChosen = false
+    var startPickerChosen = false
+    var finishPickerChosen = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,7 +124,18 @@ class ConstraintViewController: UIViewController {
     
     @objc func cancelPressed(){
         self.view.endEditing(true)
-        startLabel.text = ""
+        if finishPickerChosen {
+            finishLabel.text = ""
+            finishPickerChosen = false
+        }
+        if startPickerChosen {
+            startLabel.text = ""
+            finishPickerChosen = false
+        }
+        if planPickerChosen {
+            planLabel.text = ""
+            planPickerChosen = false
+        }
     }
     
     //        @objc func dateChanged(timePicker: UIDatePicker){
@@ -133,6 +146,21 @@ class ConstraintViewController: UIViewController {
     //        }
     
     @objc func donePressed(){
+        if finishPickerChosen {
+            let row = finish_picker.selectedRow(inComponent: 0)
+            pickerView(finish_picker, didSelectRow: row, inComponent:0)
+            finishPickerChosen = false
+        }
+        if startPickerChosen {
+            let row = start_picker.selectedRow(inComponent: 0)
+            pickerView(start_picker, didSelectRow: row, inComponent:0)
+            startPickerChosen = false
+        }
+        if planPickerChosen {
+            let row = plan_picker.selectedRow(inComponent: 0)
+            pickerView(plan_picker, didSelectRow: row, inComponent:0)
+            planPickerChosen = false
+        }
         self.view.endEditing(true)
     }
     
@@ -207,31 +235,40 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == finish_picker {
+            finishPickerChosen = true
             return finish_time.count
         } else if pickerView == plan_picker {
+            planPickerChosen = true
             return plan_no.count
         } else {
+            startPickerChosen = true
             return start_time.count
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == finish_picker {
+            finishPickerChosen = true
             return finish_time[row]
         } else if pickerView == plan_picker {
+            planPickerChosen = true
             return plan_no[row]
         } else {
+            startPickerChosen = true
             return start_time[row]
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == finish_picker {
+            finishPickerChosen = false
             finishLabel.text = finish_time[row]
         } else if pickerView == plan_picker {
+            planPickerChosen = false
             planLabel.text = plan_no[row]
             //        self.view.endEditing(true)
         } else {
+            startPickerChosen = false
             startLabel.text = start_time[row]
         }
     }

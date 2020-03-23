@@ -130,7 +130,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux8-rq-VQh">
                                         <rect key="frame" x="0.0" y="400" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -214,7 +214,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AT-HN-Mj5">
                                         <rect key="frame" x="0.0" y="261" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -619,7 +619,7 @@
                                     <constraint firstAttribute="height" constant="45" id="5lP-L3-21A"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="NEXT"/>
+                                <state key="normal" title="FILTER"/>
                                 <connections>
                                     <action selector="nextTapped:" destination="RYy-TE-QYp" eventType="touchUpInside" id="Nxb-HI-e1l"/>
                                 </connections>
@@ -642,8 +642,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lTo-aY-f2f"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Class Search" id="BDW-Ut-y3l"/>
+                    <navigationItem key="navigationItem" title="Class Search" id="BDW-Ut-y3l">
+                        <barButtonItem key="rightBarButtonItem" title=" Clear All" id="fJq-Il-TCo">
+                            <connections>
+                                <action selector="clearAllTapped:" destination="RYy-TE-QYp" id="Id9-cV-qAw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="filterButton" destination="Mmf-87-xC6" id="KHN-7j-dWU"/>
                         <outlet property="searchBar" destination="xDF-jH-ivH" id="X5H-Ok-Wax"/>
                         <outlet property="tableView" destination="GUb-aP-fzi" id="KD5-Jg-IqS"/>
                         <segue destination="C7v-yB-jgl" kind="show" identifier="constraint" id="gtQ-Sj-f4I"/>
