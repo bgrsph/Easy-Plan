@@ -48,6 +48,16 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
  
     @IBOutlet weak var tableView: UITableView!
     
+    var activityIndicatorView: UIActivityIndicatorView!
+    let dispatchQueue = DispatchQueue(label: "Example Queue")
+    
+    override func loadView() {
+        super.loadView()
+        activityIndicatorView = UIActivityIndicatorView(style: .large)
+        activityIndicatorView.color = burgundy
+        
+        tableView.backgroundView = activityIndicatorView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +85,17 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
         tableView.reloadData()
         if selectedCourses < 1 {
             filterButton.isEnabled = false
+        }
+        if (courseDict.keys.count == 0) {
+            activityIndicatorView.startAnimating()
+            
+            dispatchQueue.async {
+                Thread.sleep(forTimeInterval: 2)
+                OperationQueue.main.addOperation {
+                    self.activityIndicatorView.stopAnimating()
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
     
