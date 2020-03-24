@@ -43,7 +43,12 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
     var filtered:[String] = []
     var searching = false
     @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+             searchBar.returnKeyType = .done
+             searchBar.enablesReturnKeyAutomatically = false
+         }
+    }
     
  
     @IBOutlet weak var tableView: UITableView!
@@ -75,7 +80,10 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
         courseService.delegate = self
         courseService.loadCourses()
 
-        
+    }
+    
+     @objc func donePressed(){
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,6 +94,7 @@ class HomeViewController: UIViewController, EditItemViewControllerDelegate {
         if selectedCourses < 1 {
             filterButton.isEnabled = false
         }
+        searchBar.text = ""
         if (courseDict.keys.count == 0) {
             activityIndicatorView.startAnimating()
             
@@ -257,6 +266,11 @@ extension HomeViewController: UISearchBarDelegate{
         searchCourse = courses.filter({($0.subject.lowercased()+$0.catalog).prefix(text.count) == text})
         searching = true
         tableView.reloadData()
+     
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 }
 
@@ -266,3 +280,5 @@ extension HomeViewController: TableViewNew {
         print("Info Clicked")
     }
 }
+
+
