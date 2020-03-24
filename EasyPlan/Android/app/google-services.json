@@ -1,51 +1,78 @@
 {
   "project_info": {
-    "project_number": "588965934660",
-    "firebase_url": "https://melikemellow-5fa45.firebaseio.com",
-    "project_id": "melikemellow-5fa45",
-    "storage_bucket": "melikemellow-5fa45.appspot.com"
+    "project_number": "357353831267",
+    "firebase_url": "https://easy-plan-8e84f.firebaseio.com",
+    "project_id": "easy-plan-8e84f",
+    "storage_bucket": "easy-plan-8e84f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:588965934660:android:82fd71a5c097624991ae11",
+        "mobilesdk_app_id": "1:357353831267:android:7c6168ccc18a1d0b8eb156",
         "android_client_info": {
           "package_name": "com.example.easyplan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "588965934660-vt6oun7md7bsk355giiucl5p7qr65sm7.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.easyplan",
-            "certificate_hash": "c53adfee8437ca097e856e4ee7a2aa61d0d18c8e"
-          }
-        },
-        {
-          "client_id": "588965934660-pkt832cqf68r0kbds2u5e6gshf1l93ga.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.easyplan",
-            "certificate_hash": "38fea6d49abd3d7a289afad3635c18a8c2325d85"
-          }
-        },
-        {
-          "client_id": "588965934660-b7vc1nmdb8fcpmf5rmqqo1peqpev3k0a.apps.googleusercontent.com",
+          "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBpbAZ_YQjzizhUkRfhKrqDQf8UGZmjGLk"
+          "current_key": "AIzaSyAGBT7bcpgpli9Cdw3kHyqXwzfLvEDEoBY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "588965934660-b7vc1nmdb8fcpmf5rmqqo1peqpev3k0a.apps.googleusercontent.com",
+              "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "357353831267-0alb0lbglsi3mhe5qdric4f9l9rbb0pf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "CStudy.EasyPlaniOS"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357353831267:android:21ebe5cdca366ac48eb156",
+        "android_client_info": {
+          "package_name": "com.example.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGBT7bcpgpli9Cdw3kHyqXwzfLvEDEoBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "357353831267-0alb0lbglsi3mhe5qdric4f9l9rbb0pf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "CStudy.EasyPlaniOS"
+              }
             }
           ]
         }
