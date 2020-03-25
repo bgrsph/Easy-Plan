@@ -18,7 +18,7 @@ public class FirebaseHelper {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-    public List<Course> courseList = new ArrayList<>();
+    public ArrayList<Course> courseList = new ArrayList<>();
 
     public FirebaseHelper() {
         mDatabase = FirebaseDatabase.getInstance();
@@ -26,7 +26,7 @@ public class FirebaseHelper {
     }
 
     public interface DataStatus {
-        void DataIsLoaded(List<Course> courses, List<String> keys);
+        void DataIsLoaded(ArrayList<Course> courses, List<String> keys);
         void DataIsInserted();
         void DataIsUpdated();
         void DataIsDeleted();

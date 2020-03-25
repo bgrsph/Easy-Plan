@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,7 +41,9 @@ public class ClassSearchFragment extends Fragment {
     RecyclerView recyclerView;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-    private List<Course> courseList;
+    private ArrayList<Course> courseList = new ArrayList<>();
+    private SearchView search;
+    final CourseAdapter adapter = new CourseAdapter(courseList);
     View view;
 
     public ClassSearchFragment() {
@@ -53,28 +58,11 @@ public class ClassSearchFragment extends Fragment {
         accEmail = this.getArguments().getString("accEmail");
         view = inflater.inflate(R.layout.fragment_class_search, container, false);
 
-        /*mDatabase = FirebaseDatabase.getInstance();
-        mGetReference = mDatabase.getReference().child("coursesTest");
-        mGetReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String name = ds.child("name").getValue(String.class);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        }); */
-
         new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
             @Override
-            public void DataIsLoaded(List<Course> courses, List<String> keys) {
+            public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
                 courseList = courses;
-                updateView();
+                updateView(courseList);
             }
 
             @Override
@@ -93,7 +81,34 @@ public class ClassSearchFragment extends Fragment {
             }
         });
 
+        recyclerView = view.findViewById(R.id.courseListView);
 
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        DefaultItemAnimator animator = new DefaultItemAnimator() {
+            @Override
+            public boolean canReuseUpdatedViewHolder(RecyclerView.ViewHolder viewHolder) {
+                return true;
+            }
+        };
+        recyclerView.setItemAnimator(animator);
+
+
+        search = view.findViewById(R.id.search);
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                filter(query);
+                return false;
+            }
+        });
 
         searchClasses = view.findViewById(R.id.searchButton);
         searchClasses.setOnClickListener(new View.OnClickListener() {
@@ -107,13 +122,21 @@ public class ClassSearchFragment extends Fragment {
         return view;
     }
 
-    private void updateView() {
-        recyclerView = view.findViewById(R.id.courseListView);
-        // Create adapter passing in the sample user data
-        CourseAdapter adapter = new CourseAdapter(courseList);
-        // Attach the adapter to the recyclerview to populate items
+    private void filter(String text) {
+        ArrayList<Course> filteredList = new ArrayList<Course>();
+
+        for (Course x : courseList) {
+            if (x.getSubject().toLowerCase().contains(text.toLowerCase()) || x.getCatalog().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(x);
+            }
+        }
+        adapter.filterList(filteredList);
+        updateView(filteredList);
+    }
+
+    private void updateView(ArrayList<Course> list) {
+        CourseAdapter adapter = new CourseAdapter(list);
         recyclerView.setAdapter(adapter);
-        // Set layout manager to position the items
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 }
