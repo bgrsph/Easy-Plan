@@ -18,15 +18,15 @@ public class FirebaseHelper {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-    public List<User> userList = new ArrayList<>();
+    public List<Course> courseList = new ArrayList<>();
 
     public FirebaseHelper() {
         mDatabase = FirebaseDatabase.getInstance();
-        mGetReference = mDatabase.getReference("user");
+        mGetReference = mDatabase.getReference("courseList");
     }
 
     public interface DataStatus {
-        void DataIsLoaded(List<User> courses, List<String> keys);
+        void DataIsLoaded(List<Course> courses, List<String> keys);
         void DataIsInserted();
         void DataIsUpdated();
         void DataIsDeleted();
@@ -36,14 +36,14 @@ public class FirebaseHelper {
         mGetReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userList.clear();
+                courseList.clear();
                 List<String> keys = new ArrayList<>();
                 for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
                     keys.add(keyNode.getKey());
-                    User course = keyNode.getValue(User.class);
-                    userList.add(course);
+                    Course course = keyNode.getValue(Course.class);
+                    courseList.add(course);
                 }
-                dataStatus.DataIsLoaded(userList, keys);
+                dataStatus.DataIsLoaded(courseList, keys);
                 Log.d("MERT", "ON DATA CHANGE DONE");
             }
 

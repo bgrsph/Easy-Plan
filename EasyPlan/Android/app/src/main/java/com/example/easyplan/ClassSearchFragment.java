@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -32,9 +35,11 @@ public class ClassSearchFragment extends Fragment {
     TextView text;
     private String accEmail;
     Button searchClasses;
+    RecyclerView recyclerView;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-
+    private List<Course> courseList;
+    View view;
 
     public ClassSearchFragment() {
         // Required empty public constructor
@@ -46,10 +51,10 @@ public class ClassSearchFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         accEmail = this.getArguments().getString("accEmail");
-        View view = inflater.inflate(R.layout.fragment_class_search, container, false);
+        view = inflater.inflate(R.layout.fragment_class_search, container, false);
 
-        mDatabase = FirebaseDatabase.getInstance();
-        mGetReference = mDatabase.getReference().child("user");
+        /*mDatabase = FirebaseDatabase.getInstance();
+        mGetReference = mDatabase.getReference().child("coursesTest");
         mGetReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -63,7 +68,32 @@ public class ClassSearchFragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
+        }); */
+
+        new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<Course> courses, List<String> keys) {
+                courseList = courses;
+                updateView();
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
         });
+
+
 
         searchClasses = view.findViewById(R.id.searchButton);
         searchClasses.setOnClickListener(new View.OnClickListener() {
@@ -75,5 +105,15 @@ public class ClassSearchFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void updateView() {
+        recyclerView = view.findViewById(R.id.courseListView);
+        // Create adapter passing in the sample user data
+        CourseAdapter adapter = new CourseAdapter(courseList);
+        // Attach the adapter to the recyclerview to populate items
+        recyclerView.setAdapter(adapter);
+        // Set layout manager to position the items
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 }

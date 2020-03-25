@@ -1,25 +1,18 @@
 package com.example.easyplan;
 
-public class User {
+public class Course {
 
-    public String admin;
-    public String id;
-    public String name;
-    public String surname;
+    private String id;
+    private String catalog;
+    private String subject;
 
-    public User(String admin, String id, String name, String surname) {
-        this.admin = admin;
+    public Course(String id, String catalog, String subject) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
+        this.catalog = catalog;
+        this.subject = subject;
     }
 
-    public String getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(String admin) {
-        this.admin = admin;
+    public Course() {
     }
 
     public String getId() {
@@ -30,19 +23,19 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCatalog() {
+        return catalog;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCatalog(String catalog) {
+        this.catalog = catalog;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getSubject() {
+        return subject;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

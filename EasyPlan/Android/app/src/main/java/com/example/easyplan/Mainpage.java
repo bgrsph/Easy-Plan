@@ -20,7 +20,7 @@ public class Mainpage extends AppCompatActivity {
     BottomNavigationView bottomMenu;
 
     private String accEmail;
-    private List<User> courseList;
+    private List<Course> courseList;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
     private FirebaseHelper a = new FirebaseHelper();
@@ -28,28 +28,6 @@ public class Mainpage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         accEmail = getIntent().getStringExtra("accEmail");
-
-        a.readData(new FirebaseHelper.DataStatus() {
-            @Override
-            public void DataIsLoaded(List<User> courses, List<String> keys) {
-                    courseList = courses;
-            }
-
-            @Override
-            public void DataIsInserted() {
-
-            }
-
-            @Override
-            public void DataIsUpdated() {
-
-            }
-
-            @Override
-            public void DataIsDeleted() {
-
-            }
-        });
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
