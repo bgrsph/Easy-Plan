@@ -130,7 +130,7 @@ class ConstraintViewController: UIViewController {
         }
         if startPickerChosen {
             startLabel.text = ""
-            finishPickerChosen = false
+            startPickerChosen = false
         }
         if planPickerChosen {
             planLabel.text = ""
@@ -236,12 +236,18 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == finish_picker {
             finishPickerChosen = true
+            startPickerChosen = false
+            planPickerChosen = false
             return finish_time.count
         } else if pickerView == plan_picker {
+            finishPickerChosen = true
+            startPickerChosen = false
             planPickerChosen = true
             return plan_no.count
         } else {
+            finishPickerChosen = false
             startPickerChosen = true
+            planPickerChosen = false
             return start_time.count
         }
     }
@@ -249,12 +255,18 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == finish_picker {
             finishPickerChosen = true
+            startPickerChosen = false
+            planPickerChosen = false
             return finish_time[row]
         } else if pickerView == plan_picker {
+            finishPickerChosen = false
+            startPickerChosen = false
             planPickerChosen = true
             return plan_no[row]
         } else {
+            finishPickerChosen = false
             startPickerChosen = true
+            planPickerChosen = false
             return start_time[row]
         }
     }
@@ -262,13 +274,19 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == finish_picker {
             finishPickerChosen = false
+            startPickerChosen = false
+            planPickerChosen = false
             finishLabel.text = finish_time[row]
         } else if pickerView == plan_picker {
+            finishPickerChosen = false
+            startPickerChosen = false
             planPickerChosen = false
             planLabel.text = plan_no[row]
             //        self.view.endEditing(true)
         } else {
+            finishPickerChosen = false
             startPickerChosen = false
+            planPickerChosen = false
             startLabel.text = start_time[row]
         }
     }
