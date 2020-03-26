@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ClassSearchFragment"
     android:orientation="vertical"
-    android:weightSum="100">
+    android:weightSum="100"
+    android:id="@+id/top">
 
     <LinearLayout
         android:id="@+id/layout"
@@ -28,49 +30,67 @@
             android:shadowColor="#F5F0F0"
             android:textColor="#CFCFCF"
             android:textSize="15dp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            />
     </LinearLayout>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="83"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/courseListView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="80"
+            app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/welcomeLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-16dp">
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_main"
+                android:enabled="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:stateListAnimator="@null"
+                android:text="Select Courses to Plan"
+                android:textAllCaps="false"
+                android:textColor="@color/textColorAlmostWhite"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_weight="7"
+        android:layout_weight="10"
         >
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/courseListView"
-            android:layout_weight="7" />
-    </FrameLayout>
-    <LinearLayout
-        android:id="@+id/welcomeLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginEnd="6dp"
-        android:layout_weight="15"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/searchButton"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_main"
-            android:enabled="true"
-            android:fontFamily="sans-serif-smallcaps"
-            android:stateListAnimator="@null"
-            android:text="Search Courses"
-            android:textAllCaps="false"
-            android:textColor="@color/textColorAlmostWhite"
-            android:textSize="15dp" />
-
     </LinearLayout>
-
 
 </LinearLayout>

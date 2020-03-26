@@ -6,21 +6,23 @@
     android:layout_height="wrap_content"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
+    android:weightSum="100"
     >
 
     <TextView
         android:id="@+id/courseName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="70"
         />
 
-    <Button
+    <ImageView
         android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:textSize="10sp"
+        android:src="@drawable/plus.png"
         />
 </LinearLayout>

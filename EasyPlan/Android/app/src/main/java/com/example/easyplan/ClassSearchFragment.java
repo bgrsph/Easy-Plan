@@ -2,6 +2,7 @@ package com.example.easyplan;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -97,6 +98,8 @@ public class ClassSearchFragment extends Fragment {
 
 
         search = view.findViewById(R.id.search);
+        //search.setQueryHint("Enter text to filter results.");
+        //search.setBackgroundColor(Color.RED);
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
