@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,42 +16,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> implements Filterable {
+public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
 
     private ArrayList<Course> courseList = new ArrayList<Course>();
     private ArrayList<Course> filterList = new ArrayList<Course>();
-    private CustomFilter filter;
-
 
     public CourseAdapter(ArrayList<Course> courses) {
         courseList = courses;
         filterList = courses;
     }
 
-    @Override
-    public Filter getFilter() {
-        if(filter == null)
-        {
-            filter = new CustomFilter(filterList,this);
-        }
-
-        return filter;
-    }
-
-    public void setFilter(List<Course> filterList) {
-        filter = new CustomFilter(filterList,this);
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView nameTextView;
-        public Button messageButton;
+        public ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             nameTextView = itemView.findViewById(R.id.courseName);
-            messageButton = itemView.findViewById(R.id.addButton);
+            imageView = itemView.findViewById(R.id.image);
         }
     }
 
@@ -75,7 +60,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         // Set item views based on your views and data model
         TextView textView = holder.nameTextView;
         textView.setText(course.getSubject() + course.getCatalog());
-        Button button = holder.messageButton;
+        ImageView image = holder.imageView;
+        image.setImageResource(R.drawable.plus);
         //button.setText(course.isOnline() ? "Message" : "Offline");
         //button.setEnabled(course.isOnline());
     }
@@ -89,57 +75,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         courseList.clear();
         courseList = filteredList;
         notifyDataSetChanged();
-    }
-
-    public class CustomFilter extends Filter {
-
-        CourseAdapter adapter;
-        List<Course> filterList;
-
-        public CustomFilter(List<Course> filterList, CourseAdapter adapter)
-        {
-            this.adapter = adapter;
-            this.filterList = filterList;
-
-        }
-
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            FilterResults results = new FilterResults();
-
-            if (constraint != null && constraint.length() > 0)
-            {
-                //CHANGE TO UPPER
-                constraint = constraint.toString().toUpperCase();
-                //STORE OUR FILTERED PLAYERS
-                List<Course> filteredCourses = new ArrayList<Course>();
-
-                for (int i = 0; i < filterList.size(); i++)
-                {
-                    //CHECK
-                    if (filterList.get(i).getCatalog().toUpperCase().contains(constraint) || filterList.get(i).getSubject().toUpperCase().contains(constraint))
-                    {
-                        //ADD PLAYER TO FILTERED PLAYERS
-                        filteredCourses.add(filterList.get(i));
-                    }
-                }
-
-                results.count = filteredCourses.size();
-                results.values = filteredCourses;
-            } else {
-                results.count = filterList.size();
-                results.values = filterList;
-            }
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-
-            adapter.courseList = (ArrayList<Course>) results.values;
-            adapter.notifyDataSetChanged();
-        }
     }
 
 }
