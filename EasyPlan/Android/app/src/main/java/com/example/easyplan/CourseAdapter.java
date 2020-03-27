@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,12 +31,20 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
         public TextView nameTextView;
         public ImageView imageView;
+        public LinearLayout layout;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             nameTextView = itemView.findViewById(R.id.courseName);
             imageView = itemView.findViewById(R.id.image);
+            layout = itemView.findViewById(R.id.layout);
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    
+                }
+            });
         }
     }
 

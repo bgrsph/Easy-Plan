@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -36,7 +37,7 @@ import java.util.List;
 public class ClassSearchFragment extends Fragment {
 
 
-    TextView text;
+    TextView text1;
     private String accEmail;
     Button searchClasses;
     RecyclerView recyclerView;
@@ -56,9 +57,9 @@ public class ClassSearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         accEmail = this.getArguments().getString("accEmail");
         view = inflater.inflate(R.layout.fragment_class_search, container, false);
-
         new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
@@ -81,9 +82,9 @@ public class ClassSearchFragment extends Fragment {
 
             }
         });
+        text1 = view.findViewById(R.id.text1);
 
         recyclerView = view.findViewById(R.id.courseListView);
-
         recyclerView.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -127,12 +128,14 @@ public class ClassSearchFragment extends Fragment {
 
     private void filter(String text) {
         ArrayList<Course> filteredList = new ArrayList<Course>();
-
+        int i = 0;
         for (Course x : courseList) {
             if (x.getSubject().toLowerCase().contains(text.toLowerCase()) || x.getCatalog().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(x);
+                i++;
             }
         }
+        text1.setText(i + " Courses");
         adapter.filterList(filteredList);
         updateView(filteredList);
     }
