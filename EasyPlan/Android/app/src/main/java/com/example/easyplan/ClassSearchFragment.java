@@ -36,14 +36,14 @@ import java.util.List;
  */
 public class ClassSearchFragment extends Fragment {
 
-
-    TextView text1;
+    public static final ArrayList<Course> selectedCourses = new ArrayList<Course>();
+    public static TextView text1;
     private String accEmail;
     Button searchClasses;
     RecyclerView recyclerView;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-    private ArrayList<Course> courseList = new ArrayList<>();
+    public static ArrayList<Course> courseList = new ArrayList<>();
     private SearchView search;
     final CourseAdapter adapter = new CourseAdapter(courseList);
     View view;
@@ -128,14 +128,6 @@ public class ClassSearchFragment extends Fragment {
 
     private void filter(String text) {
         ArrayList<Course> filteredList = new ArrayList<Course>();
-        int i = 0;
-        for (Course x : courseList) {
-            if (x.getSubject().toLowerCase().contains(text.toLowerCase()) || x.getCatalog().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(x);
-                i++;
-            }
-        }
-        text1.setText(i + " Courses");
         adapter.filterList(filteredList);
         updateView(filteredList);
     }

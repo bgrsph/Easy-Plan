@@ -1,6 +1,8 @@
 package com.example.easyplan;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.easyplan.ClassSearchFragment.selectedCourses;
+import static com.example.easyplan.ClassSearchFragment.text1;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
 
@@ -42,7 +47,24 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    
+                    if (imageView.getTag() == "plus") {
+                        imageView.setImageResource(R.drawable.check);
+                        imageView.setTag("check");
+                        for (Course x : ClassSearchFragment.courseList) {
+                            if (x.getId() == nameTextView.getTag()) {
+                                selectedCourses.add(x); break;
+                            }
+                        }
+                    } else {
+                        imageView.setImageResource(R.drawable.plus);
+                        imageView.setTag("plus");
+                        for (Course x : selectedCourses) {
+                            if (x.getId() == nameTextView.getTag()) {
+                                selectedCourses.remove(x); break;
+                            }
+                        }
+                    }
+                    text1.setText(selectedCourses.size() + " courses selected.");
                 }
             });
         }
@@ -67,12 +89,20 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         Course course = courseList.get(position);
 
         // Set item views based on your views and data model
-        TextView textView = holder.nameTextView;
-        textView.setText(course.getSubject() + course.getCatalog());
+        TextView textView1 = holder.nameTextView;
+        textView1.setText(course.getSubject() + course.getCatalog());
+        textView1.setTag(course.getId());
         ImageView image = holder.imageView;
-        image.setImageResource(R.drawable.plus);
-        //button.setText(course.isOnline() ? "Message" : "Offline");
-        //button.setEnabled(course.isOnline());
+        for (Course x : ClassSearchFragment.selectedCourses) {
+            if (x.getId() == textView1.getTag()) {
+                image.setImageResource(R.drawable.check);
+                image.setTag("check");
+            }
+        }
+        if (image.getTag() != "check") {
+            image.setImageResource(R.drawable.plus);
+            image.setTag("plus");
+        }
     }
 
     @Override
@@ -84,6 +114,16 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         courseList.clear();
         courseList = filteredList;
         notifyDataSetChanged();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
     }
 
 }
