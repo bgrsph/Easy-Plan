@@ -128,6 +128,11 @@ public class ClassSearchFragment extends Fragment {
 
     private void filter(String text) {
         ArrayList<Course> filteredList = new ArrayList<Course>();
+        for (Course x : courseList) {
+            if (x.getSubject().toLowerCase().contains(text.toLowerCase()) || x.getCatalog().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(x);
+            }
+        }
         adapter.filterList(filteredList);
         updateView(filteredList);
     }
