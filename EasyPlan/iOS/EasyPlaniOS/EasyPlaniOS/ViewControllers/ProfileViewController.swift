@@ -9,13 +9,29 @@
 import UIKit
 import Firebase
 
-class ProfileViewController: UIViewController {
-
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    let optionList = ["Personal Information", "Notifications", "Give Feedback", "Share Us!", "Terms of Service"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Create the nib file
+        let nib = UINib(nibName: "ProfileTableViewCell", bundle: nil)
+        
+        // Register the cell to tableView with its nib
+        tableView.register(nib, forCellReuseIdentifier: "ProfileTableViewCell")
+        
+        // Cast the tableView to UIView
+        tableView.delegate = self
+        tableView.dataSource = self
+        
     }
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -23,16 +39,9 @@ class ProfileViewController: UIViewController {
         // Hide the navigation bar on the this view controller
         self.tabBarController?.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
     
     @IBAction func LogOutTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -43,5 +52,24 @@ class ProfileViewController: UIViewController {
                print("Error signing out: %@", signOutError)
            }
     }
+    
+    // TableView Functions
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return optionList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Cast the prototype cell to the custom class
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath) as! ProfileTableViewCell
+        
+        //Set the labels
+        cell.optionLabel.text = optionList[indexPath.row]
+        
+        //Set the icons
+        cell.optionIconImageView.image = UIImage(named: optionList[indexPath.row])
+        return cell
+    }
+    
     
 }

@@ -17,6 +17,13 @@
 		36E66FD524083BF50017AB05 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FD424083BF50017AB05 /* Utilities.swift */; };
 		B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */; };
 		F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9665825242252A700EAF683 /* GoogleService-Info.plist */; };
+		F974936D243371EF007AC49C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974936B243371EF007AC49C /* ProfileTableViewCell.swift */; };
+		F974936E243371EF007AC49C /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974936C243371EF007AC49C /* ProfileTableViewCell.xib */; };
+		F974937524337A3B007AC49C /* Give Feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937024337A3B007AC49C /* Give Feedback.png */; };
+		F974937624337A3B007AC49C /* Share Us!.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937124337A3B007AC49C /* Share Us!.png */; };
+		F974937724337A3B007AC49C /* Terms of Service.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937224337A3B007AC49C /* Terms of Service.png */; };
+		F974937824337A3B007AC49C /* Notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937324337A3B007AC49C /* Notifications.png */; };
+		F974937924337A3B007AC49C /* Personal Information.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937424337A3B007AC49C /* Personal Information.png */; };
 		F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */; };
 		F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */; };
 		F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FD240816B5001C7FB1 /* ViewController.swift */; };
@@ -38,6 +45,13 @@
 		AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPlaniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9665825242252A700EAF683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F974936B243371EF007AC49C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		F974936C243371EF007AC49C /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		F974937024337A3B007AC49C /* Give Feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Give Feedback.png"; sourceTree = "<group>"; };
+		F974937124337A3B007AC49C /* Share Us!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share Us!.png"; sourceTree = "<group>"; };
+		F974937224337A3B007AC49C /* Terms of Service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Terms of Service.png"; sourceTree = "<group>"; };
+		F974937324337A3B007AC49C /* Notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notifications.png; sourceTree = "<group>"; };
+		F974937424337A3B007AC49C /* Personal Information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Personal Information.png"; sourceTree = "<group>"; };
 		F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlaniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +92,8 @@
 				36B52EBA2415AA1D00F86894 /* PlanViewController.swift */,
 				36B52EBC2415AA3500F86894 /* HelpViewController.swift */,
 				36B52EBE2415AA4300F86894 /* ProfileViewController.swift */,
+				F974936B243371EF007AC49C /* ProfileTableViewCell.swift */,
+				F974936C243371EF007AC49C /* ProfileTableViewCell.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,9 +123,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F974936F24337A3B007AC49C /* ProfileIcons */ = {
+			isa = PBXGroup;
+			children = (
+				F974937024337A3B007AC49C /* Give Feedback.png */,
+				F974937124337A3B007AC49C /* Share Us!.png */,
+				F974937224337A3B007AC49C /* Terms of Service.png */,
+				F974937324337A3B007AC49C /* Notifications.png */,
+				F974937424337A3B007AC49C /* Personal Information.png */,
+			);
+			name = ProfileIcons;
+			path = EasyPlaniOS/Media/ProfileIcons;
+			sourceTree = "<group>";
+		};
 		F9B7E4ED240816B5001C7FB1 = {
 			isa = PBXGroup;
 			children = (
+				F974936F24337A3B007AC49C /* ProfileIcons */,
 				F9B7E4F8240816B5001C7FB1 /* EasyPlaniOS */,
 				F9B7E4F7240816B5001C7FB1 /* Products */,
 				BDCBC4B9346A9EF4B07B75EE /* Pods */,
@@ -204,9 +234,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
+				F974937524337A3B007AC49C /* Give Feedback.png in Resources */,
 				365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */,
 				F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */,
+				F974937624337A3B007AC49C /* Share Us!.png in Resources */,
+				F974937724337A3B007AC49C /* Terms of Service.png in Resources */,
+				F974937924337A3B007AC49C /* Personal Information.png in Resources */,
+				F974937824337A3B007AC49C /* Notifications.png in Resources */,
 				F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */,
+				F974936E243371EF007AC49C /* ProfileTableViewCell.xib in Resources */,
 				F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +316,7 @@
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
+				F974936D243371EF007AC49C /* ProfileTableViewCell.swift in Sources */,
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
 				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
@@ -432,7 +469,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R4A8L9UTY2;
+				DEVELOPMENT_TEAM = 6BD24629X8;
 				INFOPLIST_FILE = EasyPlaniOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -452,7 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R4A8L9UTY2;
+				DEVELOPMENT_TEAM = 6BD24629X8;
 				INFOPLIST_FILE = EasyPlaniOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
