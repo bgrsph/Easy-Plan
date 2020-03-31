@@ -8,12 +8,13 @@
 
 import UIKit
 import Firebase
+import StoreKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
     @IBOutlet weak var tableView: UITableView!
-    let optionList = ["Personal Information", "Notifications", "Give Feedback", "Share Us!", "Terms of Service"]
+    let optionList = ["Personal Information", "Notifications", "Rate the Application!", "Share Us!", "Terms of Service"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,10 +75,22 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if optionList[indexPath.row] == "Personal Information" {
-        performSegue(withIdentifier: "goToProfileInfo", sender: self)
-        } else {
-            print(optionList[indexPath.row] + " selected.")
+            performSegue(withIdentifier: "goToProfileInfo", sender: self)
         }
+        
+        //TODO: Change it with the actual link if possible
+        if optionList[indexPath.row] == "Share Us!" {
+            let activityController = UIActivityViewController(activityItems: ["*** Apple Store Download Link ***"], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+        }
+        
+    
+        if optionList[indexPath.row] == "Rate the Application!" {
+            SKStoreReviewController.requestReview()
+        }
+        
+        
+        
         
     }
     

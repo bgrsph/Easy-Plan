@@ -19,7 +19,7 @@
 		F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9665825242252A700EAF683 /* GoogleService-Info.plist */; };
 		F974936D243371EF007AC49C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974936B243371EF007AC49C /* ProfileTableViewCell.swift */; };
 		F974936E243371EF007AC49C /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974936C243371EF007AC49C /* ProfileTableViewCell.xib */; };
-		F974937524337A3B007AC49C /* Give Feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937024337A3B007AC49C /* Give Feedback.png */; };
+		F974937524337A3B007AC49C /* Rate the Application!.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937024337A3B007AC49C /* Rate the Application!.png */; };
 		F974937624337A3B007AC49C /* Share Us!.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937124337A3B007AC49C /* Share Us!.png */; };
 		F974937724337A3B007AC49C /* Terms of Service.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937224337A3B007AC49C /* Terms of Service.png */; };
 		F974937824337A3B007AC49C /* Notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937324337A3B007AC49C /* Notifications.png */; };
@@ -48,7 +48,7 @@
 		F9665825242252A700EAF683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F974936B243371EF007AC49C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F974936C243371EF007AC49C /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
-		F974937024337A3B007AC49C /* Give Feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Give Feedback.png"; sourceTree = "<group>"; };
+		F974937024337A3B007AC49C /* Rate the Application!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rate the Application!.png"; sourceTree = "<group>"; };
 		F974937124337A3B007AC49C /* Share Us!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share Us!.png"; sourceTree = "<group>"; };
 		F974937224337A3B007AC49C /* Terms of Service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Terms of Service.png"; sourceTree = "<group>"; };
 		F974937324337A3B007AC49C /* Notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notifications.png; sourceTree = "<group>"; };
@@ -79,6 +79,7 @@
 		362C1885240BE97800A55368 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				F974936F24337A3B007AC49C /* ProfileIcons */,
 				365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */,
 			);
 			path = Media;
@@ -129,20 +130,18 @@
 		F974936F24337A3B007AC49C /* ProfileIcons */ = {
 			isa = PBXGroup;
 			children = (
-				F974937024337A3B007AC49C /* Give Feedback.png */,
+				F974937024337A3B007AC49C /* Rate the Application!.png */,
 				F974937124337A3B007AC49C /* Share Us!.png */,
 				F974937224337A3B007AC49C /* Terms of Service.png */,
 				F974937324337A3B007AC49C /* Notifications.png */,
 				F974937424337A3B007AC49C /* Personal Information.png */,
 			);
-			name = ProfileIcons;
-			path = EasyPlaniOS/Media/ProfileIcons;
+			path = ProfileIcons;
 			sourceTree = "<group>";
 		};
 		F9B7E4ED240816B5001C7FB1 = {
 			isa = PBXGroup;
 			children = (
-				F974936F24337A3B007AC49C /* ProfileIcons */,
 				F9B7E4F8240816B5001C7FB1 /* EasyPlaniOS */,
 				F9B7E4F7240816B5001C7FB1 /* Products */,
 				BDCBC4B9346A9EF4B07B75EE /* Pods */,
@@ -237,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
-				F974937524337A3B007AC49C /* Give Feedback.png in Resources */,
+				F974937524337A3B007AC49C /* Rate the Application!.png in Resources */,
 				365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */,
 				F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */,
 				F974937624337A3B007AC49C /* Share Us!.png in Resources */,
