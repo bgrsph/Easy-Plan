@@ -71,5 +71,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if optionList[indexPath.row] == "Personal Information" {
+        performSegue(withIdentifier: "goToProfileInfo", sender: self)
+        } else {
+            print(optionList[indexPath.row] + " selected.")
+        }
+        
+    }
+    
     
 }

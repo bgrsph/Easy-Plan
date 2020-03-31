@@ -297,28 +297,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="rFK-eq-NzG" id="vyG-oE-dap"/>
-                        <segue destination="S53-3h-ztu" kind="show" id="ddr-ad-3W9"/>
+                        <segue destination="Gio-3K-DWQ" kind="show" identifier="goToProfileInfo" id="d6h-Aw-JYq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SqV-f6-K5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4288.4057971014499" y="1209.375"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="0ud-PK-ysF">
+        <!--Personal Information Scene-->
+        <scene sceneID="SL3-bS-hhh">
             <objects>
-                <viewController id="S53-3h-ztu" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ONK-WW-Pdb">
+                <viewController title="Personal Information Scene" id="Gio-3K-DWQ" customClass="PersonalInformationViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="leG-Qc-7Tq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="AJ4-KV-VYi"/>
+                        <viewLayoutGuide key="safeArea" id="Pnc-N7-1eY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xxj-fJ-Qpi"/>
+                    <navigationItem key="navigationItem" id="fne-j4-w2l"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NhB-vI-3HL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAK-zz-No7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4330" y="1989"/>
+            <point key="canvasLocation" x="4254" y="1979"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="TQj-sc-fOS">

@@ -24,6 +24,7 @@
 		F974937724337A3B007AC49C /* Terms of Service.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937224337A3B007AC49C /* Terms of Service.png */; };
 		F974937824337A3B007AC49C /* Notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937324337A3B007AC49C /* Notifications.png */; };
 		F974937924337A3B007AC49C /* Personal Information.png in Resources */ = {isa = PBXBuildFile; fileRef = F974937424337A3B007AC49C /* Personal Information.png */; };
+		F974937B24338149007AC49C /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974937A24338149007AC49C /* PersonalInformationViewController.swift */; };
 		F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */; };
 		F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */; };
 		F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FD240816B5001C7FB1 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		F974937224337A3B007AC49C /* Terms of Service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Terms of Service.png"; sourceTree = "<group>"; };
 		F974937324337A3B007AC49C /* Notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notifications.png; sourceTree = "<group>"; };
 		F974937424337A3B007AC49C /* Personal Information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Personal Information.png"; sourceTree = "<group>"; };
+		F974937A24338149007AC49C /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 		F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlaniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				36B52EBE2415AA4300F86894 /* ProfileViewController.swift */,
 				F974936B243371EF007AC49C /* ProfileTableViewCell.swift */,
 				F974936C243371EF007AC49C /* ProfileTableViewCell.xib */,
+				F974937A24338149007AC49C /* PersonalInformationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */,
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
 				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
+				F974937B24338149007AC49C /* PersonalInformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
