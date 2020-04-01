@@ -1,6 +1,9 @@
 package com.example.easyplan;
 
-public class Course {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Course implements Parcelable {
 
     private String id;
     private String catalog;
@@ -37,5 +40,15 @@ public class Course {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ClassSearchFragment"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:id="@+id/top">
+
+    <LinearLayout
+        android:id="@+id/layout5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="7"
+        >
+        <TextView
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="5dp"
+            android:gravity="center_vertical"
+            android:id="@+id/text"
+            android:text="Selected Courses"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5">
+
+        <Button
+            android:id="@+id/course1"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:layout_marginRight="50dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/course2"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5">
+
+        <Button
+            android:id="@+id/course3"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:layout_marginRight="50dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/course4"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5">
+
+        <Button
+            android:id="@+id/course5"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/course6"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5">
+
+        <Button
+            android:id="@+id/course7"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/course8"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="HAHAHAHAHA"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:id="@+id/text3"
+            android:text="Plan"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/planSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tooltipText="Monday - Wednesday"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+        <TextView
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:id="@+id/text4"
+            android:text="Start Time"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/welcomeLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+        <TextView
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:id="@+id/text5"
+            android:text="End Time"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/welcomeLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/welcomeLayout11"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <CheckBox
+            android:text="Monday - Wednesday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/welcomeLayout12"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <CheckBox
+            android:text="Tuesday - Thursday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/welcomeLayout13"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <CheckBox
+            android:text="Friday"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/welcomeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="15"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="Plan the Selected Courses"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,8 +42,6 @@ public class ClassSearchFragment extends Fragment {
     private String accEmail;
     Button searchClasses;
     RecyclerView recyclerView;
-    private FirebaseDatabase mDatabase;
-    private DatabaseReference mGetReference;
     public static ArrayList<Course> courseList = new ArrayList<>();
     private SearchView search;
     final CourseAdapter adapter = new CourseAdapter(courseList);
@@ -99,8 +98,6 @@ public class ClassSearchFragment extends Fragment {
 
 
         search = view.findViewById(R.id.search);
-        //search.setQueryHint("Enter text to filter results.");
-        //search.setBackgroundColor(Color.RED);
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -118,10 +115,19 @@ public class ClassSearchFragment extends Fragment {
         searchClasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //mDatabase.getReference().child("user").child("0").child("name").getValue(String.Class);
+
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("courseList", courseList);
+
+                PlanCourseFragment planCourse = new PlanCourseFragment();
+                planCourse.setArguments(bundle);
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment, planCourse);
+                transaction.commit();
             }
         });
 
+        text1.setText(selectedCourses.size() + " courses selected.");
 
         return view;
     }

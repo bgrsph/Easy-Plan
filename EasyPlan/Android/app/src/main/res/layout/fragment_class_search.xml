@@ -119,7 +119,7 @@
                 android:enabled="true"
                 android:fontFamily="sans-serif-smallcaps"
                 android:stateListAnimator="@null"
-                android:text="Select Courses to Plan"
+                android:text="Plan the Selected Courses"
                 android:textAllCaps="false"
                 android:textColor="@color/textColorAlmostWhite"
                 android:textSize="15dp" />
