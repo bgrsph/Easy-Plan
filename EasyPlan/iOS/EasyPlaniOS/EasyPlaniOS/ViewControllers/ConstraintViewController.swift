@@ -22,6 +22,11 @@ class ConstraintViewController: UIViewController {
     @IBOutlet weak var frCheck: UIImageView!
     @IBOutlet weak var tuThCheck: UIImageView!
     @IBOutlet weak var moWeCheck: UIImageView!
+    
+    var frChecked = false
+    var tuThChecked = false
+    var moWeChecked = false
+    
     enum Mode {
         case view
         case select
@@ -200,31 +205,36 @@ class ConstraintViewController: UIViewController {
     
     
     @IBAction func frTapped(_ sender: Any) {
-        if frCheck.image == UIImage(systemName: "square"){
-        frCheck.image = UIImage(systemName: "checkmark.square")
-        } else {
-             frCheck.image = UIImage(systemName: "square")
+        if frChecked {
+            frCheck.image = UIImage(systemName: "square")
+            frChecked = false
+        } else if !frChecked {
+             frCheck.image = UIImage(systemName: "checkmark.square")
+            frChecked = true
         }
     }
     
     
     @IBAction func tuThTapped(_ sender: Any) {
-        if tuThCheck.image == UIImage(systemName: "square"){
-        tuThCheck.image = UIImage(systemName: "checkmark.square")
-        } else {
-             tuThCheck.image = UIImage(systemName: "square")
+        if tuThChecked {
+            tuThCheck.image = UIImage(systemName: "square")
+            tuThChecked = false
+        } else if !frChecked {
+             tuThCheck.image = UIImage(systemName: "checkmark.square")
+            tuThChecked = true
         }
     }
     
     
     @IBAction func moWeTapped(_ sender: Any) {
-        if moWeCheck.image == UIImage(systemName: "square"){
-        moWeCheck.image = UIImage(systemName: "checkmark.square")
-        } else {
-             moWeCheck.image = UIImage(systemName: "square")
+        if moWeChecked {
+            moWeCheck.image = UIImage(systemName: "square")
+            moWeChecked = false
+        } else if !moWeChecked {
+             moWeCheck.image = UIImage(systemName: "checkmark.square")
+            moWeChecked = true
         }
-    }
-    
+}
 }
 
 
