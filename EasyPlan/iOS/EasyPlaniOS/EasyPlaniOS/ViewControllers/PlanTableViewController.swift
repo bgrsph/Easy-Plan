@@ -52,14 +52,24 @@ class PlanTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let button = UIButton(type: .system)
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 120))
+        headerView.backgroundColor = burgundy
+        let headerLabel = UILabel(frame: CGRect(x: 10, y: 10, width:tableView.bounds.size.width, height: 15))
+        headerLabel.textColor = UIColor.white
+        headerLabel.text = twoDimensionalArray[section].name
+        headerLabel.textAlignment = .left
+        headerView.addSubview(headerLabel)
         
+        let button = UIButton(frame: CGRect(x:headerView.frame.size.width - 100, y:0, width:100, height:28))
+        button.backgroundColor = burgundy
+        button.tintColor = UIColor.white
         let isExpanded = twoDimensionalArray[section].isExpanded
         button.setImage(isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.up"), for: .normal)
         
         button.addTarget(self, action: #selector(handleExpand), for: .touchUpInside)
         button.tag = section
-        return button
+        headerView.addSubview(button)
+        return headerView
         
     }
     
@@ -86,7 +96,7 @@ class PlanTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 34
+        return 40
     }
     
     
