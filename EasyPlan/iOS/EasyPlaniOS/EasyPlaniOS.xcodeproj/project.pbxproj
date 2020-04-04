@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36168B972437F1A300F5057D /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B962437F1A300F5057D /* Schedule.swift */; };
+		36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B982437F2E900F5057D /* PlanTableViewCell.swift */; };
+		36168B9F243816EA00F5057D /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B9E243816EA00F5057D /* PlanTableViewController.swift */; };
 		363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BD252242631BD00B40158 /* ConstraintViewController.swift */; };
 		364CC0D42423AD0E0098D42D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D32423AD0E0098D42D /* Course.swift */; };
 		364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */; };
 		3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */; };
 		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
-		36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBA2415AA1D00F86894 /* PlanViewController.swift */; };
 		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
 		36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBE2415AA4300F86894 /* ProfileViewController.swift */; };
+		36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */; };
 		36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCB24082FD40017AB05 /* SignUpViewController.swift */; };
 		36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCD24082FF60017AB05 /* LoginViewController.swift */; };
 		36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCF240830080017AB05 /* HomeViewController.swift */; };
@@ -31,14 +34,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36168B962437F1A300F5057D /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		36168B982437F2E900F5057D /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		36168B9E243816EA00F5057D /* PlanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
 		363BD252242631BD00B40158 /* ConstraintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintViewController.swift; sourceTree = "<group>"; };
 		364CC0D32423AD0E0098D42D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchTableViewCell.swift; sourceTree = "<group>"; };
 		3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConstraintCollectionViewCell.swift; sourceTree = "<group>"; };
 		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
-		36B52EBA2415AA1D00F86894 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		36B52EBC2415AA3500F86894 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		36B52EBE2415AA4300F86894 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandablePlan.swift; sourceTree = "<group>"; };
 		36E66FCB24082FD40017AB05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		36E66FCD24082FF60017AB05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36E66FCF240830080017AB05 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,8 @@
 			children = (
 				364CC0D32423AD0E0098D42D /* Course.swift */,
 				36F6CE9924291B4500227F1F /* CourseService.swift */,
+				36168B962437F1A300F5057D /* Schedule.swift */,
+				36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */,
+				36168B982437F2E900F5057D /* PlanTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -110,10 +119,10 @@
 				36E66FCB24082FD40017AB05 /* SignUpViewController.swift */,
 				36E66FCD24082FF60017AB05 /* LoginViewController.swift */,
 				36E66FCF240830080017AB05 /* HomeViewController.swift */,
-				36B52EBA2415AA1D00F86894 /* PlanViewController.swift */,
 				36B52EBC2415AA3500F86894 /* HelpViewController.swift */,
 				36B52EBE2415AA4300F86894 /* ProfileViewController.swift */,
 				363BD252242631BD00B40158 /* ConstraintViewController.swift */,
+				36168B9E243816EA00F5057D /* PlanTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -317,9 +326,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */,
+				36168B972437F1A300F5057D /* Schedule.swift in Sources */,
+				36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */,
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */,
 				364CC0D42423AD0E0098D42D /* Course.swift in Sources */,
+				36168B9F243816EA00F5057D /* PlanTableViewController.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
 				363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
@@ -328,8 +340,8 @@
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
 				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
 				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
-				36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */,
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
+				36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */,
 				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

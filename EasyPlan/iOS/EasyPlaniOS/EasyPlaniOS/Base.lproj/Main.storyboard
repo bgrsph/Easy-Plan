@@ -538,26 +538,51 @@
             </objects>
             <point key="canvasLocation" x="6302.898550724638" y="1024.5535714285713"/>
         </scene>
-        <!--Plan View Controller-->
-        <scene sceneID="jls-R7-7YU">
+        <!--Plan Table View Controller-->
+        <scene sceneID="IXY-bI-tB8">
             <objects>
-                <viewController id="0uL-84-o1h" customClass="PlanViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ifk-U6-JUn">
+                <tableViewController id="4Se-o7-bhM" customClass="PlanTableViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vkO-4e-FGE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="53T-ui-Gtc"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="IGu-6a-3OH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fd2-yf-04I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" textLabel="sRL-lQ-yZ9" style="IBUITableViewCellStyleDefault" id="FQh-E6-M2U" customClass="PlanTableViewCell" customModule="EasyPlaniOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FQh-E6-M2U" id="sSA-yT-8kW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sRL-lQ-yZ9">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="sRL-lQ-yZ9" id="73z-0E-6Tw"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4Se-o7-bhM" id="82s-Ne-xXU"/>
+                            <outlet property="delegate" destination="4Se-o7-bhM" id="Mof-br-bjR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5CV-SC-wym"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IaU-Qr-C5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5392.753623188406" y="-44.196428571428569"/>
+            <point key="canvasLocation" x="5674" y="-44"/>
         </scene>
-        <!--Class Search-->
+        <!--Home View Controller-->
         <scene sceneID="aDl-cR-o14">
             <objects>
-                <viewController id="RYy-TE-QYp" customClass="HomeViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home View Controller" id="RYy-TE-QYp" customClass="HomeViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWs-bG-ZN2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -566,7 +591,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="680"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="xDF-jH-ivH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                         <textInputTraits key="textInputTraits" smartInsertDeleteType="yes"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -574,7 +599,7 @@
                                         </scopeButtonTitles>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GUb-aP-fzi">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="616"/>
+                                        <rect key="frame" x="0.0" y="87" width="414" height="593"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="55" id="KY6-OD-Mey" customClass="CourseSearchTableViewCell" customModule="EasyPlaniOS" customModuleProvider="target">
@@ -674,7 +699,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="dYO-YG-0jc"/>
                                 </constraints>
-                                <state key="normal" title="Create Schedule">
+                                <state key="normal" title="PLAN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -976,7 +1001,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0uL-84-o1h" kind="relationship" relationship="rootViewController" id="sNk-JU-jHB"/>
+                        <segue destination="4Se-o7-bhM" kind="relationship" relationship="rootViewController" id="BvX-RL-I1n"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7z-iy-HNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

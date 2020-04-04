@@ -248,16 +248,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == UITableViewCell.EditingStyle.delete {
-    //           if searching {
-    //            searchCourse.remove(at: indexPath.row)
-    //            } else {
-    //            courses.remove(at: indexPath.row)
-    //            }
-    //            tableView.reloadData()
-    //        }
-    //    }
 }
 
 extension HomeViewController: UISearchBarDelegate{
@@ -282,3 +272,13 @@ extension HomeViewController: TableViewNew {
 }
 
 
+//        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//            if editingStyle == UITableViewCell.EditingStyle.delete {
+//                planArray.remove(at: indexPath.row)
+//                tableView.reloadData()
+//            }
+//        }
+
+//var planArray = [Plan(name: "Plan1", alternativeScheduleList: [Schedule(name: "S1", scheduleCourseList: [Course(subject: "Acct", id: "1", catalog: "201"), Course(subject: "Math", id: "2", catalog: "106") ]), Schedule(name: "S2", scheduleCourseList: [Course(subject: "Comp", id: "3", catalog: "491") ])]),
+//                 Plan(name: "Plan2", alternativeScheduleList: [Schedule(name: "S1", scheduleCourseList: [Course(subject: "Acct", id: "1", catalog: "201"), Course(subject: "Math", id: "2", catalog: "106") ]), Schedule(name: "S2", scheduleCourseList: [Course(subject: "Comp", id: "3", catalog: "491") ])]),
+//                 Plan(name: "Plan3", alternativeScheduleList: [Schedule(name: "S1", scheduleCourseList: [Course(subject: "Acct", id: "1", catalog: "201"), Course(subject: "Math", id: "2", catalog: "106") ]), Schedule(name: "S2", scheduleCourseList: [Course(subject: "Comp", id: "3", catalog: "491") ])])]

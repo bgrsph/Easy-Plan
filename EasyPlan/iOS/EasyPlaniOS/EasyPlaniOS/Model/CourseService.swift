@@ -21,7 +21,7 @@ class CourseService {
 //    retrieve the course and listen for changes
     func loadCourses(){
         ref = Database.database().reference()
-        databaseHandle = ref?.child("courseList").observe(.value, with: { (snapshot) in
+        databaseHandle = ref?.child("ugradCourses").observe(.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
                 self.courseDictionary.removeAll()
                 for course in snapshot.children.allObjects as![DataSnapshot] {
