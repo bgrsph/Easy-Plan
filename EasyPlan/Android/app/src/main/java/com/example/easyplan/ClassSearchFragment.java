@@ -117,7 +117,7 @@ public class ClassSearchFragment extends Fragment {
             public void onClick(View v) {
 
                 Bundle bundle = new Bundle();
-                bundle.putParcelableArrayList("courseList", courseList);
+                bundle.putParcelableArrayList("courseList", selectedCourses);
 
                 PlanCourseFragment planCourse = new PlanCourseFragment();
                 planCourse.setArguments(bundle);

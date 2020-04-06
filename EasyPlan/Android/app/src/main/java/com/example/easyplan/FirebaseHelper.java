@@ -22,7 +22,7 @@ public class FirebaseHelper {
 
     public FirebaseHelper() {
         mDatabase = FirebaseDatabase.getInstance();
-        mGetReference = mDatabase.getReference("courseList");
+        mGetReference = mDatabase.getReference("ugradCourses");
     }
 
     public interface DataStatus {
