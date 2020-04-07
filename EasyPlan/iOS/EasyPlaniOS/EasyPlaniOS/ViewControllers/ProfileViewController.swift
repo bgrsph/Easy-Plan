@@ -104,6 +104,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
         }
         
+        if optionList[indexPath.row] == "Notifications" {
+            
+               let url = URL(string:UIApplication.openSettingsURLString)
+               if UIApplication.shared.canOpenURL(url!){
+                   // can open succeeded.. opening the url
+                   UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+               }
+          }
         
         
     }
