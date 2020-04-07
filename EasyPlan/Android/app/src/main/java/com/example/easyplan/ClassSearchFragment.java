@@ -43,8 +43,9 @@ public class ClassSearchFragment extends Fragment {
     Button searchClasses;
     RecyclerView recyclerView;
     public static ArrayList<Course> courseList = new ArrayList<>();
+    public static ArrayList<Course> courseList1 = new ArrayList<>();
     private SearchView search;
-    final CourseAdapter adapter = new CourseAdapter(courseList);
+    final CourseAdapter adapter = new CourseAdapter(courseList1);
     View view;
 
     public ClassSearchFragment() {

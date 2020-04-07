@@ -24,11 +24,11 @@ import static com.example.easyplan.ClassSearchFragment.text1;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
 
-    private ArrayList<Course> courseList = new ArrayList<Course>();
+    private ArrayList<Course> courseList1 = new ArrayList<Course>();
     private ArrayList<Course> filterList = new ArrayList<Course>();
 
     public CourseAdapter(ArrayList<Course> courses) {
-        courseList = courses;
+        courseList1 = courses;
         filterList = courses;
     }
 
@@ -86,7 +86,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Course course = courseList.get(position);
+        Course course = courseList1.get(position);
 
         // Set item views based on your views and data model
         TextView textView1 = holder.nameTextView;
@@ -107,12 +107,12 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return courseList.size();
+        return courseList1.size();
     }
 
     public void filterList(ArrayList<Course> filteredList) {
-        courseList.clear();
-        courseList = filteredList;
+        courseList1.clear();
+        courseList1 = filteredList;
         notifyDataSetChanged();
     }
 
