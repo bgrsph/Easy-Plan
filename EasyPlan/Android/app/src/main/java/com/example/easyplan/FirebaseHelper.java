@@ -20,9 +20,9 @@ public class FirebaseHelper {
     private DatabaseReference mGetReference;
     public ArrayList<Course> courseList = new ArrayList<>();
 
-    public FirebaseHelper() {
+    public FirebaseHelper(String ref) {
         mDatabase = FirebaseDatabase.getInstance();
-        mGetReference = mDatabase.getReference("ugradCourses");
+        mGetReference = mDatabase.getReference(ref);
     }
 
     public interface DataStatus {
@@ -44,7 +44,6 @@ public class FirebaseHelper {
                     courseList.add(course);
                 }
                 dataStatus.DataIsLoaded(courseList, keys);
-                Log.d("MERT", "ON DATA CHANGE DONE");
             }
 
             @Override

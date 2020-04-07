@@ -24,7 +24,7 @@ public class Mainpage extends AppCompatActivity {
     private List<Course> courseList;
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
-    private FirebaseHelper a = new FirebaseHelper();
+    //private FirebaseHelper a = new FirebaseHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

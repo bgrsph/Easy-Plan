@@ -59,10 +59,24 @@ public class ClassSearchFragment extends Fragment {
 
         accEmail = this.getArguments().getString("accEmail");
         view = inflater.inflate(R.layout.fragment_class_search, container, false);
-        new FirebaseHelper().readData(new FirebaseHelper.DataStatus() {
+        new FirebaseHelper("ugradCourses").readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
-                courseList = courses;
+                boolean add = false;
+                for (Course x : courses) {
+                    if (courseList.isEmpty()) courseList.add(x);
+                    else {
+                        for (Course y : courseList) {
+                            add = true;
+                            if (x.getSubject().equals(y.getSubject()) && x.getCatalog().equals(y.getCatalog())) {
+                                add = false;
+                                break;
+                            }
+                        }
+                        if (add) courseList.add(x);
+                    }
+                }
+                //courseList = courses;
                 updateView(courseList);
             }
 
