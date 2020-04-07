@@ -34,6 +34,7 @@
 		F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E502240816B8001C7FB1 /* Assets.xcassets */; };
 		F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E504240816B8001C7FB1 /* LaunchScreen.storyboard */; };
 		F9C4FC97243CEA6C00959B67 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4FC96243CEA6B00959B67 /* TermsOfServiceViewController.swift */; };
+		F9C4FC99243D01A600959B67 /* Notification Consent TB Added.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F9C4FC98243D01A600959B67 /* Notification Consent TB Added.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -128,6 +129,7 @@
 		F9B7E505240816B8001C7FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9B7E507240816B8001C7FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9C4FC96243CEA6B00959B67 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		F9C4FC98243D01A600959B67 /* Notification Consent TB Added.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Notification Consent TB Added.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				F974936F24337A3B007AC49C /* ProfileIcons */,
 				365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */,
+				F9C4FC98243D01A600959B67 /* Notification Consent TB Added.rtf */,
 			);
 			path = Media;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				F974937524337A3B007AC49C /* Rate the Application!.png in Resources */,
 				365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */,
 				F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */,
+				F9C4FC99243D01A600959B67 /* Notification Consent TB Added.rtf in Resources */,
 				F974937624337A3B007AC49C /* Share Us!.png in Resources */,
 				F974937724337A3B007AC49C /* Terms of Service.png in Resources */,
 				F974937924337A3B007AC49C /* Personal Information.png in Resources */,

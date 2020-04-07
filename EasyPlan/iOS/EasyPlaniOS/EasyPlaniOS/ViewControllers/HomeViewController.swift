@@ -22,15 +22,15 @@ class HomeViewController: UIViewController {
         setUpElements()
         createDatePicker()
         
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            
-            if let error = error {
-                // Handle the error here.
-            }
-            
-            // Enable or disable features based on the authorization.
-        }
+//        let center = UNUserNotificationCenter.current()
+//        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+//            
+//            if let error = error {
+//                // Handle the error here.
+//            }
+//            
+//            // Enable or disable features based on the authorization.
+//        }
        
     }
     
@@ -114,15 +114,5 @@ class HomeViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

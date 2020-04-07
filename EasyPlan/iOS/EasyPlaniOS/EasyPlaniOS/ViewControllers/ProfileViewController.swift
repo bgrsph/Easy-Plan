@@ -15,8 +15,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     let optionList = ["Personal Information", "Notifications", "Rate the Application!", "Share Us!", "Terms of Service"]
-   
     var ref:DatabaseReference?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         // Cast the tableView to UIView
         tableView.delegate = self
         tableView.dataSource = self
-        
-//        //Set the firebase reference
-//        ref?.child("easy-plan-8e84f").observeSingleEvent(of: .value, with: { (snapshot) in
-//            let termsOfServiceText = value?[forKey: "termsOfService"] as? String ?? ""
-//        }, withCancel: <#T##((Error) -> Void)?##((Error) -> Void)?##(Error) -> Void#>)
         
     }
     
@@ -98,10 +94,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if optionList[indexPath.row] == "Terms of Service" {
             
             performSegue(withIdentifier: "goToTermsOfService", sender: self)
-
-            
-            
-            
         }
         
         if optionList[indexPath.row] == "Notifications" {
@@ -113,8 +105,5 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                }
           }
         
-        
     }
-    
-    
 }
