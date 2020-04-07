@@ -21,6 +21,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setUpElements()
         createDatePicker()
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            
+            if let error = error {
+                // Handle the error here.
+            }
+            
+            // Enable or disable features based on the authorization.
+        }
        
     }
     

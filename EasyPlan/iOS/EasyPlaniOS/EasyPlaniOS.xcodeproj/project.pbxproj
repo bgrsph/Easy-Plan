@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311E957E6214902BB0AB887E /* Pods_EasyPlaniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9FFD2E4A9373C787C341481 /* Pods_EasyPlaniOS.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
 		36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBA2415AA1D00F86894 /* PlanViewController.swift */; };
 		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
@@ -15,7 +16,8 @@
 		36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCD24082FF60017AB05 /* LoginViewController.swift */; };
 		36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCF240830080017AB05 /* HomeViewController.swift */; };
 		36E66FD524083BF50017AB05 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FD424083BF50017AB05 /* Utilities.swift */; };
-		B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */; };
+		F91420F924387EFC006EFE66 /* Pods_EasyPlaniOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9FFD2E4A9373C787C341481 /* Pods_EasyPlaniOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F9570D3A2437B91B00D2DB2B /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9665825242252A700EAF683 /* GoogleService-Info.plist */; };
 		F974936D243371EF007AC49C /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F974936B243371EF007AC49C /* ProfileTableViewCell.swift */; };
 		F974936E243371EF007AC49C /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F974936C243371EF007AC49C /* ProfileTableViewCell.xib */; };
@@ -31,7 +33,23 @@
 		F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E4FF240816B5001C7FB1 /* Main.storyboard */; };
 		F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E502240816B8001C7FB1 /* Assets.xcassets */; };
 		F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E504240816B8001C7FB1 /* LaunchScreen.storyboard */; };
+		F9C4FC97243CEA6C00959B67 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C4FC96243CEA6B00959B67 /* TermsOfServiceViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F9570D3B2437B91B00D2DB2B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "@executable_path/Frameworks";
+			dstSubfolderSpec = 10;
+			files = (
+				F91420F924387EFC006EFE66 /* Pods_EasyPlaniOS.framework in Embed Frameworks */,
+				F9570D3A2437B91B00D2DB2B /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
@@ -42,9 +60,56 @@
 		36E66FCD24082FF60017AB05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36E66FCF240830080017AB05 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		36E66FD424083BF50017AB05 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.release.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.release.xcconfig"; sourceTree = "<group>"; };
-		AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPlaniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59E640522EC00AE4E143E299 /* Pods-EasyPlaniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.release.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.release.xcconfig"; sourceTree = "<group>"; };
+		DF8A8886C23B31DC3388B403 /* Pods-EasyPlaniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E9FFD2E4A9373C787C341481 /* Pods_EasyPlaniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPlaniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420A524387CC2006EFE66 /* absl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = absl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420A724387CC2006EFE66 /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420A924387CC2006EFE66 /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420AB24387CC2006EFE66 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420AD24387CC2006EFE66 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420AF24387CC2006EFE66 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420B124387CC2006EFE66 /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420B324387CC2006EFE66 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420B524387CC2006EFE66 /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420B724387CC2006EFE66 /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420B924387CC2006EFE66 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420BB24387CC2006EFE66 /* grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420BD24387CC2006EFE66 /* grpcpp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpcpp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420BF24387CC2006EFE66 /* GTMAppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMAppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420C124387CC2006EFE66 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420C324387CC2006EFE66 /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420C524387CC2006EFE66 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F91420C724387CC2006EFE66 /* openssl_grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl_grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D3C2437B9C100D2DB2B /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D3E2437BFF600D2DB2B /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D402437C0C900D2DB2B /* absl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = absl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D422437C0C900D2DB2B /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D442437C0C900D2DB2B /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D462437C0C900D2DB2B /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D482437C0C900D2DB2B /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCoreDiagnostics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D4A2437C0C900D2DB2B /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D4C2437C0C900D2DB2B /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D4E2437C0C900D2DB2B /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D502437C0C900D2DB2B /* GoogleDataTransport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D522437C0C900D2DB2B /* GoogleDataTransportCCTSupport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleDataTransportCCTSupport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D542437C0C900D2DB2B /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D562437C0C900D2DB2B /* grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D582437C0C900D2DB2B /* grpcpp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpcpp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D5A2437C0C900D2DB2B /* GTMAppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMAppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D5C2437C0C900D2DB2B /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D5E2437C0C900D2DB2B /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D602437C0C900D2DB2B /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D622437C0C900D2DB2B /* openssl_grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl_grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D642437C15C00D2DB2B /* GTMAppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMAppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D662437C17B00D2DB2B /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D682437C1A900D2DB2B /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D6A2437C1C700D2DB2B /* absl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = absl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D6C2437C2E400D2DB2B /* grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D6E2437C30000D2DB2B /* grpcpp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = grpcpp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D702437C33600D2DB2B /* leveldb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = leveldb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D722437C35A00D2DB2B /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9570D742437C37300D2DB2B /* openssl_grpc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = openssl_grpc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9665825242252A700EAF683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F974936B243371EF007AC49C /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		F974936C243371EF007AC49C /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -62,6 +127,7 @@
 		F9B7E502240816B8001C7FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9B7E505240816B8001C7FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9B7E507240816B8001C7FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9C4FC96243CEA6B00959B67 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */,
+				311E957E6214902BB0AB887E /* Pods_EasyPlaniOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +164,7 @@
 				F974936B243371EF007AC49C /* ProfileTableViewCell.swift */,
 				F974936C243371EF007AC49C /* ProfileTableViewCell.xib */,
 				F974937A24338149007AC49C /* PersonalInformationViewController.swift */,
+				F9C4FC96243CEA6B00959B67 /* TermsOfServiceViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -113,7 +180,54 @@
 		3B897DB5E4D30B1E8C3E3B53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */,
+				F91420A524387CC2006EFE66 /* absl.framework */,
+				F91420A724387CC2006EFE66 /* AppAuth.framework */,
+				F91420A924387CC2006EFE66 /* FirebaseAuth.framework */,
+				F91420AB24387CC2006EFE66 /* FirebaseCore.framework */,
+				F91420AD24387CC2006EFE66 /* FirebaseCoreDiagnostics.framework */,
+				F91420AF24387CC2006EFE66 /* FirebaseDatabase.framework */,
+				F91420B124387CC2006EFE66 /* FirebaseFirestore.framework */,
+				F91420B324387CC2006EFE66 /* FirebaseInstanceID.framework */,
+				F91420B524387CC2006EFE66 /* GoogleDataTransport.framework */,
+				F91420B724387CC2006EFE66 /* GoogleDataTransportCCTSupport.framework */,
+				F91420B924387CC2006EFE66 /* GoogleUtilities.framework */,
+				F91420BB24387CC2006EFE66 /* grpc.framework */,
+				F91420BD24387CC2006EFE66 /* grpcpp.framework */,
+				F91420BF24387CC2006EFE66 /* GTMAppAuth.framework */,
+				F91420C124387CC2006EFE66 /* GTMSessionFetcher.framework */,
+				F91420C324387CC2006EFE66 /* leveldb.framework */,
+				F91420C524387CC2006EFE66 /* nanopb.framework */,
+				F91420C724387CC2006EFE66 /* openssl_grpc.framework */,
+				F9570D742437C37300D2DB2B /* openssl_grpc.framework */,
+				F9570D722437C35A00D2DB2B /* nanopb.framework */,
+				F9570D702437C33600D2DB2B /* leveldb.framework */,
+				F9570D6E2437C30000D2DB2B /* grpcpp.framework */,
+				F9570D6C2437C2E400D2DB2B /* grpc.framework */,
+				F9570D6A2437C1C700D2DB2B /* absl.framework */,
+				F9570D682437C1A900D2DB2B /* GoogleUtilities.framework */,
+				F9570D662437C17B00D2DB2B /* GTMSessionFetcher.framework */,
+				F9570D642437C15C00D2DB2B /* GTMAppAuth.framework */,
+				F9570D402437C0C900D2DB2B /* absl.framework */,
+				F9570D422437C0C900D2DB2B /* AppAuth.framework */,
+				F9570D442437C0C900D2DB2B /* FirebaseAuth.framework */,
+				F9570D462437C0C900D2DB2B /* FirebaseCore.framework */,
+				F9570D482437C0C900D2DB2B /* FirebaseCoreDiagnostics.framework */,
+				F9570D4A2437C0C900D2DB2B /* FirebaseDatabase.framework */,
+				F9570D4C2437C0C900D2DB2B /* FirebaseFirestore.framework */,
+				F9570D4E2437C0C900D2DB2B /* FirebaseInstanceID.framework */,
+				F9570D502437C0C900D2DB2B /* GoogleDataTransport.framework */,
+				F9570D522437C0C900D2DB2B /* GoogleDataTransportCCTSupport.framework */,
+				F9570D542437C0C900D2DB2B /* GoogleUtilities.framework */,
+				F9570D562437C0C900D2DB2B /* grpc.framework */,
+				F9570D582437C0C900D2DB2B /* grpcpp.framework */,
+				F9570D5A2437C0C900D2DB2B /* GTMAppAuth.framework */,
+				F9570D5C2437C0C900D2DB2B /* GTMSessionFetcher.framework */,
+				F9570D5E2437C0C900D2DB2B /* leveldb.framework */,
+				F9570D602437C0C900D2DB2B /* nanopb.framework */,
+				F9570D622437C0C900D2DB2B /* openssl_grpc.framework */,
+				F9570D3E2437BFF600D2DB2B /* AppAuth.framework */,
+				F9570D3C2437B9C100D2DB2B /* FirebaseAuth.framework */,
+				E9FFD2E4A9373C787C341481 /* Pods_EasyPlaniOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,8 +235,8 @@
 		BDCBC4B9346A9EF4B07B75EE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */,
-				7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */,
+				DF8A8886C23B31DC3388B403 /* Pods-EasyPlaniOS.debug.xcconfig */,
+				59E640522EC00AE4E143E299 /* Pods-EasyPlaniOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -181,12 +295,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9B7E50A240816B8001C7FB1 /* Build configuration list for PBXNativeTarget "EasyPlaniOS" */;
 			buildPhases = (
-				137700447059C536297C94E6 /* [CP] Check Pods Manifest.lock */,
+				2FAD1BAD903E55A43F0409D3 /* [CP] Check Pods Manifest.lock */,
 				F9B7E4F2240816B5001C7FB1 /* Sources */,
 				F9B7E4F3240816B5001C7FB1 /* Frameworks */,
 				F9B7E4F4240816B5001C7FB1 /* Resources */,
-				A292CC816F8B60C07DA94DC2 /* [CP] Embed Pods Frameworks */,
-				2FD835701F77EE8EEACEC28B /* [CP] Copy Pods Resources */,
+				F9570D3B2437B91B00D2DB2B /* Embed Frameworks */,
+				0AC073FBD3E39FA5262FC6CD /* [CP] Embed Pods Frameworks */,
+				A4ADA9C7497F4AE29712C91C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,7 +367,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		137700447059C536297C94E6 /* [CP] Check Pods Manifest.lock */ = {
+		0AC073FBD3E39FA5262FC6CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FAD1BAD903E55A43F0409D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -274,7 +406,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FD835701F77EE8EEACEC28B /* [CP] Copy Pods Resources */ = {
+		A4ADA9C7497F4AE29712C91C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -291,23 +423,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A292CC816F8B60C07DA94DC2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -315,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C4FC97243CEA6C00959B67 /* TermsOfServiceViewController.swift in Sources */,
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
@@ -468,7 +584,7 @@
 		};
 		F9B7E50B240816B8001C7FB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */;
+			baseConfigurationReference = DF8A8886C23B31DC3388B403 /* Pods-EasyPlaniOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -479,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CStudy.EasyPlaniOS;
+				PRODUCT_BUNDLE_IDENTIFIER = EasyPlaniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,7 +604,7 @@
 		};
 		F9B7E50C240816B8001C7FB1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */;
+			baseConfigurationReference = 59E640522EC00AE4E143E299 /* Pods-EasyPlaniOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CStudy.EasyPlaniOS;
+				PRODUCT_BUNDLE_IDENTIFIER = EasyPlaniOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

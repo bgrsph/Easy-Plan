@@ -298,11 +298,12 @@
                     <connections>
                         <outlet property="tableView" destination="rFK-eq-NzG" id="vyG-oE-dap"/>
                         <segue destination="Gio-3K-DWQ" kind="show" identifier="goToProfileInfo" id="d6h-Aw-JYq"/>
+                        <segue destination="CCe-aS-FJH" kind="show" identifier="goToTermsOfService" id="o4s-vi-Apl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SqV-f6-K5n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288.4057971014499" y="1209.375"/>
+            <point key="canvasLocation" x="4277" y="1209"/>
         </scene>
         <!--Personal Information Scene-->
         <scene sceneID="SL3-bS-hhh">
@@ -318,7 +319,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AAK-zz-No7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4254" y="1979"/>
+            <point key="canvasLocation" x="3380" y="1941"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="TQj-sc-fOS">
@@ -734,6 +735,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7z-iy-HNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4482.608695652174" y="-44.196428571428569"/>
+        </scene>
+        <!--Terms Of Service View Controller-->
+        <scene sceneID="2Hh-kZ-tpp">
+            <objects>
+                <viewController id="CCe-aS-FJH" customClass="TermsOfServiceViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LyZ-el-LMB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IOh-N7-GRW">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0QJ-JM-BbE" firstAttribute="bottom" secondItem="IOh-N7-GRW" secondAttribute="bottom" id="Wd6-nz-LQZ"/>
+                            <constraint firstItem="IOh-N7-GRW" firstAttribute="leading" secondItem="0QJ-JM-BbE" secondAttribute="leading" id="cBf-Gf-QR1"/>
+                            <constraint firstItem="0QJ-JM-BbE" firstAttribute="trailing" secondItem="IOh-N7-GRW" secondAttribute="trailing" id="vlQ-7s-PQU"/>
+                            <constraint firstItem="IOh-N7-GRW" firstAttribute="top" secondItem="0QJ-JM-BbE" secondAttribute="top" id="xeX-O2-ngS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0QJ-JM-BbE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="q0j-f0-hti"/>
+                    <connections>
+                        <outlet property="termsOfServiceTextView" destination="IOh-N7-GRW" id="8sg-6s-gvc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HlA-91-1Bp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4335" y="1941"/>
         </scene>
     </scenes>
     <resources>
