@@ -32,7 +32,7 @@ class TermsOfServiceViewController: UIViewController {
             self.termsOfServiceTextView.attributedText = attrStr
             
         }, withCancel: { (error) in
-            print("Problem with reading terms of service from the database")
+            print("Problem with reading terms of service from the database") 
         })
 }
 
