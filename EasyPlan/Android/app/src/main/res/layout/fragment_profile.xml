@@ -1,9 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".ProfileFragment"
+    android:orientation="vertical"
+    android:weightSum="10">
+    <LinearLayout
+        android:id="@+id/PersonalInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/PersonalInfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/personal_info"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:fontFamily="sans-serif-condensed-light"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:drawableRight="@drawable/personal_icon"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/NotificationsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/NotificationsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/notif"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:drawableRight="@drawable/notif_icon"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/RateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/RateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/rateApp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:drawableRight="@drawable/rate_icon"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ShareLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ShareText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/shareApp"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:drawableRight="@drawable/share_icon"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TermsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/TermsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/TermsOfService"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:drawableRight="@drawable/terms_2icon"/>
+    </LinearLayout>
+
 
     <!-- TODO: Update blank fragment layout -->
     <Button
@@ -16,4 +128,6 @@
         android:drawableLeft="@drawable/logout"
         android:background="@color/white"/>
 
-</FrameLayout>
+    </LinearLayout>
+
+

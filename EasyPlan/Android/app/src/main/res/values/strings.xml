@@ -38,7 +38,93 @@
     <string name="kusis_help_msg">"Having a trouble on KUSIS?"</string>
     <string name="contactUs">"Having a trouble on EASY PLAN? Send us an email."</string>
     <string name="contactUsEmail">"mkavcioglu13@ku.edu.tr"</string>
-   <!-- FAQ and Answers-->
+    <!-- FAQ and Answers-->
+
+
+    <!--  PROFILE STRINGS  -->
+    <string name="personal_info">Personal Information</string>
+    <string name="notif">Notifications</string>
+    <string name="rateApp">Rate the Application</string>
+    <string name="shareApp">Share Us!</string>
+    <string name="TermsOfService">Terms Of Services</string>
+
+    <!-- PERSONAL INFO TEXT -->
+    <string name="faculties">FACULTIES</string>
+    <string-array name="faculty_array">
+        <item>Select your faculty</item>
+        <item>College of Administrative Science and Economics</item>
+        <item>College of Engineering</item>
+        <item>College of Science</item>
+        <item>College of Social Sciences and Humanities</item>
+        <item>Law School</item>
+        <item>Nursing</item>
+        <item>School of Medicine</item>W
+    </string-array>
+
+    <string name="CASE">CASE</string>
+    <string-array name="case_dept">
+        <item>Select your department</item>
+        <item>Business</item>
+        <item>Economics</item>
+        <item>International Relations</item>
+    </string-array>
+
+    <string name="SCIENCE">SCIENCE</string>
+    <string-array name="scie_dept">
+        <item>Select your department</item>
+        <item>Chemistry</item>
+        <item>Mathematics</item>
+        <item>Molecular Biology and Genetics</item>
+        <item>Physics</item>
+    </string-array>
+
+    <string name="ENGINEERING">ENGINEERING</string>
+    <string-array name="eng_dept">
+        <item>Select your department</item>
+        <item>Chemical and Biological Engineering</item>
+        <item>Computer Engineering</item>
+        <item>Electrical and Electronics Engineering</item>
+        <item>Industrial Engineering</item>
+        <item>Mechanical Engineering</item>
+    </string-array>
+
+    <string name="CSSH">CSSH</string>
+    <string-array name="cssh_dept">
+        <item>Select your department</item>
+        <item>Archeology and Art History</item>
+        <item>Comparative Literature</item>
+        <item>History</item>
+        <item>Media and Visual Arts</item>
+        <item>Philosophy</item>
+        <item>Psychology</item>
+        <item>Sociology</item>
+    </string-array>
+
+    <string name="LAW">LAW</string>
+    <string-array name="law_dept">
+        <item>Select your department</item>
+        <item>Law</item>
+    </string-array>
+
+    <string name="MED">MEDICINE</string>
+    <string-array name="med_dept">
+        <item>Select your department</item>
+        <item>Medicine</item>
+    </string-array>
+
+    <string name="NURSING">NURSING</string>
+    <string-array name="nurse_dept">
+        <item>Select your department</item>
+        <item>Nursing</item>
+    </string-array>
+
+    <string-array name="empty_array">
+
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
