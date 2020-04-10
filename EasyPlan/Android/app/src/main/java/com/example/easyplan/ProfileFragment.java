@@ -28,9 +28,8 @@ import java.io.File;
  * A simple {@link Fragment} subclass.
  */
 public class ProfileFragment extends Fragment implements View.OnClickListener{
-    Button logout;
     FirebaseAuth auth;
-    TextView personalInfo, notif, rate, share, terms;
+    TextView personalInfo, notif, rate, share, terms, logout;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -55,7 +54,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         share.setOnClickListener(this);
         terms = v.findViewById(R.id.TermsText);
         terms.setOnClickListener(this);
-        logout = (Button) v.findViewById(R.id.logoutBtn);
+        logout = (TextView) v.findViewById(R.id.logoutBtn);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +63,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 editor.remove("remember");
                 editor.commit();
                 getActivity().finish();
-
                 startActivity(new Intent(getActivity(), WelcomePage.class));
             }
         });

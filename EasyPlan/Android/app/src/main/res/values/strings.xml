@@ -61,6 +61,7 @@
         <item>School of Medicine</item>W
     </string-array>
 
+    <string name="depts">DEPARTMENTS</string>
     <string name="CASE">CASE</string>
     <string-array name="case_dept">
         <item>Select your department</item>
@@ -122,6 +123,30 @@
 
     </string-array>
 
+    <string name="LEVEL">CURRENT ACADEMIC LEVEL</string>
+    <string-array name="levels">
+        <item>Select your current academic level</item>
+        <item>FRESHMAN</item>
+        <item>SOPHOMORE</item>
+        <item>JUNIOR</item>
+        <item>SENIOR</item>
+    </string-array>
+
+    <string-array name="levels_som">
+        <item>Select your current academic level</item>
+        <item>1 - FRESHMAN</item>
+        <item>2 - PRECLINIC 1ST YEAR</item>
+        <item>3 - PRECLINIC 2ND YEAR</item>
+        <item>4 - CLINIC 1ST YEAR</item>
+        <item>5 - CILINIC 2ND YEAR</item>
+        <item>6 - INTERNSHIP</item>
+    </string-array>
+    <string name="semester">SEMESTER</string>
+    <string-array name="semester">
+        <item>Select your current semester on that level</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -116,17 +116,26 @@
             android:drawableRight="@drawable/terms_2icon"/>
     </LinearLayout>
 
-
-    <!-- TODO: Update blank fragment layout -->
-    <Button
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:orientation="horizontal">
+    <TextView
         android:id="@+id/logoutBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/Logout"
         android:layout_gravity="center"
         android:clickable="true"
-        android:drawableLeft="@drawable/logout"
-        android:background="@color/white"/>
+        android:fontFamily="sans-serif-condensed-light"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:drawableRight="@drawable/logout"/>
+    </LinearLayout>
 
     </LinearLayout>
 

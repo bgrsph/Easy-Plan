@@ -48,7 +48,6 @@ public class TermsAndServices extends Fragment {
 
                 String html = dataSnapshot.getValue().toString();
                 termsHTML.setHtml(html);
-
             }
 
             @Override
