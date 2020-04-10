@@ -68,7 +68,7 @@ public class WelcomePage extends AppCompatActivity {
 
         });
 
-        SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String remembered = sp.getString("remember", "");
         if(remembered.equals("true")){
             startActivity(new Intent(WelcomePage.this, Mainpage.class));

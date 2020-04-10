@@ -341,7 +341,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
-        <CheckBox
+        <userPref
             android:text="Monday - Wednesday"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -359,7 +359,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
-        <CheckBox
+        <userPref
             android:text="Tuesday - Thursday"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -377,7 +377,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
-        <CheckBox
+        <userPref
             android:text="Friday"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

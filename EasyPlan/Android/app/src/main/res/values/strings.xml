@@ -103,19 +103,16 @@
 
     <string name="LAW">LAW</string>
     <string-array name="law_dept">
-        <item>Select your department</item>
         <item>Law</item>
     </string-array>
 
     <string name="MED">MEDICINE</string>
     <string-array name="med_dept">
-        <item>Select your department</item>
         <item>Medicine</item>
     </string-array>
 
     <string name="NURSING">NURSING</string>
     <string-array name="nurse_dept">
-        <item>Select your department</item>
         <item>Nursing</item>
     </string-array>
 

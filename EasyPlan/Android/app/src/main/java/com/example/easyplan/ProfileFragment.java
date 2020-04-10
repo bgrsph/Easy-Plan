@@ -58,7 +58,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sp = getActivity().getSharedPreferences("checkbox", Context.MODE_PRIVATE);
+                SharedPreferences sp = getActivity().getSharedPreferences("userPref", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sp.edit();
                 editor.remove("remember");
                 editor.commit();

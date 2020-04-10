@@ -116,9 +116,9 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\Mellow\.gradle
 	android:label
 		ADDED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:10:9-45
 	android:icon
-		ADDED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:8:9-43
+		ADDED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:8:9-40
 	android:allowBackup
 		ADDED from C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme

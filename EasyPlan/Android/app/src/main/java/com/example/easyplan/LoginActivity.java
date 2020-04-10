@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String check = sp.getString("remember", "");
         if(check.equals("true")){
             startActivity(new Intent(LoginActivity.this, Mainpage.class));
@@ -130,6 +130,10 @@ public class LoginActivity extends AppCompatActivity {
                                 if(user.isEmailVerified())
                                     {logEmail.setText("");
                                     logPass.setText("");
+                                    SharedPreferences spID = getSharedPreferences("userPref", MODE_PRIVATE);
+                                    SharedPreferences.Editor idEditor = spID.edit();
+                                    idEditor.putString("userID", auth.getUid());
+                                    idEditor.apply();
                                     startActivity(new Intent(LoginActivity.this, Mainpage.class));
                                 }else {
                                     Toast.makeText(LoginActivity.this, "Please verify your e-mail.", Toast.LENGTH_SHORT).show();
@@ -167,13 +171,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(buttonView.isChecked()){
-                    SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("remember", "true");
                     editor.apply();
 
                 }else if(!buttonView.isChecked()){
-                    SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+                    SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("remember", "false");
                     editor.apply();

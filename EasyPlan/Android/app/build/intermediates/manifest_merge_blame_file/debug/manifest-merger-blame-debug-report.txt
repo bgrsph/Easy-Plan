@@ -26,12 +26,12 @@
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 18-->[androidx.core:core:1.1.0] C:\Users\Mellow\.gradle\caches\transforms-2\files-2.1\331630a23dfa1f0594bcf54d5352aa36\core-1.1.0\AndroidManifest.xml:24:18-86
 19        android:debuggable="true"
-20        android:icon="@mipmap/ic_launcher"
-20-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:8:9-43
+20        android:icon="@mipmap/app_icon"
+20-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:8:9-40
 21        android:label="@string/app_name"
 21-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:9:9-41
-22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:10:9-54
+22        android:roundIcon="@mipmap/app_icon"
+22-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:10:9-45
 23        android:supportsRtl="true"
 23-->C:\Users\Mellow\Documents\GitHub\Easy-Plan\EasyPlan\Android\app\src\main\AndroidManifest.xml:11:9-35
 24        android:testOnly="true"
