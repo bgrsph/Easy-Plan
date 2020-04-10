@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +61,8 @@ public class ClassSearchFragment extends Fragment {
 
         accEmail = this.getArguments().getString("accEmail");
         view = inflater.inflate(R.layout.fragment_class_search, container, false);
+        final RelativeLayout rLay = view.findViewById(R.id.loadingPanel);
+
         new FirebaseHelper("ugradCourses").readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
@@ -78,6 +81,7 @@ public class ClassSearchFragment extends Fragment {
                     }
                 }
                 //courseList = courses;
+                rLay.setVisibility(View.GONE);
                 updateView(courseList);
             }
 
