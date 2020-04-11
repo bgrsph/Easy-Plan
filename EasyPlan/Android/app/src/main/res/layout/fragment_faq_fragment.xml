@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,15 +10,18 @@
     android:orientation="vertical"
     tools:context=".FAQ_fragment">
 
+
     <ExpandableListView
         android:id="@+id/faqExpandible"
         android:layout_width="wrap_content"
         android:layout_height="597dp"
         android:divider="@android:color/darker_gray"
+        android:groupIndicator="@color/button_red"
         android:dividerHeight="0.5dp"
+
         android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
 
 
 
 
-</FrameLayout>
+</LinearLayout>
