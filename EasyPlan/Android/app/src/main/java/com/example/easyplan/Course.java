@@ -160,7 +160,7 @@ public class Course implements Parcelable {
         wednesday = in.readString();
     }
 
-    public static final Creator<Course> CREATOR = new Creator<Course>() {
+    /*public static final Creator<Course> CREATOR = new Creator<Course>() {
         @Override
         public Course createFromParcel(Parcel in) {
             return new Course(in);
@@ -170,7 +170,7 @@ public class Course implements Parcelable {
         public Course[] newArray(int size) {
             return new Course[size];
         }
-    };
+    };*/
 
     public String getId() {
         return id;
