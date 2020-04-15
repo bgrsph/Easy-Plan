@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ClassSearchFragment"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:id="@+id/top">
+
+    <LinearLayout
+        android:id="@+id/layout5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="7"
+        >
+        <TextView
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="5dp"
+            android:gravity="center_vertical"
+            android:id="@+id/text"
+            android:text="Class Search"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="8"
+        >
+        <SearchView
+            android:gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_style"
+            android:paddingLeft="5dp"
+            android:id="@+id/search"
+            android:layout_width="300dp"
+            android:layout_height="25dp"
+            android:hint="Course Code"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#CFCFCF"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginEnd="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="4"
+        >
+        <TextView
+            android:id="@+id/text1"
+            android:gravity="center_horizontal"
+            android:text="0 Courses Selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            />
+    </LinearLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_weight="72"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="100"
+        app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/courseListView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="80"
+            app:layout_constraintBottom_toTopOf="@+id/welcomeLayout5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/loadingPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center" >
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/welcomeLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-16dp">
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_main"
+                android:enabled="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:stateListAnimator="@null"
+                android:text="Plan the Selected Courses"
+                android:textAllCaps="false"
+                android:textColor="@color/textColorAlmostWhite"
+                android:textSize="15dp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_weight="10"
+        >
+    </LinearLayout>
+
+</LinearLayout>

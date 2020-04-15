@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="30dp"
+    android:weightSum="100"
+    android:background="@drawable/border"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/layout"
+    >
+
+    <TextView
+        android:id="@+id/courseName"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="70"
+        android:textSize="20sp"
+        />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_weight="30"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        />
+
+</LinearLayout>

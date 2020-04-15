@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:background="@drawable/border"
+    android:clickable="true"
+    android:focusable="true"
+    android:id="@+id/scheduleLayout">
+
+    <TextView
+        android:id="@+id/scheduleGroup"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_weight="70"
+        android:textSize="15dp"/>
+
+    <ImageView
+        android:id="@+id/scheduleDeleteBtn"
+        android:layout_weight="30"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        app:srcCompat="@drawable/delete_icon"/>
+
+</LinearLayout>
+
