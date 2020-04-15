@@ -1,7 +1,6 @@
 package com.example.easyplan;
 
 
-import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,109 +8,74 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListAdapter;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlansFragment extends Fragment {
-    MainAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
+public class PlansFragment extends Fragment implements AdapterView.OnItemClickListener {
     View view;
+    List<String> listPlanGroups;
+    HashMap<String, List<String>> mapSchedulePlan;
+    ExpandableListView planExpandable;
+    PlanAdapter planAdapter;
+    int count;
 
     public PlansFragment() {
 
-        // Required empty public constructor
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        count = 0;
         view = inflater.inflate(R.layout.fragment_plans_fragment, container, false);
-        // get the listview
-        expListView = (ExpandableListView) view.findViewById(R.id.plansExpandable);
+        listPlanGroups = new ArrayList<>();
+        mapSchedulePlan = new HashMap<>();
+        planExpandable = view.findViewById(R.id.plansExpandable);
 
-        // preparing list data
-        prepareListData();
-
-        listAdapter = new MainAdapter(getActivity(), listDataHeader, listDataChild);
-
-        // setting list adapter
-        expListView.setAdapter(listAdapter);
+        planAdapter = new PlanAdapter(getContext(), listPlanGroups, mapSchedulePlan);
+        createAPlan(2);
+        createAPlan(3);
+        createAPlan(4);
+        createAPlan(1);
+        planExpandable.setAdapter(planAdapter);
+        for(int i = 0; i < planAdapter.getGroupCount(); i++)
+            planExpandable.expandGroup(i);
         return view;
     }
 
-    public HashMap<String, String> getData(){
 
-        return null;
+
+    private void createAPlan(int sch){
+        listPlanGroups.add("Plan#"+(count+1));
+        List<String> schedules = new ArrayList<String>();
+        if(sch > 0 ){
+            for (int i = 1; i <= sch; i++){
+                schedules.add("Schedule#" + i);
+            }
+        }
+        mapSchedulePlan.put(listPlanGroups.get(count),schedules);
+        count++;
     }
 
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
 
-        // Adding child data
-        listDataHeader.add("Plan#1");
-        listDataHeader.add("Plan#2");
-        listDataHeader.add("Plan#3");
-
-        // Adding child data
-        List<String> list1 = new ArrayList<String>();
-        list1.add("schedule1");
-
-
-        List<String> list2 = new ArrayList<String>();
-        list2.add("schedule1");
-        list2.add("schedule2");
-        list2.add("schedule3");
-
-
-        List<String> list3 = new ArrayList<String>();
-        list3.add("schedule1");
-        list3.add("schedule2");
-        list3.add("schedule3");
-        list3.add("schedule4");
-
-        listDataChild.put(listDataHeader.get(0), list1); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), list2);
-        listDataChild.put(listDataHeader.get(2), list3);
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getContext(), "mellow", Toast.LENGTH_SHORT);
     }
-  /*  private void initPlanData() {
-        plans.add("Plan#1");
-        plans.add("Plan#2");
-        plans.add("Plan#3");
-
-        String[] array = {"Schedule#1", "Schedule#2"};
-        List<String> list1 = new ArrayList<>();
-        for(String s : array){
-            list1.add(s);
-        }
-        String[] array2 = {"Schedule#1", "Schedule#2", "Schedule#3"};
-        List<String> list2 = new ArrayList<>();
-        for(String s : array2){
-            list2.add(s);
-        }
-        String[] array3 = {"Schedule#1", "Schedule#2"};
-        List<String> list3 = new ArrayList<>();
-        for(String s : array){
-            list3.add(s);
-        }
-        planScheduleMap.put(plans.get(0), "schedule1");
-        planScheduleMap.put(plans.get(1), "schedule2");
-        planScheduleMap.put(plans.get(2), "schedule3");
-//        adapter.notifyDataSetChanged();
-
-
-    }*/
-
-
 }
+
