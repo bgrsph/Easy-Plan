@@ -59,6 +59,9 @@ class LoginViewController: UIViewController {
             Utilities.styleTextField(emailTextField)
             Utilities.styleTextField(passwordTextField)
             Utilities.styleFilledButton(loginButton)
+        
+        emailTextField.clearButtonMode = .whileEditing
+        passwordTextField.clearButtonMode = .whileEditing
             
         }
     

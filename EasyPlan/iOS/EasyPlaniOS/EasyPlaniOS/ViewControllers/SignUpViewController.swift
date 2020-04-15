@@ -79,6 +79,14 @@ class SignUpViewController: UIViewController, GIDSignInDelegate {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
+        
+        
+        firstNameTextField.clearButtonMode = .whileEditing
+        lastNameTextField.clearButtonMode = .whileEditing
+        emailTextField.clearButtonMode = .whileEditing
+        (passwordTextField).clearButtonMode = .whileEditing
+
+        
     }
     
     //    check the fields and validate that the data is correct
