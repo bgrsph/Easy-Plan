@@ -7,38 +7,79 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		362C1889240BF76600A55368 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 362C1888240BF76600A55368 /* koc_tanitim.mp4 */; };
-		36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBA2415AA1D00F86894 /* PlanViewController.swift */; };
+		36168B972437F1A300F5057D /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B962437F1A300F5057D /* Schedule.swift */; };
+		36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B982437F2E900F5057D /* PlanTableViewCell.swift */; };
+		36168B9F243816EA00F5057D /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B9E243816EA00F5057D /* PlanTableViewController.swift */; };
+		363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BD252242631BD00B40158 /* ConstraintViewController.swift */; };
+		364CC0D42423AD0E0098D42D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D32423AD0E0098D42D /* Course.swift */; };
+		364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */; };
+		3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */; };
+		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
 		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
 		36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBE2415AA4300F86894 /* ProfileViewController.swift */; };
-		36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */; };
+		36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */; };
 		36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCB24082FD40017AB05 /* SignUpViewController.swift */; };
 		36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCD24082FF60017AB05 /* LoginViewController.swift */; };
 		36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FCF240830080017AB05 /* HomeViewController.swift */; };
 		36E66FD524083BF50017AB05 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FD424083BF50017AB05 /* Utilities.swift */; };
+		36F6CE9A24291B4500227F1F /* CourseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F6CE9924291B4500227F1F /* CourseService.swift */; };
 		B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */; };
+		F9374E72244798210081C0BC /* original.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6A244798210081C0BC /* original.jpeg */; };
+		F9374E73244798210081C0BC /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6B244798210081C0BC /* 58x58.png */; };
+		F9374E74244798210081C0BC /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6C244798210081C0BC /* 180x180.png */; };
+		F9374E75244798210081C0BC /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6D244798210081C0BC /* 40x40.png */; };
+		F9374E76244798210081C0BC /* 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6E244798210081C0BC /* 60x60.png */; };
+		F9374E77244798210081C0BC /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6F244798210081C0BC /* 80x80.png */; };
+		F9374E78244798210081C0BC /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E70244798210081C0BC /* 120x120.png */; };
+		F9374E79244798210081C0BC /* 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E71244798210081C0BC /* 87x87.png */; };
+		F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9665825242252A700EAF683 /* GoogleService-Info.plist */; };
 		F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */; };
 		F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */; };
 		F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FD240816B5001C7FB1 /* ViewController.swift */; };
 		F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E4FF240816B5001C7FB1 /* Main.storyboard */; };
 		F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E502240816B8001C7FB1 /* Assets.xcassets */; };
 		F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9B7E504240816B8001C7FB1 /* LaunchScreen.storyboard */; };
+		F9BFF67D2447600F00A85278 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFF67B2447600F00A85278 /* ProfileTableViewCell.swift */; };
+		F9BFF67E2447600F00A85278 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF67C2447600F00A85278 /* ProfileTableViewCell.xib */; };
+		F9BFF685244761A700A85278 /* Personal Information.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF680244761A700A85278 /* Personal Information.png */; };
+		F9BFF686244761A700A85278 /* Notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF681244761A700A85278 /* Notifications.png */; };
+		F9BFF687244761A700A85278 /* Share Us!.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF682244761A700A85278 /* Share Us!.png */; };
+		F9BFF688244761A700A85278 /* Terms of Service.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF683244761A700A85278 /* Terms of Service.png */; };
+		F9BFF689244761A700A85278 /* Rate the Application!.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF684244761A700A85278 /* Rate the Application!.png */; };
+		F9BFF68D244763BC00A85278 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFF68C244763BC00A85278 /* TermsOfServiceViewController.swift */; };
+		F9BFF68F2447672400A85278 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFF68E2447672400A85278 /* PersonalInformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		362C1888240BF76600A55368 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
-		36B52EBA2415AA1D00F86894 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		36168B962437F1A300F5057D /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		36168B982437F2E900F5057D /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		36168B9E243816EA00F5057D /* PlanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
+		363BD252242631BD00B40158 /* ConstraintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintViewController.swift; sourceTree = "<group>"; };
+		364CC0D32423AD0E0098D42D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchTableViewCell.swift; sourceTree = "<group>"; };
+		3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConstraintCollectionViewCell.swift; sourceTree = "<group>"; };
+		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
 		36B52EBC2415AA3500F86894 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		36B52EBE2415AA4300F86894 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandablePlan.swift; sourceTree = "<group>"; };
 		36E66FCB24082FD40017AB05 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		36E66FCD24082FF60017AB05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		36E66FCF240830080017AB05 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		36E66FD424083BF50017AB05 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		36F6CE9924291B4500227F1F /* CourseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseService.swift; sourceTree = "<group>"; };
 		7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.release.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.release.xcconfig"; sourceTree = "<group>"; };
 		AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPlaniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlaniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9374E6A244798210081C0BC /* original.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = original.jpeg; sourceTree = "<group>"; };
+		F9374E6B244798210081C0BC /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		F9374E6C244798210081C0BC /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
+		F9374E6D244798210081C0BC /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		F9374E6E244798210081C0BC /* 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60x60.png; sourceTree = "<group>"; };
+		F9374E6F244798210081C0BC /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		F9374E70244798210081C0BC /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		F9374E71244798210081C0BC /* 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 87x87.png; sourceTree = "<group>"; };
+		F9665825242252A700EAF683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FD240816B5001C7FB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +87,15 @@
 		F9B7E502240816B8001C7FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9B7E505240816B8001C7FB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9B7E507240816B8001C7FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9BFF67B2447600F00A85278 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		F9BFF67C2447600F00A85278 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		F9BFF680244761A700A85278 /* Personal Information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Personal Information.png"; sourceTree = "<group>"; };
+		F9BFF681244761A700A85278 /* Notifications.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notifications.png; sourceTree = "<group>"; };
+		F9BFF682244761A700A85278 /* Share Us!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Share Us!.png"; sourceTree = "<group>"; };
+		F9BFF683244761A700A85278 /* Terms of Service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Terms of Service.png"; sourceTree = "<group>"; };
+		F9BFF684244761A700A85278 /* Rate the Application!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rate the Application!.png"; sourceTree = "<group>"; };
+		F9BFF68C244763BC00A85278 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		F9BFF68E2447672400A85278 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +113,41 @@
 		362C1885240BE97800A55368 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				362C1888240BF76600A55368 /* koc_tanitim.mp4 */,
+				F9374E69244798020081C0BC /* AppIcons */,
+				F9BFF67F2447618D00A85278 /* ProfileIcons */,
+				365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		364CC0D22423ACF00098D42D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				364CC0D32423AD0E0098D42D /* Course.swift */,
+				36F6CE9924291B4500227F1F /* CourseService.swift */,
+				36168B962437F1A300F5057D /* Schedule.swift */,
+				36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		364CC0D52423C3E40098D42D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F9BFF67B2447600F00A85278 /* ProfileTableViewCell.swift */,
+				F9BFF67C2447600F00A85278 /* ProfileTableViewCell.xib */,
+				364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */,
+				36168B982437F2E900F5057D /* PlanTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		3657984C2426DD3000C5F3C2 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		36E66FCA24082F9E0017AB05 /* ViewControllers */ = {
@@ -75,9 +157,12 @@
 				36E66FCB24082FD40017AB05 /* SignUpViewController.swift */,
 				36E66FCD24082FF60017AB05 /* LoginViewController.swift */,
 				36E66FCF240830080017AB05 /* HomeViewController.swift */,
-				36B52EBA2415AA1D00F86894 /* PlanViewController.swift */,
 				36B52EBC2415AA3500F86894 /* HelpViewController.swift */,
 				36B52EBE2415AA4300F86894 /* ProfileViewController.swift */,
+				363BD252242631BD00B40158 /* ConstraintViewController.swift */,
+				36168B9E243816EA00F5057D /* PlanTableViewController.swift */,
+				F9BFF68C244763BC00A85278 /* TermsOfServiceViewController.swift */,
+				F9BFF68E2447672400A85278 /* PersonalInformationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,6 +192,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F9374E69244798020081C0BC /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				F9374E6D244798210081C0BC /* 40x40.png */,
+				F9374E6B244798210081C0BC /* 58x58.png */,
+				F9374E6E244798210081C0BC /* 60x60.png */,
+				F9374E6F244798210081C0BC /* 80x80.png */,
+				F9374E71244798210081C0BC /* 87x87.png */,
+				F9374E70244798210081C0BC /* 120x120.png */,
+				F9374E6C244798210081C0BC /* 180x180.png */,
+				F9374E6A244798210081C0BC /* original.jpeg */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
 		F9B7E4ED240816B5001C7FB1 = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +220,7 @@
 		F9B7E4F7240816B5001C7FB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */,
+				F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,8 +228,11 @@
 		F9B7E4F8240816B5001C7FB1 /* EasyPlaniOS */ = {
 			isa = PBXGroup;
 			children = (
+				3657984C2426DD3000C5F3C2 /* CollectionViewCell */,
+				364CC0D52423C3E40098D42D /* TableViewCell */,
 				362C1885240BE97800A55368 /* Media */,
 				36E66FD124083B030017AB05 /* Helpers */,
+				364CC0D22423ACF00098D42D /* Model */,
 				36E66FCA24082F9E0017AB05 /* ViewControllers */,
 				F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */,
 				F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */,
@@ -137,9 +240,21 @@
 				F9B7E502240816B8001C7FB1 /* Assets.xcassets */,
 				F9B7E504240816B8001C7FB1 /* LaunchScreen.storyboard */,
 				F9B7E507240816B8001C7FB1 /* Info.plist */,
-				36E66FC8240821FF0017AB05 /* GoogleService-Info.plist */,
+				F9665825242252A700EAF683 /* GoogleService-Info.plist */,
 			);
 			path = EasyPlaniOS;
+			sourceTree = "<group>";
+		};
+		F9BFF67F2447618D00A85278 /* ProfileIcons */ = {
+			isa = PBXGroup;
+			children = (
+				F9BFF681244761A700A85278 /* Notifications.png */,
+				F9BFF680244761A700A85278 /* Personal Information.png */,
+				F9BFF684244761A700A85278 /* Rate the Application!.png */,
+				F9BFF682244761A700A85278 /* Share Us!.png */,
+				F9BFF683244761A700A85278 /* Terms of Service.png */,
+			);
+			path = ProfileIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +277,7 @@
 			);
 			name = EasyPlaniOS;
 			productName = EasyPlaniOS;
-			productReference = F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */;
+			productReference = F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -203,11 +318,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9374E76244798210081C0BC /* 60x60.png in Resources */,
+				F9BFF688244761A700A85278 /* Terms of Service.png in Resources */,
+				F9BFF687244761A700A85278 /* Share Us!.png in Resources */,
+				F9374E72244798210081C0BC /* original.jpeg in Resources */,
+				F9374E77244798210081C0BC /* 80x80.png in Resources */,
+				F9374E79244798210081C0BC /* 87x87.png in Resources */,
+				F9BFF685244761A700A85278 /* Personal Information.png in Resources */,
+				F9374E74244798210081C0BC /* 180x180.png in Resources */,
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
-				362C1889240BF76600A55368 /* koc_tanitim.mp4 in Resources */,
-				36E66FC9240821FF0017AB05 /* GoogleService-Info.plist in Resources */,
+				F9374E75244798210081C0BC /* 40x40.png in Resources */,
+				365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */,
+				F9374E78244798210081C0BC /* 120x120.png in Resources */,
+				F9374E73244798210081C0BC /* 58x58.png in Resources */,
+				F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */,
 				F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */,
 				F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */,
+				F9BFF686244761A700A85278 /* Notifications.png in Resources */,
+				F9BFF689244761A700A85278 /* Rate the Application!.png in Resources */,
+				F9BFF67E2447600F00A85278 /* ProfileTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,15 +406,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */,
+				36168B972437F1A300F5057D /* Schedule.swift in Sources */,
+				36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */,
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
+				3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */,
+				364CC0D42423AD0E0098D42D /* Course.swift in Sources */,
+				36168B9F243816EA00F5057D /* PlanTableViewController.swift in Sources */,
+				F9BFF67D2447600F00A85278 /* ProfileTableViewCell.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
+				F9BFF68D244763BC00A85278 /* TermsOfServiceViewController.swift in Sources */,
+				363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
+				36F6CE9A24291B4500227F1F /* CourseService.swift in Sources */,
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
 				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
 				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
-				36B52EBB2415AA1D00F86894 /* PlanViewController.swift in Sources */,
+				F9BFF68F2447672400A85278 /* PersonalInformationViewController.swift in Sources */,
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
+				36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */,
 				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,15 +572,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R4A8L9UTY2;
+				DEVELOPMENT_TEAM = 6BD24629X8;
 				INFOPLIST_FILE = EasyPlaniOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CStudy.EasyPlaniOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = EasyPlaniOS;
+				PRODUCT_NAME = EasyPlan;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,15 +592,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R4A8L9UTY2;
+				DEVELOPMENT_TEAM = 6BD24629X8;
 				INFOPLIST_FILE = EasyPlaniOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CStudy.EasyPlaniOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = EasyPlaniOS;
+				PRODUCT_NAME = EasyPlan;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

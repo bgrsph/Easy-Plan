@@ -8,12 +8,10 @@
 
 import UIKit
 import FirebaseAuth
-import GoogleSignIn
 
-class SignUpViewController: UIViewController, GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
+
+class SignUpViewController: UIViewController {
+
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -22,21 +20,25 @@ class SignUpViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var signInGoogleButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
-        GIDSignIn.sharedInstance()?.delegate = self
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-    }
-
-    @IBAction func signInGoogleTapped(_ sender: Any) {
+//        GIDSignIn.sharedInstance()?.delegate = self
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
         
-        GIDSignIn.sharedInstance().signIn()
-        self.performSegue(withIdentifier: "SignUpToHome", sender: self)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    
+
     @IBAction func signUpTapped(_ sender: Any) {
         let error = validateFields()
         if error != nil {
@@ -72,6 +74,14 @@ class SignUpViewController: UIViewController, GIDSignInDelegate {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
+        
+        
+        firstNameTextField.clearButtonMode = .whileEditing
+        lastNameTextField.clearButtonMode = .whileEditing
+        emailTextField.clearButtonMode = .whileEditing
+        (passwordTextField).clearButtonMode = .whileEditing
+
+        
     }
     
     //    check the fields and validate that the data is correct

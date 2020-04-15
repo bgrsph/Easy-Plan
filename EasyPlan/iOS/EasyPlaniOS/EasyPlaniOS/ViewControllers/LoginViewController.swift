@@ -25,6 +25,11 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+         // Hide the navigation bar on the this view controller
+         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+     }
 
     /*
     // MARK: - Navigation
@@ -54,6 +59,9 @@ class LoginViewController: UIViewController {
             Utilities.styleTextField(emailTextField)
             Utilities.styleTextField(passwordTextField)
             Utilities.styleFilledButton(loginButton)
+        
+        emailTextField.clearButtonMode = .whileEditing
+        passwordTextField.clearButtonMode = .whileEditing
             
         }
     

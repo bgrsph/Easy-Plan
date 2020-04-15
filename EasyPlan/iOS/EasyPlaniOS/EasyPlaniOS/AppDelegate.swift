@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 return
             }
             print("User is signed in with Firebase")
+
         }
     }
     

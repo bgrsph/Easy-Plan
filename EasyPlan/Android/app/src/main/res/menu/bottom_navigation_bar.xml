@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search_menu"
+        android:title="@string/classsearch"/>
+
+    <item
+        android:id="@+id/plans"
+        android:icon="@drawable/plans_menu"
+        android:title="@string/plans"/>
+
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/help_menu"
+        android:title="@string/helpcenter"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_menu"
+        android:title="@string/profile"/>
+
+</menu>

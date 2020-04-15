@@ -40,10 +40,35 @@ class Utilities {
         
         // Hollow rounded corner style
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.black.cgColor
+        //button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.white.cgColor
         button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.black
+        //button.tintColor = UIColor.black
+        button.tintColor = UIColor.white
     }
+    
+    static func styleHollowLabel(_ label:UILabel, i:Int) {
+        let purple = UIColor(red:0.76, green:0.30, blue:0.96, alpha:1.00)
+        let blue = UIColor(red:0.00, green:0.66, blue:1.00, alpha:1.00)
+//        let green = UIColor(red:0.16, green:0.81, blue:0.46, alpha:1.00)
+         let green = UIColor(red:0.00, green:1.00, blue:0.76, alpha:1.00)
+        let turcoise = UIColor(red:0.00, green:1.00, blue:1.00, alpha:1.00)
+        let pink = UIColor(red:1.00, green:0.08, blue:0.58, alpha:1.00)
+        let yellow = UIColor(red:1.00, green:0.89, blue:0.01, alpha:1.00)
+        let red = UIColor(red:0.95, green:0.10, blue:0.11, alpha:1.00)
+        let orange = UIColor(red:1.00, green:0.51, blue:0.18, alpha:1.00)
+        
+           let colorArray = [purple, blue, green, turcoise, pink, yellow, red, orange]
+           // Hollow rounded corner style
+           label.layer.borderWidth = 1
+           label.layer.borderColor = UIColor.black.cgColor
+//           label.layer.borderColor = UIColor.white.cgColor
+           label.layer.cornerRadius = 10.0
+           label.tintColor = UIColor.black
+        label.layer.backgroundColor = colorArray[i].cgColor
+//           label.tintColor = UIColor.white
+       }
+    
     
     static func isPasswordValid(_ password : String) -> Bool {
         

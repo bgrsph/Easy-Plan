@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>110336967371-k4pbjbte7guoc90vgja9iqglom600kbg.apps.googleusercontent.com</string>
+	<string>357353831267-0alb0lbglsi3mhe5qdric4f9l9rbb0pf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.110336967371-k4pbjbte7guoc90vgja9iqglom600kbg</string>
+	<string>com.googleusercontent.apps.357353831267-0alb0lbglsi3mhe5qdric4f9l9rbb0pf</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAJQo1YrYsIeQFRQdSefXAvJF1r39n-6F4</string>
+	<string>AIzaSyCeuDv3zNO8mVToMq8GZdKTLAR5NSHbFbs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>110336967371</string>
+	<string>357353831267</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>CStudy.EasyPlaniOS</string>
 	<key>PROJECT_ID</key>
-	<string>easyplan-1c4b5</string>
+	<string>easy-plan-8e84f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>easyplan-1c4b5.appspot.com</string>
+	<string>easy-plan-8e84f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:110336967371:ios:a00fca948bef655b7f914e</string>
+	<string>1:357353831267:ios:16e3e7b3cd3d34458eb156</string>
 	<key>DATABASE_URL</key>
-	<string>https://easyplan-1c4b5.firebaseio.com</string>
+	<string>https://easy-plan-8e84f.firebaseio.com</string>
 </dict>
 </plist>
