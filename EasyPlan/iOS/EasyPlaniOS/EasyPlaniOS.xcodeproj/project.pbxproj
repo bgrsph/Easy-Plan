@@ -24,6 +24,14 @@
 		36E66FD524083BF50017AB05 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E66FD424083BF50017AB05 /* Utilities.swift */; };
 		36F6CE9A24291B4500227F1F /* CourseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F6CE9924291B4500227F1F /* CourseService.swift */; };
 		B72E57F89CF1E0DBD5E96584 /* Pods_EasyPlaniOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */; };
+		F9374E72244798210081C0BC /* original.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6A244798210081C0BC /* original.jpeg */; };
+		F9374E73244798210081C0BC /* 58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6B244798210081C0BC /* 58x58.png */; };
+		F9374E74244798210081C0BC /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6C244798210081C0BC /* 180x180.png */; };
+		F9374E75244798210081C0BC /* 40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6D244798210081C0BC /* 40x40.png */; };
+		F9374E76244798210081C0BC /* 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6E244798210081C0BC /* 60x60.png */; };
+		F9374E77244798210081C0BC /* 80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E6F244798210081C0BC /* 80x80.png */; };
+		F9374E78244798210081C0BC /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E70244798210081C0BC /* 120x120.png */; };
+		F9374E79244798210081C0BC /* 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E71244798210081C0BC /* 87x87.png */; };
 		F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9665825242252A700EAF683 /* GoogleService-Info.plist */; };
 		F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */; };
 		F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */; };
@@ -62,8 +70,16 @@
 		7601DBCF024805CF248DE346 /* Pods-EasyPlaniOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.release.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.release.xcconfig"; sourceTree = "<group>"; };
 		AC42B5AF5B8E6B4FCAA78024 /* Pods-EasyPlaniOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyPlaniOS.debug.xcconfig"; path = "Target Support Files/Pods-EasyPlaniOS/Pods-EasyPlaniOS.debug.xcconfig"; sourceTree = "<group>"; };
 		C4BB38445171F750BAC45A22 /* Pods_EasyPlaniOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EasyPlaniOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9374E6A244798210081C0BC /* original.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = original.jpeg; sourceTree = "<group>"; };
+		F9374E6B244798210081C0BC /* 58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 58x58.png; sourceTree = "<group>"; };
+		F9374E6C244798210081C0BC /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
+		F9374E6D244798210081C0BC /* 40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x40.png; sourceTree = "<group>"; };
+		F9374E6E244798210081C0BC /* 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60x60.png; sourceTree = "<group>"; };
+		F9374E6F244798210081C0BC /* 80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80x80.png; sourceTree = "<group>"; };
+		F9374E70244798210081C0BC /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		F9374E71244798210081C0BC /* 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 87x87.png; sourceTree = "<group>"; };
 		F9665825242252A700EAF683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlaniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FD240816B5001C7FB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +113,7 @@
 		362C1885240BE97800A55368 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				F9374E69244798020081C0BC /* AppIcons */,
 				F9BFF67F2447618D00A85278 /* ProfileIcons */,
 				365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */,
 			);
@@ -175,6 +192,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F9374E69244798020081C0BC /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				F9374E6D244798210081C0BC /* 40x40.png */,
+				F9374E6B244798210081C0BC /* 58x58.png */,
+				F9374E6E244798210081C0BC /* 60x60.png */,
+				F9374E6F244798210081C0BC /* 80x80.png */,
+				F9374E71244798210081C0BC /* 87x87.png */,
+				F9374E70244798210081C0BC /* 120x120.png */,
+				F9374E6C244798210081C0BC /* 180x180.png */,
+				F9374E6A244798210081C0BC /* original.jpeg */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
 		F9B7E4ED240816B5001C7FB1 = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +220,7 @@
 		F9B7E4F7240816B5001C7FB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */,
+				F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,7 +277,7 @@
 			);
 			name = EasyPlaniOS;
 			productName = EasyPlaniOS;
-			productReference = F9B7E4F6240816B5001C7FB1 /* EasyPlaniOS.app */;
+			productReference = F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -286,11 +318,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9374E76244798210081C0BC /* 60x60.png in Resources */,
 				F9BFF688244761A700A85278 /* Terms of Service.png in Resources */,
 				F9BFF687244761A700A85278 /* Share Us!.png in Resources */,
+				F9374E72244798210081C0BC /* original.jpeg in Resources */,
+				F9374E77244798210081C0BC /* 80x80.png in Resources */,
+				F9374E79244798210081C0BC /* 87x87.png in Resources */,
 				F9BFF685244761A700A85278 /* Personal Information.png in Resources */,
+				F9374E74244798210081C0BC /* 180x180.png in Resources */,
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
+				F9374E75244798210081C0BC /* 40x40.png in Resources */,
 				365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */,
+				F9374E78244798210081C0BC /* 120x120.png in Resources */,
+				F9374E73244798210081C0BC /* 58x58.png in Resources */,
 				F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */,
 				F9B7E503240816B8001C7FB1 /* Assets.xcassets in Resources */,
 				F9B7E501240816B5001C7FB1 /* Main.storyboard in Resources */,
@@ -540,7 +580,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = EasyPlaniOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EasyPlan;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -560,7 +600,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = EasyPlaniOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EasyPlan;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
