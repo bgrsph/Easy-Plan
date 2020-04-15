@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-F6-dAW">
-                                <rect key="frame" x="40" y="702" width="334" height="120"/>
+                                <rect key="frame" x="40" y="652" width="334" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-Ag-3k0">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -34,6 +34,14 @@
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <action selector="LoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqd-hd-4Xr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72e-Fz-OYi">
+                                        <rect key="frame" x="0.0" y="140" width="334" height="30"/>
+                                        <state key="normal" title="Sign In With Google"/>
+                                        <connections>
+                                            <action selector="GoogleSignInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rNX-FE-8r3"/>
+                                            <action selector="LoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fXA-BM-v56"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -68,6 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lGl-LD-0s2"/>
                     <connections>
+                        <outlet property="googleSignInButton" destination="72e-Fz-OYi" id="ZeW-vV-6va"/>
                         <outlet property="loginButton" destination="9FB-yy-Skt" id="YDz-d8-ZbW"/>
                         <outlet property="signUpButton" destination="4F8-Ag-3k0" id="4qx-IH-nE4"/>
                         <segue destination="zC3-xK-pYs" kind="show" identifier="signup" id="VYT-g0-9hY"/>
@@ -88,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PHV-fc-4sK">
-                                <rect key="frame" x="40" y="128" width="334" height="420.5"/>
+                                <rect key="frame" x="40" y="128" width="334" height="370.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FjA-w7-yJi">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -120,15 +129,8 @@
                                             <action selector="signUpTapped:" destination="zC3-xK-pYs" eventType="touchUpInside" id="Sy2-kP-HjL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crC-UC-G8r">
-                                        <rect key="frame" x="0.0" y="350" width="334" height="30"/>
-                                        <state key="normal" title="Sign In With Google"/>
-                                        <connections>
-                                            <action selector="signInGoogleTapped:" destination="zC3-xK-pYs" eventType="touchUpInside" id="ibg-ha-XZh"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux8-rq-VQh">
-                                        <rect key="frame" x="0.0" y="400" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="350" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -157,7 +159,6 @@
                         <outlet property="firstNameTextField" destination="FjA-w7-yJi" id="SUE-LI-Ylb"/>
                         <outlet property="lastNameTextField" destination="pT0-vn-soV" id="9Ls-qZ-B5N"/>
                         <outlet property="passwordTextField" destination="531-fv-TlT" id="xqY-df-fHo"/>
-                        <outlet property="signInGoogleButton" destination="crC-UC-G8r" id="MyD-wU-P8h"/>
                         <outlet property="signUpButton" destination="ENi-Bc-OlL" id="2gs-kx-0RY"/>
                         <segue destination="vSp-SI-Kw3" kind="show" identifier="SignUpToHome" id="Fg1-f4-RmX"/>
                     </connections>
@@ -177,12 +178,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xbn-g4-bUN">
                                 <rect key="frame" x="40" y="128" width="334" height="281.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sarslanturk16@ku.edu.tr" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-He-x5O">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-He-x5O">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SmU-er-0PD">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SmU-er-0PD">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>

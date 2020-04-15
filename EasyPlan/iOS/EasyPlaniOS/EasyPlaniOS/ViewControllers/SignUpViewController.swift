@@ -8,12 +8,10 @@
 
 import UIKit
 import FirebaseAuth
-import GoogleSignIn
 
-class SignUpViewController: UIViewController, GIDSignInDelegate {
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
+
+class SignUpViewController: UIViewController {
+
     
     
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -22,14 +20,15 @@ class SignUpViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    @IBOutlet weak var signInGoogleButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
-        GIDSignIn.sharedInstance()?.delegate = self
-        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance()?.delegate = self
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +37,8 @@ class SignUpViewController: UIViewController, GIDSignInDelegate {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    
 
-    @IBAction func signInGoogleTapped(_ sender: Any) {
-        
-        GIDSignIn.sharedInstance().signIn()
-        self.performSegue(withIdentifier: "SignUpToHome", sender: self)
-    }
     @IBAction func signUpTapped(_ sender: Any) {
         let error = validateFields()
         if error != nil {

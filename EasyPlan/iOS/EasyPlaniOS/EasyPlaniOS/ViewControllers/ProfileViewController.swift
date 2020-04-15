@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import StoreKit
+import GoogleSignIn
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -54,10 +55,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let firebaseAuth = Auth.auth()
            do {
                try firebaseAuth.signOut()
-            self.tabBarController?.navigationController?.popToRootViewController(animated: true)
            } catch let signOutError as NSError {
                print("Error signing out: %@", signOutError)
            }
+        
+        GIDSignIn.sharedInstance()?.signOut()
+        self.tabBarController?.navigationController?.popToRootViewController(animated: true)
     }
     
     // TableView Functions
