@@ -203,6 +203,9 @@ class ConstraintViewController: UIViewController {
     }
     */
     
+    @IBAction func planTapped(_ sender: Any) {
+        
+    }
     
     @IBAction func frTapped(_ sender: Any) {
         if frChecked {
