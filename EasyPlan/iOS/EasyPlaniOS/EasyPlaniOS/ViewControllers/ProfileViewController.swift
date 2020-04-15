@@ -22,6 +22,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Profile"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         // Create the nib file
         let nib = UINib(nibName: "ProfileTableViewCell", bundle: nil)
         
