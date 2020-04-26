@@ -7,7 +7,7 @@ public class Course implements Parcelable {
 
     private String id;
     private String catalog;
-    private String subject, acad_org, facil_id, friday, monday, mtg_end, mtg_start, prof, saturday, section, sunday, thursday, tuesday, wednesday;
+    private String subject, acadOrg, facilId, friday, monday, mtgEnd, mtgStart, prof, saturday, section, sunday, thursday, tuesday, wednesday;
 
     /*public Course(String id, String catalog, String subject) {
         this.id = id;
@@ -19,12 +19,12 @@ public class Course implements Parcelable {
         this.id = id;
         this.catalog = catalog;
         this.subject = subject;
-        this.acad_org = acad_org;
-        this.facil_id = facil_id;
+        this.acadOrg = acad_org;
+        this.facilId = facil_id;
         this.friday = friday;
         this.monday = monday;
-        this.mtg_end = mtg_end;
-        this.mtg_start = mtg_start;
+        this.mtgEnd = mtg_end;
+        this.mtgStart = mtg_start;
         this.prof = prof;
         this.saturday = saturday;
         this.section = section;
@@ -38,19 +38,19 @@ public class Course implements Parcelable {
     }
 
     public String getAcad_org() {
-        return acad_org;
+        return acadOrg;
     }
 
-    public void setAcad_org(String acad_org) {
-        this.acad_org = acad_org;
+    public void setAcad_org(String acadOrg) {
+        this.acadOrg = acadOrg;
     }
 
     public String getFacil_id() {
-        return facil_id;
+        return facilId;
     }
 
     public void setFacil_id(String facil_id) {
-        this.facil_id = facil_id;
+        this.facilId = facil_id;
     }
 
     public String getFriday() {
@@ -70,19 +70,19 @@ public class Course implements Parcelable {
     }
 
     public String getMtg_end() {
-        return mtg_end;
+        return mtgEnd;
     }
 
     public void setMtg_end(String mtg_end) {
-        this.mtg_end = mtg_end;
+        this.mtgEnd = mtg_end;
     }
 
     public String getMtg_start() {
-        return mtg_start;
+        return mtgStart;
     }
 
     public void setMtg_start(String mtg_start) {
-        this.mtg_start = mtg_start;
+        this.mtgStart = mtg_start;
     }
 
     public String getProf() {
@@ -145,12 +145,12 @@ public class Course implements Parcelable {
         id = in.readString();
         catalog = in.readString();
         subject = in.readString();
-        acad_org = in.readString();
-        facil_id = in.readString();
+        acadOrg = in.readString();
+        facilId = in.readString();
         friday = in.readString();
         monday = in.readString();
-        mtg_end = in.readString();
-        mtg_start = in.readString();
+        mtgEnd = in.readString();
+        mtgStart = in.readString();
         prof = in.readString();
         saturday = in.readString();
         section = in.readString();
@@ -160,7 +160,7 @@ public class Course implements Parcelable {
         wednesday = in.readString();
     }
 
-    /*public static final Creator<Course> CREATOR = new Creator<Course>() {
+    public static final Creator<Course> CREATOR = new Creator<Course>() {
         @Override
         public Course createFromParcel(Parcel in) {
             return new Course(in);
@@ -170,7 +170,7 @@ public class Course implements Parcelable {
         public Course[] newArray(int size) {
             return new Course[size];
         }
-    };*/
+    };
 
     public String getId() {
         return id;
@@ -206,12 +206,12 @@ public class Course implements Parcelable {
         dest.writeString(id);
         dest.writeString(catalog);
         dest.writeString(subject);
-        dest.writeString(acad_org);
-        dest.writeString(facil_id);
+        dest.writeString(acadOrg);
+        dest.writeString(facilId);
         dest.writeString(friday);
         dest.writeString(monday);
-        dest.writeString(mtg_end);
-        dest.writeString(mtg_start);
+        dest.writeString(mtgEnd);
+        dest.writeString(mtgStart);
         dest.writeString(prof);
         dest.writeString(saturday);
         dest.writeString(section);

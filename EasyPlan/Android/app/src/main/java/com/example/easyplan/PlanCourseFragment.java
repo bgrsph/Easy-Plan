@@ -1,6 +1,8 @@
 package com.example.easyplan;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,9 +32,10 @@ public class PlanCourseFragment extends Fragment {
 
     View view;
     private Spinner spinner1, spinner2, planSpinner;
-    private Button course1, course2, course3, course4, course5, course6, course7, course8;
+    private Button course1, course2, course3, course4, course5, course6, course7, course8, planButton;
     private ArrayList<Course> courseList;
     private ArrayList<Button> buttonList = new ArrayList<Button>();
+    private SharedPreferenceBot bot = new SharedPreferenceBot();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,17 +43,45 @@ public class PlanCourseFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_course_plan_add, container, false);
         populateSpinners(view);
+
+        /*SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getActivity().getApplicationContext());
+        Gson gson = new Gson();
+        String json = appSharedPrefs.getString("MyObject", "");
+        Type type = new TypeToken<List<Plan>>(){}.getType();
+        List<Plan> students = gson.fromJson(json, type);*/
+
+        planButton = view.findViewById(R.id.planButton);
         course1 = view.findViewById(R.id.course1); course2 = view.findViewById(R.id.course2);
         course3 = view.findViewById(R.id.course3); course4 = view.findViewById(R.id.course4);
         course5 = view.findViewById(R.id.course5); course6 = view.findViewById(R.id.course6);
         course7 = view.findViewById(R.id.course7); course8 = view.findViewById(R.id.course8);
         buttonList.add(course1); buttonList.add(course2); buttonList.add(course3); buttonList.add(course4);
         buttonList.add(course5); buttonList.add(course6); buttonList.add(course7); buttonList.add(course8);
+
         Bundle bundle = getArguments();
         courseList = bundle.getParcelableArrayList("courseList");
         configureButtons();
         setOnClickListeners();
 
+        planButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //bot.setSharedPref("plan1", getActivity(), new ArrayList<Course>());
+                Plan plan = new Plan("plan1");
+                //String arr[] = {"A","B","C","D"};
+                /*for (int i = 0; i < courseList.size(); i++) {
+                    Schedule schedule = new Schedule();
+                    schedule.addToSchedule(courseList.get(i));
+                    plan.countAllCombinations(schedule, i, courseList);
+                }*/
+                int arr[] = {1, 2, 3, 4, 5};
+                int r = 3;
+                int n = arr.length;
+                plan.printCombination(courseList, courseList.size(), 5);
+                plan.deleteDuplicates();
+            }
+        });
         return view;
     }
 

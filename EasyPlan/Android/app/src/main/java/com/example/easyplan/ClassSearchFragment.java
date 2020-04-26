@@ -2,6 +2,7 @@ package com.example.easyplan;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -134,6 +137,18 @@ public class ClassSearchFragment extends Fragment {
         searchClasses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                ArrayList<Schedule> schedules = new ArrayList<Schedule>();
+                Schedule schedule1 = new Schedule();
+                schedule1.setCourseList(selectedCourses);
+                schedules.add(schedule1);
+
+                Plan plan1 = new Plan("Plan 1");
+                Plan plan2 = new Plan("Plan 2");
+                plan1.setSchedules(schedules);
+
+                ArrayList<Plan> plans = new ArrayList<Plan>();
+                plans.add(plan1); plans.add(plan2);
 
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("courseList", selectedCourses);
