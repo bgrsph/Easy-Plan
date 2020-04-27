@@ -32,7 +32,7 @@ public class PlanCourseFragment extends Fragment {
 
     View view;
     private Spinner spinner1, spinner2, planSpinner;
-    private Button course1, course2, course3, course4, course5, course6, course7, course8, planButton;
+    private Button course1, course2, course3, course4, course5, course6, course7, course8, planButton, deleteButton;
     private ArrayList<Course> courseList;
     private ArrayList<Button> buttonList = new ArrayList<Button>();
     private SharedPreferenceBot bot = new SharedPreferenceBot();
@@ -52,6 +52,7 @@ public class PlanCourseFragment extends Fragment {
         List<Plan> students = gson.fromJson(json, type);*/
 
         planButton = view.findViewById(R.id.planButton);
+        deleteButton = view.findViewById(R.id.delete);
         course1 = view.findViewById(R.id.course1); course2 = view.findViewById(R.id.course2);
         course3 = view.findViewById(R.id.course3); course4 = view.findViewById(R.id.course4);
         course5 = view.findViewById(R.id.course5); course6 = view.findViewById(R.id.course6);
@@ -67,10 +68,20 @@ public class PlanCourseFragment extends Fragment {
         planButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //bot.setSharedPref("plan1", getActivity(), new ArrayList<Course>());
                 Plan plan = new Plan("plan1");
-                plan.createSchedules(courseList, courseList.size(), 5);
+                int size = Integer.valueOf(planSpinner.getSelectedItem().toString());
+                plan.createSchedules(courseList, courseList.size(), size);
                 plan.deleteDuplicates();
+                bot.setSharedPref("plan1", getActivity(), plan);
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<Plan>(){}.getType();
+                Plan plan = gson.fromJson((String)bot.getSharedPref("plan1", getActivity()), type);
             }
         });
         return view;
@@ -80,7 +91,9 @@ public class PlanCourseFragment extends Fragment {
 
         planSpinner = view.findViewById(R.id.planSpinner);
         List<String> planList = new ArrayList<String>();
-        planList.add("Plans will be shown here. ");
+        //planList.add("Plans will be shown here. ");
+        planList.add("2"); planList.add("3"); planList.add("4"); planList.add("5");
+        planList.add("6"); planList.add("7");
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, planList);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         planSpinner.setAdapter(dataAdapter);
