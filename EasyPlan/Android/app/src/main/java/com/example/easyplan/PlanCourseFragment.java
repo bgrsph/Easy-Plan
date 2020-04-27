@@ -69,16 +69,7 @@ public class PlanCourseFragment extends Fragment {
             public void onClick(View v) {
                 //bot.setSharedPref("plan1", getActivity(), new ArrayList<Course>());
                 Plan plan = new Plan("plan1");
-                //String arr[] = {"A","B","C","D"};
-                /*for (int i = 0; i < courseList.size(); i++) {
-                    Schedule schedule = new Schedule();
-                    schedule.addToSchedule(courseList.get(i));
-                    plan.countAllCombinations(schedule, i, courseList);
-                }*/
-                int arr[] = {1, 2, 3, 4, 5};
-                int r = 3;
-                int n = arr.length;
-                plan.printCombination(courseList, courseList.size(), 5);
+                plan.createSchedules(courseList, courseList.size(), 5);
                 plan.deleteDuplicates();
             }
         });

@@ -15,16 +15,16 @@ public class Course implements Parcelable {
         this.subject = subject;
     }*/
 
-    public Course(String id, String catalog, String subject, String acad_org, String facil_id, String friday, String monday, String mtg_end, String mtg_start, String prof, String saturday, String section, String sunday, String thursday, String tuesday, String wednesday) {
+    public Course(String id, String catalog, String subject, String acadOrg, String facilId, String friday, String monday, String mtgEnd, String mtgStart, String prof, String saturday, String section, String sunday, String thursday, String tuesday, String wednesday) {
         this.id = id;
         this.catalog = catalog;
         this.subject = subject;
-        this.acadOrg = acad_org;
-        this.facilId = facil_id;
+        this.acadOrg = acadOrg;
+        this.facilId = facilId;
         this.friday = friday;
         this.monday = monday;
-        this.mtgEnd = mtg_end;
-        this.mtgStart = mtg_start;
+        this.mtgEnd = mtgEnd;
+        this.mtgStart = mtgStart;
         this.prof = prof;
         this.saturday = saturday;
         this.section = section;
@@ -37,20 +37,100 @@ public class Course implements Parcelable {
     public Course() {
     }
 
-    public String getAcad_org() {
+    protected Course(Parcel in) {
+        id = in.readString();
+        catalog = in.readString();
+        subject = in.readString();
+        acadOrg = in.readString();
+        facilId = in.readString();
+        friday = in.readString();
+        monday = in.readString();
+        mtgEnd = in.readString();
+        mtgStart = in.readString();
+        prof = in.readString();
+        saturday = in.readString();
+        section = in.readString();
+        sunday = in.readString();
+        thursday = in.readString();
+        tuesday = in.readString();
+        wednesday = in.readString();
+    }
+
+    public static final Creator<Course> CREATOR = new Creator<Course>() {
+        @Override
+        public Course createFromParcel(Parcel in) {
+            return new Course(in);
+        }
+
+        @Override
+        public Course[] newArray(int size) {
+            return new Course[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(catalog);
+        dest.writeString(subject);
+        dest.writeString(acadOrg);
+        dest.writeString(facilId);
+        dest.writeString(friday);
+        dest.writeString(monday);
+        dest.writeString(mtgEnd);
+        dest.writeString(mtgStart);
+        dest.writeString(prof);
+        dest.writeString(saturday);
+        dest.writeString(section);
+        dest.writeString(sunday);
+        dest.writeString(thursday);
+        dest.writeString(tuesday);
+        dest.writeString(wednesday);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(String catalog) {
+        this.catalog = catalog;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getAcadOrg() {
         return acadOrg;
     }
 
-    public void setAcad_org(String acadOrg) {
+    public void setAcadOrg(String acadOrg) {
         this.acadOrg = acadOrg;
     }
 
-    public String getFacil_id() {
+    public String getFacilId() {
         return facilId;
     }
 
-    public void setFacil_id(String facil_id) {
-        this.facilId = facil_id;
+    public void setFacilId(String facilId) {
+        this.facilId = facilId;
     }
 
     public String getFriday() {
@@ -69,20 +149,20 @@ public class Course implements Parcelable {
         this.monday = monday;
     }
 
-    public String getMtg_end() {
+    public String getMtgEnd() {
         return mtgEnd;
     }
 
-    public void setMtg_end(String mtg_end) {
-        this.mtgEnd = mtg_end;
+    public void setMtgEnd(String mtgEnd) {
+        this.mtgEnd = mtgEnd;
     }
 
-    public String getMtg_start() {
+    public String getMtgStart() {
         return mtgStart;
     }
 
-    public void setMtg_start(String mtg_start) {
-        this.mtgStart = mtg_start;
+    public void setMtgStart(String mtgStart) {
+        this.mtgStart = mtgStart;
     }
 
     public String getProf() {
@@ -139,85 +219,5 @@ public class Course implements Parcelable {
 
     public void setWednesday(String wednesday) {
         this.wednesday = wednesday;
-    }
-
-    protected Course(Parcel in) {
-        id = in.readString();
-        catalog = in.readString();
-        subject = in.readString();
-        acadOrg = in.readString();
-        facilId = in.readString();
-        friday = in.readString();
-        monday = in.readString();
-        mtgEnd = in.readString();
-        mtgStart = in.readString();
-        prof = in.readString();
-        saturday = in.readString();
-        section = in.readString();
-        sunday = in.readString();
-        thursday = in.readString();
-        tuesday = in.readString();
-        wednesday = in.readString();
-    }
-
-    public static final Creator<Course> CREATOR = new Creator<Course>() {
-        @Override
-        public Course createFromParcel(Parcel in) {
-            return new Course(in);
-        }
-
-        @Override
-        public Course[] newArray(int size) {
-            return new Course[size];
-        }
-    };
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCatalog() {
-        return catalog;
-    }
-
-    public void setCatalog(String catalog) {
-        this.catalog = catalog;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(catalog);
-        dest.writeString(subject);
-        dest.writeString(acadOrg);
-        dest.writeString(facilId);
-        dest.writeString(friday);
-        dest.writeString(monday);
-        dest.writeString(mtgEnd);
-        dest.writeString(mtgStart);
-        dest.writeString(prof);
-        dest.writeString(saturday);
-        dest.writeString(section);
-        dest.writeString(sunday);
-        dest.writeString(thursday);
-        dest.writeString(tuesday);
-        dest.writeString(wednesday);
     }
 }

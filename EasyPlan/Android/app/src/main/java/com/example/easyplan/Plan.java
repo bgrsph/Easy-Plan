@@ -35,49 +35,6 @@ public class Plan implements Parcelable {
         }
     };
 
-    public void planSchedules(ArrayList<Course> courseList) {
-        //plan ALL the schedules.
-        for (int i = 0; i < courseList.size(); i++) {
-            Schedule schedule = new Schedule();
-            ArrayList<Course> scheduleCourses = new ArrayList<>();
-            scheduleCourses.add(courseList.get(i));
-            ArrayList<Course> a = new ArrayList<>();
-            for (int k = 0; k < courseList.size(); k++) {
-
-                if (i == k) continue;
-                if (a.size() == 4) break;
-
-                for (Course x : scheduleCourses) {
-
-                    if (x.getMtg_start() == courseList.get(k).getMtg_start() &&
-                            (x.getMonday() == courseList.get(k).getMonday() ||
-                                    x.getTuesday() == courseList.get(k).getTuesday() ||
-                                    x.getWednesday() == courseList.get(k).getWednesday() ||
-                                    x.getThursday() == courseList.get(k).getThursday() ||
-                                    x.getFriday() == courseList.get(k).getFriday())) {
-                        continue;
-                    } else a.add(courseList.get(k));
-                }
-
-            }
-            for (Course x : a) {
-                scheduleCourses.add(x);
-            }
-            a.clear();
-            schedule.setCourseList(scheduleCourses);
-            this.schedules.add(schedule);
-        }
-    }
-
-    public void countAllCombinations (Schedule input, int idx, ArrayList<Course> courseList) {
-        for(int i = idx ; i < courseList.size(); i++) {
-            if (input.getCourseList().size() > 4) return;
-            input.addToSchedule(courseList.get(i));
-            this.schedules.add(input);
-            countAllCombinations(input, ++idx, courseList);
-        }
-    }
-
     public void deleteDuplicates() {
         ArrayList<Schedule> newList = new ArrayList<>();
         for (Schedule x : schedules) {
@@ -86,48 +43,63 @@ public class Plan implements Parcelable {
         this.schedules = newList;
     }
 
-    /* arr[]  ---> Input Array
-    data[] ---> Temporary array to store current combination
-    start & end ---> Staring and Ending indexes in arr[]
-    index  ---> Current index in data[]
-    r ---> Size of a combination to be printed */
-    public void combinationUtil(ArrayList<Course> arr, ArrayList<Course> data, int start,
-                                int end, int index, int r)
-    {
-        // Current combination is ready to be printed, print it
-        if (index == r)
+    private void recursiveScheduleCreating(ArrayList<Course> input, Course list[], int start, int end, int index, int size) {
+        if (index == size)
         {
             Schedule schedule = new Schedule();
-            for (Course x : data) {
+            for (Course x : list) {
                 schedule.addToSchedule(x);
             }
             this.schedules.add(schedule);
             return;
         }
 
-        // replace index with all possible elements. The condition
-        // "end-i+1 >= r-index" makes sure that including one element
-        // at index will make a combination with remaining elements
-        // at remaining positions
-        for (int i = start; i <= end && end - i + 1 >= r - index; i++)
+        for (int i = start; i <= end && end - i + 1 >= size - index; i++)
         {
-            //data[index] = arr[i];
-            data.set(index, arr.get(i));
-            combinationUtil(arr, data, i + 1, end, index + 1, r);
+            list[index] = input.get(i);
+            recursiveScheduleCreating(input, list, i + 1, end, index + 1, size);
         }
     }
 
-    // The main function that prints all combinations of size r
-    // in arr[] of size n. This function mainly uses combinationUtil()
-    public void printCombination(ArrayList<Course> arr, int n, int r)
-    {
-        // A temporary array to store all combination one by one
-        ArrayList<Course> data = new ArrayList<Course>();
-        for (int i = 0; i < n; i++) {
+    public void createSchedules(ArrayList<Course> input, int n, int size) {
+        Course data[] = new Course[size];
+        /*for (int i = 1; i < n; i++) {
             data.add(new Course());
+        }*/
+        recursiveScheduleCreating(input, data, 0, n-1, 0, size);
+        for (Schedule x : schedules) {
+            for (Course y : x.getCourseList()) {
+
+            }
         }
-        // Print all combination using temprary array 'data[]'
-        combinationUtil(arr, data, 0, n-1, 0, r);
+        obliterateConflicts();
+    }
+
+    private void obliterateConflicts() {
+        ArrayList<Schedule> newList = new ArrayList<>();
+        for (Schedule x : schedules) {
+            boolean add = true;
+            for (Course y : x.getCourseList()) {
+                for (Course z : x.getCourseList()) {
+                    add = true;
+                    if (y.equals(z)) continue;
+                    if (y.getMtgStart().equals(z.getMtgStart()) &&
+                            ((y.getMonday().equals(z.getMonday()) && y.getMonday().equals("Y")) ||
+                                    (y.getTuesday().equals(z.getTuesday()) && y.getTuesday().equals("Y")) ||
+                                    (y.getWednesday().equals(z.getWednesday()) && y.getWednesday().equals("Y")) ||
+                                    (y.getThursday().equals(z.getThursday()) && y.getThursday().equals("Y")) ||
+                                    (y.getFriday().equals(z.getFriday()) && y.getFriday().equals("Y")))) {
+                        add = false;
+                        break;
+                    }
+                }
+                if (!add) break;
+            }
+            if (!newList.contains(x) && add) {
+                newList.add(x);
+            }
+        }
+        this.schedules = newList;
     }
 
     public ArrayList<Schedule> getSchedules() {
