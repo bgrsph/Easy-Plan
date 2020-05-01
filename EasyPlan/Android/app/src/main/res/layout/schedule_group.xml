@@ -7,11 +7,11 @@
     android:layout_height="match_parent"
     android:weightSum="100"
     android:background="@drawable/border"
-    android:clickable="true"
-    android:focusable="true"
     android:id="@+id/scheduleLayout">
 
     <TextView
+        android:focusable="false"
+        android:clickable="false"
         android:id="@+id/scheduleGroup"
         android:layout_width="0dp"
         android:layout_height="match_parent"

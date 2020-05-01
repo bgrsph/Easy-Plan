@@ -4,6 +4,7 @@ package com.example.easyplan;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +34,8 @@ public class PlansFragment extends Fragment {
     HashMap<String, List<String>> mapSchedulePlan;
     ExpandableListView planExpandable;
     PlanAdapter adapter;
+    private SharedPreferenceBot bot = new SharedPreferenceBot();
+
     public PlansFragment() {
 
     }
@@ -44,51 +51,40 @@ public class PlansFragment extends Fragment {
         adapter = new PlanAdapter(view.getContext(), listPlanGroups, mapSchedulePlan);
         planExpandable.setAdapter(adapter);
         initListData();
-        for(int i = 0; i<listPlanGroups.size(); i++){
+        for (int i = 0; i < listPlanGroups.size(); i++) {
             planExpandable.expandGroup(i);
         }
+        planExpandable.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Toast.makeText(getContext(), "clickedOnPlans", Toast.LENGTH_LONG).show();
+                ScheduleContents sch = new ScheduleContents();
+                FragmentTransaction trans = getFragmentManager().beginTransaction();
+                trans.replace(R.id.fragment, sch, "ScheduleContents");
+                trans.commit();
+                return true;
+            }
+        });
 
         return view;
     }
 
     private void initListData() {
-        listPlanGroups.add("Plan1");
-        listPlanGroups.add("Plan2");
-        listPlanGroups.add("Plan3");
-        listPlanGroups.add("Plan4");
-        listPlanGroups.add("Plan5");
+        Gson gson = new Gson();
+        Type type = new TypeToken<Plan>() {
+        }.getType();
+        Plan plan = gson.fromJson((String) bot.getSharedPref("plan1", getActivity()), type);
 
-        String[] arr1 = {"Sc1", "Sc2", "Sc3"};
-        String[] arr2 = {"Sc1", "Sc2", "Sc3"};
-        String[] arr3 = {"Sc1", "Sc2"};
-        String[] arr4 = {"Sc1", "Sc2"};
-        String[] arr5 = {"Sc1"};
-        List<String> list1 = new ArrayList<>();
-        for(String i : arr1){
-            list1.add(i);
+        listPlanGroups.add(plan.getPlanName());
+        ArrayList<Schedule> schedules = plan.getSchedules();
+        int scCount = 1;
+        List<String> planArr = new ArrayList<>();
+        for (int i = 0; i < schedules.size(); i++) {
+            String name = "Schedule#" + (scCount);
+            planArr.add(name);
+            scCount++;
         }
-
-        List<String> list2 = new ArrayList<>();
-        for(String i : arr2){
-            list2.add(i);
-        }
-        List<String> list3 = new ArrayList<>();
-        for(String i : arr3){
-            list3.add(i);
-        }
-        List<String> list4 = new ArrayList<>();
-        for(String i : arr4){
-            list4.add(i);
-        }
-        List<String> list5 = new ArrayList<>();
-        for(String i : arr5){
-            list5.add(i);
-        }
-        mapSchedulePlan.put(listPlanGroups.get(0), list1);
-        mapSchedulePlan.put(listPlanGroups.get(1), list2);
-        mapSchedulePlan.put(listPlanGroups.get(2), list3);
-        mapSchedulePlan.put(listPlanGroups.get(3), list4);
-        mapSchedulePlan.put(listPlanGroups.get(4), list5);
+        mapSchedulePlan.put(listPlanGroups.get(0), planArr);
         adapter.notifyDataSetChanged();
     }
 

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -95,6 +96,16 @@ public class PlanAdapter extends BaseExpandableListAdapter {
 
         TextView textView = (TextView) convertView.findViewById(R.id.scheduleGroup);
         textView.setText(scheduleName);
+   /*     textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "clicked", Toast.LENGTH_LONG).show();
+                ScheduleContents sch = new ScheduleContents();
+                FragmentTransaction trans =
+                trans.replace(R.id.schedule_contents_layout, sch, "ScheduleContents");
+                trans.commit();
+            }
+        });*/
         return convertView;
     }
 
