@@ -58,7 +58,7 @@ public class PlansFragment extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 Toast.makeText(getContext(), "clickedOnPlans", Toast.LENGTH_LONG).show();
-                ScheduleContents sch = new ScheduleContents();
+                ScheduleContents sch = new ScheduleContents(groupPosition, childPosition);
                 FragmentTransaction trans = getFragmentManager().beginTransaction();
                 trans.replace(R.id.fragment, sch, "ScheduleContents");
                 trans.commit();
