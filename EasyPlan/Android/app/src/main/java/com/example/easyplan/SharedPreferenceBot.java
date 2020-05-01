@@ -35,4 +35,18 @@ public class SharedPreferenceBot {
         prefsEditor.commit();
     }
 
+    public SharedPreferences sharedPref(Activity activity) {
+        SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(activity.getApplicationContext());
+        return appSharedPrefs;
+    }
+
+    public void deleteSharedPref(String key, Activity activity) {
+        SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(activity.getApplicationContext());
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        prefsEditor.remove(key);
+        prefsEditor.commit();
+    }
+
 }

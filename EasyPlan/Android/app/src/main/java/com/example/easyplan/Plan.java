@@ -62,6 +62,7 @@ public class Plan implements Parcelable {
     }
 
     public void createSchedules(ArrayList<Course> input, int n, int size) {
+        //Create ALL the schedules!
         Course data[] = new Course[size];
         /*for (int i = 1; i < n; i++) {
             data.add(new Course());
