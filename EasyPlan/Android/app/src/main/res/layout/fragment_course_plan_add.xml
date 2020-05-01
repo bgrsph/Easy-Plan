@@ -224,9 +224,26 @@
         android:layout_marginBottom="1dp"
         android:layout_weight="8"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
+
+        <TextView
+            android:id="@+id/text7"
+            android:layout_width="121dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:shadowColor="#F5F0F0"
+            android:text="Plan Adı"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/planName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tooltipText=""/>
         </LinearLayout>
 
     <LinearLayout
@@ -247,7 +264,7 @@
             android:layout_margin="5dp"
             android:gravity="center_vertical"
             android:shadowColor="#F5F0F0"
-            android:text="Şimdilik Size Seçme"
+            android:text="Plandaki Ders Sayısı"
             android:textColor="#000000"
             android:textSize="20dp" />
 
@@ -321,11 +338,28 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
-        android:layout_weight="5"
+        android:layout_weight="8"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:id="@+id/text6"
+            android:text="Plan"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:shadowColor="#F5F0F0"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>
