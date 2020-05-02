@@ -75,6 +75,9 @@ public class PlansFragment extends Fragment {
         if (plans != null) {
             for (int i = 0; i < plans.size(); i++) {
                 Plan p = plans.get(i);
+                if(p.getPlanName().equals("")){
+                    p.setPlanName("Plan #" + (i+1));
+                }
                 listPlanGroups.add(p.getPlanName());
                 List<String> planArr = new ArrayList<>();
                 ArrayList<Schedule> schedules = p.getSchedules();
@@ -85,8 +88,6 @@ public class PlansFragment extends Fragment {
                 mapSchedulePlan.put(listPlanGroups.get(i), planArr);
             }
         }
-
-
         adapter.notifyDataSetChanged();
     }
 

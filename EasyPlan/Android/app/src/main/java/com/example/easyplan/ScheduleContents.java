@@ -22,7 +22,7 @@ import java.util.List;
 
 public class ScheduleContents extends Fragment{
     RecyclerView courseRecycler;
-    TextView delete;
+    TextView delete, scheduleName;
     ArrayList<ScheduleContentItem> courseList;
     ScheduleContentAdapter adapter;
     int planID, scheduleID;
@@ -43,6 +43,7 @@ public class ScheduleContents extends Fragment{
         View view  =inflater.inflate(R.layout.fragment_schedule_contents, container, false);
         courseRecycler = view.findViewById(R.id.schedule_courses_recyler);
         delete = view.findViewById(R.id.schedule_delete_btn);
+        scheduleName = view.findViewById(R.id.schedule_header_name);
         courseRecycler.setLayoutManager(new LinearLayoutManager(view.getContext()));
         courseList = new ArrayList<>();
         adapter = new ScheduleContentAdapter(view.getContext(), courseList);
@@ -65,13 +66,13 @@ public class ScheduleContents extends Fragment{
         Plan plan = plans.get(planID);
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
         ArrayList<Course> courses = currSchedule.getCourseList();
+        scheduleName.setText(plan.getPlanName() + " Schedule #" + (scheduleID +1) );
         for(Course c : courses){
             String courseName = c.getSubject()+ " " + c.getCatalog() + " - " + c.getSection();
             String instructorName = c.getProf();
             String meetingTime = c.getMeetingDays()+ " " + c.getMtgStart() + " - " + c.getMtgEnd();
             courseList.add(new ScheduleContentItem(courseName, instructorName, meetingTime));
         }
-
     }
 
     private void deleteSchedule(){

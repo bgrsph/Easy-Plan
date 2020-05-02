@@ -85,6 +85,9 @@ public class PlanAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String planName = (String) getGroup(groupPosition); //returns the name
+/*        if(planName.equals("")){
+            planName = "Plan #" + (groupPosition + 1);
+        }*/
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.plan_group, null);
@@ -130,9 +133,6 @@ public class PlanAdapter extends BaseExpandableListAdapter {
         List<Plan> plans = gson.fromJson((String)bot.getSharedPrefC("plans", context ), type);
         plans.remove(planID);
         bot.setSharedPrefC("plans", context, plans);
-
-
-
     }
 }
 

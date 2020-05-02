@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -172,6 +173,10 @@ public class PlanCourseFragment extends Fragment {
                         plans.add(plan);
                         bot.setSharedPref("plans", getActivity(), plans);
                     }
+                    PlansFragment plansFrag = new PlansFragment();
+                    FragmentTransaction trans = getFragmentManager().beginTransaction();
+                    trans.replace(R.id.fragment, plansFrag, "Plans");
+                    trans.commit();
                 } else Toast.makeText(getActivity(), "Please make sure to select more courses than the selected size.", Toast.LENGTH_LONG).show();
             }
         });

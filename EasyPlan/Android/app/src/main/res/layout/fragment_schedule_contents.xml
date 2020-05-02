@@ -12,21 +12,24 @@
         android:id="@+id/ass_header_layout"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:background="@color/button_red"
         android:orientation="vertical"
         android:padding="20dp">
 
 
         <TextView
-            android:id="@+id/ass_page_title"
+            android:id="@+id/schedule_header_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             android:fontFamily="@font/economica"
             android:text="SCHEDULE"
             android:textAlignment="center"
+            android:textColor="@color/textColorAlmostWhite"
             android:textAllCaps="true"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/schedule_delete_btn"
@@ -34,16 +37,17 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:drawableRight="@drawable/round_delete"
+            android:drawableTint="@color/textColorAlmostWhite"
             android:elevation="4dp" />
 
         <View
             android:id="@+id/line_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/ass_page_title"
+            android:layout_below="@id/schedule_header_name"
             android:layout_gravity="bottom"
             android:layout_marginTop="20dp"
-            android:background="@color/button_red" />
+            android:background="@color/textColorAlmostWhite" />
     </RelativeLayout>
 
 
@@ -55,8 +59,7 @@
         android:layout_marginTop="-50dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:paddingBottom="10dp">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:paddingBottom="75dp"></androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>
