@@ -1,7 +1,5 @@
 package com.example.easyplan;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.easyplan.ui.ScheduleContentAdapter;
-import com.example.easyplan.ui.ScheduleContentItem;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -70,7 +66,10 @@ public class ScheduleContents extends Fragment{
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
         ArrayList<Course> courses = currSchedule.getCourseList();
         for(Course c : courses){
-            courseList.add(new ScheduleContentItem(c.getCatalog() + " " + c.getSubject()));
+            String courseName = c.getSubject()+ " " + c.getCatalog() + " - " + c.getSection();
+            String instructorName = c.getProf();
+            String meetingTime = c.getMeetingDays()+ " " + c.getMtgStart() + " - " + c.getMtgEnd();
+            courseList.add(new ScheduleContentItem(courseName, instructorName, meetingTime));
         }
 
     }

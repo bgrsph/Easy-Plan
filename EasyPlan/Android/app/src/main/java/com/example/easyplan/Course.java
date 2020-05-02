@@ -7,7 +7,7 @@ public class Course implements Parcelable {
 
     private String id;
     private String catalog;
-    private String subject, acadOrg, facilId, friday, monday, mtgEnd, mtgStart, prof, saturday, section, sunday, thursday, tuesday, wednesday;
+    private String subject, acadOrg, facilId, friday, monday, mtgEnd, mtgStart, prof, saturday, section, sunday, thursday, tuesday, wednesday, meetingDays;
 
     /*public Course(String id, String catalog, String subject) {
         this.id = id;
@@ -219,5 +219,25 @@ public class Course implements Parcelable {
 
     public void setWednesday(String wednesday) {
         this.wednesday = wednesday;
+    }
+
+    public String getMeetingDays() {
+        String meetingDay = "";
+        if (getMonday().equalsIgnoreCase("y"))
+            meetingDay += "Mon";
+        if (getTuesday().equalsIgnoreCase("y"))
+            meetingDay += "Tue";
+        if (getWednesday().equalsIgnoreCase("y"))
+            meetingDay += "Wed";
+        if (getThursday().equalsIgnoreCase("y"))
+            meetingDay += "Thu";
+        if (getFriday().equalsIgnoreCase("y"))
+            meetingDay += "Fri";
+        if (getSaturday().equalsIgnoreCase("y"))
+            meetingDay += "Sat";
+        if (getSunday().equalsIgnoreCase("y"))
+            meetingDay += "Sun";
+
+        return meetingDay;
     }
 }
