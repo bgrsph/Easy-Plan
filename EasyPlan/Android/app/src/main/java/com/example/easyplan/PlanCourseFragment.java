@@ -154,13 +154,13 @@ public class PlanCourseFragment extends Fragment {
                             for (Course x : courseList) {
 
                                 int time = changeTime(x.getMtgStart());
-                                if (MWCheckbox.isEnabled() && (x.getMonday().equals("Y") || x.getWednesday().equals("Y"))) {
+                                if (MWCheckbox.isChecked() && (x.getMonday().equals("Y") || x.getWednesday().equals("Y"))) {
                                     if (Integer.valueOf(spinner1.getSelectedItem().toString().substring(0, spinner1.getSelectedItem().toString().indexOf(':'))) <= time &&
                                             Integer.valueOf(spinner2.getSelectedItem().toString().substring(0, spinner2.getSelectedItem().toString().indexOf(':'))) > time) {
                                         tempList.add(x); continue;
                                     }
                                 }
-                                if (TTCheckbox.isEnabled() && (x.getTuesday().equals("Y") || x.getThursday().equals("Y"))) {
+                                if (TTCheckbox.isChecked() && (x.getTuesday().equals("Y") || x.getThursday().equals("Y"))) {
                                     if (Integer.valueOf(spinner3.getSelectedItem().toString().substring(0, spinner3.getSelectedItem().toString().indexOf(':'))) <=
                                             Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
                                             Integer.valueOf(spinner4.getSelectedItem().toString().substring(0, spinner4.getSelectedItem().toString().indexOf(':'))) >
@@ -168,7 +168,7 @@ public class PlanCourseFragment extends Fragment {
                                         tempList.add(x); continue;
                                     }
                                 }
-                                if (FCheckbox.isEnabled() && x.getFriday().equals("Y")) {
+                                if (FCheckbox.isChecked() && x.getFriday().equals("Y")) {
                                     if (Integer.valueOf(spinner5.getSelectedItem().toString().substring(0, spinner5.getSelectedItem().toString().indexOf(':'))) <=
                                             Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
                                             Integer.valueOf(spinner6.getSelectedItem().toString().substring(0, spinner6.getSelectedItem().toString().indexOf(':'))) >
@@ -299,6 +299,7 @@ public class PlanCourseFragment extends Fragment {
         dataAdapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         planSpinner.setAdapter(dataAdapter7);
         planSpinner.setSelection(0);
+        sizeSpinner.setSelection(3);
         spinner2.setSelection(5);
         spinner4.setSelection(5);
         spinner6.setSelection(5);
