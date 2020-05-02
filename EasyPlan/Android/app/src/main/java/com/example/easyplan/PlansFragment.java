@@ -51,6 +51,7 @@ public class PlansFragment extends Fragment {
         listPlanGroups = new ArrayList<>();
         mapSchedulePlan = new HashMap<>();
         planExpandable = view.findViewById(R.id.plansExpandable);
+
         adapter = new PlanAdapter(view.getContext(), listPlanGroups, mapSchedulePlan);
         planExpandable.setAdapter(adapter);
         initListData();
@@ -72,9 +73,7 @@ public class PlansFragment extends Fragment {
                     trans.replace(R.id.fragment, sch, "ScheduleContents");
                     getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
                     trans.commit();
-
                 }
-
                 return true;
             }
         });

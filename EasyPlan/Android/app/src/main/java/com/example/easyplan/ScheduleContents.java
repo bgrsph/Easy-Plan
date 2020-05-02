@@ -1,5 +1,7 @@
 package com.example.easyplan;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Build;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +27,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ScheduleContents extends Fragment{
+public class ScheduleContents extends Fragment {
     RecyclerView courseRecycler;
     TextView delete, scheduleName;
+    ImageView favorite_star;
     ArrayList<ScheduleContentItem> courseList;
     ScheduleContentAdapter adapter;
-    static int  planID, scheduleID;
+    static boolean isFavorite;
+    static int planID, scheduleID;
     private SharedPreferenceBot bot = new SharedPreferenceBot();
 
     public ScheduleContents() {
@@ -44,9 +49,25 @@ public class ScheduleContents extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view  =inflater.inflate(R.layout.fragment_schedule_contents, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule_contents, container, false);
         courseRecycler = view.findViewById(R.id.schedule_courses_recyler);
         delete = view.findViewById(R.id.schedule_delete_btn);
+        favorite_star = view.findViewById(R.id.favorite_schedule_content);
+        String spCode = planID + "-" + scheduleID;
+        SharedPreferences sp = getActivity().getSharedPreferences(spCode, Context.MODE_PRIVATE);
+        Boolean isFavorite = sp.getBoolean(spCode, false);
+        if(isFavorite){
+            favorite_star.setImageResource(R.drawable.favorite_filled36);
+        }else{
+            favorite_star.setImageResource(R.drawable.favorite_empty36);
+        }
+
+        favorite_star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addScheduleToFavorites();
+            }
+        });
         scheduleName = view.findViewById(R.id.schedule_header_name);
         courseRecycler.setLayoutManager(new LinearLayoutManager(view.getContext()));
         courseList = new ArrayList<>();
@@ -60,44 +81,68 @@ public class ScheduleContents extends Fragment{
                 deleteSchedule();
             }
         });
-        if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE) {
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             ScheduleWeeklyView sch = new ScheduleWeeklyView(planID, scheduleID);
             FragmentTransaction trans = getFragmentManager().beginTransaction();
             trans.replace(R.id.fragment, sch, "Weekly");
             trans.commit();
-        } else if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT) {
+        } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
 
         }
         adapter.notifyDataSetChanged();
         return view;
     }
 
+    private void addScheduleToFavorites() {
+        String spCode = planID + "-" + scheduleID;
+        SharedPreferences sp = getActivity().getSharedPreferences(spCode, Context.MODE_PRIVATE);
+        Boolean isFavorite = sp.getBoolean(spCode, false);
+        SharedPreferences.Editor editor = sp.edit();
+        if (!isFavorite) {
+            favorite_star.setImageResource(R.drawable.favorite_filled36);
+            editor.putBoolean(spCode, true);
+
+        } else {
+            favorite_star.setImageResource(R.drawable.favorite_empty36);
+            editor.putBoolean(spCode, false);;
+        }
+        editor.commit();
+    }
+
     private void initScheduleData() {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Plan>>(){}.getType();
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
+
         ArrayList<Course> courses = currSchedule.getCourseList();
-        scheduleName.setText(plan.getPlanName() + " Schedule #" + (scheduleID +1) );
-        for(Course c : courses){
-            String courseName = c.getSubject()+ " " + c.getCatalog() + " - " + c.getSection();
+        scheduleName.setText(plan.getPlanName() + " Schedule #" + (scheduleID + 1));
+        for (Course c : courses) {
+            String courseName = c.getSubject() + " " + c.getCatalog() + " - " + c.getSection();
             String instructorName = c.getProf();
-            String meetingTime = c.getMeetingDays()+ " " + c.getMtgStart() + " - " + c.getMtgEnd();
+            String meetingTime = c.getMeetingDays() + " " + c.getMtgStart() + " - " + c.getMtgEnd();
             courseList.add(new ScheduleContentItem(courseName, instructorName, meetingTime));
         }
     }
 
-    private void deleteSchedule(){
+    private void deleteSchedule() {
+        String spCode = planID + "-" + scheduleID;
+        SharedPreferences sp = getActivity().getSharedPreferences(spCode, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.remove(spCode);
+        editor.commit();
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Plan>>(){}.getType();
-        List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
         Plan tmp = plans.get(planID);
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
         plan.getSchedules().remove(currSchedule);
         plans.remove(tmp);
-        if(plan.getSchedules().size() > 0){
+        if (plan.getSchedules().size() > 0) {
             plans.add(plan);
         }
         bot.setSharedPref("plans", getActivity(), plans);
@@ -108,7 +153,6 @@ public class ScheduleContents extends Fragment{
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         trans.commit();
     }
-
 
 
 }

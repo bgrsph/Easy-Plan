@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scheduleLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100"
+    android:layout_height="40dp"
     android:background="@drawable/border"
-    android:id="@+id/scheduleLayout">
+    android:orientation="horizontal"
+    android:weightSum="2">
 
     <TextView
-        android:focusable="false"
-        android:clickable="false"
         android:id="@+id/scheduleGroup"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="1.70"
+        android:clickable="false"
+        android:focusable="false"
         android:padding="10dp"
-        android:layout_weight="70"
-        android:textSize="15dp"/>
+        android:textSize="15dp" />
 
 
+    <ImageView
+        android:id="@+id/schedule_fav_onplans"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.30"
+        android:src="@drawable/favorite_filled"
+        android:visibility="invisible"
+        android:tag="atFavaBekle"
+        android:tint="@color/button_red" />
 
 </LinearLayout>
 

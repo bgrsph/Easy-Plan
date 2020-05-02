@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="50dp"
     android:background="@color/button_red"
     android:orientation="horizontal"
     android:padding="10dp"
     android:weightSum="2">
 
+    <ImageView
+        android:id="@+id/expandable_group_image"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.15"
+        android:tint="@color/textColorAlmostWhite"
+        android:src="@drawable/expand_more"/>
     <TextView
         android:id="@+id/planGroup"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1.85"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.70"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:fontFamily="sans-serif-condensed-light"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:gravity="left"
+        android:layout_gravity="center"
         android:text="mellow"
         android:textColor="@android:color/white"
         android:textColorLink="@color/white"
-        android:textStyle="italic" />
+        android:textStyle="bold"
+        android:textAllCaps="true"/>
 
     <TextView
         android:focusable="false"

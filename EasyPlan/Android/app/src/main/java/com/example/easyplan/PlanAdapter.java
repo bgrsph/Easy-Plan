@@ -2,7 +2,9 @@ package com.example.easyplan;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.text.Layout;
 import android.view.InflateException;
 import android.view.LayoutInflater;
@@ -92,15 +94,38 @@ public class PlanAdapter extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.plan_group, null);
         }
+        View indicator = convertView.findViewById(R.id.expandable_group_image);
+        if (indicator != null) {
+            ImageView indicatorImage = (ImageView) indicator;
+            if (getChildrenCount(groupPosition) == 0) {
+                indicatorImage.setVisibility(View.INVISIBLE);
+            } else {
+                indicatorImage.setVisibility(View.VISIBLE);
 
-        TextView textView = (TextView) convertView.findViewById(R.id.planGroup);
+                if (isExpanded) {
+                    indicatorImage.setImageResource(R.drawable.expand_less);
+                } else {
+                    indicatorImage.setImageResource(R.drawable.expand_more);
+                }
+            }
+        }
+
+        final TextView textView = (TextView) convertView.findViewById(R.id.planGroup);
         deleteBtn = convertView.findViewById(R.id.plan_delete_btn);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < getChildrenCount(groupPosition); i++) {
+                    String spCode = groupPosition + "-" + i;
+                    SharedPreferences sp = context.getSharedPreferences(spCode, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.remove(spCode);
+                    editor.commit();
+                }
+
                 deletePlan(groupPosition);
                 PlansFragment plansFrag = new PlansFragment();
-                FragmentTransaction trans = ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction();
+                FragmentTransaction trans = ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
                 trans.replace(R.id.fragment, plansFrag, "Plans");
                 trans.commit();
             }
@@ -118,6 +143,16 @@ public class PlanAdapter extends BaseExpandableListAdapter {
         }
 
         TextView textView = (TextView) convertView.findViewById(R.id.scheduleGroup);
+        final ImageView favorite_star = (ImageView) convertView.findViewById(R.id.schedule_fav_onplans);
+
+        String spCode = groupPosition + "-" + childPosition;
+        SharedPreferences sp = context.getSharedPreferences(spCode, Context.MODE_PRIVATE);
+        Boolean isFavorite = sp.getBoolean(spCode, false);
+        if(isFavorite){
+            favorite_star.setVisibility(View.VISIBLE);
+        }else{
+            favorite_star.setVisibility(View.INVISIBLE);
+        }
         textView.setText(scheduleName);
         return convertView;
     }
@@ -127,12 +162,15 @@ public class PlanAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    private void deletePlan(int planID){
+    private void deletePlan(int planID) {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Plan>>(){}.getType();
-        List<Plan> plans = gson.fromJson((String)bot.getSharedPrefC("plans", context ), type);
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPrefC("plans", context), type);
         plans.remove(planID);
         bot.setSharedPrefC("plans", context, plans);
     }
+
+
 }
 

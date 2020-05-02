@@ -17,6 +17,14 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <ImageView
+            android:id="@+id/favorite_schedule_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="atFavaBekle"
+            android:src="@drawable/favorite_empty36"
+            android:tint="@color/textColorAlmostWhite"/>
+
 
         <TextView
             android:id="@+id/schedule_header_name"
