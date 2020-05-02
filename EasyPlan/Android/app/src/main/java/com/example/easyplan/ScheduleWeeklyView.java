@@ -1,5 +1,6 @@
 package com.example.easyplan;
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -518,7 +519,7 @@ public class ScheduleWeeklyView extends Fragment {
             try {
                 ScheduleContents sch = new ScheduleContents(planID, scheduleID);
                 FragmentTransaction trans = getFragmentManager().beginTransaction();
-                trans.replace(R.id.fragment, sch, "Weekly");
+                trans.replace(R.id.fragment, sch, "ScheduleListView");
                 trans.commit();
                 if (Build.VERSION.SDK_INT >= 26) {
                     trans.setReorderingAllowed(false);

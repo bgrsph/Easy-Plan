@@ -1,5 +1,6 @@
 package com.example.easyplan;
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -52,7 +53,7 @@ public class ScheduleContents extends Fragment{
         adapter = new ScheduleContentAdapter(view.getContext(), courseList);
         courseRecycler.setAdapter(adapter);
         initScheduleData();
-
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +105,7 @@ public class ScheduleContents extends Fragment{
         PlansFragment plansFrag = new PlansFragment();
         FragmentTransaction trans = getFragmentManager().beginTransaction();
         trans.replace(R.id.fragment, plansFrag, "Plans");
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         trans.commit();
     }
 

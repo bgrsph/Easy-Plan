@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
 
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_profile, container, false);
-
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         personalInfo = v.findViewById(R.id.PersonalInfoText);
         personalInfo.setOnClickListener(this);
         notif = v.findViewById(R.id.NotificationsText);

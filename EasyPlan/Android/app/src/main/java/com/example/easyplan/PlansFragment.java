@@ -1,6 +1,7 @@
 package com.example.easyplan;
 
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -63,12 +64,15 @@ public class PlansFragment extends Fragment {
                     ScheduleWeeklyView sch = new ScheduleWeeklyView(groupPosition, childPosition);
                     FragmentTransaction trans = getFragmentManager().beginTransaction();
                     trans.replace(R.id.fragment, sch, "Weekly");
+                    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
                     trans.commit();
                 } else if(getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT) {
                     ScheduleContents sch = new ScheduleContents(groupPosition, childPosition);
                     FragmentTransaction trans = getFragmentManager().beginTransaction();
                     trans.replace(R.id.fragment, sch, "ScheduleContents");
+                    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
                     trans.commit();
+
                 }
 
                 return true;

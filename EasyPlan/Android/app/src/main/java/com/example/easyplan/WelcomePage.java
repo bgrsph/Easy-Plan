@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,7 +52,7 @@ public class WelcomePage extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         signUpButton = findViewById(R.id.welcomeSignUP);
         loginButton = findViewById(R.id.welcomeLogin);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         vv =  (VideoView) findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.koc_tanitim;
         Uri uri = Uri.parse(videoPath);
@@ -71,6 +72,7 @@ public class WelcomePage extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String remembered = sp.getString("remember", "");
         if(remembered.equals("true")){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
             startActivity(new Intent(WelcomePage.this, Mainpage.class));
         }
 

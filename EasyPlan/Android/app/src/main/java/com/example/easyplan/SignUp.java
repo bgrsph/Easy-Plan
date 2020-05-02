@@ -1,6 +1,7 @@
 package com.example.easyplan;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -35,7 +36,7 @@ public class SignUp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         setContentView(R.layout.activity_sign_up);
         auth = FirebaseAuth.getInstance();
         email = findViewById(R.id.email);
@@ -84,6 +85,7 @@ public class SignUp extends AppCompatActivity {
                                         }
                                     }
                                 });
+                                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                                 startActivity(new Intent(SignUp.this, LoginActivity.class));
                                 finish();
                             }

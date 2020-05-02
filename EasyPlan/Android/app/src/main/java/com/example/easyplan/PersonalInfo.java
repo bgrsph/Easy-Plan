@@ -3,6 +3,7 @@ package com.example.easyplan;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -46,6 +47,7 @@ public class PersonalInfo extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =inflater.inflate(R.layout.fragment_personal_info, container, false);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         mAuth = FirebaseAuth.getInstance();
         save = view.findViewById(R.id.SavePersonalInfo);
         selectedFaculty = "";
