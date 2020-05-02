@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,7 +28,7 @@ public class ScheduleContents extends Fragment{
     TextView delete, scheduleName;
     ArrayList<ScheduleContentItem> courseList;
     ScheduleContentAdapter adapter;
-    int planID, scheduleID;
+    static int  planID, scheduleID;
     private SharedPreferenceBot bot = new SharedPreferenceBot();
 
     public ScheduleContents() {
@@ -51,14 +52,13 @@ public class ScheduleContents extends Fragment{
         adapter = new ScheduleContentAdapter(view.getContext(), courseList);
         courseRecycler.setAdapter(adapter);
         initScheduleData();
-        adapter.notifyDataSetChanged();
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deleteSchedule();
             }
         });
-
         if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE) {
             ScheduleWeeklyView sch = new ScheduleWeeklyView(planID, scheduleID);
             FragmentTransaction trans = getFragmentManager().beginTransaction();
@@ -67,6 +67,7 @@ public class ScheduleContents extends Fragment{
         } else if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT) {
 
         }
+        adapter.notifyDataSetChanged();
         return view;
     }
 
@@ -90,7 +91,6 @@ public class ScheduleContents extends Fragment{
         Gson gson = new Gson();
         Type type = new TypeToken<List<Plan>>(){}.getType();
         List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
-
         Plan plan = plans.get(planID);
         Plan tmp = plans.get(planID);
         Schedule currSchedule = plan.getSchedules().get(scheduleID);

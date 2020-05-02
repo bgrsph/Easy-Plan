@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,7 +38,7 @@ public class ScheduleWeeklyView extends Fragment {
     ArrayList<ScheduleContentItem> courseList;
     ScheduleContentAdapter adapter;
     private SharedPreferenceBot bot = new SharedPreferenceBot();
-    int planID, scheduleID;
+    static int planID, scheduleID;
 
     public ScheduleWeeklyView() {
         // Required empty public constructor
