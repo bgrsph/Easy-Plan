@@ -48,7 +48,14 @@ public class Plan implements Parcelable {
         {
             Schedule schedule = new Schedule();
             for (Course x : list) {
-                schedule.addToSchedule(x);
+                boolean add = true;
+                /*for (Course y : schedule.getCourseList()) {
+                    if (y.getSubject().equals(x.getSubject()) && y.getCatalog().equals(x.getCatalog())) {
+                        add = false;
+                        break;
+                    }
+                } */
+                if (add) schedule.addToSchedule(x);
             }
             this.schedules.add(schedule);
             return;
@@ -68,11 +75,6 @@ public class Plan implements Parcelable {
             data.add(new Course());
         }*/
         recursiveScheduleCreating(input, data, 0, n-1, 0, size);
-        for (Schedule x : schedules) {
-            for (Course y : x.getCourseList()) {
-
-            }
-        }
         obliterateConflicts();
     }
 
@@ -84,6 +86,10 @@ public class Plan implements Parcelable {
                 for (Course z : x.getCourseList()) {
                     add = true;
                     if (y.equals(z)) continue;
+                    if (y.getSubject().equals(z.getSubject()) && y.getCatalog().equals(z.getCatalog())) {
+                        add = false;
+                        break;
+                    }
                     if (y.getMtgStart().equals(z.getMtgStart()) &&
                             ((y.getMonday().equals(z.getMonday()) && y.getMonday().equals("Y")) ||
                                     (y.getTuesday().equals(z.getTuesday()) && y.getTuesday().equals("Y")) ||
