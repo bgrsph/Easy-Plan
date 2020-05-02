@@ -26,6 +26,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,6 +79,13 @@ public class PlanCourseFragment extends Fragment {
         buttonList.add(course1); buttonList.add(course2); buttonList.add(course3); buttonList.add(course4);
         buttonList.add(course5); buttonList.add(course6); buttonList.add(course7); buttonList.add(course8);
 
+        String name = "";
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Plan>>(){}.getType();
+        List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
+        name = "Plan " + (plans.size() + 1);
+        planName.setText(name);
+
         Bundle bundle = getArguments();
         courseList = bundle.getParcelableArrayList("courseList");
         String key = "";
@@ -125,11 +134,15 @@ public class PlanCourseFragment extends Fragment {
                 }
             }
         });
+        MWCheckbox.setChecked(true); TTCheckbox.setChecked(true); FCheckbox.setChecked(true);
+        spinner1.setEnabled(true); spinner2.setEnabled(true);
+        spinner3.setEnabled(true); spinner4.setEnabled(true);
+        spinner5.setEnabled(true); spinner6.setEnabled(true);
 
         planButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (filteredList.size() <= Integer.valueOf(sizeSpinner.getSelectedItem().toString())){
+                if (filteredList.size() >= Integer.valueOf(sizeSpinner.getSelectedItem().toString())){
                     if(planSpinner.getSelectedItem().toString().equals("New Plan...")) {
                         if (bot.sharedPref(getActivity()).contains("plans")) {
                             Gson gson = new Gson();
@@ -138,7 +151,34 @@ public class PlanCourseFragment extends Fragment {
 
                             Plan plan = new Plan(planName.getText().toString());
                             int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
-                            plan.createSchedules(courseList, courseList.size(), size);
+                            ArrayList<Course> tempList = new ArrayList<Course>();
+                            for (Course x : courseList) {
+
+                                int time = changeTime(x.getMtgStart());
+                                if (MWCheckbox.isChecked() && (x.getMonday().equals("Y") || x.getWednesday().equals("Y"))) {
+                                    if (Integer.valueOf(spinner1.getSelectedItem().toString().substring(0, spinner1.getSelectedItem().toString().indexOf(':'))) <= time &&
+                                            Integer.valueOf(spinner2.getSelectedItem().toString().substring(0, spinner2.getSelectedItem().toString().indexOf(':'))) > time) {
+                                        tempList.add(x); continue;
+                                    }
+                                }
+                                if (TTCheckbox.isChecked() && (x.getTuesday().equals("Y") || x.getThursday().equals("Y"))) {
+                                    if (Integer.valueOf(spinner3.getSelectedItem().toString().substring(0, spinner3.getSelectedItem().toString().indexOf(':'))) <=
+                                            Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
+                                            Integer.valueOf(spinner4.getSelectedItem().toString().substring(0, spinner4.getSelectedItem().toString().indexOf(':'))) >
+                                                    Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':')))) {
+                                        tempList.add(x); continue;
+                                    }
+                                }
+                                if (FCheckbox.isChecked() && x.getFriday().equals("Y")) {
+                                    if (Integer.valueOf(spinner5.getSelectedItem().toString().substring(0, spinner5.getSelectedItem().toString().indexOf(':'))) <=
+                                            Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
+                                            Integer.valueOf(spinner6.getSelectedItem().toString().substring(0, spinner6.getSelectedItem().toString().indexOf(':'))) >
+                                                    Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':')))) {
+                                           tempList.add(x); continue;
+                                    }
+                                }
+                            }
+                            plan.createSchedules(tempList, tempList.size(), size);
                             //plan.deleteDuplicates();
                             plans.add(plan);
                             bot.setSharedPref("plans", getActivity(), plans);
@@ -215,7 +255,7 @@ public class PlanCourseFragment extends Fragment {
         sizeSpinner.setAdapter(dataAdapter);
 
         List<String> list1 = new ArrayList<String>();
-        list1.add("Start Time");
+        //list1.add("Start Time");
         list1.add("8:30"); list1.add("10:00"); list1.add("11:30");
         list1.add("13:00"); list1.add("14:30"); list1.add("16:00");
         list1.add("17:30");
@@ -224,8 +264,8 @@ public class PlanCourseFragment extends Fragment {
         spinner1.setAdapter(dataAdapter1);
 
         List<String> list2 = new ArrayList<String>();
-        list2.add("End Time");
-        list2.add("8:30"); list2.add("10:00"); list2.add("11:30");
+        //list2.add("End Time");
+        list2.add("10:00"); list2.add("11:30");
         list2.add("13:00"); list2.add("14:30"); list2.add("16:00");
         list2.add("17:30");
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list2);
@@ -264,6 +304,10 @@ public class PlanCourseFragment extends Fragment {
         dataAdapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         planSpinner.setAdapter(dataAdapter7);
         planSpinner.setSelection(0);
+        sizeSpinner.setSelection(3);
+        spinner2.setSelection(5);
+        spinner4.setSelection(5);
+        spinner6.setSelection(5);
     }
 
     public void configureButtons() {
@@ -293,5 +337,32 @@ public class PlanCourseFragment extends Fragment {
             x.setTag("unselected");
             x.setOnClickListener(listener);
         }
+    }
+
+    public int changeTime(String time) {
+        int a = 0;
+
+        if (time.equals("8:30 AM")) {
+            a = 8;
+        }
+        else if (time.equals("10:00 AM")) {
+            a = 10;
+        }
+        else if (time.equals("11:30 AM")) {
+            a = 11;
+        }
+        else if (time.equals("01:00 PM")) {
+            a = 13;
+        }
+        else if (time.equals("02:30 PM")) {
+            a = 14;
+        }
+        else if (time.equals("04:00 PM")) {
+            a = 16;
+        }
+        else if (time.equals("05:30 PM")) {
+            a = 17;
+        }
+        return a;
     }
 }

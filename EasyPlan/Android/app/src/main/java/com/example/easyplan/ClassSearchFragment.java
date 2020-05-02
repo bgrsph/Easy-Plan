@@ -42,9 +42,10 @@ import java.util.List;
 public class ClassSearchFragment extends Fragment {
 
     public static final ArrayList<Course> selectedCourses = new ArrayList<Course>();
+    public static final ArrayList<Course> noDupList = new ArrayList<>();
     public static TextView text1;
     private String accEmail;
-    Button searchClasses;
+    Button searchClasses, unselector;
     RecyclerView recyclerView;
     public static ArrayList<Course> courseList = new ArrayList<>();
     public static ArrayList<Course> courseList1 = new ArrayList<>();
@@ -151,18 +152,28 @@ public class ClassSearchFragment extends Fragment {
             }
         });
 
+        unselector = view.findViewById(R.id.unselectAll);
+        unselector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedCourses.clear();
+                noDupList.clear();
+                updateView(courseList);
+                text1.setText(noDupList.size() + " courses selected.");
+            }
+        });
+
         String key = "";
-        ArrayList<Course> filteredList = new ArrayList<Course>();
         for (Course x : selectedCourses) {
             if (key.equals("")) {
-                filteredList.add(x);
+                noDupList.add(x);
                 key = x.getSubject() + x.getCatalog();
             } else if (!key.equals(x.getSubject() + x.getCatalog())) {
-                filteredList.add(x);
+                noDupList.add(x);
                 key = x.getSubject() + x.getCatalog();
             }
         }
-        text1.setText(filteredList.size() + " courses selected.");
+        text1.setText(noDupList.size() + " courses selected.");
 
         return view;
     }

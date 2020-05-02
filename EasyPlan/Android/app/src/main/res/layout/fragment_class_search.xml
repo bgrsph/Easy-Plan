@@ -40,7 +40,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="6dp"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_weight="8"
         >
         <SearchView
@@ -58,6 +58,20 @@
             android:textSize="15dp"
             android:textStyle="italic"
             />
+
+        <Button
+            android:id="@+id/unselectAll"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_main"
+            android:enabled="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:stateListAnimator="@null"
+            android:text="Unselector"
+            android:textAllCaps="false"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="15dp" />
     </LinearLayout>
 
     <LinearLayout
