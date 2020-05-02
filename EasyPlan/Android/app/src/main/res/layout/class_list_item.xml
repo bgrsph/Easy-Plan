@@ -6,29 +6,55 @@
     android:layout_height="60dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:paddingLeft="30dp"
+
     android:weightSum="100"
     android:background="@drawable/border"
     android:clickable="true"
     android:focusable="true"
-    android:id="@+id/layout"
+    android:id="@+id/layout1"
     >
 
-    <TextView
-        android:id="@+id/courseName"
+    <Button
+        android:id="@+id/delete"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="70"
-        android:textSize="20sp"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:background="@drawable/blue_info_button"
+        android:enabled="true"
+        android:layout_weight="15"
+        android:fontFamily="sans-serif-smallcaps"
+        android:stateListAnimator="@null"
+        android:textAllCaps="false"
+        android:textColor="@color/textColorAlmostWhite"
         />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_weight="30"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        />
+        android:layout_height="match_parent"
+        android:weightSum="100"
+        android:layout_weight="80"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/layout"
+        >
+        <TextView
+            android:id="@+id/courseName"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="70"
+            android:textSize="20sp"
+            />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_weight="30"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            />
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -282,7 +282,7 @@
         android:layout_marginBottom="1dp"
         android:layout_weight="8"
         android:gravity="center"
-        android:weightSum="24"
+        android:weightSum="48"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
@@ -291,17 +291,17 @@
             android:id="@+id/MWCheckbox"
             android:text="Monday - Wednesday"
             android:layout_width="0px"
-            android:layout_weight="10"
+            android:layout_weight="18"
             android:layout_height="match_parent" />
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="0px"
-            android:layout_weight="7"
+            android:layout_weight="15"
             android:layout_height="match_parent" />
         <Spinner
             android:id="@+id/spinner2"
             android:layout_width="0px"
-            android:layout_weight="7"
+            android:layout_weight="15"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -313,7 +313,7 @@
         android:layout_weight="8"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="24"
+        android:weightSum="48"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
@@ -321,18 +321,18 @@
             android:id="@+id/TTCheckbox"
             android:text="Tuesday - Thursday"
             android:layout_width="0px"
-            android:layout_weight="10"
+            android:layout_weight="18"
             android:layout_height="match_parent" />
 
         <Spinner
             android:id="@+id/spinner3"
             android:layout_width="0px"
-            android:layout_weight="7"
+            android:layout_weight="15"
             android:layout_height="match_parent" />
         <Spinner
             android:id="@+id/spinner4"
             android:layout_width="0px"
-            android:layout_weight="7"
+            android:layout_weight="15"
             android:layout_height="match_parent" />
 
     </LinearLayout>
@@ -344,7 +344,7 @@
         android:layout_weight="8"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="24"
+        android:weightSum="48"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
@@ -352,18 +352,18 @@
             android:id="@+id/FCheckbox"
             android:text="Friday"
             android:layout_width="0px"
-            android:layout_weight="10"
+            android:layout_weight="18"
             android:layout_height="match_parent" />
 
         <Spinner
             android:id="@+id/spinner5"
             android:layout_width="0px"
-            android:layout_weight="7"
+            android:layout_weight="15"
             android:layout_height="match_parent" />
         <Spinner
             android:id="@+id/spinner6"
             android:layout_width="0px"
-            android:layout_weight="7"
+            android:layout_weight="15"
             android:layout_height="match_parent" />
 
 

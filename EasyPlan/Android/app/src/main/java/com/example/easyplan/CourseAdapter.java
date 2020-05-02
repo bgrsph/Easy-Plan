@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.easyplan.ClassSearchFragment.noDupList;
 import static com.example.easyplan.ClassSearchFragment.selectedCourses;
 import static com.example.easyplan.ClassSearchFragment.text1;
 
@@ -72,7 +73,19 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                         size--;
                     }
 
-                    text1.setText(size + " courses selected.");
+                    String key = "";
+                    for (Course x : selectedCourses) {
+                        if (key.equals("")) {
+                            noDupList.add(x);
+                            key = x.getSubject() + x.getCatalog();
+                        } else if (!key.equals(x.getSubject() + x.getCatalog())) {
+                            noDupList.add(x);
+                            key = x.getSubject() + x.getCatalog();
+                        }
+                    }
+                    text1.setText(ClassSearchFragment.noDupList.size() + " courses selected.");
+                    ClassSearchFragment.noDupList.clear();
+
                 }
             });
         }
