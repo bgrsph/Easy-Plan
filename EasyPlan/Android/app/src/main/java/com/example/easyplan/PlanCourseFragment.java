@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -236,6 +237,20 @@ public class PlanCourseFragment extends Fragment {
                 populateSpinners(view);
             }
         });
+
+        planSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    planName.setEnabled(true);
+                } else planName.setEnabled(false);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         return view;
     }
 
@@ -337,7 +352,7 @@ public class PlanCourseFragment extends Fragment {
     public int changeTime(String time) {
         int a = 0;
 
-        if (time.equals("8:30 AM")) {
+        if (time.equals("08:30 AM")) {
             a = 8;
         }
         else if (time.equals("10:00 AM")) {
