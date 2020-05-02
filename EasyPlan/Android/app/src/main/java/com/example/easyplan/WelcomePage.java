@@ -41,12 +41,6 @@ public class WelcomePage extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-
-        return;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
@@ -74,6 +68,7 @@ public class WelcomePage extends AppCompatActivity {
         if(remembered.equals("true")){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
             startActivity(new Intent(WelcomePage.this, Mainpage.class));
+            finish();
         }
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +76,7 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomePage.this, SignUp.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -89,6 +85,7 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomePage.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
