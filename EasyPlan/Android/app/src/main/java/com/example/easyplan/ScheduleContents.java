@@ -1,5 +1,7 @@
 package com.example.easyplan;
 
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -56,6 +58,15 @@ public class ScheduleContents extends Fragment{
                 deleteSchedule();
             }
         });
+
+        if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE) {
+            ScheduleWeeklyView sch = new ScheduleWeeklyView(planID, scheduleID);
+            FragmentTransaction trans = getFragmentManager().beginTransaction();
+            trans.replace(R.id.fragment, sch, "Weekly");
+            trans.commit();
+        } else if(this.getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT) {
+
+        }
         return view;
     }
 
@@ -95,6 +106,7 @@ public class ScheduleContents extends Fragment{
         trans.replace(R.id.fragment, plansFrag, "Plans");
         trans.commit();
     }
+
 
 
 }

@@ -1,6 +1,7 @@
 package com.example.easyplan;
 
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -45,6 +46,7 @@ public class PlansFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_plans_fragment, container, false);
+
         listPlanGroups = new ArrayList<>();
         mapSchedulePlan = new HashMap<>();
         planExpandable = view.findViewById(R.id.plansExpandable);
@@ -57,10 +59,18 @@ public class PlansFragment extends Fragment {
         planExpandable.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                ScheduleContents sch = new ScheduleContents(groupPosition, childPosition);
-                FragmentTransaction trans = getFragmentManager().beginTransaction();
-                trans.replace(R.id.fragment, sch, "ScheduleContents");
-                trans.commit();
+                if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE) {
+                    ScheduleWeeklyView sch = new ScheduleWeeklyView(groupPosition, childPosition);
+                    FragmentTransaction trans = getFragmentManager().beginTransaction();
+                    trans.replace(R.id.fragment, sch, "Weekly");
+                    trans.commit();
+                } else if(getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT) {
+                    ScheduleContents sch = new ScheduleContents(groupPosition, childPosition);
+                    FragmentTransaction trans = getFragmentManager().beginTransaction();
+                    trans.replace(R.id.fragment, sch, "ScheduleContents");
+                    trans.commit();
+                }
+
                 return true;
             }
         });
