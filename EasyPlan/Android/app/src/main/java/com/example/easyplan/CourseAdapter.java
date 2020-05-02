@@ -26,6 +26,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     private ArrayList<Course> courseList1 = new ArrayList<Course>();
     private ArrayList<Course> filterList = new ArrayList<Course>();
+    private int size = 0;
 
     public CourseAdapter(ArrayList<Course> courses) {
         courseList1 = courses;
@@ -50,21 +51,28 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                     if (imageView.getTag() == "plus") {
                         imageView.setImageResource(R.drawable.check);
                         imageView.setTag("check");
-                        for (Course x : ClassSearchFragment.courseList) {
-                            if (x.getId() == nameTextView.getTag()) {
-                                selectedCourses.add(x); break;
+                        for (Course x : ClassSearchFragment.allSections) {
+                            if ((x.getSubject() + x.getCatalog()).equals(nameTextView.getTag())) {
+                                selectedCourses.add(x);
                             }
                         }
+                        size++;
                     } else {
                         imageView.setImageResource(R.drawable.plus);
                         imageView.setTag("plus");
+                        List<Course> courseDelete = new ArrayList<Course>();
                         for (Course x : selectedCourses) {
-                            if (x.getId() == nameTextView.getTag()) {
-                                selectedCourses.remove(x); break;
+                            if ((x.getSubject() + x.getCatalog()).equals(nameTextView.getTag())) {
+                                courseDelete.add(x);
                             }
                         }
+                        for (Course x : courseDelete) {
+                            if (selectedCourses.contains(x)) selectedCourses.remove(x);
+                        }
+                        size--;
                     }
-                    text1.setText(selectedCourses.size() + " courses selected.");
+
+                    text1.setText(size + " courses selected.");
                 }
             });
         }
@@ -91,10 +99,10 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         // Set item views based on your views and data model
         TextView textView1 = holder.nameTextView;
         textView1.setText(course.getSubject() + course.getCatalog());
-        textView1.setTag(course.getId());
+        textView1.setTag(course.getSubject() + course.getCatalog());
         ImageView image = holder.imageView;
         for (Course x : ClassSearchFragment.selectedCourses) {
-            if (x.getId() == textView1.getTag()) {
+            if ((x.getSubject() + x.getCatalog()).equals(textView1.getTag())) {
                 image.setImageResource(R.drawable.check);
                 image.setTag("check");
             }

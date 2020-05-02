@@ -48,6 +48,7 @@ public class ClassSearchFragment extends Fragment {
     RecyclerView recyclerView;
     public static ArrayList<Course> courseList = new ArrayList<>();
     public static ArrayList<Course> courseList1 = new ArrayList<>();
+    public static ArrayList<Course> allSections = new ArrayList<>();
     private SearchView search;
     final CourseAdapter adapter = new CourseAdapter(courseList1);
     View view;
@@ -69,6 +70,7 @@ public class ClassSearchFragment extends Fragment {
         new FirebaseHelper("ugradCourses").readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
+                allSections = courses;
                 boolean add = false;
                 for (Course x : courses) {
                     if (courseList.isEmpty()) courseList.add(x);
@@ -138,18 +140,6 @@ public class ClassSearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                ArrayList<Schedule> schedules = new ArrayList<Schedule>();
-                Schedule schedule1 = new Schedule();
-                schedule1.setCourseList(selectedCourses);
-                schedules.add(schedule1);
-
-                Plan plan1 = new Plan("Plan 1");
-                Plan plan2 = new Plan("Plan 2");
-                plan1.setSchedules(schedules);
-
-                ArrayList<Plan> plans = new ArrayList<Plan>();
-                plans.add(plan1); plans.add(plan2);
-
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("courseList", selectedCourses);
 
@@ -161,7 +151,18 @@ public class ClassSearchFragment extends Fragment {
             }
         });
 
-        text1.setText(selectedCourses.size() + " courses selected.");
+        String key = "";
+        ArrayList<Course> filteredList = new ArrayList<Course>();
+        for (Course x : selectedCourses) {
+            if (key.equals("")) {
+                filteredList.add(x);
+                key = x.getSubject() + x.getCatalog();
+            } else if (!key.equals(x.getSubject() + x.getCatalog())) {
+                filteredList.add(x);
+                key = x.getSubject() + x.getCatalog();
+            }
+        }
+        text1.setText(filteredList.size() + " courses selected.");
 
         return view;
     }

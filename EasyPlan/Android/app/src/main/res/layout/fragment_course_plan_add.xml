@@ -269,7 +269,7 @@
             android:textSize="20dp" />
 
         <Spinner
-            android:id="@+id/planSpinner"
+            android:id="@+id/sizeSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:tooltipText="Monday - Wednesday"/>
@@ -282,26 +282,27 @@
         android:layout_marginBottom="1dp"
         android:layout_weight="8"
         android:gravity="center"
+        android:weightSum="24"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
-        <TextView
-            android:layout_margin="5dp"
-            android:gravity="center_vertical"
-            android:id="@+id/text4"
-            android:text="Start Time"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:shadowColor="#F5F0F0"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            />
 
+        <CheckBox
+            android:id="@+id/MWCheckbox"
+            android:text="Monday - Wednesday"
+            android:layout_width="0px"
+            android:layout_weight="10"
+            android:layout_height="match_parent" />
         <Spinner
             android:id="@+id/spinner1"
-            android:layout_width="match_parent"
+            android:layout_width="0px"
+            android:layout_weight="7"
             android:layout_height="match_parent" />
-
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="0px"
+            android:layout_weight="7"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
     <LinearLayout
@@ -312,23 +313,57 @@
         android:layout_weight="8"
         android:gravity="center"
         android:orientation="horizontal"
+        android:weightSum="24"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
-        <TextView
-            android:layout_margin="5dp"
-            android:gravity="center_vertical"
-            android:id="@+id/text5"
-            android:text="End Time"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:shadowColor="#F5F0F0"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            />
+
+        <CheckBox
+            android:id="@+id/TTCheckbox"
+            android:text="Tuesday - Thursday"
+            android:layout_width="0px"
+            android:layout_weight="10"
+            android:layout_height="match_parent" />
 
         <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
+            android:id="@+id/spinner3"
+            android:layout_width="0px"
+            android:layout_weight="7"
+            android:layout_height="match_parent" />
+        <Spinner
+            android:id="@+id/spinner4"
+            android:layout_width="0px"
+            android:layout_weight="7"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/welcomeLayout15"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_weight="8"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <CheckBox
+            android:id="@+id/FCheckbox"
+            android:text="Friday"
+            android:layout_width="0px"
+            android:layout_weight="10"
+            android:layout_height="match_parent" />
+
+        <Spinner
+            android:id="@+id/spinner5"
+            android:layout_width="0px"
+            android:layout_weight="7"
+            android:layout_height="match_parent" />
+        <Spinner
+            android:id="@+id/spinner6"
+            android:layout_width="0px"
+            android:layout_weight="7"
             android:layout_height="match_parent" />
 
 
@@ -357,48 +392,13 @@
             />
 
         <Spinner
-            android:id="@+id/spinner3"
+            android:id="@+id/planSpinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/welcomeLayout11"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        android:layout_weight="5"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-16dp">
 
-        <CheckBox
-            android:text="Monday - Wednesday"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/welcomeLayout12"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
-        android:layout_weight="5"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="-16dp">
-
-        <CheckBox
-            android:text="Tuesday - Thursday"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/welcomeLayout13"
         android:layout_width="match_parent"
@@ -410,10 +410,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="-16dp">
 
-        <CheckBox
-            android:text="Friday"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
 
     </LinearLayout>
