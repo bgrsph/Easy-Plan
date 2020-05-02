@@ -1,6 +1,7 @@
 package com.example.easyplan;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.text.Layout;
 import android.view.InflateException;
@@ -16,9 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,9 +33,12 @@ import static com.example.easyplan.ClassSearchFragment.selectedCourses;
 import static com.example.easyplan.ClassSearchFragment.text1;
 
 public class PlanAdapter extends BaseExpandableListAdapter {
-        Context context;
-        List<String> listPlanGroups;
-        HashMap<String, List<String>> mapSchedulePlan;
+    Context context;
+    List<String> listPlanGroups;
+    HashMap<String, List<String>> mapSchedulePlan;
+    TextView deleteBtn;
+    private SharedPreferenceBot bot = new SharedPreferenceBot();
+
     public PlanAdapter(Context context, List<String> listDataHeader,
                        HashMap<String, List<String>> listChildData) {
         this.context = context;
@@ -74,44 +83,56 @@ public class PlanAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String planName  =(String) getGroup(groupPosition); //returns the name
-        if(convertView ==  null) {
+    public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
+        String planName = (String) getGroup(groupPosition); //returns the name
+        if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.plan_group, null);
         }
 
         TextView textView = (TextView) convertView.findViewById(R.id.planGroup);
+        deleteBtn = convertView.findViewById(R.id.plan_delete_btn);
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deletePlan(groupPosition);
+                PlansFragment plansFrag = new PlansFragment();
+                FragmentTransaction trans = ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction();
+                trans.replace(R.id.fragment, plansFrag, "Plans");
+                trans.commit();
+            }
+        });
         textView.setText(planName);
         return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        String scheduleName  =(String) getChild(groupPosition, childPosition); //returns the name
-        if(convertView ==  null) {
+        String scheduleName = (String) getChild(groupPosition, childPosition); //returns the name
+        if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.schedule_group, null);
         }
 
         TextView textView = (TextView) convertView.findViewById(R.id.scheduleGroup);
         textView.setText(scheduleName);
-   /*     textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "clicked", Toast.LENGTH_LONG).show();
-                ScheduleContents sch = new ScheduleContents();
-                FragmentTransaction trans =
-                trans.replace(R.id.schedule_contents_layout, sch, "ScheduleContents");
-                trans.commit();
-            }
-        });*/
         return convertView;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    private void deletePlan(int planID){
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Plan>>(){}.getType();
+        List<Plan> plans = gson.fromJson((String)bot.getSharedPrefC("plans", context ), type);
+        plans.remove(planID);
+        bot.setSharedPrefC("plans", context, plans);
+
+
+
     }
 }
 

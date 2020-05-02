@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/button_red"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:weightSum="2">
+
     <TextView
         android:id="@+id/planGroup"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:textColor="@android:color/white"
-        android:paddingTop="10dp"
-        android:text="mellow"
-        android:paddingBottom="10dp"
-        android:background="@color/button_red"
-        android:clickable="true"
-        android:textStyle="italic"
+        android:layout_weight="1.85"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:fontFamily="sans-serif-condensed-light"
-        android:textColorLink="@color/white"/>
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="mellow"
+        android:textColor="@android:color/white"
+        android:textColorLink="@color/white"
+        android:textStyle="italic" />
+
+    <TextView
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/plan_delete_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.15"
+        android:drawableTint="@color/white"
+        android:drawableRight="@drawable/round_delete_black_24dp" />
 
 
 </LinearLayout>

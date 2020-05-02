@@ -28,6 +28,14 @@
             android:textAllCaps="true"
             android:textSize="40sp" />
 
+        <TextView
+            android:id="@+id/schedule_delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@drawable/round_delete"
+            android:elevation="4dp" />
+
         <View
             android:id="@+id/line_view"
             android:layout_width="match_parent"

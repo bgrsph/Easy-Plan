@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -98,6 +99,7 @@ public class Mainpage extends AppCompatActivity {
             return true;
         }
     };
+
 
     /*private ValueEventListener ab = new ValueEventListener() {
 

@@ -57,7 +57,6 @@ public class PlansFragment extends Fragment {
         planExpandable.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(getContext(), "clickedOnPlans", Toast.LENGTH_LONG).show();
                 ScheduleContents sch = new ScheduleContents(groupPosition, childPosition);
                 FragmentTransaction trans = getFragmentManager().beginTransaction();
                 trans.replace(R.id.fragment, sch, "ScheduleContents");
@@ -71,20 +70,23 @@ public class PlansFragment extends Fragment {
 
     private void initListData() {
         Gson gson = new Gson();
-        Type type = new TypeToken<Plan>() {
-        }.getType();
-        Plan plan = gson.fromJson((String) bot.getSharedPref("plan1", getActivity()), type);
-
-        listPlanGroups.add(plan.getPlanName());
-        ArrayList<Schedule> schedules = plan.getSchedules();
-        int scCount = 1;
-        List<String> planArr = new ArrayList<>();
-        for (int i = 0; i < schedules.size(); i++) {
-            String name = "Schedule#" + (scCount);
-            planArr.add(name);
-            scCount++;
+        Type type = new TypeToken<List<Plan>>(){}.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
+        if (plans != null) {
+            for (int i = 0; i < plans.size(); i++) {
+                Plan p = plans.get(i);
+                listPlanGroups.add(p.getPlanName());
+                List<String> planArr = new ArrayList<>();
+                ArrayList<Schedule> schedules = p.getSchedules();
+                    for (int j = 0; j < schedules.size(); j++) {
+                        String name = "Schedule#" + (j + 1);
+                        planArr.add(name);
+                    }
+                mapSchedulePlan.put(listPlanGroups.get(i), planArr);
+            }
         }
-        mapSchedulePlan.put(listPlanGroups.get(0), planArr);
+
+
         adapter.notifyDataSetChanged();
     }
 

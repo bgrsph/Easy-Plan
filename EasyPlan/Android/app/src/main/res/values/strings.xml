@@ -147,6 +147,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_this_schedule">Delete Schedule</string>
+    <string name="plan_delete_msg">Are you sure you want to delete all of the schedules?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_plan">Delete Plan</string>
 
 
 </resources>

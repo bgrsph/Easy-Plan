@@ -17,7 +17,9 @@
         android:layout_height="match_parent"
         android:divider="@android:color/darker_gray"
         android:textFilterEnabled="true"
-        android:groupIndicator="@color/button_red"></ExpandableListView>
+        android:groupIndicator="@color/button_red">
+
+    </ExpandableListView>
 
 
 </RelativeLayout>
