@@ -35,6 +35,7 @@ public class ScheduleContents extends Fragment {
     ScheduleContentAdapter adapter;
     static boolean isFavorite;
     static int planID, scheduleID;
+    static String spCode;
     private SharedPreferenceBot bot = new SharedPreferenceBot();
 
     public ScheduleContents() {
@@ -53,19 +54,10 @@ public class ScheduleContents extends Fragment {
         courseRecycler = view.findViewById(R.id.schedule_courses_recyler);
         delete = view.findViewById(R.id.schedule_delete_btn);
         favorite_star = view.findViewById(R.id.favorite_schedule_content);
-        String spCode = planID + "-" + scheduleID;
-        SharedPreferences sp = getActivity().getSharedPreferences(spCode, Context.MODE_PRIVATE);
-        Boolean isFavorite = sp.getBoolean(spCode, false);
-        if(isFavorite){
-            favorite_star.setImageResource(R.drawable.favorite_filled36);
-        }else{
-            favorite_star.setImageResource(R.drawable.favorite_empty36);
-        }
-
         favorite_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addScheduleToFavorites();
+                addScheduleToFavorites(spCode);
             }
         });
         scheduleName = view.findViewById(R.id.schedule_header_name);
@@ -93,9 +85,8 @@ public class ScheduleContents extends Fragment {
         return view;
     }
 
-    private void addScheduleToFavorites() {
-        String spCode = planID + "-" + scheduleID;
-        SharedPreferences sp = getActivity().getSharedPreferences(spCode, Context.MODE_PRIVATE);
+    private void addScheduleToFavorites(String spCode) {
+        SharedPreferences sp = getActivity().getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
         Boolean isFavorite = sp.getBoolean(spCode, false);
         SharedPreferences.Editor editor = sp.edit();
         if (!isFavorite) {
@@ -104,7 +95,8 @@ public class ScheduleContents extends Fragment {
 
         } else {
             favorite_star.setImageResource(R.drawable.favorite_empty36);
-            editor.putBoolean(spCode, false);;
+            editor.putBoolean(spCode, false);
+            ;
         }
         editor.commit();
     }
@@ -116,7 +108,14 @@ public class ScheduleContents extends Fragment {
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
-
+        spCode = plan.getPlanName() + "-" + scheduleID;
+        SharedPreferences sp = getActivity().getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
+        Boolean isFavorite = sp.getBoolean(spCode, false);
+        if (isFavorite) {
+            favorite_star.setImageResource(R.drawable.favorite_filled36);
+        } else {
+            favorite_star.setImageResource(R.drawable.favorite_empty36);
+        }
         ArrayList<Course> courses = currSchedule.getCourseList();
         scheduleName.setText(plan.getPlanName() + " Schedule #" + (scheduleID + 1));
         for (Course c : courses) {
@@ -128,17 +127,28 @@ public class ScheduleContents extends Fragment {
     }
 
     private void deleteSchedule() {
-        String spCode = planID + "-" + scheduleID;
-        SharedPreferences sp = getActivity().getSharedPreferences(spCode, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-        editor.remove(spCode);
-        editor.commit();
         Gson gson = new Gson();
         Type type = new TypeToken<List<Plan>>() {
         }.getType();
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
         Plan tmp = plans.get(planID);
+        for (int i = scheduleID; i < plan.getSchedules().size(); i++) {
+            String spCode = plan.getPlanName() + "-" + i;
+            SharedPreferences sp = getActivity().getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            Boolean isFavorite = sp.getBoolean(spCode, false);
+            if (isFavorite && i == scheduleID) {
+                editor.remove(spCode);
+            } else if (isFavorite) {
+                int difference = i - 1;
+                String newSpCode = plan.getPlanName() + "-" + difference;
+                editor.remove(spCode);
+                editor.putBoolean(newSpCode, true);
+            }
+            editor.commit();
+
+        }
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
         plan.getSchedules().remove(currSchedule);
         plans.remove(tmp);

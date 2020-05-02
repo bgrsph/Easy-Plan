@@ -86,7 +86,7 @@ public class PlanAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(final int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String planName = (String) getGroup(groupPosition); //returns the name
+        final String planName = (String) getGroup(groupPosition); //returns the name
 /*        if(planName.equals("")){
             planName = "Plan #" + (groupPosition + 1);
         }*/
@@ -116,8 +116,8 @@ public class PlanAdapter extends BaseExpandableListAdapter {
             @Override
             public void onClick(View v) {
                 for (int i = 0; i < getChildrenCount(groupPosition); i++) {
-                    String spCode = groupPosition + "-" + i;
-                    SharedPreferences sp = context.getSharedPreferences(spCode, Context.MODE_PRIVATE);
+                    String spCode = planName + "-" + i;
+                    SharedPreferences sp = context.getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.remove(spCode);
                     editor.commit();
@@ -144,16 +144,16 @@ public class PlanAdapter extends BaseExpandableListAdapter {
 
         TextView textView = (TextView) convertView.findViewById(R.id.scheduleGroup);
         final ImageView favorite_star = (ImageView) convertView.findViewById(R.id.schedule_fav_onplans);
-
-        String spCode = groupPosition + "-" + childPosition;
-        SharedPreferences sp = context.getSharedPreferences(spCode, Context.MODE_PRIVATE);
+        textView.setText(scheduleName);
+        String spCode = getGroup(groupPosition) + "-" + childPosition;
+        SharedPreferences sp = context.getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
         Boolean isFavorite = sp.getBoolean(spCode, false);
         if(isFavorite){
             favorite_star.setVisibility(View.VISIBLE);
         }else{
             favorite_star.setVisibility(View.INVISIBLE);
         }
-        textView.setText(scheduleName);
+
         return convertView;
     }
 
@@ -167,6 +167,7 @@ public class PlanAdapter extends BaseExpandableListAdapter {
         Type type = new TypeToken<List<Plan>>() {
         }.getType();
         List<Plan> plans = gson.fromJson((String) bot.getSharedPrefC("plans", context), type);
+
         plans.remove(planID);
         bot.setSharedPrefC("plans", context, plans);
     }

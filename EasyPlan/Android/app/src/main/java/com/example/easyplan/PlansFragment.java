@@ -1,6 +1,8 @@
 package com.example.easyplan;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -51,7 +53,6 @@ public class PlansFragment extends Fragment {
         listPlanGroups = new ArrayList<>();
         mapSchedulePlan = new HashMap<>();
         planExpandable = view.findViewById(R.id.plansExpandable);
-
         adapter = new PlanAdapter(view.getContext(), listPlanGroups, mapSchedulePlan);
         planExpandable.setAdapter(adapter);
         initListData();
@@ -103,6 +104,7 @@ public class PlansFragment extends Fragment {
         }
         adapter.notifyDataSetChanged();
     }
+
 
 }
 
