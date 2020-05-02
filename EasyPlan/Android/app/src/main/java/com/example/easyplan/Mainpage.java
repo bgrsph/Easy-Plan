@@ -33,6 +33,8 @@ public class Mainpage extends AppCompatActivity {
         accEmail = getIntent().getStringExtra("accEmail");
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_mainpage);
         bottomMenu = findViewById(R.id.NavigationBot);
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
