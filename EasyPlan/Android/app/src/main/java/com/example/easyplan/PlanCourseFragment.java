@@ -42,7 +42,7 @@ public class PlanCourseFragment extends Fragment {
     private CheckBox MWCheckbox, TTCheckbox, FCheckbox;
     private Spinner spinner1, spinner2, spinner3, spinner4, spinner5, spinner6, planSpinner, sizeSpinner;
     private Button course1, course2, course3, course4, course5, course6, course7, course8, planButton, deleteButton;
-    private ArrayList<Course> courseList;
+    private ArrayList<Course> courseList, labs;
     private ArrayList<Course> filteredList;
     private ArrayList<Button> buttonList = new ArrayList<Button>();
     private SharedPreferenceBot bot = new SharedPreferenceBot();
@@ -88,6 +88,7 @@ public class PlanCourseFragment extends Fragment {
 
         Bundle bundle = getArguments();
         courseList = bundle.getParcelableArrayList("courseList");
+        labs = bundle.getParcelableArrayList("labsList");
         String key = "";
         filteredList = new ArrayList<Course>();
         for (Course x : courseList) {
@@ -162,6 +163,37 @@ public class PlanCourseFragment extends Fragment {
                                     }
                                 }
                                 if (TTCheckbox.isChecked() && (x.getTuesday().equals("Y") || x.getThursday().equals("Y"))) {
+                                    if (Integer.valueOf(spinner3.getSelectedItem().toString().substring(0, spinner3.getSelectedItem().toString().indexOf(':'))) <= time &&
+                                            Integer.valueOf(spinner4.getSelectedItem().toString().substring(0, spinner4.getSelectedItem().toString().indexOf(':'))) > time) {
+                                        tempList.add(x); continue;
+                                    }
+                                }
+                                if (FCheckbox.isChecked() && x.getFriday().equals("Y")) {
+                                    if (Integer.valueOf(spinner5.getSelectedItem().toString().substring(0, spinner5.getSelectedItem().toString().indexOf(':'))) <= time &&
+                                            Integer.valueOf(spinner6.getSelectedItem().toString().substring(0, spinner6.getSelectedItem().toString().indexOf(':'))) > time) {
+                                           tempList.add(x); continue;
+                                    }
+                                }
+                            }
+                            plan.createSchedules(tempList, tempList.size(), size, labs);
+                            //plan.deleteDuplicates();
+                            plans.add(plan);
+                            bot.setSharedPref("plans", getActivity(), plans);
+                        } else {
+                            List<Plan> plans = new ArrayList<Plan>();
+                            Plan plan = new Plan(planName.getText().toString());
+                            int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
+                            ArrayList<Course> tempList = new ArrayList<Course>();
+                            for (Course x : courseList) {
+
+                                int time = changeTime(x.getMtgStart());
+                                if (MWCheckbox.isChecked() && (x.getMonday().equals("Y") || x.getWednesday().equals("Y"))) {
+                                    if (Integer.valueOf(spinner1.getSelectedItem().toString().substring(0, spinner1.getSelectedItem().toString().indexOf(':'))) <= time &&
+                                            Integer.valueOf(spinner2.getSelectedItem().toString().substring(0, spinner2.getSelectedItem().toString().indexOf(':'))) > time) {
+                                        tempList.add(x); continue;
+                                    }
+                                }
+                                if (TTCheckbox.isChecked() && (x.getTuesday().equals("Y") || x.getThursday().equals("Y"))) {
                                     if (Integer.valueOf(spinner3.getSelectedItem().toString().substring(0, spinner3.getSelectedItem().toString().indexOf(':'))) <=
                                             Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
                                             Integer.valueOf(spinner4.getSelectedItem().toString().substring(0, spinner4.getSelectedItem().toString().indexOf(':'))) >
@@ -174,20 +206,12 @@ public class PlanCourseFragment extends Fragment {
                                             Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
                                             Integer.valueOf(spinner6.getSelectedItem().toString().substring(0, spinner6.getSelectedItem().toString().indexOf(':'))) >
                                                     Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':')))) {
-                                           tempList.add(x); continue;
+                                        tempList.add(x); continue;
                                     }
                                 }
                             }
-                            plan.createSchedules(tempList, tempList.size(), size);
+                            plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
-                            plans.add(plan);
-                            bot.setSharedPref("plans", getActivity(), plans);
-                        } else {
-                            List<Plan> plans = new ArrayList<Plan>();
-                            Plan plan = new Plan(planName.getText().toString());
-                            int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
-                            plan.createSchedules(courseList, courseList.size(), size);
-                            plan.deleteDuplicates();
                             plans.add(plan);
                             bot.setSharedPref("plans", getActivity(), plans);
                         }
@@ -199,8 +223,35 @@ public class PlanCourseFragment extends Fragment {
 
                         Plan plan = new Plan(planName.getText().toString());
                         int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
-                        plan.createSchedules(courseList, courseList.size(), size);
-                        plan.deleteDuplicates();
+                        ArrayList<Course> tempList = new ArrayList<Course>();
+                        for (Course x : courseList) {
+
+                            int time = changeTime(x.getMtgStart());
+                            if (MWCheckbox.isChecked() && (x.getMonday().equals("Y") || x.getWednesday().equals("Y"))) {
+                                if (Integer.valueOf(spinner1.getSelectedItem().toString().substring(0, spinner1.getSelectedItem().toString().indexOf(':'))) <= time &&
+                                        Integer.valueOf(spinner2.getSelectedItem().toString().substring(0, spinner2.getSelectedItem().toString().indexOf(':'))) > time) {
+                                    tempList.add(x); continue;
+                                }
+                            }
+                            if (TTCheckbox.isChecked() && (x.getTuesday().equals("Y") || x.getThursday().equals("Y"))) {
+                                if (Integer.valueOf(spinner3.getSelectedItem().toString().substring(0, spinner3.getSelectedItem().toString().indexOf(':'))) <=
+                                        Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
+                                        Integer.valueOf(spinner4.getSelectedItem().toString().substring(0, spinner4.getSelectedItem().toString().indexOf(':'))) >
+                                                Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':')))) {
+                                    tempList.add(x); continue;
+                                }
+                            }
+                            if (FCheckbox.isChecked() && x.getFriday().equals("Y")) {
+                                if (Integer.valueOf(spinner5.getSelectedItem().toString().substring(0, spinner5.getSelectedItem().toString().indexOf(':'))) <=
+                                        Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':'))) &&
+                                        Integer.valueOf(spinner6.getSelectedItem().toString().substring(0, spinner6.getSelectedItem().toString().indexOf(':'))) >
+                                                Integer.valueOf(x.getMtgStart().substring(0, x.getMtgStart().indexOf(':')))) {
+                                    tempList.add(x); continue;
+                                }
+                            }
+                        }
+                        plan.createSchedules(tempList, tempList.size(), size, labs);
+                        //.deleteDuplicates();
 
                         Plan tmp = new Plan("lul");
                         for (Plan x : plans) {
@@ -275,9 +326,9 @@ public class PlanCourseFragment extends Fragment {
 
         List<String> list2 = new ArrayList<String>();
         //list2.add("End Time");
-        list2.add("10:00"); list2.add("11:30");
-        list2.add("13:00"); list2.add("14:30"); list2.add("16:00");
-        list2.add("17:30");
+        list2.add("9:45"); list2.add("11:15");
+        list2.add("12:45"); list2.add("14:15"); list2.add("15:45");
+        list2.add("17:15"); list2.add("18:45");
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list2);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(dataAdapter2);
@@ -315,9 +366,9 @@ public class PlanCourseFragment extends Fragment {
         planSpinner.setAdapter(dataAdapter7);
         planSpinner.setSelection(0);
         sizeSpinner.setSelection(3);
-        spinner2.setSelection(5);
-        spinner4.setSelection(5);
-        spinner6.setSelection(5);
+        spinner2.setSelection(6);
+        spinner4.setSelection(6);
+        spinner6.setSelection(6);
     }
 
     public void configureButtons() {

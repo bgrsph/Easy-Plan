@@ -68,17 +68,17 @@ public class Plan implements Parcelable {
         }
     }
 
-    public void createSchedules(ArrayList<Course> input, int n, int size) {
+    public void createSchedules(ArrayList<Course> input, int n, int size, ArrayList<Course> labs) {
         //Create ALL the schedules!
         Course data[] = new Course[size];
         /*for (int i = 1; i < n; i++) {
             data.add(new Course());
         }*/
         recursiveScheduleCreating(input, data, 0, n-1, 0, size);
-        obliterateConflicts();
+        obliterateConflicts(labs);
     }
 
-    private void obliterateConflicts() {
+    private void obliterateConflicts(ArrayList<Course> labs) {
         ArrayList<Schedule> newList = new ArrayList<>();
         for (Schedule x : schedules) {
             boolean add = true;
@@ -106,7 +106,25 @@ public class Plan implements Parcelable {
                 newList.add(x);
             }
         }
+        scheduleLabs(labs);
         this.schedules = newList;
+    }
+
+    private void scheduleLabs (ArrayList<Course> labs) {
+        ArrayList<ArrayList<Course>> a = new ArrayList<>();
+        a = addLabs(a, a, 0, new ArrayList<Course>());
+    }
+
+    private ArrayList<ArrayList<Course>> addLabs(ArrayList<ArrayList<Course>> labLists, ArrayList<ArrayList<Course>> result, int depth, ArrayList<Course> current) {
+        if (depth == labLists.size()) {
+            result.add(current);
+            return result;
+        }
+        for (int i = 0; i < labLists.get(depth).size(); i++) {
+            current.add(labLists.get(depth).get(i));
+            addLabs(labLists, result, depth + 1, current);
+        }
+        return result;
     }
 
     public ArrayList<Schedule> getSchedules() {

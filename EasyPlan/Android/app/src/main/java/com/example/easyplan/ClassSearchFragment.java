@@ -42,12 +42,14 @@ import java.util.List;
 public class ClassSearchFragment extends Fragment {
 
     public static final ArrayList<Course> selectedCourses = new ArrayList<Course>();
+    public static final ArrayList<Course> selectedLabs = new ArrayList<Course>();
     public static final ArrayList<Course> noDupList = new ArrayList<>();
     public static TextView text1;
     private String accEmail;
     Button searchClasses, unselector;
     RecyclerView recyclerView;
     public static ArrayList<Course> courseList = new ArrayList<>();
+    public static ArrayList<Course> labList = new ArrayList<>();
     public static ArrayList<Course> courseList1 = new ArrayList<>();
     public static ArrayList<Course> allSections = new ArrayList<>();
     private SearchView search;
@@ -106,6 +108,45 @@ public class ClassSearchFragment extends Fragment {
 
             }
         });
+
+        new FirebaseHelper("ugradCoursesLab").readData(new FirebaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
+                //allSections = courses;
+                boolean add = false;
+                for (Course x : courses) {
+                    if (labList.isEmpty()) labList.add(x);
+                    else {
+                        for (Course y : labList) {
+                            add = true;
+                            if (x.getSubject().equals(y.getSubject()) && x.getCatalog().equals(y.getCatalog())) {
+                                add = false;
+                                break;
+                            }
+                        }
+                        if (add) labList.add(x);
+                    }
+                }
+                //courseList = courses;
+                rLay.setVisibility(View.GONE);
+                //updateView(courseList);
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
         text1 = view.findViewById(R.id.text1);
 
         recyclerView = view.findViewById(R.id.courseListView);
@@ -143,6 +184,7 @@ public class ClassSearchFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("courseList", selectedCourses);
+                bundle.putParcelableArrayList("labsList", selectedLabs);
 
                 PlanCourseFragment planCourse = new PlanCourseFragment();
                 planCourse.setArguments(bundle);

@@ -21,6 +21,7 @@ import java.util.List;
 
 import static com.example.easyplan.ClassSearchFragment.noDupList;
 import static com.example.easyplan.ClassSearchFragment.selectedCourses;
+import static com.example.easyplan.ClassSearchFragment.selectedLabs;
 import static com.example.easyplan.ClassSearchFragment.text1;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
@@ -57,7 +58,11 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                                 selectedCourses.add(x);
                             }
                         }
-                        size++;
+                        for (Course x : ClassSearchFragment.labList) {
+                            if ((x.getSubject() + x.getCatalog()).equals(nameTextView.getTag())) {
+                                selectedLabs.add(x);
+                            }
+                        }
                     } else {
                         imageView.setImageResource(R.drawable.plus);
                         imageView.setTag("plus");
@@ -67,10 +72,18 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                                 courseDelete.add(x);
                             }
                         }
+                        for (Course x : ClassSearchFragment.labList) {
+                            if ((x.getSubject() + x.getCatalog()).equals(nameTextView.getTag())) {
+                                courseDelete.add(x);
+                            }
+                        }
                         for (Course x : courseDelete) {
                             if (selectedCourses.contains(x)) selectedCourses.remove(x);
                         }
-                        size--;
+
+                        for (Course x : courseDelete) {
+                            if (selectedLabs.contains(x)) selectedLabs.remove(x);
+                        }
                     }
 
                     String key = "";
