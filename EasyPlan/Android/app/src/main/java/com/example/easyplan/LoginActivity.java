@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     String name = ds.child("name").getValue(String.class);
                 }
             }
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String check = sp.getString("remember", "");
-        if(check.equals("true")){
+        if (check.equals("true")) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
             startActivity(new Intent(LoginActivity.this, Mainpage.class));
             finish();
@@ -121,32 +121,36 @@ public class LoginActivity extends AppCompatActivity {
                 String email, pass;
                 email = logEmail.getText().toString();
                 pass = logPass.getText().toString();
-                if(TextUtils.isEmpty(email)) {
+                if (TextUtils.isEmpty(email)) {
                     Toast.makeText(LoginActivity.this, "Please enter an email.", Toast.LENGTH_SHORT).show();
-                }else if(TextUtils.isEmpty(pass)) {
+                } else if (TextUtils.isEmpty(pass)) {
                     Toast.makeText(LoginActivity.this, "Please enter a password.", Toast.LENGTH_SHORT).show();
-                }else if(!email.contains("@ku.edu.tr")){
+                } else if (!email.contains("@ku.edu.tr")) {
                     Toast.makeText(LoginActivity.this, "Please use your KU e-mail.", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             FirebaseUser user = auth.getCurrentUser();
-                            if(task.isSuccessful()){
-                                if(user.isEmailVerified())
-                                    {logEmail.setText("");
+                            if (task.isSuccessful()) {
+                                if (user.isEmailVerified()) {
+                                    logEmail.setText("");
                                     logPass.setText("");
                                     SharedPreferences spID = getSharedPreferences("userPref", MODE_PRIVATE);
                                     SharedPreferences.Editor idEditor = spID.edit();
                                     idEditor.putString("userID", auth.getUid());
                                     idEditor.apply();
+                                    SharedPreferences onBoardingPref = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = onBoardingPref.edit();
+                                    editor.putBoolean("firstTime", false);
+                                    editor.commit();
                                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                                     startActivity(new Intent(LoginActivity.this, Mainpage.class));
                                     finish();
-                                }else {
+                                } else {
                                     Toast.makeText(LoginActivity.this, "Please verify your e-mail.", Toast.LENGTH_SHORT).show();
                                 }
-                            }else{
+                            } else {
                                 Toast.makeText(LoginActivity.this, "Email and password do not match.", Toast.LENGTH_LONG).show();
                             }
                         }
@@ -159,15 +163,16 @@ public class LoginActivity extends AppCompatActivity {
         logForget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TextUtils.isEmpty(logEmail.getText().toString())){
+                if (TextUtils.isEmpty(logEmail.getText().toString())) {
                     Toast.makeText(LoginActivity.this, "Enter your email to email field.", Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     auth.sendPasswordResetEmail(logEmail.getText().toString()).addOnCompleteListener(LoginActivity.this,
                             new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(LoginActivity.this, "Email sent", Toast.LENGTH_SHORT).show();                        }
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(LoginActivity.this, "Email sent", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             });
                 }
@@ -178,13 +183,13 @@ public class LoginActivity extends AppCompatActivity {
         logRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(buttonView.isChecked()){
+                if (buttonView.isChecked()) {
                     SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("remember", "true");
                     editor.apply();
 
-                }else if(!buttonView.isChecked()){
+                } else if (!buttonView.isChecked()) {
                     SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("remember", "false");
@@ -213,6 +218,10 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             // Signed in successfully, show authenticated UI.
+            SharedPreferences onBoardingPref = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
+            SharedPreferences.Editor editor = onBoardingPref.edit();
+            editor.putBoolean("firstTime", false);
+            editor.commit();
             Intent intent = new Intent(LoginActivity.this, Mainpage.class);
             String a = account.getEmail();
             intent.putExtra("accEmail", a);

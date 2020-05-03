@@ -63,6 +63,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 SharedPreferences.Editor editor = sp.edit();
                 editor.remove("remember");
                 editor.commit();
+                SharedPreferences onBoardingPref = getActivity().getSharedPreferences("onBoardingScreen", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = onBoardingPref.edit();
+                editor2.remove("firstTime");
+                editor2.commit();
                 startActivity(new Intent(getActivity(), WelcomePage.class));
                 getActivity().finish();
             }
