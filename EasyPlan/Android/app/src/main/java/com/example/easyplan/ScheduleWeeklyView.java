@@ -1,7 +1,9 @@
 package com.example.easyplan;
 
+import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -9,6 +11,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.LayoutDirection;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class ScheduleWeeklyView extends Fragment {
@@ -363,145 +367,324 @@ public class ScheduleWeeklyView extends Fragment {
         for (Course c : courses) {
             String courseName = c.getSubject() + " " + c.getCatalog() + " - " + c.getSection();
             String meetingTime = c.getMeetingDays() + " " + c.getMtgStart() + " - " + c.getMtgEnd();
-            if (meetingTime.contains("Mon") && meetingTime.contains("08:30")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("08:30") && meetingTime.contains("09:45")) {
                 monday8.setText(courseName);
                 monday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("10:00")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("08:30") && meetingTime.contains("11:15")) {
+                monday8.setText(courseName);
+                monday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 monday10.setText(courseName);
                 monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("11:30")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
+                monday10.setText(courseName);
+                monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Mon") && meetingTime.contains("10:00") && meetingTime.contains("12:45")) {
+                monday10.setText(courseName);
+                monday11.setText(courseName);
+                monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+                monday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Mon") && meetingTime.contains("11:30") && meetingTime.contains("12:45")) {
                 monday11.setText(courseName);
                 monday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("01:00")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("11:30") && meetingTime.contains("02:15")) {
+                monday11.setText(courseName);
+                monday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 monday13.setText(courseName);
                 monday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("02:30")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("01:00") && meetingTime.contains("02:15")) {
+                monday13.setText(courseName);
+                monday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Mon") && meetingTime.contains("01:00") && meetingTime.contains("03:45")) {
+                monday13.setText(courseName);
+                monday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 monday14.setText(courseName);
                 monday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("04:00")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("02:30") && meetingTime.contains("03:45")) {
+                monday14.setText(courseName);
+                monday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Mon") && meetingTime.contains("02:30") && meetingTime.contains("05:15")) {
+                monday14.setText(courseName);
+                monday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 monday16.setText(courseName);
                 monday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Mon") && meetingTime.contains("04:00") && meetingTime.contains("05:15")) {
+                monday16.setText(courseName);
+                monday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Mon") && meetingTime.contains("04:00") && meetingTime.contains("06:45")) {
+                monday16.setText(courseName);
+                monday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+                monday17.setText(courseName);
+                monday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
             if (meetingTime.contains("Mon") && meetingTime.contains("05:30")) {
                 monday17.setText(courseName);
                 monday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
 
-            if (meetingTime.contains("Tue") && meetingTime.contains("08:30")) {
+            if (meetingTime.contains("Tue") && meetingTime.contains("08:30") && meetingTime.contains("09:45")) {
                 tuesday8.setText(courseName);
                 tuesday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("10:00")) {
+            if (meetingTime.contains("Tue") && meetingTime.contains("08:30") && meetingTime.contains("11:15")) {
+                tuesday8.setText(courseName);
+                tuesday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday10.setText(courseName);
                 tuesday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("11:30")) {
+            if (meetingTime.contains("Tue") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
+                tuesday10.setText(courseName);
+                tuesday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Tue") && meetingTime.contains("10:00") && meetingTime.contains("12:45")) {
+                tuesday10.setText(courseName);
+                tuesday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday11.setText(courseName);
                 tuesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("01:00")) {
+            if (meetingTime.contains("Tue") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+                tuesday11.setText(courseName);
+                tuesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Tue") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+                tuesday11.setText(courseName);
+                tuesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday13.setText(courseName);
                 tuesday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("02:30")) {
+            if (meetingTime.contains("Tue") && meetingTime.contains("01:00") && meetingTime.contains("02:15")) {
+                tuesday13.setText(courseName);
+                tuesday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Tue") && meetingTime.contains("01:00") && meetingTime.contains("03:45")) {
+                tuesday13.setText(courseName);
+                tuesday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday14.setText(courseName);
                 tuesday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("04:00")) {
+            if (meetingTime.contains("Tue") && meetingTime.contains("02:30") && meetingTime.contains("03:45")) {
+                tuesday14.setText(courseName);
+                tuesday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Tue") && meetingTime.contains("02:30") && meetingTime.contains("05:15")) {
+                tuesday14.setText(courseName);
+                tuesday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday16.setText(courseName);
                 tuesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Tue") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+                tuesday16.setText(courseName);
+                tuesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Tue") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+                tuesday16.setText(courseName);
+                tuesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+                tuesday17.setText(courseName);
+                tuesday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
             if (meetingTime.contains("Tue") && meetingTime.contains("05:30")) {
                 tuesday17.setText(courseName);
                 tuesday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
 
-            if (meetingTime.contains("Wed") && meetingTime.contains("08:30")) {
+            if (meetingTime.contains("Wed") && meetingTime.contains("08:30") && meetingTime.contains("09:45")) {
                 wednesday8.setText(courseName);
                 wednesday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("10:00")) {
+            if (meetingTime.contains("Wed") && meetingTime.contains("08:30") && meetingTime.contains("11:15")) {
+                wednesday8.setText(courseName);
+                wednesday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday10.setText(courseName);
                 wednesday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("11:30")) {
+            if (meetingTime.contains("Wed") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
+                wednesday10.setText(courseName);
+                wednesday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Wed") && meetingTime.contains("10:00") && meetingTime.contains("12:45")) {
+                wednesday10.setText(courseName);
+                wednesday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday11.setText(courseName);
                 wednesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("01:00")) {
+            if (meetingTime.contains("Wed") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+                wednesday11.setText(courseName);
+                wednesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Wed") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+                wednesday11.setText(courseName);
+                wednesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday13.setText(courseName);
                 wednesday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("02:30")) {
+            if (meetingTime.contains("Wed") && meetingTime.contains("01:00") && meetingTime.contains("02:15")) {
+                wednesday13.setText(courseName);
+                wednesday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Wed") && meetingTime.contains("01:00") && meetingTime.contains("03:45")) {
+                wednesday13.setText(courseName);
+                wednesday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday14.setText(courseName);
                 wednesday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("04:00")) {
+            if (meetingTime.contains("Wed") && meetingTime.contains("02:30") && meetingTime.contains("03:45")) {
+                wednesday14.setText(courseName);
+                wednesday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Wed") && meetingTime.contains("02:30") && meetingTime.contains("05:15")) {
+                wednesday14.setText(courseName);
+                wednesday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday16.setText(courseName);
                 wednesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Wed") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+                wednesday16.setText(courseName);
+                wednesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Wed") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+                wednesday16.setText(courseName);
+                wednesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+                wednesday17.setText(courseName);
+                wednesday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
             if (meetingTime.contains("Wed") && meetingTime.contains("05:30")) {
                 wednesday17.setText(courseName);
                 wednesday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
 
-            if (meetingTime.contains("Thu") && meetingTime.contains("08:30")) {
+            if (meetingTime.contains("Thu") && meetingTime.contains("08:30") && meetingTime.contains("09:45")) {
                 thursday8.setText(courseName);
                 thursday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("10:00")) {
+            if (meetingTime.contains("Thu") && meetingTime.contains("08:30") && meetingTime.contains("11:15")) {
+                thursday8.setText(courseName);
+                thursday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday10.setText(courseName);
                 thursday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("11:30")) {
+            if (meetingTime.contains("Thu") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
+                thursday10.setText(courseName);
+                thursday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Thu") && meetingTime.contains("10:00") && meetingTime.contains("12:45")) {
+                thursday10.setText(courseName);
+                thursday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday11.setText(courseName);
                 thursday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("01:00")) {
+            if (meetingTime.contains("Thu") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+                thursday11.setText(courseName);
+                thursday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Thu") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+                thursday11.setText(courseName);
+                thursday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday13.setText(courseName);
                 thursday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("02:30")) {
+            if (meetingTime.contains("Thu") && meetingTime.contains("01:00") && meetingTime.contains("02:15")) {
+                thursday13.setText(courseName);
+                thursday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Thu") && meetingTime.contains("01:00") && meetingTime.contains("03:45")) {
+                thursday13.setText(courseName);
+                thursday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday14.setText(courseName);
                 thursday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("04:00")) {
+            if (meetingTime.contains("Thu") && meetingTime.contains("02:30") && meetingTime.contains("03:45")) {
+                thursday14.setText(courseName);
+                thursday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Thu") && meetingTime.contains("02:30") && meetingTime.contains("05:15")) {
+                thursday14.setText(courseName);
+                thursday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday16.setText(courseName);
                 thursday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Thu") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+                thursday16.setText(courseName);
+                thursday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Thu") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+                thursday16.setText(courseName);
+                thursday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+                thursday17.setText(courseName);
+                thursday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
             if (meetingTime.contains("Thu") && meetingTime.contains("05:30")) {
                 thursday17.setText(courseName);
                 thursday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-
-            if (meetingTime.contains("Fri") && meetingTime.contains("08:30")) {
+            if (meetingTime.contains("Fri") && meetingTime.contains("08:30") && meetingTime.contains("09:45")) {
                 friday8.setText(courseName);
                 friday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("10:00")) {
+            if (meetingTime.contains("Fri") && meetingTime.contains("08:30") && meetingTime.contains("11:15")) {
+                friday8.setText(courseName);
+                friday8CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday10.setText(courseName);
                 friday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("11:30")) {
+            if (meetingTime.contains("Fri") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
+                friday10.setText(courseName);
+                friday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Fri") && meetingTime.contains("10:00") && meetingTime.contains("12:45")) {
+                friday10.setText(courseName);
+                friday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday11.setText(courseName);
                 friday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("01:00")) {
+            if (meetingTime.contains("Fri") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+                friday11.setText(courseName);
+                friday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Fri") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+                friday11.setText(courseName);
+                friday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday13.setText(courseName);
                 friday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("02:30")) {
+            if (meetingTime.contains("Fri") && meetingTime.contains("01:00") && meetingTime.contains("02:15")) {
+                friday13.setText(courseName);
+                friday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Fri") && meetingTime.contains("01:00") && meetingTime.contains("03:45")) {
+                friday13.setText(courseName);
+                friday13CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday14.setText(courseName);
                 friday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("04:00")) {
+            if (meetingTime.contains("Fri") && meetingTime.contains("02:30") && meetingTime.contains("03:45")) {
+                friday14.setText(courseName);
+                friday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Fri") && meetingTime.contains("02:30") && meetingTime.contains("05:15")) {
+                friday14.setText(courseName);
+                friday14CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday16.setText(courseName);
                 friday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Fri") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+                friday16.setText(courseName);
+                friday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+            }
+            if (meetingTime.contains("Fri") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+                friday16.setText(courseName);
+                friday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+                friday17.setText(courseName);
+                friday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
             if (meetingTime.contains("Fri") && meetingTime.contains("05:30")) {
                 friday17.setText(courseName);
@@ -535,6 +718,10 @@ public class ScheduleWeeklyView extends Fragment {
             card.setCardBackgroundColor(getResources().getColor(R.color.yellow));
         } else if (card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.yellow)) {
             card.setCardBackgroundColor(getResources().getColor(R.color.silversand));
+        }else if(card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.white)) {
+            card.setCardBackgroundColor(getResources().getColor(R.color.seablue));
+        }else if(card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.seablue)) {
+            card.setCardBackgroundColor(getResources().getColor(R.color.white));
         }
 
     }

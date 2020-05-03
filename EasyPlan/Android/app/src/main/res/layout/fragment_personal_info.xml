@@ -1,101 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/PersonalInfoFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="50dp"
+    android:screenOrientation="portrait"
     android:weightSum="7"
     tools:context=".PersonalInfo">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/faculties"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColor="@color/button_red"/>
-        <Spinner
-            android:id="@+id/FacultySpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/ass_header_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="200dp"
+        android:background="@color/mainColorDarker"
         android:orientation="vertical"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/depts"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColor="@color/button_red"/>
-        <Spinner
-            android:id="@+id/DepartmentSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        android:padding="15dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
+
         <TextView
+            android:id="@+id/schedule_header_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/LEVEL"
-            android:orientation="vertical"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColor="@color/button_red"/>
-        <Spinner
-            android:id="@+id/AcademicLeveLSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/semester"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColor="@color/button_red"/>
-        <Spinner
-            android:id="@+id/SemesterSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <TextView
-            android:id="@+id/SavePersonalInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="SAVE"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:fontFamily="sans-serif-condensed-light"
-            android:textColor="@color/button_red"/>
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/economica"
+            android:text="@string/personal_info"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textSize="30sp" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/schedule_header_name"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="40dp"
+            android:background="@color/textColorAlmostWhite" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-70dp"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="@string/faculties"
+                android:textColor="@color/button_red" />
+
+            <Spinner
+                android:id="@+id/FacultySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="@string/depts"
+                android:textColor="@color/button_red" />
+
+            <Spinner
+                android:id="@+id/DepartmentSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
+                android:orientation="vertical"
+                android:text="@string/LEVEL"
+                android:textColor="@color/button_red" />
+
+            <Spinner
+                android:id="@+id/AcademicLeveLSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="@string/semester"
+                android:textColor="@color/button_red" />
+
+            <Spinner
+                android:id="@+id/SemesterSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/SavePersonalInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="SAVE"
+                android:textColor="@color/button_red"
+                android:textSize="20dp" />
+        </LinearLayout>
+
     </LinearLayout>
-
-
-
 
 </LinearLayout>

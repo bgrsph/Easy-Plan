@@ -154,18 +154,22 @@
 
     <!-- Weekly Schedule View Strings -->
     <string name="time">Time</string>
-    <string name="time0830">08:30 - 09:45</string>
-    <string name="time1000">10:00 - 11:15</string>
-    <string name="time1130">11:30 - 12:45</string>
-    <string name="time1300">13:00 - 14:15</string>
-    <string name="tim1430">14:30 - 15:45</string>
-    <string name="time1600">16:00 - 17:15</string>
-    <string name="time1730">17:30 - 18:15</string>
+    <string name="time0830">08:30 -\n09:45</string>
+    <string name="time1000">10:00 -\n11:15</string>
+    <string name="time1130">11:30 -\n12:45</string>
+    <string name="time1300">13:00 -\n14:15</string>
+    <string name="tim1430">14:30 -\n15:45</string>
+    <string name="time1600">16:00 -\n17:15</string>
+    <string name="time1730">17:30 -\n18:45</string>
     <string name="monday">Monday</string>
     <string name="tuesday">Tuesday</string>
     <string name="wednesday">Wednesday</string>
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
-
+    <string name="FAQ">Frequently Asked Questions</string>
+    <string name="createPlan">Create Your Plan</string>
+    <string name="plan">Plan</string>
+    <string name="planName">New Plan Name</string>
+    <string name="desiredNumber">Number of courses in a plan</string>
 
 </resources>

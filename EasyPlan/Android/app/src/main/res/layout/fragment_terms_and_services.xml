@@ -1,32 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/PersonalInfoFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="left"
-    android:layout_marginRight="30dp"
-    android:layout_marginLeft="30dp"
-    android:layout_marginTop="30dp"
-    android:layout_marginBottom="75dp"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:weightSum="7"
     tools:context=".TermsAndServices">
 
-<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;
-    <TextView
-        android:id="@+id/TermsAndServicesHolder"
+    <RelativeLayout
+        android:id="@+id/ass_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/hyperlinkBlueDark"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+        <TextView
+            android:id="@+id/schedule_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/economica"
+            android:text="@string/TermsOfService"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/schedule_header_name"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="40dp"
+            android:background="@color/white" />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Connection error" />-->
-    <org.sufficientlysecure.htmltextview.HtmlTextView
-        android:id="@+id/TermsAndServicesHolder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:fontFamily="sans-serif-condensed-light"
-        android:justificationMode="inter_word"
-        >
+        android:layout_gravity="left"
+        android:layout_marginTop="-60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="75dp"
+        android:background="@color/textColorAlmostWhite"
+        android:elevation="4dp"
+        android:padding="20dp">
 
-    </org.sufficientlysecure.htmltextview.HtmlTextView>
+        <org.sufficientlysecure.htmltextview.HtmlTextView
+            android:id="@+id/TermsAndServicesHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed-light"
+            android:justificationMode="inter_word"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium">
+
+        </org.sufficientlysecure.htmltextview.HtmlTextView>
 
 
-
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

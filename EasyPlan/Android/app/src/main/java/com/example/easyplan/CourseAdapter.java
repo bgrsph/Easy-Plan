@@ -50,7 +50,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                 @Override
                 public void onClick(View v) {
                     if (imageView.getTag() == "plus") {
-                        imageView.setImageResource(R.drawable.check);
+                        imageView.setImageResource(R.drawable.done_icon);
                         imageView.setTag("check");
                         for (Course x : ClassSearchFragment.allSections) {
                             if ((x.getSubject() + x.getCatalog()).equals(nameTextView.getTag())) {
@@ -59,7 +59,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                         }
                         size++;
                     } else {
-                        imageView.setImageResource(R.drawable.plus);
+                        imageView.setImageResource(R.drawable.add_icon);
                         imageView.setTag("plus");
                         List<Course> courseDelete = new ArrayList<Course>();
                         for (Course x : selectedCourses) {
@@ -83,7 +83,12 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                             key = x.getSubject() + x.getCatalog();
                         }
                     }
-                    text1.setText(ClassSearchFragment.noDupList.size() + " courses selected.");
+                    if(ClassSearchFragment.noDupList.size() == 0 ||ClassSearchFragment.noDupList.size() == 1){
+                        text1.setText(ClassSearchFragment.noDupList.size() + " course selected.");
+                    }else{
+                        text1.setText(ClassSearchFragment.noDupList.size() + " courses selected.");
+                    }
+
                     ClassSearchFragment.noDupList.clear();
 
                 }
@@ -116,12 +121,12 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         ImageView image = holder.imageView;
         for (Course x : ClassSearchFragment.selectedCourses) {
             if ((x.getSubject() + x.getCatalog()).equals(textView1.getTag())) {
-                image.setImageResource(R.drawable.check);
+                image.setImageResource(R.drawable.done_icon);
                 image.setTag("check");
             }
         }
         if (image.getTag() != "check") {
-            image.setImageResource(R.drawable.plus);
+            image.setImageResource(R.drawable.add_icon);
             image.setTag("plus");
         }
     }

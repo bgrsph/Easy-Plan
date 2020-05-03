@@ -160,7 +160,12 @@ public class ClassSearchFragment extends Fragment {
                 selectedCourses.clear();
                 noDupList.clear();
                 updateView(courseList);
-                text1.setText(noDupList.size() + " courses selected.");
+                if(noDupList.size() == 0 ||noDupList.size() == 1){
+                    text1.setText(noDupList.size() + " course selected.");
+                }else{
+                    text1.setText(noDupList.size() + " courses selected.");
+                }
+
             }
         });
 
@@ -174,7 +179,11 @@ public class ClassSearchFragment extends Fragment {
                 key = x.getSubject() + x.getCatalog();
             }
         }
-        text1.setText(noDupList.size() + " courses selected.");
+        if(noDupList.size() == 0 ||noDupList.size() == 1){
+            text1.setText(noDupList.size() + " course selected.");
+        }else{
+            text1.setText(noDupList.size() + " courses selected.");
+        }
 
         return view;
     }
