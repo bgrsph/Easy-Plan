@@ -9,17 +9,7 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Video_Background"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"/>
-        <activity android:name=".bottom_navigator"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"/>
-        <activity android:name=".Mainpage"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".WelcomePage"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation">
+        <activity android:name=".OnBoarding">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,14 +17,32 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Video_Background"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bottom_navigator"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Mainpage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WelcomePage"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
             android:name=".SignUp"
+            android:configChanges="orientation"
             android:label="@string/title_activity_sign_up"
             android:screenOrientation="portrait"
-            android:configChanges="orientation"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"/>
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -17,6 +17,18 @@
     <string name="alreadyhaveaccount">"Already registered?"</string>
 
 
+    <!-- Onboarding Screen Strings -->
+    <string name="onboarding_title_1">Search available courses</string>
+    <string name="onboarding_title_2">Plan your semester as you desire</string>
+    <string name="onboarding_title_3">See your possible choices</string>
+    <string name="onboarding_title_4">Plan Easily!</string>
+
+    <string name="onboarding_descr_1">You can search through all of the courses that the university has offered for the next semester. You can create multiple plans to see your options.</string>
+    <string name="onboarding_descr_2">Most of the courses will have multiple sections, which means that you have many options. For a better performance and usability, use constraints on which days and hours you want to have classes.</string>
+    <string name="onboarding_descr_3">For a number of courses, you can have multiple schedules. Mark those you love the most, delete what you do not want. </string>
+    <string name="onboarding_descr_4">Start planning you semester now!</string>
+
+
     <string name="classsearch">Class Search</string>
     <string name="plans">Plans</string>
     <string name="helpcenter">Help Center</string>
@@ -171,5 +183,7 @@
     <string name="plan">Plan</string>
     <string name="planName">New Plan Name</string>
     <string name="desiredNumber">Number of courses in a plan</string>
+    <string name="start_button">LET\'S GET STARTED</string>
+    <string name="skip">skip</string>
 
 </resources>

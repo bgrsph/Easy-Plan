@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/textColorAlmostWhite"
+    tools:context=".OnBoarding">
+
+    <Button
+        android:id="@+id/onBoardingSkipBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/economica"
+        android:background="@color/transparentWhite"
+        android:text="@string/skip"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableRight="@drawable/done_all24"
+        android:onClick="skip"
+        android:padding="10dp"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/slider"
+        android:elevation="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/onBoardingRelative"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/onBoardingSkipBtn">
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+    <RelativeLayout
+        android:id="@+id/onBoardingRelative"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/onBoardingStartBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_main"
+            android:fontFamily="@font/economica"
+            android:text="@string/start_button"
+            android:textColor="@color/white"
+            android:onClick="goToLogin"
+            android:visibility="invisible" />
+
+
+        <LinearLayout
+            android:id="@+id/onBoardingDots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"/>
+
+        <Button
+            android:id="@+id/onBoardingNextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparentWhite"
+            android:drawableEnd="@drawable/round_arrow_2"
+            android:drawableRight="@drawable/round_arrow_2"
+            android:paddingRight="10dp"
+            android:onClick="next"
+            android:paddingBottom="30dp" />
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
