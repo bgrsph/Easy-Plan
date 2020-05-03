@@ -85,6 +85,12 @@ public class PlanCourseFragment extends Fragment {
         Type type = new TypeToken<List<Plan>>(){}.getType();
         List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
         name = "Plan " + (plans.size() + 1);
+        int n = plans.size()+1;
+        for(int i = 0; i<plans.size(); i++){
+            if(plans.get(i).getPlanName().equalsIgnoreCase(name)){
+                name = "Plan " + (++n);
+            }
+        }
         planName.setText(name);
 
         Bundle bundle = getArguments();
