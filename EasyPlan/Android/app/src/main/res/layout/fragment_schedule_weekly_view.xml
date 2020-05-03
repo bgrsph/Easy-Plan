@@ -1,0 +1,1502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="50dp"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:screenOrientation="landscape"
+    android:weightSum="5.5"
+    tools:context=".ScheduleWeeklyView">
+
+    <LinearLayout
+        android:id="@+id/weekly_hours"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_0830"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time0830"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_1000"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time1000"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_1130"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time1130"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_1300"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time1300"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_1430"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/tim1430"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_1600"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time1600"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_hours_1730"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/time1730"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekly_monday"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/monday"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_0830"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_0830_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_0830_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_1000"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_1000_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_1000_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_1130"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_1130_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_1130_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_1300"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_1300_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_1300_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_1430"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_1430_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_1430_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_1600"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_1600_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_1600_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_monday_1730"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_monday_1730_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_monday_1730_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekly_tuesday"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/tuesday"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_0830"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_0830_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_0830_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_1000"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_1000_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_1000_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_1130"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_1130_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_1130_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_1300"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_1300_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                android:gravity="center"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_1300_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_1430"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_1430_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_1430_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_1600"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_1600_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_1600_course_name"
+                    android:layout_width="115dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_tuesday_1730"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_tuesday_1730_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_tuesday_1730_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekly_wednesday"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/wednesday"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_0830"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_0830_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_0830_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_1000"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_1000_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_1000_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_1130"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_1130_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_1130_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_1300"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_1300_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_1300_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_1430"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_1430_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_1430_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_1600"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_1600_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_1600_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_wednesday_1730"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_wednesday_1730_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_wednesday_1730_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekly_thursday"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/thursday"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_0830"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_0830_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_0830_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_1000"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_1000_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_1000_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_1130"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_1130_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_1130_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_1300"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_1300_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_1300_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_1430"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_1430_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_1430_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_1600"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_1600_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_1600_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_thursday_1730"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_thursday_1730_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_thursday_1730_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/weekly_friday"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="7.5">
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/friday"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_0830"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_0830_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_0830_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_1000"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_1000_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                android:gravity="center"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_1000_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_1130"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_1130_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_1130_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_1300"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_1300_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_1300_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_1430"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_1430_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_1430_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_1600"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_1600_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_1600_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/weekly_friday_1730"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weekly_friday_1730_card"
+                android:layout_width="115dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/textColorAlmostWhite"
+                android:clickable="true"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="5dp">
+
+                <TextView
+                    android:id="@+id/weekly_friday_1730_course_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="12dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--   <LinearLayout
+           android:id="@+id/weekly_saturday"
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="1"
+           android:orientation="vertical"
+           android:weightSum="7.5">
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_title"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="0.5"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_0830"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_1000"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_1130"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_1300"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_1430"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_1600"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:id="@+id/weekly_saturday_1730"
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_weight="1"
+               android:orientation="horizontal">
+
+           </LinearLayout>
+
+       </LinearLayout>-->
+
+    <!--  <LinearLayout
+          android:id="@+id/weekly_sunday"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:orientation="vertical"
+          android:weightSum="7.5">
+          <LinearLayout
+              android:id="@+id/weekly_sunday_title"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="0.5"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_0830"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_1000"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_1130"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_1300"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_1430"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_1600"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:id="@+id/weekly_sunday_1730"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="1"
+              android:orientation="horizontal">
+
+          </LinearLayout>
+
+      </LinearLayout>-->
+
+

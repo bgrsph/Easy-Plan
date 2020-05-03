@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -40,18 +42,14 @@ public class WelcomePage extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-
-        return;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
         signUpButton = findViewById(R.id.welcomeSignUP);
         loginButton = findViewById(R.id.welcomeLogin);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         vv =  (VideoView) findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.koc_tanitim;
         Uri uri = Uri.parse(videoPath);
@@ -71,7 +69,9 @@ public class WelcomePage extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String remembered = sp.getString("remember", "");
         if(remembered.equals("true")){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
             startActivity(new Intent(WelcomePage.this, Mainpage.class));
+            finish();
         }
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +79,7 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomePage.this, SignUp.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -87,6 +88,7 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomePage.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

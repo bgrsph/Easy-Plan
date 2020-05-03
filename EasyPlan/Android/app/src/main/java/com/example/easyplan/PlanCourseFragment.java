@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -84,6 +85,12 @@ public class PlanCourseFragment extends Fragment {
         Type type = new TypeToken<List<Plan>>(){}.getType();
         List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
         name = "Plan " + (plans.size() + 1);
+        int n = plans.size()+1;
+        for(int i = 0; i<plans.size(); i++){
+            if(plans.get(i).getPlanName().equalsIgnoreCase(name)){
+                name = "Plan " + (++n);
+            }
+        }
         planName.setText(name);
 
         Bundle bundle = getArguments();
@@ -264,6 +271,10 @@ public class PlanCourseFragment extends Fragment {
                         plans.add(plan);
                         bot.setSharedPref("plans", getActivity(), plans);
                     }
+                    PlansFragment plansFrag = new PlansFragment();
+                    FragmentTransaction trans = getFragmentManager().beginTransaction();
+                    trans.replace(R.id.fragment, plansFrag, "Plans");
+                    trans.commit();
                 } else Toast.makeText(getActivity(), "Please make sure to select more courses than the selected size.", Toast.LENGTH_LONG).show();
             }
         });

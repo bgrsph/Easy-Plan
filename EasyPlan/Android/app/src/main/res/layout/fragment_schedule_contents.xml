@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/schedule_contents_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    tools:context=".ScheduleContents">
+
+    <RelativeLayout
+        android:id="@+id/ass_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/button_red"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/favorite_schedule_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="atFavaBekle"
+            android:src="@drawable/favorite_empty36"
+            android:tint="@color/textColorAlmostWhite"/>
+
+
+        <TextView
+            android:id="@+id/schedule_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/economica"
+            android:text="SCHEDULE"
+            android:textAlignment="center"
+            android:textColor="@color/textColorAlmostWhite"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/schedule_delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@drawable/round_delete"
+            android:drawableTint="@color/textColorAlmostWhite"
+            android:elevation="4dp" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/schedule_header_name"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:background="@color/textColorAlmostWhite" />
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/schedule_courses_recyler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-50dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="75dp"></androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

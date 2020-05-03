@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,14 +10,52 @@
     android:orientation="vertical"
     tools:context=".PlansFragment">
 
+    <RelativeLayout
+        android:id="@+id/plans_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/textColorAlmostWhite"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/schedule_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/economica"
+            android:text="PLANS"
+            android:textAlignment="center"
+            android:textColor="@color/button_red"
+            android:textAllCaps="true"
+            android:textSize="30sp" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/schedule_header_name"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:background="@color/textColorAlmostWhite" />
+
+
+    </RelativeLayout>
 
     <ExpandableListView
         android:id="@+id/plansExpandable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="-90dp"
         android:divider="@android:color/darker_gray"
         android:textFilterEnabled="true"
-        android:groupIndicator="@color/button_red"></ExpandableListView>
+        android:padding="10dp"
+        android:groupIndicator="@color/button_red">
+
+    </ExpandableListView>
 
 
-</RelativeLayout>
+</LinearLayout>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Schedule {
 
     private ArrayList<Course> courses;
+    private boolean isFavorite = false;
 
     public Schedule() {
         courses = new ArrayList<>();

@@ -1,6 +1,7 @@
 package com.example.easyplan;
 
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,7 @@ public class TermsAndServices extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_terms_and_services, container, false);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         termsHTML = (HtmlTextView) view.findViewById(R.id.TermsAndServicesHolder);
         dreff = FirebaseDatabase.getInstance().getReference().child("termsOfService");
         dreff.addValueEventListener(new ValueEventListener() {

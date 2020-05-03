@@ -2,6 +2,7 @@ package com.example.easyplan;
 
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -56,7 +57,7 @@ public class HelpFragment extends Fragment implements View.OnClickListener{
         kusisMail.setOnClickListener(this);
         regCall = view.findViewById(R.id.registeationCall);
         regCall.setOnClickListener(this);
-
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         return view;
     }
 
@@ -67,6 +68,7 @@ public class HelpFragment extends Fragment implements View.OnClickListener{
                 FAQ_fragment faq = new FAQ_fragment();
                 FragmentTransaction faq_tr = getFragmentManager().beginTransaction();
                 faq_tr.replace(R.id.fragment, faq, "FAQ_page");
+                getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                 faq_tr.commit();
                 break;
             case R.id.contactUS:

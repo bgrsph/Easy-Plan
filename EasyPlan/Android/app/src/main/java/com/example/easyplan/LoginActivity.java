@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -63,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         logEmail = findViewById(R.id.logEmail);
         logPass = findViewById(R.id.logPassword);
@@ -72,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         logRemember = findViewById(R.id.loginRemember);
         auth = FirebaseAuth.getInstance();
         signInButton = findViewById(R.id.loginGoogle);
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         mDatabase = FirebaseDatabase.getInstance();
         mGetReference = mDatabase.getReference().child("coursesTest");
         mGetReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -98,7 +102,9 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String check = sp.getString("remember", "");
         if(check.equals("true")){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
             startActivity(new Intent(LoginActivity.this, Mainpage.class));
+            finish();
         }
 
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +140,9 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor idEditor = spID.edit();
                                     idEditor.putString("userID", auth.getUid());
                                     idEditor.apply();
+                                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                                     startActivity(new Intent(LoginActivity.this, Mainpage.class));
+                                    finish();
                                 }else {
                                     Toast.makeText(LoginActivity.this, "Please verify your e-mail.", Toast.LENGTH_SHORT).show();
                                 }
@@ -209,6 +217,7 @@ public class LoginActivity extends AppCompatActivity {
             String a = account.getEmail();
             intent.putExtra("accEmail", a);
             startActivity(intent);
+            finish();
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -220,5 +229,7 @@ public class LoginActivity extends AppCompatActivity {
     public void goToSignUp(View view) {
         Intent intent = new Intent(LoginActivity.this, SignUp.class);
         startActivity(intent);
+        finish();
+
     }
 }

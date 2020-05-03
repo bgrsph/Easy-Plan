@@ -3,9 +3,11 @@ package com.example.easyplan;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -31,8 +33,9 @@ public class Mainpage extends AppCompatActivity {
         accEmail = getIntent().getStringExtra("accEmail");
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_mainpage);
-
         bottomMenu = findViewById(R.id.NavigationBot);
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
         Bundle bundle = new Bundle();
@@ -48,6 +51,7 @@ public class Mainpage extends AppCompatActivity {
         classSearchFragment.setArguments(bundle);
         FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
         fragmentTransaction1.replace(R.id.fragment, classSearchFragment, "ClassSearch");
+
         fragmentTransaction1.commit();
 
     }
@@ -69,7 +73,7 @@ public class Mainpage extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction1.replace(R.id.fragment, classSearchFragment, "ClassSearch");
                     fragmentTransaction1.commit();
-
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                     return true;
                 case R.id.plans:
                     //fragment = new InboxFragment();
@@ -78,6 +82,7 @@ public class Mainpage extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction2.replace(R.id.fragment, plansFragment, "Plans");
                     fragmentTransaction2.commit();
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                     return true;
                 case R.id.help:
                     //Intent intent = new Intent(this, AddActivity.class);
@@ -86,6 +91,7 @@ public class Mainpage extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction3 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction3.replace(R.id.fragment, helpFragment, "Plans");
                     fragmentTransaction3.commit();
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                     return true;
                 case R.id.profile:
 //                    Toast.makeText(Mainpage.this, "To change your settings.", Toast.LENGTH_SHORT).show();
@@ -93,11 +99,13 @@ public class Mainpage extends AppCompatActivity {
                     FragmentTransaction fragmentTransaction4 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction4.replace(R.id.fragment, profileFragment, "Plans");
                     fragmentTransaction4.commit();
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                     return true;
             }
             return true;
         }
     };
+
 
     /*private ValueEventListener ab = new ValueEventListener() {
 
