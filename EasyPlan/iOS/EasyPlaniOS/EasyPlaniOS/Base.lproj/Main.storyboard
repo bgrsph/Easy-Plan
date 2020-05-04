@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lt5-Td-wRg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Lt5-Td-wRg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,13 +11,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-F6-dAW">
-                                <rect key="frame" x="40" y="652" width="334" height="170"/>
+                                <rect key="frame" x="40" y="632" width="334" height="190"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-Ag-3k0">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -37,7 +37,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72e-Fz-OYi">
-                                        <rect key="frame" x="0.0" y="140" width="334" height="30"/>
+                                        <rect key="frame" x="0.0" y="140" width="334" height="50"/>
                                         <state key="normal" title="Sign In With Google"/>
                                         <connections>
                                             <action selector="GoogleSignInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rNX-FE-8r3"/>
@@ -46,6 +46,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="72e-Fz-OYi" firstAttribute="height" secondItem="9FB-yy-Skt" secondAttribute="height" id="Bxv-98-HNA"/>
                                     <constraint firstItem="9FB-yy-Skt" firstAttribute="height" secondItem="4F8-Ag-3k0" secondAttribute="height" id="CiI-nm-fJW"/>
                                 </constraints>
                             </stackView>
@@ -91,7 +92,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="P8M-ra-WKd">
             <objects>
-                <viewController id="zC3-xK-pYs" customClass="SignUpViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zC3-xK-pYs" customClass="SignUpViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDv-od-UZg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -170,7 +171,7 @@
         <!--Login View Controller-->
         <scene sceneID="Cq0-Tv-vjA">
             <objects>
-                <viewController id="hrO-XS-HLg" customClass="LoginViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hrO-XS-HLg" customClass="LoginViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jOM-kG-JaF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,7 +272,7 @@
         <!--Profile View Controller-->
         <scene sceneID="CjI-QQ-JFp">
             <objects>
-                <viewController id="zIB-ZC-Oiq" customClass="ProfileViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zIB-ZC-Oiq" customClass="ProfileViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ShY-DW-kX2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -310,7 +311,7 @@
         <!--Personal Information View Controller-->
         <scene sceneID="HoA-VF-yqh">
             <objects>
-                <viewController id="ccx-2q-9dL" customClass="PersonalInformationViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ccx-2q-9dL" customClass="PersonalInformationViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eaF-2d-9QS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,7 +327,7 @@
         <!--Terms Of Service View Controller-->
         <scene sceneID="9PD-he-dcC">
             <objects>
-                <viewController id="tf7-b8-usE" customClass="TermsOfServiceViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tf7-b8-usE" customClass="TermsOfServiceViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5aZ-r7-jfD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,7 +361,7 @@
         <!--Help View Controller-->
         <scene sceneID="TQj-sc-fOS">
             <objects>
-                <viewController id="qFS-sK-Pb6" customClass="HelpViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qFS-sK-Pb6" customClass="HelpViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFx-h9-U4y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,7 +379,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="362.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="questionmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C6o-ky-Mda">
-                                                                <rect key="frame" x="43.5" y="122" width="120" height="119"/>
+                                                                <rect key="frame" x="43.5" y="122" width="120" height="119.5"/>
                                                                 <color key="tintColor" red="0.99876505140000005" green="0.75820082430000002" blue="0.1564824581" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="EKm-c3-tlW"/>
@@ -426,7 +427,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cam-Ig-W22">
-                                                                <rect key="frame" x="43.5" y="122" width="120" height="119"/>
+                                                                <rect key="frame" x="43.5" y="122" width="120" height="119.5"/>
                                                                 <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="120" id="00E-En-7F0"/>
@@ -482,7 +483,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="362.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PKd-20-nLy">
-                                                                <rect key="frame" x="43.5" y="122" width="120" height="119"/>
+                                                                <rect key="frame" x="43.5" y="122" width="120" height="119.5"/>
                                                                 <color key="tintColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="120" id="arn-DS-YXq"/>
@@ -522,7 +523,7 @@
                                                         <rect key="frame" x="207" y="0.0" width="207" height="362.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bm7-2d-8K2">
-                                                                <rect key="frame" x="43.5" y="122" width="120" height="119"/>
+                                                                <rect key="frame" x="43.5" y="122" width="120" height="119.5"/>
                                                                 <color key="tintColor" red="0.96752768749999996" green="0.61908078190000004" blue="0.34500417109999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="120" id="8qb-W4-s32"/>
@@ -609,13 +610,13 @@
         <!--Plan Table View Controller-->
         <scene sceneID="IXY-bI-tB8">
             <objects>
-                <tableViewController id="4Se-o7-bhM" customClass="PlanTableViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4Se-o7-bhM" customClass="PlanTableViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vkO-4e-FGE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" textLabel="sRL-lQ-yZ9" style="IBUITableViewCellStyleDefault" id="FQh-E6-M2U" customClass="PlanTableViewCell" customModule="EasyPlaniOS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" textLabel="sRL-lQ-yZ9" style="IBUITableViewCellStyleDefault" id="FQh-E6-M2U" customClass="PlanTableViewCell" customModule="EasyPlan" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FQh-E6-M2U" id="sSA-yT-8kW">
@@ -650,7 +651,7 @@
         <!--Home View Controller-->
         <scene sceneID="aDl-cR-o14">
             <objects>
-                <viewController title="Home View Controller" id="RYy-TE-QYp" customClass="HomeViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home View Controller" id="RYy-TE-QYp" customClass="HomeViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWs-bG-ZN2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -670,7 +671,7 @@
                                         <rect key="frame" x="0.0" y="87" width="414" height="593"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="55" id="KY6-OD-Mey" customClass="CourseSearchTableViewCell" customModule="EasyPlaniOS" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="55" id="KY6-OD-Mey" customClass="CourseSearchTableViewCell" customModule="EasyPlan" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="55"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KY6-OD-Mey" id="IcP-Gk-jrZ">
@@ -756,7 +757,7 @@
         <!--Selected Courses-->
         <scene sceneID="GAf-sg-3fW">
             <objects>
-                <viewController id="C7v-yB-jgl" customClass="ConstraintViewController" customModule="EasyPlaniOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C7v-yB-jgl" customClass="ConstraintViewController" customModule="EasyPlan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mb9-hH-Kwr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -798,16 +799,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yhJ-iH-28r">
-                                        <rect key="frame" x="0.0" y="182" width="214" height="101.5"/>
+                                        <rect key="frame" x="0.0" y="182" width="214.5" height="101.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="DHq-FJ-DpM" userLabel="moweTapped">
-                                                <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="214.5" height="20.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cuV-EW-XRP" userLabel="MoWe">
-                                                        <rect key="frame" x="0.0" y="1" width="19.5" height="18"/>
+                                                        <rect key="frame" x="0.0" y="1" width="20" height="18.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday - Wednesday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOX-UP-bfR">
-                                                        <rect key="frame" x="46.5" y="0.0" width="167.5" height="20.5"/>
+                                                        <rect key="frame" x="47" y="0.0" width="167.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -819,13 +820,13 @@
                                                 </connections>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="YAd-4O-euQ">
-                                                <rect key="frame" x="0.0" y="40.5" width="199" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="40.5" width="199.5" height="20.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X9O-3I-Oe0" userLabel="TuTh">
-                                                        <rect key="frame" x="0.0" y="1" width="19.5" height="18"/>
+                                                        <rect key="frame" x="0.0" y="1" width="20" height="18.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuesday - Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SU-VT-K2Q">
-                                                        <rect key="frame" x="46.5" y="0.0" width="152.5" height="20.5"/>
+                                                        <rect key="frame" x="47" y="0.0" width="152.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -837,13 +838,13 @@
                                                 </connections>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="B4R-RF-fdR">
-                                                <rect key="frame" x="0.0" y="81" width="93.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="81" width="94" height="20.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hjf-3G-HEw" userLabel="Fr">
-                                                        <rect key="frame" x="0.0" y="1" width="19.5" height="18"/>
+                                                        <rect key="frame" x="0.0" y="1" width="20" height="18.5"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIZ-91-KVQ">
-                                                        <rect key="frame" x="46.5" y="0.0" width="47" height="20.5"/>
+                                                        <rect key="frame" x="47" y="0.0" width="47" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -871,7 +872,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="constraintCollection" id="dEr-0x-WVq" customClass="CourseConstraintCollectionViewCell" customModule="EasyPlaniOS" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="constraintCollection" id="dEr-0x-WVq" customClass="CourseConstraintCollectionViewCell" customModule="EasyPlan" customModuleProvider="target">
                                         <rect key="frame" x="3.5" y="0.0" width="337" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4lN-E4-egD">
@@ -897,7 +898,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ahb-z9-vh7" userLabel="selectImage">
-                                                    <rect key="frame" x="153.5" y="0.5" width="30" height="41"/>
+                                                    <rect key="frame" x="153.5" y="0.5" width="30" height="41.5"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="1RQ-26-SiJ"/>
@@ -1080,19 +1081,19 @@
             <point key="canvasLocation" x="4482.608695652174" y="-44.196428571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="checkmark.circle" catalog="system" width="64" height="62"/>
+        <image name="envelope.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="exclamationmark.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="60"/>
+        <image name="person" catalog="system" width="64" height="60"/>
+        <image name="phone.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="questionmark.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="questionmark.square" catalog="system" width="64" height="56"/>
+        <image name="square" catalog="system" width="64" height="56"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1J7-OW-yS6"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="calendar" catalog="system" width="128" height="106"/>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
-        <image name="envelope.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="phone.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="questionmark.square" catalog="system" width="128" height="114"/>
-        <image name="square" catalog="system" width="128" height="114"/>
-    </resources>
 </document>

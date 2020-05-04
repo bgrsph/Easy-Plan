@@ -29,13 +29,37 @@ class CourseService {
                     let courseSubject = courseObject?["subject"]
                     let courseId = courseObject?["id"]
                     let courseCatalog = courseObject?["catalog"]
-                    let newCourse = Course(subject: courseSubject as! String, id: courseId as! String, catalog: courseCatalog as! String)
+                    
+                    
+                    let monday = courseObject?["monday"]
+                    let tuesday = courseObject?["tuesday"]
+                    let wednesday = courseObject?["wednesday"]
+                    let thursday = courseObject?["thursday"]
+                    let friday = courseObject?["friday"]
+                    let saturday = courseObject?["saturday"]
+                    let sunday = courseObject?["sunday"]
+                    let mtgStart = courseObject?["mtgStart"]
+                    let mtgEnd = courseObject?["mtgEnd"]
+                    let section = courseObject?["section"]
+                    
+                    let newCourse = Course(subject: courseSubject as! String, id: courseId as! String,
+                                           catalog: courseCatalog as! String,
+                                           monday: monday as! String,
+                                           tuesday: tuesday as! String,
+                                           wednesday: wednesday as! String,
+                                           thursday: thursday as! String,
+                                           friday: friday as! String,
+                                           saturday: saturday as! String,
+                                           sunday: sunday as! String,
+                                           mtgStart: mtgStart as! String,
+                                           mtgEnd: mtgEnd as! String,
+                                           section: section as! String)
                     
                     self.courseDictionary[newCourse]=false
                     
                 }
             }
-            print(self.courseDictionary)
+//            print(self.courseDictionary)
             DispatchQueue.main.async  {
                 self.delegate?.courseDictionaryLoaded(courseDictionary: self.courseDictionary)
                 

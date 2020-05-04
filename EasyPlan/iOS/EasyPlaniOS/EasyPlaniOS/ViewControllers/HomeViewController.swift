@@ -16,10 +16,7 @@ extension HomeViewController: CourseServiceDelegate {
         sortCourses.append(contentsOf: keys)
         self.courses = sortCourses.sorted { $0.subject.lowercased() < $1.subject.lowercased() }
         self.tableView.reloadData()
-
     }
-    
-    
 }
 
 class HomeViewController: UIViewController, EditItemViewControllerDelegate {

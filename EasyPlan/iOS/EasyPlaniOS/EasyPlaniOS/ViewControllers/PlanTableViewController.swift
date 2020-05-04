@@ -11,10 +11,10 @@ import UIKit
 class PlanTableViewController: UITableViewController {
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
     
-    var twoDimensionalArray = [ExpandablePlan(name: "Plan1", isExpanded: false, scheduleList: [Schedule(name: "S1", scheduleCourseList: [Course(subject: "Acct", id: "1", catalog: "201"), Course(subject: "Math", id: "2", catalog: "106") ]), Schedule(name: "S2", scheduleCourseList: [Course(subject: "Comp", id: "3", catalog: "491")])]),
-                               ExpandablePlan(name: "Plan2", isExpanded: false, scheduleList: [Schedule(name: "S1", scheduleCourseList: [Course(subject: "Acct", id: "1", catalog: "201"), Course(subject: "Math", id: "2", catalog: "106") ]), Schedule(name: "S2", scheduleCourseList: [Course(subject: "Comp", id: "3", catalog: "491")]), Schedule(name: "S3", scheduleCourseList: [Course(subject: "Qmbu", id: "4", catalog: "450")])])
-    ]
-
+    var twoDimensionalArray = [ExpandablePlan(name: "Plan1", isExpanded: false,
+                                              scheduleList: [Schedule(name: "S1",
+                                                                      scheduleCourseList:
+                                                [Course(subject: "Acct", id: "1", catalog: "201",monday: "Y", tuesday: "Y",wednesday: "T", thursday: "T", friday: "T", saturday: "T", sunday: "T", mtgStart: "10:00 AM", mtgEnd: "10:00 AM", section: "01")])])]
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Plans"

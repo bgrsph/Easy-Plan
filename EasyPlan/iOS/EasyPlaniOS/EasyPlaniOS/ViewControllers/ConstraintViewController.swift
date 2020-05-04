@@ -27,6 +27,9 @@ class ConstraintViewController: UIViewController {
     var tuThChecked = false
     var moWeChecked = false
     
+    
+    var coursePlanner = CoursePlanner(planName: "testPlan")
+    
     enum Mode {
         case view
         case select
@@ -101,6 +104,7 @@ class ConstraintViewController: UIViewController {
         collectionView.dataSource = self
         
         // Do any additional setup after loading the view.
+        coursePlanner.downloadCourseData()
     }
     
     func createPicker(){
@@ -205,6 +209,11 @@ class ConstraintViewController: UIViewController {
     
     @IBAction func planTapped(_ sender: Any) {
         
+        let plan = coursePlanner.getPlan(selectedCourseNames: ["COMP 130", "ACWR 106", "ACWR 101"])
+        print(plan.toString())
+        print("OK.")
+        
+
     }
     
     @IBAction func frTapped(_ sender: Any) {

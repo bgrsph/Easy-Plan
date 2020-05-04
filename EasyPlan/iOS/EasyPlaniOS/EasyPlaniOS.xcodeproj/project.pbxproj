@@ -33,6 +33,7 @@
 		F9374E78244798210081C0BC /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E70244798210081C0BC /* 120x120.png */; };
 		F9374E79244798210081C0BC /* 87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = F9374E71244798210081C0BC /* 87x87.png */; };
 		F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9665825242252A700EAF683 /* GoogleService-Info.plist */; };
+		F969F049245EB58600589256 /* CoursePlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F969F048245EB58600589256 /* CoursePlanner.swift */; };
 		F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */; };
 		F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */; };
 		F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B7E4FD240816B5001C7FB1 /* ViewController.swift */; };
@@ -79,6 +80,7 @@
 		F9374E70244798210081C0BC /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
 		F9374E71244798210081C0BC /* 87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 87x87.png; sourceTree = "<group>"; };
 		F9665825242252A700EAF683 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F969F048245EB58600589256 /* CoursePlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePlanner.swift; sourceTree = "<group>"; };
 		F9B7E4F6240816B5001C7FB1 /* EasyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				36F6CE9924291B4500227F1F /* CourseService.swift */,
 				36168B962437F1A300F5057D /* Schedule.swift */,
 				36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */,
+				F969F048245EB58600589256 /* CoursePlanner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
 				36F6CE9A24291B4500227F1F /* CourseService.swift in Sources */,
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
+				F969F049245EB58600589256 /* CoursePlanner.swift in Sources */,
 				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
 				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
 				F9BFF68F2447672400A85278 /* PersonalInformationViewController.swift in Sources */,
