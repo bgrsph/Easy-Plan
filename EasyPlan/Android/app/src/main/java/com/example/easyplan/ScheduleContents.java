@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.OnSwipeTouchListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -49,10 +50,13 @@ public class ScheduleContents extends Fragment {
         scheduleID = child;
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule_contents, container, false);
+
         courseRecycler = view.findViewById(R.id.schedule_courses_recyler);
         delete = view.findViewById(R.id.schedule_delete_btn);
         favorite_star = view.findViewById(R.id.favorite_schedule_content);

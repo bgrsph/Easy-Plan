@@ -15,11 +15,14 @@ import android.util.LayoutDirection;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Text;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -40,7 +43,9 @@ public class ScheduleWeeklyView extends Fragment {
     CardView thursday8CV, thursday10CV, thursday11CV, thursday13CV, thursday14CV, thursday16CV, thursday17CV;
     CardView friday8CV, friday10CV, friday11CV, friday13CV, friday14CV, friday16CV, friday17CV;
 
-    ArrayList<ScheduleContentItem> courseList;
+    ArrayList<Course> courses;
+    ArrayList<CardView> cards;
+    ArrayList<TextView> names;
     ScheduleContentAdapter adapter;
     private SharedPreferenceBot bot = new SharedPreferenceBot();
     static int planID, scheduleID;
@@ -60,6 +65,33 @@ public class ScheduleWeeklyView extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_schedule_weekly_view, container, false);
+        LinearLayout layout = view.findViewById(R.id.weeklyLayout);
+        courses = new ArrayList<>();
+        cards = new ArrayList<>();
+        names = new ArrayList<>();
+        initializeView(view);
+        initScheduleData();
+        layout.setOnTouchListener(new com.example.myapplication.OnSwipeTouchListener(getActivity()) {
+            public void onSwipeLeft() {
+                openNextSchedule();
+            }
+
+            public void onSwipeRight(){
+                openPrevSchedule();
+            }
+        });
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            ScheduleContents sch = new ScheduleContents(planID, scheduleID);
+            FragmentTransaction trans = getFragmentManager().beginTransaction();
+            trans.replace(R.id.fragment, sch, "Weekly");
+            trans.commit();
+        }
+        return view;
+    }
+
+    private void initializeView(View view) {
         monday8 = view.findViewById(R.id.weekly_monday_0830_course_name);
         monday10 = view.findViewById(R.id.weekly_monday_1000_course_name);
         monday11 = view.findViewById(R.id.weekly_monday_1130_course_name);
@@ -96,264 +128,143 @@ public class ScheduleWeeklyView extends Fragment {
         friday16 = view.findViewById(R.id.weekly_friday_1600_course_name);
         friday17 = view.findViewById(R.id.weekly_friday_1730_course_name);
 
+        names.add(monday8);
+        names.add(tuesday8);
+        names.add(wednesday8);
+        names.add(thursday8);
+        names.add(friday8);
+
+        names.add(monday10);
+        names.add(tuesday10);
+        names.add(wednesday10);
+        names.add(thursday10);
+        names.add(friday10);
+
+        names.add(monday11);
+        names.add(tuesday11);
+        names.add(wednesday11);
+        names.add(thursday11);
+        names.add(friday11);
+
+        names.add(monday13);
+        names.add(tuesday13);
+        names.add(wednesday13);
+        names.add(thursday13);
+        names.add(friday13);
+
+        names.add(monday14);
+        names.add(tuesday14);
+        names.add(wednesday14);
+        names.add(thursday14);
+        names.add(friday14);
+
+        names.add(monday16);
+        names.add(tuesday16);
+        names.add(wednesday16);
+        names.add(thursday16);
+        names.add(friday16);
+
+        names.add(monday17);
+        names.add(tuesday17);
+        names.add(wednesday17);
+        names.add(thursday17);
+        names.add(friday17);
         monday8CV = view.findViewById(R.id.weekly_monday_0830_card);
-        monday8CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday8CV);
-            }
-        });
         monday10CV = view.findViewById(R.id.weekly_monday_1000_card);
-        monday10CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday10CV);
-            }
-        });
         monday11CV = view.findViewById(R.id.weekly_monday_1130_card);
-        monday11CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday11CV);
-            }
-        });
         monday13CV = view.findViewById(R.id.weekly_monday_1300_card);
-        monday13CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday13CV);
-            }
-        });
         monday14CV = view.findViewById(R.id.weekly_monday_1430_card);
-        monday14CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday14CV);
-            }
-        });
         monday16CV = view.findViewById(R.id.weekly_monday_1600_card);
-        monday16CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday16CV);
-            }
-        });
         monday17CV = view.findViewById(R.id.weekly_monday_1730_card);
-        monday17CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(monday17CV);
-            }
-        });
-
         tuesday8CV = view.findViewById(R.id.weekly_tuesday_0830_card);
-        tuesday8CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday8CV);
-            }
-        });
         tuesday10CV = view.findViewById(R.id.weekly_tuesday_1000_card);
-        tuesday10CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday10CV);
-            }
-        });
         tuesday11CV = view.findViewById(R.id.weekly_tuesday_1130_card);
-        tuesday11CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday11CV);
-            }
-        });
         tuesday13CV = view.findViewById(R.id.weekly_tuesday_1300_card);
-        tuesday13CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday13CV);
-            }
-        });
         tuesday14CV = view.findViewById(R.id.weekly_tuesday_1430_card);
-        tuesday14CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday14CV);
-            }
-        });
         tuesday16CV = view.findViewById(R.id.weekly_tuesday_1600_card);
-        tuesday16CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday16CV);
-            }
-        });
         tuesday17CV = view.findViewById(R.id.weekly_tuesday_1730_card);
-        tuesday17CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(tuesday17CV);
-            }
-        });
-
         wednesday8CV = view.findViewById(R.id.weekly_wednesday_0830_card);
-        wednesday8CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday8CV);
-            }
-        });
         wednesday10CV = view.findViewById(R.id.weekly_wednesday_1000_card);
-        wednesday10CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday10CV);
-            }
-        });
         wednesday11CV = view.findViewById(R.id.weekly_wednesday_1130_card);
-        wednesday11CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday11CV);
-            }
-        });
         wednesday13CV = view.findViewById(R.id.weekly_wednesday_1300_card);
-        wednesday13CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday13CV);
-            }
-        });
         wednesday14CV = view.findViewById(R.id.weekly_wednesday_1430_card);
-        wednesday14CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday14CV);
-            }
-        });
         wednesday16CV = view.findViewById(R.id.weekly_wednesday_1600_card);
-        wednesday16CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday16CV);
-            }
-        });
         wednesday17CV = view.findViewById(R.id.weekly_wednesday_1730_card);
-        wednesday17CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(wednesday17CV);
-            }
-        });
-
         thursday8CV = view.findViewById(R.id.weekly_thursday_0830_card);
-        thursday8CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday8CV);
-            }
-        });
         thursday10CV = view.findViewById(R.id.weekly_thursday_1000_card);
-        thursday10CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday10CV);
-            }
-        });
         thursday11CV = view.findViewById(R.id.weekly_thursday_1130_card);
-        thursday11CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday11CV);
-            }
-        });
         thursday13CV = view.findViewById(R.id.weekly_thursday_1300_card);
-        thursday13CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday13CV);
-            }
-        });
         thursday14CV = view.findViewById(R.id.weekly_thursday_1430_card);
-        thursday14CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday14CV);
-            }
-        });
         thursday16CV = view.findViewById(R.id.weekly_thursday_1600_card);
-        thursday16CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday16CV);
-            }
-        });
         thursday17CV = view.findViewById(R.id.weekly_thursday_1730_card);
-        thursday17CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(thursday17CV);
-            }
-        });
         friday8CV = view.findViewById(R.id.weekly_friday_0830_card);
-        friday8CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday8CV);
-            }
-        });
         friday10CV = view.findViewById(R.id.weekly_friday_1000_card);
-        friday10CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday10CV);
-            }
-        });
         friday11CV = view.findViewById(R.id.weekly_friday_1130_card);
-        friday11CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday11CV);
-            }
-        });
         friday13CV = view.findViewById(R.id.weekly_friday_1300_card);
-        friday13CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday13CV);
-            }
-        });
         friday14CV = view.findViewById(R.id.weekly_friday_1430_card);
-        friday14CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday14CV);
-            }
-        });
         friday16CV = view.findViewById(R.id.weekly_friday_1600_card);
-        friday16CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday16CV);
-            }
-        });
         friday17CV = view.findViewById(R.id.weekly_friday_1730_card);
-        friday17CV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeBackgroundOnClick(friday17CV);
-            }
-        });
-        initScheduleData();
-        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
 
-        } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            ScheduleContents sch = new ScheduleContents(planID, scheduleID);
-            FragmentTransaction trans = getFragmentManager().beginTransaction();
-            trans.replace(R.id.fragment, sch, "Weekly");
-            trans.commit();
+
+        cards.add(monday8CV);
+        cards.add(tuesday8CV);
+        cards.add(wednesday8CV);
+        cards.add(thursday8CV);
+        cards.add(friday8CV);
+
+        cards.add(monday10CV);
+        cards.add(tuesday10CV);
+        cards.add(wednesday10CV);
+        cards.add(thursday10CV);
+        cards.add(friday10CV);
+
+        cards.add(monday11CV);
+        cards.add(tuesday11CV);
+        cards.add(wednesday11CV);
+        cards.add(thursday11CV);
+        cards.add(friday11CV);
+
+        cards.add(monday13CV);
+        cards.add(tuesday13CV);
+        cards.add(wednesday13CV);
+        cards.add(thursday13CV);
+        cards.add(friday13CV);
+
+        cards.add(monday14CV);
+        cards.add(tuesday14CV);
+        cards.add(wednesday14CV);
+        cards.add(thursday14CV);
+        cards.add(friday14CV);
+
+        cards.add(monday16CV);
+        cards.add(tuesday16CV);
+        cards.add(wednesday16CV);
+        cards.add(thursday16CV);
+        cards.add(friday16CV);
+
+        cards.add(monday17CV);
+        cards.add(tuesday17CV);
+        cards.add(wednesday17CV);
+        cards.add(thursday17CV);
+        cards.add(friday17CV);
+
+        for (final CardView c : cards) {
+            c.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    changeBackgroundOnClick(c);
+                }
+            });
         }
-        return view;
+    }
+
+    private void makeAllCardsEmpty(ArrayList<CardView> cards, ArrayList<TextView> names) {
+        for (CardView c : cards) {
+            c.setCardBackgroundColor(getResources().getColor(R.color.white));
+        }
+        for (TextView t : names) {
+            t.setText("");
+        }
     }
 
     private void initScheduleData() {
@@ -363,7 +274,45 @@ public class ScheduleWeeklyView extends Fragment {
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
-        ArrayList<Course> courses = currSchedule.getCourseList();
+        courses = currSchedule.getCourseList();
+        setUpScheduleView(courses);
+    }
+
+    private void openPrevSchedule() {
+        makeAllCardsEmpty(cards, names);
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
+        Plan plan = plans.get(planID);
+        if(scheduleID == 0){
+            scheduleID = plan.getSchedules().size() - 1;
+        }else {
+            scheduleID--;
+        }
+        Schedule currSchedule = plan.getSchedules().get(scheduleID);
+        courses = currSchedule.getCourseList();
+        setUpScheduleView(courses);
+    }
+    private void openNextSchedule() {
+        makeAllCardsEmpty(cards, names);
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
+        Plan plan = plans.get(planID);
+        if (scheduleID + 1 != plan.getSchedules().size()) {
+            scheduleID++;
+        } else {
+            scheduleID = 0;
+        }
+        Schedule currSchedule = plan.getSchedules().get(scheduleID);
+        courses = currSchedule.getCourseList();
+        setUpScheduleView(courses);
+
+    }
+
+    private void setUpScheduleView(ArrayList<Course> courses) {
         for (Course c : courses) {
             String courseName = c.getSubject() + " " + c.getCatalog() + " - " + c.getSection();
             String meetingTime = c.getMeetingDays() + " " + c.getMtgStart() + " - " + c.getMtgEnd();
@@ -377,7 +326,7 @@ public class ScheduleWeeklyView extends Fragment {
                 monday10.setText(courseName);
                 monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("10:00") && meetingTime.contains("11CV:15")) {
                 monday10.setText(courseName);
                 monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
@@ -452,11 +401,11 @@ public class ScheduleWeeklyView extends Fragment {
                 tuesday11.setText(courseName);
                 tuesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+            if (meetingTime.contains("Tue") && meetingTime.contains("11:30") && meetingTime.contains("12:45")) {
                 tuesday11.setText(courseName);
                 tuesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+            if (meetingTime.contains("Tue") && meetingTime.contains("11:30") && meetingTime.contains("02:15")) {
                 tuesday11.setText(courseName);
                 tuesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday13.setText(courseName);
@@ -482,11 +431,11 @@ public class ScheduleWeeklyView extends Fragment {
                 tuesday16.setText(courseName);
                 tuesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+            if (meetingTime.contains("Tue") && meetingTime.contains("04:00") && meetingTime.contains("05:15")) {
                 tuesday16.setText(courseName);
                 tuesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Tue") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+            if (meetingTime.contains("Tue") && meetingTime.contains("04:00") && meetingTime.contains("06:45")) {
                 tuesday16.setText(courseName);
                 tuesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 tuesday17.setText(courseName);
@@ -517,11 +466,11 @@ public class ScheduleWeeklyView extends Fragment {
                 wednesday11.setText(courseName);
                 wednesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+            if (meetingTime.contains("Wed") && meetingTime.contains("11:30") && meetingTime.contains("12:45")) {
                 wednesday11.setText(courseName);
                 wednesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+            if (meetingTime.contains("Wed") && meetingTime.contains("11:30") && meetingTime.contains("02:15")) {
                 wednesday11.setText(courseName);
                 wednesday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday13.setText(courseName);
@@ -547,11 +496,11 @@ public class ScheduleWeeklyView extends Fragment {
                 wednesday16.setText(courseName);
                 wednesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+            if (meetingTime.contains("Wed") && meetingTime.contains("04:00") && meetingTime.contains("05:15")) {
                 wednesday16.setText(courseName);
                 wednesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Wed") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+            if (meetingTime.contains("Wed") && meetingTime.contains("04:00") && meetingTime.contains("06:45")) {
                 wednesday16.setText(courseName);
                 wednesday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 wednesday17.setText(courseName);
@@ -582,11 +531,11 @@ public class ScheduleWeeklyView extends Fragment {
                 thursday11.setText(courseName);
                 thursday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+            if (meetingTime.contains("Thu") && meetingTime.contains("11:30") && meetingTime.contains("12:45")) {
                 thursday11.setText(courseName);
                 thursday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+            if (meetingTime.contains("Thu") && meetingTime.contains("11:30") && meetingTime.contains("02:15")) {
                 thursday11.setText(courseName);
                 thursday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday13.setText(courseName);
@@ -612,11 +561,11 @@ public class ScheduleWeeklyView extends Fragment {
                 thursday16.setText(courseName);
                 thursday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+            if (meetingTime.contains("Thu") && meetingTime.contains("04:00") && meetingTime.contains("05:15")) {
                 thursday16.setText(courseName);
                 thursday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Thu") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+            if (meetingTime.contains("Thu") && meetingTime.contains("04:00") && meetingTime.contains("06:45")) {
                 thursday16.setText(courseName);
                 thursday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 thursday17.setText(courseName);
@@ -646,11 +595,11 @@ public class ScheduleWeeklyView extends Fragment {
                 friday11.setText(courseName);
                 friday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("11:30") && meetingTime.contains("12:45")){
+            if (meetingTime.contains("Fri") && meetingTime.contains("11:30") && meetingTime.contains("12:45")) {
                 friday11.setText(courseName);
                 friday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("11:30") && meetingTime.contains("02:15")){
+            if (meetingTime.contains("Fri") && meetingTime.contains("11:30") && meetingTime.contains("02:15")) {
                 friday11.setText(courseName);
                 friday11CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday13.setText(courseName);
@@ -676,11 +625,11 @@ public class ScheduleWeeklyView extends Fragment {
                 friday16.setText(courseName);
                 friday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("04:00") && meetingTime.contains("05:15") ){
+            if (meetingTime.contains("Fri") && meetingTime.contains("04:00") && meetingTime.contains("05:15")) {
                 friday16.setText(courseName);
                 friday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Fri") && meetingTime.contains("04:00") && meetingTime.contains("06:45") ){
+            if (meetingTime.contains("Fri") && meetingTime.contains("04:00") && meetingTime.contains("06:45")) {
                 friday16.setText(courseName);
                 friday16CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
                 friday17.setText(courseName);
@@ -691,9 +640,9 @@ public class ScheduleWeeklyView extends Fragment {
                 friday17CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
 
-
         }
     }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -713,14 +662,15 @@ public class ScheduleWeeklyView extends Fragment {
         }
     }
 
+
     public void changeBackgroundOnClick(CardView card) {
         if (card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.silversand)) {
             card.setCardBackgroundColor(getResources().getColor(R.color.yellow));
         } else if (card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.yellow)) {
             card.setCardBackgroundColor(getResources().getColor(R.color.silversand));
-        }else if(card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.white)) {
+        } else if (card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.white)) {
             card.setCardBackgroundColor(getResources().getColor(R.color.seablue));
-        }else if(card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.seablue)) {
+        } else if (card.getCardBackgroundColor().getDefaultColor() == getResources().getColor(R.color.seablue)) {
             card.setCardBackgroundColor(getResources().getColor(R.color.white));
         }
 
