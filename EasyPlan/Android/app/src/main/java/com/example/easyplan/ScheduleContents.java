@@ -51,7 +51,6 @@ public class ScheduleContents extends Fragment {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -104,6 +103,7 @@ public class ScheduleContents extends Fragment {
         adapter.notifyDataSetChanged();
         return view;
     }
+
     private void openPrevSchedule() {
         courseList = new ArrayList<>();
         adapter = new ScheduleContentAdapter(getContext(), courseList);
@@ -113,9 +113,9 @@ public class ScheduleContents extends Fragment {
         }.getType();
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
-        if(scheduleID == 0){
+        if (scheduleID == 0) {
             scheduleID = plan.getSchedules().size() - 1;
-        }else {
+        } else {
             scheduleID--;
         }
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
@@ -148,9 +148,9 @@ public class ScheduleContents extends Fragment {
         }.getType();
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         Plan plan = plans.get(planID);
-        if(scheduleID + 1 != plan.getSchedules().size()){
+        if (scheduleID + 1 != plan.getSchedules().size()) {
             scheduleID++;
-        }else{
+        } else {
             scheduleID = 0;
         }
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
