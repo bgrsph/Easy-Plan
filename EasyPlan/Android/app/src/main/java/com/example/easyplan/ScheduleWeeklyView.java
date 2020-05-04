@@ -326,7 +326,7 @@ public class ScheduleWeeklyView extends Fragment {
                 monday10.setText(courseName);
                 monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
-            if (meetingTime.contains("Mon") && meetingTime.contains("10:00") && meetingTime.contains("11CV:15")) {
+            if (meetingTime.contains("Mon") && meetingTime.contains("10:00") && meetingTime.contains("11:15")) {
                 monday10.setText(courseName);
                 monday10CV.setCardBackgroundColor(getResources().getColor(R.color.silversand));
             }
