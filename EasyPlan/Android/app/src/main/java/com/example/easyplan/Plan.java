@@ -3,8 +3,14 @@ package com.example.easyplan;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Plan implements Parcelable {
 
@@ -36,11 +42,11 @@ public class Plan implements Parcelable {
     };
 
     public void deleteDuplicates() {
-        ArrayList<Schedule> newList = new ArrayList<>();
+        /*ArrayList<Schedule> newList = new ArrayList<>();
         for (Schedule x : schedules) {
             if (!newList.contains(x)) newList.add(x);
         }
-        this.schedules = newList;
+        this.schedules = newList;*/
     }
 
     private void recursiveScheduleCreating(ArrayList<Course> input, Course list[], int start, int end, int index, int size) {
@@ -49,12 +55,6 @@ public class Plan implements Parcelable {
             Schedule schedule = new Schedule();
             for (Course x : list) {
                 boolean add = true;
-                /*for (Course y : schedule.getCourseList()) {
-                    if (y.getSubject().equals(x.getSubject()) && y.getCatalog().equals(x.getCatalog())) {
-                        add = false;
-                        break;
-                    }
-                } */
                 if (add) schedule.addToSchedule(x);
             }
             this.schedules.add(schedule);
@@ -71,14 +71,12 @@ public class Plan implements Parcelable {
     public void createSchedules(ArrayList<Course> input, int n, int size, ArrayList<Course> labs) {
         //Create ALL the schedules!
         Course data[] = new Course[size];
-        /*for (int i = 1; i < n; i++) {
-            data.add(new Course());
-        }*/
         recursiveScheduleCreating(input, data, 0, n-1, 0, size);
-        obliterateConflicts(labs);
+        if (labs.size() > 0) addLabs(labs);
+        obliterateConflicts();
     }
 
-    private void obliterateConflicts(ArrayList<Course> labs) {
+    private void obliterateConflicts() {
         ArrayList<Schedule> newList = new ArrayList<>();
         for (Schedule x : schedules) {
             boolean add = true;
@@ -86,7 +84,9 @@ public class Plan implements Parcelable {
                 for (Course z : x.getCourseList()) {
                     add = true;
                     if (y.equals(z)) continue;
-                    if (y.getSubject().equals(z.getSubject()) && y.getCatalog().equals(z.getCatalog())) {
+                    if (y.getSubject().equals(z.getSubject()) && y.getCatalog().equals(z.getCatalog()) &&
+                            !((y.getSection().startsWith("PS") || y.getSection().startsWith("DS") || y.getSection().startsWith("LAB")) &&
+                                    (z.getSection().startsWith("PS") || z.getSection().startsWith("DS") || z.getSection().startsWith("LAB")))) {
                         add = false;
                         break;
                     }
@@ -106,25 +106,56 @@ public class Plan implements Parcelable {
                 newList.add(x);
             }
         }
-        scheduleLabs(labs);
+
         this.schedules = newList;
     }
 
-    private void scheduleLabs (ArrayList<Course> labs) {
-        ArrayList<ArrayList<Course>> a = new ArrayList<>();
-        a = addLabs(a, a, 0, new ArrayList<Course>());
+    private List<List<Course>> scheduleLabs (ArrayList<Course> labs, ArrayList<ArrayList<Course>> a) {
+        ArrayList<ArrayList<Course>> b = new ArrayList<>();
+        String s = "";
+        ArrayList<Course> temp = new ArrayList<Course>();
+        for (Course x : labs) {
+            if (s.equals("")) {
+                s = x.getSubject() + x.getCatalog() + x.getSection().substring(0, 2);
+                temp.add(x);
+            } else if (!(s.equals(x.getSubject() + x.getCatalog() + x.getSection().substring(0, 2)))) {
+                a.add(new ArrayList<Course>(temp));
+                temp.clear();
+                s = x.getSubject() + x.getCatalog()+ x.getSection().substring(0, 2);
+                temp.add(x);
+            }
+            else {
+                temp.add(x);
+            }
+        }
+        a.add(temp);
+        return Lists.cartesianProduct(a);
     }
 
-    private ArrayList<ArrayList<Course>> addLabs(ArrayList<ArrayList<Course>> labLists, ArrayList<ArrayList<Course>> result, int depth, ArrayList<Course> current) {
-        if (depth == labLists.size()) {
-            result.add(current);
-            return result;
+    private void addLabs(ArrayList<Course> labs) {
+        ArrayList<Schedule> newList = new ArrayList<>();
+        List<List<Course>> offf = scheduleLabs(labs, new ArrayList<ArrayList<Course>>());
+        for (Schedule x : schedules) {
+            ArrayList<String> yeterLan = new ArrayList<String>();
+            for (Course y : x.getCourseList()) {
+                yeterLan.add(y.getSubject() + y.getCatalog());
+            }
+            for (List<Course> y : offf) {
+                Schedule LAN = new Schedule();
+                ArrayList<Course> zzzz = new ArrayList<>(x.getCourseList());
+                LAN.setCourseList(zzzz);
+                boolean add = true;
+                for (Course z : y) {
+                    if (!(yeterLan.contains(z.getSubject() + z.getCatalog()))) {
+                        add = false;
+                        break;
+                    }
+                    LAN.addToSchedule(z);
+                }
+                if (add) newList.add(LAN);
+            }
         }
-        for (int i = 0; i < labLists.get(depth).size(); i++) {
-            current.add(labLists.get(depth).get(i));
-            addLabs(labLists, result, depth + 1, current);
-        }
-        return result;
+        this.schedules = newList;
     }
 
     public ArrayList<Schedule> getSchedules() {

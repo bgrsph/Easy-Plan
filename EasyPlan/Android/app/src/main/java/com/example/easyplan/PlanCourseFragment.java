@@ -151,13 +151,15 @@ public class PlanCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (filteredList.size() >= Integer.valueOf(sizeSpinner.getSelectedItem().toString())){
+                    Plan plan = new Plan("");
                     if(planSpinner.getSelectedItem().toString().equals("New Plan...")) {
+
                         if (bot.sharedPref(getActivity()).contains("plans")) {
                             Gson gson = new Gson();
                             Type type = new TypeToken<List<Plan>>(){}.getType();
                             List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
 
-                            Plan plan = new Plan(planName.getText().toString());
+                            plan.setPlanName(planName.getText().toString());
                             int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
                             ArrayList<Course> tempList = new ArrayList<Course>();
                             for (Course x : courseList) {
@@ -188,7 +190,7 @@ public class PlanCourseFragment extends Fragment {
                             bot.setSharedPref("plans", getActivity(), plans);
                         } else {
                             List<Plan> plans = new ArrayList<Plan>();
-                            Plan plan = new Plan(planName.getText().toString());
+                            plan.setPlanName(planName.getText().toString());
                             int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
                             ArrayList<Course> tempList = new ArrayList<Course>();
                             for (Course x : courseList) {
@@ -228,7 +230,7 @@ public class PlanCourseFragment extends Fragment {
                         Type type = new TypeToken<List<Plan>>(){}.getType();
                         List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
 
-                        Plan plan = new Plan(planName.getText().toString());
+                        plan.setPlanName(planName.getText().toString());
                         int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
                         ArrayList<Course> tempList = new ArrayList<Course>();
                         for (Course x : courseList) {
@@ -271,10 +273,15 @@ public class PlanCourseFragment extends Fragment {
                         plans.add(plan);
                         bot.setSharedPref("plans", getActivity(), plans);
                     }
-                    PlansFragment plansFrag = new PlansFragment();
-                    FragmentTransaction trans = getFragmentManager().beginTransaction();
-                    trans.replace(R.id.fragment, plansFrag, "Plans");
-                    trans.commit();
+                    if (plan.getSchedules().size() > 0) {
+                        PlansFragment plansFrag = new PlansFragment();
+                        FragmentTransaction trans = getFragmentManager().beginTransaction();
+                        trans.replace(R.id.fragment, plansFrag, "Plans");
+                        trans.commit();
+                    } else {
+                        Toast.makeText(getActivity(), "No schedule can be created with these courses/constraints.", Toast.LENGTH_LONG).show();
+                    }
+
                 } else Toast.makeText(getActivity(), "Please make sure to select more courses than the selected size.", Toast.LENGTH_LONG).show();
             }
         });
