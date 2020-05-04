@@ -7,6 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,6 @@ public class PersonalInfo extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position != 0){
                     selectedFaculty = parent.getItemAtPosition(position).toString();
-
                     setupDepartmentSpinner(deptAdapter);
                     setUpAcademicSemesterLevelSpinner();
                     setUpSemesterSpinner();
@@ -243,6 +243,11 @@ public class PersonalInfo extends Fragment {
                 editor.putString("savedLevel", selectedAcademic);
                 editor.putString("savedSemester", selectedSemester);
                 editor.apply();
+
+                ProfileFragment pf = new ProfileFragment();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.fragment, pf, "Profile");
+                ft.commit();
             }
         });
 
