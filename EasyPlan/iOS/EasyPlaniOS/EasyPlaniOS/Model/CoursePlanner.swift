@@ -14,7 +14,7 @@ class CoursePlanner {
     
     var allCoursesInDatabase:[Course]
     var planName:String
-
+    
     
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
@@ -87,7 +87,7 @@ class CoursePlanner {
         
         let schedules = getNonConflictingSchedules(entity: entitiesTBPlannedPost)
         
-
+        
         
         let plan = ExpandablePlan(name: self.planName, isExpanded: false, scheduleList: schedules)
         
@@ -97,17 +97,6 @@ class CoursePlanner {
             
             print("[DEBUG] Plan cannot be calculated")
         }
-        
-//        for schedule in plan.scheduleList {
-//            print("\n[DEBUG] Printing Schedule " + schedule.name)
-//            for course in schedule.scheduleCourseList {
-//                
-//                print("\n" + course.toString())
-//            }
-//            print("\n-------------------------------------")
-//        }
-//        
-//        print("OK.")
         
         return plan
     }
@@ -154,7 +143,7 @@ class CoursePlanner {
             if courseLists.contains(coursesForOneSchedule) {
                 
                 continue
-
+                
             }
             
             // Everything is OK; add the schedule to the list
@@ -195,9 +184,9 @@ class CoursePlanner {
     
     
     func isHappenAtTheSameTime(courseA:Course, courseB:Course) -> Bool {
-            
+        
         return (courseA.monday == courseB.monday && courseA.tuesday == courseB.tuesday && courseA.wednesday == courseB.wednesday && courseA.thursday == courseB.thursday && courseA.friday == courseB.friday
-        && courseA.mtgStart == courseB.mtgStart && courseA.mtgEnd == courseB.mtgEnd)
+            && courseA.mtgStart == courseB.mtgStart && courseA.mtgEnd == courseB.mtgEnd)
     }
     
     
@@ -218,17 +207,6 @@ class CoursePlanner {
         
         return true
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     func getEntitiesForPlanning(selectedCourseNames:[String]) -> EntitiesTBPlanned {
@@ -258,174 +236,6 @@ class CoursePlanner {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //
-    //
-    //
-    //
-    //    func getPlan(selectedCourseNames:[String]) {
-    //
-    //        ref = Database.database().reference()
-    //        ref?.child("allCourses").observeSingleEvent(of: .value, with: { (snapshot) in
-    //            if snapshot.childrenCount > 0 {
-    //                for courseName in selectedCourseNames {
-    //                    for course in snapshot.children.allObjects as![DataSnapshot] {
-    //                        let courseObject = course.value as? [String:Any]
-    //                        let courseSubject = courseObject?["subject"]
-    //                        let courseCatalog = courseObject?["catalog"]
-    //                        var courseNameInDB = (courseSubject as! String)  +  (courseCatalog as! String)
-    //                        let courseSection = courseObject?["section"]
-    //                        if courseName == courseNameInDB {
-    //                            var courseNameWithType = courseNameInDB + (courseSection as! String)
-    //                            //self.uniqueCourseDict[courseNameWithType, default: 0] += 1
-    //                            let courseId = courseObject?["id"]
-    //                            let monday = courseObject?["monday"]
-    //                            let tuesday = courseObject?["tuesday"]
-    //                            let wednesday = courseObject?["wednesday"]
-    //                            let thursday = courseObject?["thursday"]
-    //                            let friday = courseObject?["friday"]
-    //                            let saturday = courseObject?["saturday"]
-    //                            let sunday = courseObject?["sunday"]
-    //                            let mtgStart = courseObject?["mtgStart"]
-    //                            let mtgEnd = courseObject?["mtgEnd"]
-    //                            let newCourse = Course(subject: courseSubject as! String, id: courseId as! String,
-    //                                                   catalog: courseCatalog as! String,
-    //                                                   monday: monday as! String,
-    //                                                   tuesday: tuesday as! String,
-    //                                                   wednesday: wednesday as! String,
-    //                                                   thursday: thursday as! String,
-    //                                                   friday: friday as! String,
-    //                                                   saturday: saturday as! String,
-    //                                                   sunday: sunday as! String,
-    //                                                   mtgStart: mtgStart as! String,
-    //                                                   mtgEnd: mtgEnd as! String,
-    //                                                   section: courseSection as! String)
-    //
-    //                            self.courseList.append(newCourse)
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //            DispatchQueue.main.async  {
-    //
-    //                for course in self.courseList {
-    //
-    //                    if !self.doesObeyAllConstraints(course: course) {
-    //
-    //                        self.courseList = self.courseList.filter { $0 != course }
-    //                    }
-    //
-    //
-    //                }
-    //                print("OK.")
-    //
-    //
-    //                var scheduleCounter = 0
-    //                for courseA in self.courseList {
-    //
-    //                    var courseListForSchedule:[Course] = []
-    //                    var toBeAdded = true
-    //                    var schedule = Schedule(name: String(scheduleCounter), scheduleCourseList: courseListForSchedule)
-    //
-    //                    for courseB in self.courseList {
-    //
-    //                        if courseA == courseB {
-    //                            continue
-    //                        }
-    //
-    //                        if (courseA.monday == courseB.monday && courseA.tuesday == courseB.tuesday
-    //                            && courseA.wednesday == courseB.wednesday && courseA.thursday == courseB.thursday
-    //                            && courseA.friday == courseB.friday && courseA.saturday == courseB.saturday
-    //                            && courseA.sunday == courseB.sunday && courseA.mtgStart == courseB.mtgStart && courseA.mtgEnd == courseB.mtgEnd) {
-    //
-    //                            toBeAdded = false;
-    //                            break;
-    //                        }
-    //
-    //
-    //                        var courseBTypeAndName:String = self.getCourseTypeAndName(course: courseB) //ACWR106SECTION
-    //
-    //                        for courseC in schedule.scheduleCourseList {
-    //
-    //                            var courseCTypeAndName:String = self.getCourseTypeAndName(course: courseC)
-    //
-    //                            if courseBTypeAndName == courseCTypeAndName {
-    //
-    //                                toBeAdded = false
-    //                            }
-    //                        }
-    //
-    //                        if !toBeAdded {
-    //                            continue
-    //                        }
-    //
-    //                        if toBeAdded {
-    //                            schedule.addCourse(course: courseB)
-    //                        }
-    //
-    //                    }
-    //                    if !self.scheduleList.contains(schedule) {
-    //
-    //                        self.scheduleList.append(schedule)
-    //                        self.plan.addSchedule(scheduele: schedule)
-    //                        scheduleCounter += 1
-    //                    }
-    //
-    //                }
-    //
-    //                for schedule in self.scheduleList {
-    //                    print("\n--------Schedule" + schedule.name + "----------")
-    //                    for course in schedule.scheduleCourseList{
-    //
-    //                        print("\t--> " + course.toString())
-    //                    }
-    //                }
-    //
-    //                print("OK. 2")
-    //
-    //                self.plan = ExpandablePlan(name: "testPlan", isExpanded: true, scheduleList: self.scheduleList)
-    //
-    //                for schedule in self.plan.scheduleList {
-    //                    print("\n--------Schedule" + schedule.name + "----------")
-    //                    for course in schedule.scheduleCourseList{
-    //
-    //                        print("\t--> " + course.toString())
-    //                    }
-    //                }
-    //
-    //                print("OK. 3")
-    //            }
-    //        })
-    //    }
-    //
-    
-    
     func doesObeyAllConstraints(course:Course) -> Bool {
         
         return true
@@ -447,94 +257,6 @@ class CoursePlanner {
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //    func testdb() {
-    //
-    //        let selectedCourseNames:[String] = ["ACWR 101", "COMP 130"]
-    //        ref = Database.database().reference()
-    //        ref?.child("allCourses").observeSingleEvent(of: .value, with: { (snapshot) in
-    //            if snapshot.childrenCount > 0 {
-    //                for courseName in selectedCourseNames {
-    //                    for course in snapshot.children.allObjects as![DataSnapshot] {
-    //                        let courseObject = course.value as? [String:Any]
-    //                        let courseSubject = courseObject?["subject"]
-    //                        let courseCatalog = courseObject?["catalog"]
-    //                        var courseNameInDB = (courseSubject as! String)  +  (courseCatalog as! String)
-    //                        let courseSection = courseObject?["section"]
-    //                        if courseName == courseNameInDB {
-    //                            var courseNameWithType = courseNameInDB + (courseSection as! String)
-    //                            //self.uniqueCourseDict[courseNameWithType, default: 0] += 1
-    //                            let courseId = courseObject?["id"]
-    //                            let monday = courseObject?["monday"]
-    //                            let tuesday = courseObject?["tuesday"]
-    //                            let wednesday = courseObject?["wednesday"]
-    //                            let thursday = courseObject?["thursday"]
-    //                            let friday = courseObject?["friday"]
-    //                            let saturday = courseObject?["saturday"]
-    //                            let sunday = courseObject?["sunday"]
-    //                            let mtgStart = courseObject?["mtgStart"]
-    //                            let mtgEnd = courseObject?["mtgEnd"]
-    //                            let newCourse = Course(subject: courseSubject as! String, id: courseId as! String,
-    //                                                   catalog: courseCatalog as! String,
-    //                                                   monday: monday as! String,
-    //                                                   tuesday: tuesday as! String,
-    //                                                   wednesday: wednesday as! String,
-    //                                                   thursday: thursday as! String,
-    //                                                   friday: friday as! String,
-    //                                                   saturday: saturday as! String,
-    //                                                   sunday: sunday as! String,
-    //                                                   mtgStart: mtgStart as! String,
-    //                                                   mtgEnd: mtgEnd as! String,
-    //                                                   section: courseSection as! String)
-    //
-    //                            self.courseList.append(newCourse)
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //            DispatchQueue.main.async  {
-    //
-    //            }
-    //        })
-    //
-    //
-    //    }
-    
-    
-    
-    
-    
-    
-    
     
     
     
