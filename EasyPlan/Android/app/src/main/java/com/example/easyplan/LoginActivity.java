@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
     SignInButton signInButton;
     GoogleSignInClient mGoogleSignInClient;
+    SharedPreferences spRemember;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mGetReference;
@@ -79,6 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         logRemember = findViewById(R.id.loginRemember);
         auth = FirebaseAuth.getInstance();
         signInButton = findViewById(R.id.loginGoogle);
+        spRemember = getSharedPreferences("userPref", MODE_PRIVATE);
+        final SharedPreferences.Editor editorRemember = spRemember.edit();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
         mDatabase = FirebaseDatabase.getInstance();
         mGetReference = mDatabase.getReference().child("coursesTest");
@@ -147,6 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = onBoardingPref.edit();
                                     editor.putBoolean("firstTime", false);
                                     editor.commit();
+                                    editorRemember.apply();
                                     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
                                     startActivity(new Intent(LoginActivity.this, Mainpage.class));
                                     finish();
@@ -187,16 +191,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (buttonView.isChecked()) {
-                    SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.putString("remember", "true");
-                    editor.apply();
+                    editorRemember.putString("remember", "true");
+
 
                 } else if (!buttonView.isChecked()) {
-                    SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sp.edit();
-                    editor.putString("remember", "false");
-                    editor.apply();
+                    editorRemember.putString("remember", "false");
+
                 }
             }
         });
