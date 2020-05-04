@@ -114,7 +114,7 @@ class CoursePlanner {
             
             coursesForOneSchedule = []
             coursesForOneSchedule.append(courseA)
-            
+           
             for courseB in entity.coursesTBPlanned {
                 
                 if (courseA == courseB) {
@@ -126,9 +126,7 @@ class CoursePlanner {
                 }
                 
                 if self.isPreviouslyAddedWithSameType(course: courseB, prevAddedCourses: coursesForOneSchedule) {
-                    
                     continue
-                    
                 }
                 
                 coursesForOneSchedule.append(courseB)
@@ -138,13 +136,13 @@ class CoursePlanner {
                 
                 continue
             }
-            
-            //Add the schedule if unique
-            if courseLists.contains(coursesForOneSchedule) {
-                
-                continue
-                
-            }
+        
+//            //Add the schedule if unique
+//            if courseLists.contains(coursesForOneSchedule) {
+//
+//                continue
+//
+//            }
             
             // Everything is OK; add the schedule to the list
             
