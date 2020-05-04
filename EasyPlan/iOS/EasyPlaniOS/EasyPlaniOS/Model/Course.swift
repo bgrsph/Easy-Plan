@@ -44,7 +44,29 @@ class Course {
     
     func toString() ->String {
         
-        return self.subject + " -- " + self.catalog + " -- " +  self.section + " -- " + self.mtgStart + " -- " + self.mtgEnd
+        var days = ""
+        
+        if (self.monday == "Y") {
+            days += " Monday "
+        }
+        
+        if (self.tuesday == "Y") {
+            days += "Tuesday "
+        }
+        if (self.wednesday == "Y") {
+            days += "Wednesday "
+        }
+        if (self.thursday == "Y") {
+            days += "Thursday "
+        }
+        if (self.saturday == "Y") {
+            days += "Saturday "
+        }
+        if (self.sunday == "Y") {
+            days += "Sunday"
+        }
+    
+        return (self.subject + " -- " + self.catalog + " -- " +  self.section + " -- " + self.mtgStart + " -- " + self.mtgEnd + "--" + days)
         
     }
 }

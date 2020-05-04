@@ -110,14 +110,23 @@ class CoursePlanner {
         var courseLists:[[Course]] = []
         var scheduleCounter = 0
         
-        for courseA in entity.coursesTBPlanned {
+        var coursesTBPlanned =  entity.coursesTBPlanned
+        
+        for course in coursesTBPlanned {
+            
+            print(course.toString() + "\n")
+        }
+       
+        
+        for courseA in coursesTBPlanned {
             
             coursesForOneSchedule = []
             coursesForOneSchedule.append(courseA)
            
-            for courseB in entity.coursesTBPlanned {
+            for courseB in coursesTBPlanned {
                 
                 if (courseA == courseB) {
+                   
                     continue
                 }
                 
@@ -149,7 +158,6 @@ class CoursePlanner {
             courseLists.append(coursesForOneSchedule)
             schedules.append(Schedule(name: String(scheduleCounter), scheduleCourseList: coursesForOneSchedule))
             scheduleCounter += 1
-            
         }
         
         if(schedules.count > 0) {
