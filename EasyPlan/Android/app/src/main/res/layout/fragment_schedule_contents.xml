@@ -57,8 +57,35 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="20dp"
             android:background="@color/textColorAlmostWhite" />
-    </RelativeLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:weightSum="2"
+            android:layout_below="@id/line_view"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/schedule_prev"
+                android:layout_weight="0.25"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/transparentWhite"
+                android:drawableLeft="@drawable/left_arrow"
+                android:drawableTint="@color/white"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"/>
+            <Button
+                android:id="@+id/schedule_next"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@color/transparentWhite"
+                android:drawableRight="@drawable/round_arrow_2"
+                android:drawableTint="@color/white"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/schedule_courses_recyler"
