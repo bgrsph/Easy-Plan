@@ -29,6 +29,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -38,9 +39,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 public class LoginActivity extends AppCompatActivity {
 
-    EditText logEmail, logPass;
+    TextInputLayout logEmail, logPass;
     Button loginBtn;
     TextView logSign;
     TextView logForget;
@@ -119,8 +122,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email, pass;
-                email = logEmail.getText().toString();
-                pass = logPass.getText().toString();
+                email = logEmail.getEditText().getText().toString();
+                pass = logPass.getEditText().getText().toString();
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(LoginActivity.this, "Please enter an email.", Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(pass)) {
@@ -134,8 +137,8 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = auth.getCurrentUser();
                             if (task.isSuccessful()) {
                                 if (user.isEmailVerified()) {
-                                    logEmail.setText("");
-                                    logPass.setText("");
+                                    logEmail.getEditText().setText("");
+                                    logPass.getEditText().setText("");
                                     SharedPreferences spID = getSharedPreferences("userPref", MODE_PRIVATE);
                                     SharedPreferences.Editor idEditor = spID.edit();
                                     idEditor.putString("userID", auth.getUid());
@@ -163,10 +166,10 @@ public class LoginActivity extends AppCompatActivity {
         logForget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(logEmail.getText().toString())) {
+                if (TextUtils.isEmpty(logEmail.getEditText().getText().toString())) {
                     Toast.makeText(LoginActivity.this, "Enter your email to email field.", Toast.LENGTH_LONG).show();
                 } else {
-                    auth.sendPasswordResetEmail(logEmail.getText().toString()).addOnCompleteListener(LoginActivity.this,
+                    auth.sendPasswordResetEmail(logEmail.getEditText().getText().toString()).addOnCompleteListener(LoginActivity.this,
                             new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

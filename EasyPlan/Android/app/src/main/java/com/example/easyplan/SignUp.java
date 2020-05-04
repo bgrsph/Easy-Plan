@@ -18,9 +18,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,11 +31,11 @@ import java.util.regex.Pattern;
 public class SignUp extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    EditText email, password, passwordAgain;
+    TextInputLayout email, password;
     Button signupButton;
     TextView error;
-    TextView firstName;
-    TextView lastName;
+    TextInputLayout firstName;
+    TextInputLayout lastName;
     TextView login;
 
     @Override
@@ -56,10 +59,10 @@ public class SignUp extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String fName = firstName.getText().toString();
-                String lName = lastName.getText().toString();
-                String mail = email.getText().toString();
-                String pass = password.getText().toString();
+                String fName = firstName.getEditText().getText().toString();
+                String lName = lastName.getEditText().getText().toString();
+                String mail = email.getEditText().getText().toString();
+                String pass = password.getEditText().getText().toString();
                 if (fName.length() == 0) {
                     Toast.makeText(SignUp.this, "First name cannot be empty", Toast.LENGTH_SHORT).show();
                 } else if (lName.length() == 0) {
