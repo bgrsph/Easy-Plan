@@ -19,12 +19,6 @@ class ExpandablePlan {
         self.scheduleList = scheduleList
     }
     
-    func addSchedule(scheduele:Schedule) {
-        
-        self.scheduleList.append(scheduele)
-        
-    }
-    
     
     func toString() -> String {
         var res = "\nPrinting Plan: " + self.name + "\n"

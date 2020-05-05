@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/sitarearslanturk/Desktop/Easy-Plan/EasyPlan/iOS/EasyPlaniOS/EasyPlaniOS/Model/easySchedule.swift">
+   </FileRef>
+   <FileRef
       location = "group:EasyPlaniOS.xcodeproj">
    </FileRef>
    <FileRef

@@ -11,6 +11,9 @@
 		36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B982437F2E900F5057D /* PlanTableViewCell.swift */; };
 		36168B9F243816EA00F5057D /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36168B9E243816EA00F5057D /* PlanTableViewController.swift */; };
 		363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363BD252242631BD00B40158 /* ConstraintViewController.swift */; };
+		363CA5872460D2A400773E04 /* easyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CA5862460D2A400773E04 /* easyPlan.swift */; };
+		363CA58B2460D2DA00773E04 /* easySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CA58A2460D2DA00773E04 /* easySchedule.swift */; };
+		363CA58D2460D2E500773E04 /* easyCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CA58C2460D2E500773E04 /* easyCourse.swift */; };
 		364CC0D42423AD0E0098D42D /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D32423AD0E0098D42D /* Course.swift */; };
 		364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */; };
 		3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */; };
@@ -56,6 +59,9 @@
 		36168B982437F2E900F5057D /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
 		36168B9E243816EA00F5057D /* PlanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
 		363BD252242631BD00B40158 /* ConstraintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintViewController.swift; sourceTree = "<group>"; };
+		363CA5862460D2A400773E04 /* easyPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easyPlan.swift; sourceTree = "<group>"; };
+		363CA58A2460D2DA00773E04 /* easySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easySchedule.swift; sourceTree = "<group>"; };
+		363CA58C2460D2E500773E04 /* easyCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = easyCourse.swift; sourceTree = "<group>"; };
 		364CC0D32423AD0E0098D42D /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchTableViewCell.swift; sourceTree = "<group>"; };
 		3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConstraintCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +136,9 @@
 				36168B962437F1A300F5057D /* Schedule.swift */,
 				36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */,
 				F969F048245EB58600589256 /* CoursePlanner.swift */,
+				363CA5862460D2A400773E04 /* easyPlan.swift */,
+				363CA58A2460D2DA00773E04 /* easySchedule.swift */,
+				363CA58C2460D2E500773E04 /* easyCourse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 				364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */,
 				36168B972437F1A300F5057D /* Schedule.swift in Sources */,
 				36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */,
+				363CA5872460D2A400773E04 /* easyPlan.swift in Sources */,
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */,
 				364CC0D42423AD0E0098D42D /* Course.swift in Sources */,
@@ -420,6 +430,7 @@
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
 				F9BFF68D244763BC00A85278 /* TermsOfServiceViewController.swift in Sources */,
 				363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */,
+				363CA58B2460D2DA00773E04 /* easySchedule.swift in Sources */,
 				36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */,
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
 				36F6CE9A24291B4500227F1F /* CourseService.swift in Sources */,
@@ -431,6 +442,7 @@
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
 				36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */,
 				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
+				363CA58D2460D2E500773E04 /* easyCourse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

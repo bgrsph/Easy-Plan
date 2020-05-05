@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol EditItemViewControllerDelegate {
     func shouldAdd(param: [Course], param2: [Course])
 }
 
 class ConstraintViewController: UIViewController {
+    
+    let realm = try! Realm()
     
     var delegate: EditItemViewControllerDelegate!
     @IBOutlet weak var planLabel: UITextField!
@@ -62,8 +65,8 @@ class ConstraintViewController: UIViewController {
     
     lazy var deleteBarButton: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didDeleteButtonClicked(_sender:)))
-          return barButtonItem
-      }()
+        return barButtonItem
+    }()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -87,6 +90,8 @@ class ConstraintViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getDocumentsDirectory()
         
         createPicker()
         setUpBarButton()
@@ -187,7 +192,7 @@ class ConstraintViewController: UIViewController {
         for i in deleteNeededIndexPaths.sorted(by: {$0.item > $1.item}){
             deletedCourses.append(myCourses![i.item])
             myCourses?.remove(at: i.item)
-          
+            
         }
         
         collectionView.deleteItems(at: deleteNeededIndexPaths)
@@ -195,33 +200,93 @@ class ConstraintViewController: UIViewController {
         if let delegate = delegate {
             delegate.shouldAdd(param: deletedCourses, param2: myCourses!)
         }
-       }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    func getDocumentsDirectory() -> URL {
+           let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+           print("Document : \(paths[0])")
+           return paths[0]
+       }
     
     @IBAction func planTapped(_ sender: Any) {
         
         let plan = coursePlanner.getPlan(selectedCourseNames: ["COMP 130", "ACWR 106", "ACWR 101"])
-        print(plan.toString())
+        //        print(plan.toString())
+        
+        let newPlan = easyPlan()
+        newPlan.title = plan.name
+        
+        do {
+            try realm.write {
+                realm.add(newPlan)
+            }
+        } catch {
+            print("Error saving plan \(error)")
+        }
+        
+        let planScheduleList = plan.scheduleList
+        for schedule in planScheduleList {
+            let newSchedule = easySchedule()
+            newSchedule.title = schedule.name
+            
+            do {
+                try realm.write {
+                    realm.add(newSchedule)
+                    newPlan.schedules.append(newSchedule)
+                }
+            } catch {
+                print("Error saving schedule \(error)")
+            }
+            
+            for course in schedule.scheduleCourseList {
+                let newCourse = easyCourse()
+                newCourse.id = course.id
+                newCourse.catalog = course.catalog
+                newCourse.subject = course.subject
+                newCourse.monday = course.monday
+                newCourse.tuesday = course.tuesday
+                newCourse.wednesday = course.wednesday
+                newCourse.thursday = course.thursday
+                newCourse.friday = course.friday
+                newCourse.mtgEnd = course.mtgEnd
+                newCourse.mtgStart = course.mtgStart
+                newCourse.section = course.section
+                
+                do {
+                    try realm.write {
+                        realm.add(newCourse)
+                        newSchedule.courses.append(newCourse)
+                    }
+                } catch {
+                    print("Error saving course \(error)")
+                }
+            }
+            
+        }
         print("OK.")
         
-
+        
+        
+        
     }
+    
     
     @IBAction func frTapped(_ sender: Any) {
         if frChecked {
             frCheck.image = UIImage(systemName: "square")
             frChecked = false
         } else if !frChecked {
-             frCheck.image = UIImage(systemName: "checkmark.square")
+            frCheck.image = UIImage(systemName: "checkmark.square")
             frChecked = true
         }
     }
@@ -232,7 +297,7 @@ class ConstraintViewController: UIViewController {
             tuThCheck.image = UIImage(systemName: "square")
             tuThChecked = false
         } else if !frChecked {
-             tuThCheck.image = UIImage(systemName: "checkmark.square")
+            tuThCheck.image = UIImage(systemName: "checkmark.square")
             tuThChecked = true
         }
     }
@@ -243,10 +308,10 @@ class ConstraintViewController: UIViewController {
             moWeCheck.image = UIImage(systemName: "square")
             moWeChecked = false
         } else if !moWeChecked {
-             moWeCheck.image = UIImage(systemName: "checkmark.square")
+            moWeCheck.image = UIImage(systemName: "checkmark.square")
             moWeChecked = true
         }
-}
+    }
 }
 
 
@@ -315,7 +380,7 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
 }
 
 extension ConstraintViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myCourses!.count
     }
@@ -326,17 +391,17 @@ extension ConstraintViewController: UICollectionViewDelegate, UICollectionViewDa
         cell.courseLabel.text = myCourses![indexPath.row].subject + myCourses![indexPath.row].catalog
         Utilities.styleHollowLabel(cell.courseLabel, i:colorChooser)
         colorChooser = (colorChooser + 1) % 8
-//        print(colorChooser)
+        //        print(colorChooser)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      if mMode == .select {
+        if mMode == .select {
             indexPathDictionary[indexPath] = true
-      } else if mMode == .view  {
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
+        } else if mMode == .view  {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
