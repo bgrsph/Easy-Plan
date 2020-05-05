@@ -52,7 +52,7 @@ public class ClassSearchFragment extends Fragment {
     public static ArrayList<Course> courseList1 = new ArrayList<>();
     public static ArrayList<Course> allSections = new ArrayList<>();
     private SearchView search;
-    final CourseAdapter adapter = new CourseAdapter(courseList1);
+    final CourseAdapter adapter = new CourseAdapter(getContext(), courseList1);
     View view;
 
     public ClassSearchFragment() {
@@ -200,7 +200,7 @@ public class ClassSearchFragment extends Fragment {
     }
 
     private void updateView(ArrayList<Course> list) {
-        CourseAdapter adapter = new CourseAdapter(list);
+        CourseAdapter adapter = new CourseAdapter(getContext(),list);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

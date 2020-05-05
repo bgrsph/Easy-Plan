@@ -5,7 +5,6 @@
     android:layout_height="60dp"
     android:background="@drawable/border"
     android:clickable="true"
-
     android:focusable="true"
     android:orientation="horizontal"
     android:paddingTop="10dp"

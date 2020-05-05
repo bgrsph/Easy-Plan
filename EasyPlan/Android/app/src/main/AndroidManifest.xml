@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OnBoarding"></activity>
+        <activity android:name=".CourseInformationPopup"
+            android:excludeFromRecents="true"
+            android:label=""
+            android:theme="@style/Theme.MyDialog"></activity>
+        <activity android:name=".OnBoarding" />
         <activity
             android:name=".Video_Background"
             android:configChanges="orientation"

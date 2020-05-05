@@ -185,5 +185,6 @@
     <string name="desiredNumber">Number of courses in a plan</string>
     <string name="start_button">LET\'S GET STARTED</string>
     <string name="skip">skip</string>
+    <string name="ok">OK</string>
 
 </resources>

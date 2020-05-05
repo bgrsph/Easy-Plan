@@ -116,6 +116,12 @@ public class LoginActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                editorRemember.remove("remember");
+                editorRemember.putString("remember", "true");
+                editorRemember.apply();
+
+
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, 1);
             }
@@ -225,6 +231,7 @@ public class LoginActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = onBoardingPref.edit();
             editor.putBoolean("firstTime", false);
             editor.commit();
+
             Intent intent = new Intent(LoginActivity.this, Mainpage.class);
             String a = account.getEmail();
             intent.putExtra("accEmail", a);

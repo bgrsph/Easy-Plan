@@ -22,7 +22,7 @@
             android:textSize="15sp"
             android:fontFamily="sans-serif-condensed-light"
             android:text="Instructor Name here"
-            android:gravity="center | left"
+            android:gravity="left"
             android:layout_marginBottom="5dp"/>
 
         <TextView
@@ -32,7 +32,7 @@
             android:textSize="15sp"
             android:fontFamily="sans-serif-condensed-light"
             android:text="Course Name here"
-            android:gravity="center | left"/>
+            android:gravity="left"/>
 
     </LinearLayout>
 
