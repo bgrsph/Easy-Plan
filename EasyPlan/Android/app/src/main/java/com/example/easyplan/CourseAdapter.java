@@ -203,34 +203,4 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         return position;
     }
 
-    public ArrayList<CourseInfoItemHelper> topSecretMission(final String name) {
-        final ArrayList<CourseInfoItemHelper> allSections = new ArrayList<>();
-        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference mReference = mDatabase.getReference().child("ugradCourses");
-        mReference.addValueEventListener(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    Course course = dataSnapshot1.getValue(Course.class);
-                    String courseName = course.getSubject();
-
-                    String courseProf = course.getProf() + "";
-                    String meetingTime = course.getMeetingDays() + " " + course.getMtgStart() + " - " + course.getMtgEnd();
-                    String section = course.getSection();
-                    allSections.add(new CourseInfoItemHelper(courseName, courseProf, meetingTime, section));
-                }
-
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-        return allSections;
-    }
-
 }
