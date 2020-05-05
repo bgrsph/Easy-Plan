@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PlanTableViewController: UITableViewController {
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
-    
-    var twoDimensionalArray = [ExpandablePlan(name: "Plan1", isExpanded: false,
-                                              scheduleList: [Schedule(name: "S1",
-                                                                      scheduleCourseList:
-                                                [Course(subject: "Acct", id: "1", catalog: "201",monday: "Y", tuesday: "Y",wednesday: "T", thursday: "T", friday: "T", saturday: "T", sunday: "T", mtgStart: "10:00 AM", mtgEnd: "10:00 AM", section: "01")])])]
+    let realm = try! Realm()
+    var plans : Results<easyPlan>!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Plans"
@@ -25,29 +24,34 @@ class PlanTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadPlans()
+    }
+    
+    func loadPlans(){
+        plans = realm.objects(easyPlan.self)
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return twoDimensionalArray.count
+        return plans.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if twoDimensionalArray[section].isExpanded {
+        if plans[section].isExpanded {
             return 0
         }
-        return twoDimensionalArray[section].scheduleList.count
+        return plans[section].schedules.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "planCell", for: indexPath) as! PlanTableViewCell
-        let plan = twoDimensionalArray[indexPath.section].scheduleList[indexPath.row]
-        cell.nameLabel.text = plan.name
+        let plan = plans[indexPath.section].schedules[indexPath.row]
+        cell.nameLabel.text = plan.title
         return cell
     }
     
@@ -56,14 +60,14 @@ class PlanTableViewController: UITableViewController {
         headerView.backgroundColor = burgundy
         let headerLabel = UILabel(frame: CGRect(x: 10, y: 10, width:tableView.bounds.size.width, height: 15))
         headerLabel.textColor = UIColor.white
-        headerLabel.text = twoDimensionalArray[section].name
+        headerLabel.text = plans[section].title
         headerLabel.textAlignment = .left
         headerView.addSubview(headerLabel)
         
         let button = UIButton(frame: CGRect(x:headerView.frame.size.width - 100, y:0, width:100, height:28))
         button.backgroundColor = burgundy
         button.tintColor = UIColor.white
-        let isExpanded = twoDimensionalArray[section].isExpanded
+        let isExpanded = plans[section].isExpanded
         button.setImage(isExpanded ? UIImage(systemName: "chevron.down") : UIImage(systemName: "chevron.up"), for: .normal)
         
         button.addTarget(self, action: #selector(handleExpand), for: .touchUpInside)
@@ -77,12 +81,12 @@ class PlanTableViewController: UITableViewController {
 //        delete to collapse
         let section = button.tag
         var indexPaths = [IndexPath]()
-        for row in twoDimensionalArray[section].scheduleList.indices {
+        for row in plans[section].schedules.indices {
             let indexPath = IndexPath(row: row, section: section)
             indexPaths.append(indexPath)
         }
-        let isExpanded = twoDimensionalArray[section].isExpanded
-        twoDimensionalArray[section].isExpanded = !isExpanded
+        let isExpanded = plans[section].isExpanded
+        plans[section].isExpanded = !isExpanded
         
         button.setImage(isExpanded ? UIImage(systemName: "chevron.up") : UIImage(systemName: "chevron.down"), for: .normal)
         
@@ -114,7 +118,7 @@ class PlanTableViewController: UITableViewController {
      if editingStyle == .delete {
      // Delete the row from the data source
         let section = indexPath.section
-        twoDimensionalArray[section].scheduleList.remove(at: indexPath.row)
+        plans[section].schedules.remove(at: indexPath.row)
         tableView.reloadData()
 //        tableView.deleteRows(at: [indexPath.row], with: .fade)
 //     } else if editingStyle == .insert {
