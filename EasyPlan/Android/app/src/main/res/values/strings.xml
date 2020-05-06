@@ -17,6 +17,18 @@
     <string name="alreadyhaveaccount">"Already registered?"</string>
 
 
+    <!-- Onboarding Screen Strings -->
+    <string name="onboarding_title_1">Search available courses</string>
+    <string name="onboarding_title_2">Plan your semester as you desire</string>
+    <string name="onboarding_title_3">See your possible choices</string>
+    <string name="onboarding_title_4">Plan Easily!</string>
+
+    <string name="onboarding_descr_1">You can search through all of the courses that the university has offered for the next semester. You can create multiple plans to see your options.</string>
+    <string name="onboarding_descr_2">Most of the courses will have multiple sections, which means that you have many options. For a better performance and usability, use constraints on which days and hours you want to have classes.</string>
+    <string name="onboarding_descr_3">For a number of courses, you can have multiple schedules. Mark those you love the most, delete what you do not want. </string>
+    <string name="onboarding_descr_4">Start planning your semester now!</string>
+
+
     <string name="classsearch">Class Search</string>
     <string name="plans">Plans</string>
     <string name="helpcenter">Help Center</string>
@@ -147,6 +159,32 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_this_schedule">Delete Schedule</string>
+    <string name="plan_delete_msg">Are you sure you want to delete all of the schedules?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_plan">Delete Plan</string>
 
+    <!-- Weekly Schedule View Strings -->
+    <string name="time">Time</string>
+    <string name="time0830">08:30 -\n09:45</string>
+    <string name="time1000">10:00 -\n11:15</string>
+    <string name="time1130">11:30 -\n12:45</string>
+    <string name="time1300">13:00 -\n14:15</string>
+    <string name="tim1430">14:30 -\n15:45</string>
+    <string name="time1600">16:00 -\n17:15</string>
+    <string name="time1730">17:30 -\n18:45</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="FAQ">Frequently Asked Questions</string>
+    <string name="createPlan">Create Your Plan</string>
+    <string name="plan">Plan</string>
+    <string name="planName">New Plan Name</string>
+    <string name="desiredNumber">Number of courses in a plan</string>
+    <string name="start_button">LET\'S GET STARTED</string>
+    <string name="skip">skip</string>
+    <string name="ok">OK</string>
 
 </resources>

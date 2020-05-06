@@ -2,6 +2,8 @@ package com.example.easyplan;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +30,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,14 +43,18 @@ import java.util.List;
 public class ClassSearchFragment extends Fragment {
 
     public static final ArrayList<Course> selectedCourses = new ArrayList<Course>();
+    public static final ArrayList<Course> selectedLabs = new ArrayList<Course>();
+    public static final ArrayList<Course> noDupList = new ArrayList<>();
     public static TextView text1;
     private String accEmail;
-    Button searchClasses;
+    Button searchClasses, unselector;
     RecyclerView recyclerView;
     public static ArrayList<Course> courseList = new ArrayList<>();
+    public static ArrayList<Course> labList = new ArrayList<>();
     public static ArrayList<Course> courseList1 = new ArrayList<>();
+    public static ArrayList<Course> allSections = new ArrayList<>();
     private SearchView search;
-    final CourseAdapter adapter = new CourseAdapter(courseList1);
+    final CourseAdapter adapter = new CourseAdapter(getContext(), courseList1);
     View view;
 
     public ClassSearchFragment() {
@@ -66,6 +74,7 @@ public class ClassSearchFragment extends Fragment {
         new FirebaseHelper("ugradCourses").readData(new FirebaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
+                allSections = courses;
                 boolean add = false;
                 for (Course x : courses) {
                     if (courseList.isEmpty()) courseList.add(x);
@@ -83,6 +92,45 @@ public class ClassSearchFragment extends Fragment {
                 //courseList = courses;
                 rLay.setVisibility(View.GONE);
                 updateView(courseList);
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+        new FirebaseHelper("ugradCoursesLab").readData(new FirebaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(ArrayList<Course> courses, List<String> keys) {
+                //allSections = courses;
+                boolean add = false;
+                for (Course x : courses) {
+                    if (labList.isEmpty()) labList.add(x);
+                    else {
+                        for (Course y : labList) {
+                            add = true;
+                            if (x.getSubject().equals(y.getSubject()) && x.getCatalog().equals(y.getCatalog())) {
+                                add = false;
+                                break;
+                            }
+                        }
+                        if (add) labList.add(x);
+                    }
+                }
+                //courseList = courses;
+                rLay.setVisibility(View.GONE);
+                //updateView(courseList);
             }
 
             @Override
@@ -137,6 +185,7 @@ public class ClassSearchFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("courseList", selectedCourses);
+                bundle.putParcelableArrayList("labsList", selectedLabs);
 
                 PlanCourseFragment planCourse = new PlanCourseFragment();
                 planCourse.setArguments(bundle);
@@ -146,7 +195,37 @@ public class ClassSearchFragment extends Fragment {
             }
         });
 
-        text1.setText(selectedCourses.size() + " courses selected.");
+        unselector = view.findViewById(R.id.unselectAll);
+        unselector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectedCourses.clear();
+                noDupList.clear();
+                updateView(courseList);
+                if(noDupList.size() == 0 ||noDupList.size() == 1){
+                    text1.setText(noDupList.size() + " course selected.");
+                }else{
+                    text1.setText(noDupList.size() + " courses selected.");
+                }
+
+            }
+        });
+
+        String key = "";
+        for (Course x : selectedCourses) {
+            if (key.equals("")) {
+                noDupList.add(x);
+                key = x.getSubject() + x.getCatalog();
+            } else if (!key.equals(x.getSubject() + x.getCatalog())) {
+                noDupList.add(x);
+                key = x.getSubject() + x.getCatalog();
+            }
+        }
+        if(noDupList.size() == 0 ||noDupList.size() == 1){
+            text1.setText(noDupList.size() + " course selected.");
+        }else{
+            text1.setText(noDupList.size() + " courses selected.");
+        }
 
         return view;
     }
@@ -163,7 +242,7 @@ public class ClassSearchFragment extends Fragment {
     }
 
     private void updateView(ArrayList<Course> list) {
-        CourseAdapter adapter = new CourseAdapter(list);
+        CourseAdapter adapter = new CourseAdapter(getContext(),list);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

@@ -1,113 +1,154 @@
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="10"
     android:gravity="top"
+    android:orientation="vertical"
+    android:screenOrientation="portrait"
+    android:weightSum="7"
     tools:context=".HelpFragment">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/ass_header_layout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"></LinearLayout>
+        android:layout_height="200dp"
+        android:background="@color/silversand"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+        <TextView
+            android:id="@+id/schedule_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/economica"
+            android:text="@string/helpcenter"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/schedule_header_name"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="40dp"
+            android:background="@color/white" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="-40dp"
         android:layout_weight="2.5"
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/faq_text"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginLeft="25dp">
+            android:layout_marginLeft="25dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="5dp">
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/yellow"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_help_outline_black_24dp"
-                    android:padding="10dp"/>
+                    android:background="@color/yellow"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/ic_help_outline_black_24dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="3dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="FAQ"/>
+                    android:text="FAQ"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:background="@color/yellow"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:background="@color/yellow" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/FAQ_msg"
-                    android:textSize="12dp"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="@string/FAQ_msg"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/contactUS"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginLeft="50dp">
+            android:layout_marginLeft="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="5dp">
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/button_red"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/ic_report_problem_black_24dp"
-                    android:padding="10dp"/>
+                    android:background="@color/button_red"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/ic_report_problem_black_24dp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="3dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="Contact Us"/>
+                    android:text="Contact Us"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:background="@color/button_red"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:background="@color/button_red" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/contactUs"
-                    android:textSize="12dp"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="@string/contactUs"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
@@ -124,20 +165,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2.5">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/kusismail"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginLeft="25dp">
+            android:layout_marginLeft="25dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="5dp">
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="75dp"
@@ -150,70 +193,78 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="3dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="KUSIS HELP"/>
+                    android:text="KUSIS HELP"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:background="@color/seagreen"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:background="@color/seagreen" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kusis_help_msg"
-                    android:textSize="12dp"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="@string/kusis_help_msg"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/registeationCall"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginLeft="50dp">
+            android:layout_marginLeft="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardElevation="5dp">
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:background="@color/mainColorDarker"
                     android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/call_icon"
-                    android:padding="10dp"/>
+                    android:background="@color/mainColorDarker"
+                    android:padding="10dp"
+                    app:srcCompat="@drawable/call_icon" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="3dp"
                     android:fontFamily="sans-serif-smallcaps"
-                    android:text="Registration"/>
+                    android:text="Registration"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="1dp"
-                    android:background="@color/yellow"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:background="@color/yellow" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kusis_help_phone_msg"
-                    android:textSize="12dp"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="@string/kusis_help_phone_msg"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
@@ -221,11 +272,9 @@
 
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"></LinearLayout>
-    <include layout="@layout/activity_bottom_navigator" />
+
+
+
 
 
 </LinearLayout>

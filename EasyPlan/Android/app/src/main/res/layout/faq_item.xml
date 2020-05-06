@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/textColorAlmostWhite"
+    android:elevation="4dp">
+
     <TextView
         android:id="@+id/expandedListItem"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:paddingTop="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="14sp"
+        android:textAlignment="viewStart"
         android:paddingBottom="10dp" />
-    </ScrollView>
+
 </LinearLayout>

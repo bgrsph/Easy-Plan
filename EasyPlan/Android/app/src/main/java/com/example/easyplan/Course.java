@@ -7,7 +7,7 @@ public class Course implements Parcelable {
 
     private String id;
     private String catalog;
-    private String subject, acad_org, facil_id, friday, monday, mtg_end, mtg_start, prof, saturday, section, sunday, thursday, tuesday, wednesday;
+    private String subject, acadOrg, facilId, friday, monday, mtgEnd, mtgStart, prof, saturday, section, sunday, thursday, tuesday, wednesday, meetingDays;
 
     /*public Course(String id, String catalog, String subject) {
         this.id = id;
@@ -15,16 +15,16 @@ public class Course implements Parcelable {
         this.subject = subject;
     }*/
 
-    public Course(String id, String catalog, String subject, String acad_org, String facil_id, String friday, String monday, String mtg_end, String mtg_start, String prof, String saturday, String section, String sunday, String thursday, String tuesday, String wednesday) {
+    public Course(String id, String catalog, String subject, String acadOrg, String facilId, String friday, String monday, String mtgEnd, String mtgStart, String prof, String saturday, String section, String sunday, String thursday, String tuesday, String wednesday) {
         this.id = id;
         this.catalog = catalog;
         this.subject = subject;
-        this.acad_org = acad_org;
-        this.facil_id = facil_id;
+        this.acadOrg = acadOrg;
+        this.facilId = facilId;
         this.friday = friday;
         this.monday = monday;
-        this.mtg_end = mtg_end;
-        this.mtg_start = mtg_start;
+        this.mtgEnd = mtgEnd;
+        this.mtgStart = mtgStart;
         this.prof = prof;
         this.saturday = saturday;
         this.section = section;
@@ -37,20 +37,100 @@ public class Course implements Parcelable {
     public Course() {
     }
 
-    public String getAcad_org() {
-        return acad_org;
+    protected Course(Parcel in) {
+        id = in.readString();
+        catalog = in.readString();
+        subject = in.readString();
+        acadOrg = in.readString();
+        facilId = in.readString();
+        friday = in.readString();
+        monday = in.readString();
+        mtgEnd = in.readString();
+        mtgStart = in.readString();
+        prof = in.readString();
+        saturday = in.readString();
+        section = in.readString();
+        sunday = in.readString();
+        thursday = in.readString();
+        tuesday = in.readString();
+        wednesday = in.readString();
     }
 
-    public void setAcad_org(String acad_org) {
-        this.acad_org = acad_org;
+    public static final Creator<Course> CREATOR = new Creator<Course>() {
+        @Override
+        public Course createFromParcel(Parcel in) {
+            return new Course(in);
+        }
+
+        @Override
+        public Course[] newArray(int size) {
+            return new Course[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public String getFacil_id() {
-        return facil_id;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(catalog);
+        dest.writeString(subject);
+        dest.writeString(acadOrg);
+        dest.writeString(facilId);
+        dest.writeString(friday);
+        dest.writeString(monday);
+        dest.writeString(mtgEnd);
+        dest.writeString(mtgStart);
+        dest.writeString(prof);
+        dest.writeString(saturday);
+        dest.writeString(section);
+        dest.writeString(sunday);
+        dest.writeString(thursday);
+        dest.writeString(tuesday);
+        dest.writeString(wednesday);
     }
 
-    public void setFacil_id(String facil_id) {
-        this.facil_id = facil_id;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(String catalog) {
+        this.catalog = catalog;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getAcadOrg() {
+        return acadOrg;
+    }
+
+    public void setAcadOrg(String acadOrg) {
+        this.acadOrg = acadOrg;
+    }
+
+    public String getFacilId() {
+        return facilId;
+    }
+
+    public void setFacilId(String facilId) {
+        this.facilId = facilId;
     }
 
     public String getFriday() {
@@ -69,20 +149,20 @@ public class Course implements Parcelable {
         this.monday = monday;
     }
 
-    public String getMtg_end() {
-        return mtg_end;
+    public String getMtgEnd() {
+        return mtgEnd;
     }
 
-    public void setMtg_end(String mtg_end) {
-        this.mtg_end = mtg_end;
+    public void setMtgEnd(String mtgEnd) {
+        this.mtgEnd = mtgEnd;
     }
 
-    public String getMtg_start() {
-        return mtg_start;
+    public String getMtgStart() {
+        return mtgStart;
     }
 
-    public void setMtg_start(String mtg_start) {
-        this.mtg_start = mtg_start;
+    public void setMtgStart(String mtgStart) {
+        this.mtgStart = mtgStart;
     }
 
     public String getProf() {
@@ -141,83 +221,23 @@ public class Course implements Parcelable {
         this.wednesday = wednesday;
     }
 
-    protected Course(Parcel in) {
-        id = in.readString();
-        catalog = in.readString();
-        subject = in.readString();
-        acad_org = in.readString();
-        facil_id = in.readString();
-        friday = in.readString();
-        monday = in.readString();
-        mtg_end = in.readString();
-        mtg_start = in.readString();
-        prof = in.readString();
-        saturday = in.readString();
-        section = in.readString();
-        sunday = in.readString();
-        thursday = in.readString();
-        tuesday = in.readString();
-        wednesday = in.readString();
-    }
+    public String getMeetingDays() {
+        String meetingDay = "";
+        if (getMonday().equalsIgnoreCase("y"))
+            meetingDay += "Mon";
+        if (getTuesday().equalsIgnoreCase("y"))
+            meetingDay += "Tue";
+        if (getWednesday().equalsIgnoreCase("y"))
+            meetingDay += "Wed";
+        if (getThursday().equalsIgnoreCase("y"))
+            meetingDay += "Thu";
+        if (getFriday().equalsIgnoreCase("y"))
+            meetingDay += "Fri";
+        if (getSaturday().equalsIgnoreCase("y"))
+            meetingDay += "Sat";
+        if (getSunday().equalsIgnoreCase("y"))
+            meetingDay += "Sun";
 
-    /*public static final Creator<Course> CREATOR = new Creator<Course>() {
-        @Override
-        public Course createFromParcel(Parcel in) {
-            return new Course(in);
-        }
-
-        @Override
-        public Course[] newArray(int size) {
-            return new Course[size];
-        }
-    };*/
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCatalog() {
-        return catalog;
-    }
-
-    public void setCatalog(String catalog) {
-        this.catalog = catalog;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(catalog);
-        dest.writeString(subject);
-        dest.writeString(acad_org);
-        dest.writeString(facil_id);
-        dest.writeString(friday);
-        dest.writeString(monday);
-        dest.writeString(mtg_end);
-        dest.writeString(mtg_start);
-        dest.writeString(prof);
-        dest.writeString(saturday);
-        dest.writeString(section);
-        dest.writeString(sunday);
-        dest.writeString(thursday);
-        dest.writeString(tuesday);
-        dest.writeString(wednesday);
+        return meetingDay;
     }
 }

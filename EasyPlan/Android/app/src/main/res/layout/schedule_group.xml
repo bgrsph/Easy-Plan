@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app = "http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scheduleLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100"
-    android:background="@drawable/border"
-    android:clickable="true"
-    android:focusable="true"
-    android:id="@+id/scheduleLayout">
+    android:layout_height="40dp"
+    android:background="@drawable/list_background"
+    android:elevation="4dp"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/scheduleGroup"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        android:layout_weight="70"
-        android:textSize="15dp"/>
+        android:weightSum="2"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/scheduleDeleteBtn"
-        android:layout_weight="30"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:srcCompat="@drawable/delete_icon"/>
+        <TextView
+            android:id="@+id/scheduleGroup"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.70"
+            android:clickable="false"
+            android:focusable="false"
+            android:padding="10dp"
+            android:text="selam"
+            android:textSize="15dp" />
+
+
+        <ImageView
+            android:id="@+id/schedule_fav_onplans"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.30"
+            android:src="@drawable/favorite_filled"
+            android:tag="atFavaBekle"
+            android:tint="@color/button_red"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+<!--    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/button_red" />-->
 
 </LinearLayout>
 

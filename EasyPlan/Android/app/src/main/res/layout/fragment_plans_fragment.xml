@@ -3,25 +3,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:layout_marginBottom="75dp"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context=".PlanCourseFragment">
-    <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="50dp">
+    tools:context=".PlansFragment">
 
-    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/ass_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/textColorGreen"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+
+        <TextView
+            android:id="@+id/schedule_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/economica"
+            android:text="@string/plans"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/schedule_header_name"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="40dp"
+            android:background="@color/white" />
+    </RelativeLayout>
+
 
     <ExpandableListView
         android:id="@+id/plansExpandable"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="-70dp"
         android:divider="@android:color/darker_gray"
-        android:textFilterEnabled="true"
-        android:groupIndicator="@color/button_red"></ExpandableListView>
+        android:groupIndicator="@color/button_red"
+        android:padding="20dp"
+        android:textFilterEnabled="true">
+
+    </ExpandableListView>
 
 
 </LinearLayout>
