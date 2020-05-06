@@ -18,9 +18,10 @@
 		364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */; };
 		3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */; };
 		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
+		365F795D2462CFEF006E2CE3 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F795C2462CFEF006E2CE3 /* Animator.swift */; };
+		365F795F2462D021006E2CE3 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F795E2462D021006E2CE3 /* Animation.swift */; };
 		36710B21246194F3000ED356 /* plannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36710B20246194F3000ED356 /* plannerTableViewCell.swift */; };
 		36710B2324619532000ED356 /* plannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36710B2224619532000ED356 /* plannerViewController.swift */; };
-		36710B252461956C000ED356 /* plannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36710B242461956C000ED356 /* plannerCollectionViewCell.swift */; };
 		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
 		36B52EBF2415AA4300F86894 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBE2415AA4300F86894 /* ProfileViewController.swift */; };
 		36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */; };
@@ -69,9 +70,10 @@
 		364CC0D62423C4180098D42D /* CourseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSearchTableViewCell.swift; sourceTree = "<group>"; };
 		3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseConstraintCollectionViewCell.swift; sourceTree = "<group>"; };
 		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
+		365F795C2462CFEF006E2CE3 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		365F795E2462D021006E2CE3 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		36710B20246194F3000ED356 /* plannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerTableViewCell.swift; sourceTree = "<group>"; };
 		36710B2224619532000ED356 /* plannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerViewController.swift; sourceTree = "<group>"; };
-		36710B242461956C000ED356 /* plannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		36B52EBC2415AA3500F86894 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		36B52EBE2415AA4300F86894 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		36DF2C072438CAF2002AA1AB /* ExpandablePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandablePlan.swift; sourceTree = "<group>"; };
@@ -165,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */,
-				36710B242461956C000ED356 /* plannerCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -192,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				36E66FD424083BF50017AB05 /* Utilities.swift */,
+				365F795C2462CFEF006E2CE3 /* Animator.swift */,
+				365F795E2462D021006E2CE3 /* Animation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				F9BFF67D2447600F00A85278 /* ProfileTableViewCell.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
 				F9BFF68D244763BC00A85278 /* TermsOfServiceViewController.swift in Sources */,
+				365F795D2462CFEF006E2CE3 /* Animator.swift in Sources */,
 				363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */,
 				363CA58B2460D2DA00773E04 /* easySchedule.swift in Sources */,
 				36710B2324619532000ED356 /* plannerViewController.swift in Sources */,
@@ -446,13 +450,13 @@
 				36E66FD524083BF50017AB05 /* Utilities.swift in Sources */,
 				36F6CE9A24291B4500227F1F /* CourseService.swift in Sources */,
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
+				365F795F2462D021006E2CE3 /* Animation.swift in Sources */,
 				F969F049245EB58600589256 /* CoursePlanner.swift in Sources */,
 				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
 				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
 				F9BFF68F2447672400A85278 /* PersonalInformationViewController.swift in Sources */,
 				F9B7E4FC240816B5001C7FB1 /* SceneDelegate.swift in Sources */,
 				36168B992437F2E900F5057D /* PlanTableViewCell.swift in Sources */,
-				36710B252461956C000ED356 /* plannerCollectionViewCell.swift in Sources */,
 				36E66FD0240830080017AB05 /* HomeViewController.swift in Sources */,
 				363CA58D2460D2E500773E04 /* easyCourse.swift in Sources */,
 			);

@@ -13,6 +13,7 @@ class PlanTableViewController: UITableViewController {
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
     let realm = try! Realm()
     var plans : Results<easyPlan>!
+    var pageToShow = 0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class PlanTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         loadPlans()
     }
+    
+
     
     func loadPlans(){
         plans = realm.objects(easyPlan.self)
@@ -46,12 +49,21 @@ class PlanTableViewController: UITableViewController {
         return plans[section].schedules.count
     }
     
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        pageToShow = indexPath.row
+////        if let viewController = storyboard?.instantiateViewController(identifier: "plannerViewController") as? plannerViewController {
+////                   viewController.page = indexPath.row
+////            print(viewController.page)
+////                   navigationController?.pushViewController(viewController, animated: true)
+////               }
+//    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "planCell", for: indexPath) as! PlanTableViewCell
         let plan = plans[indexPath.section].schedules[indexPath.row]
-        cell.nameLabel.text = plan.title
+        cell.nameLabel.text = "Schedule #\(Int(plan.title)!+1)"
         return cell
     }
     
@@ -142,14 +154,22 @@ class PlanTableViewController: UITableViewController {
      }
      */
     
-    /*
+    
      // MARK: - Navigation
-     
+
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destination.
      // Pass the selected object to the new view controller.
-     }
-     */
+    
+        if let cell = sender as? UITableViewCell {
+            let indexPath = self.tableView.indexPath(for: cell)!
+            guard let destination = segue.destination as? plannerViewController else {
+                             return
+                         }
+            destination.page = indexPath.row
+           
+    }
+    }
     
 }

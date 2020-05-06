@@ -10,9 +10,12 @@ import UIKit
 
 class plannerTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var profNameLabel: UILabel!
     @IBOutlet weak var courseNameLabel: UILabel!
-    @IBOutlet weak var bgView: UIStackView!
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var teacherLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
