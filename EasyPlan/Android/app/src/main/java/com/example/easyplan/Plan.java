@@ -85,8 +85,8 @@ public class Plan implements Parcelable {
                     add = true;
                     if (y.equals(z)) continue;
                     if (y.getSubject().equals(z.getSubject()) && y.getCatalog().equals(z.getCatalog()) &&
-                            !((y.getSection().startsWith("PS") || y.getSection().startsWith("DS") || y.getSection().startsWith("LAB")) &&
-                                    (z.getSection().startsWith("PS") || z.getSection().startsWith("DS") || z.getSection().startsWith("LAB")))) {
+                            !(y.getSection().startsWith("PS") || y.getSection().startsWith("DS") || y.getSection().startsWith("LAB")) &&
+                                    !(z.getSection().startsWith("PS") || z.getSection().startsWith("DS") || z.getSection().startsWith("LAB"))) {
                         add = false;
                         break;
                     }

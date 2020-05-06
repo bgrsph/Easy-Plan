@@ -145,7 +145,7 @@ public class PlanCourseFragment extends Fragment {
         MWCheckbox.setChecked(true); TTCheckbox.setChecked(true); FCheckbox.setChecked(true);
         spinner1.setEnabled(true); spinner2.setEnabled(true);
         spinner3.setEnabled(true); spinner4.setEnabled(true);
-        spinner5.setEnabled(true); spinner6.setEnabled(true);
+            spinner5.setEnabled(true); spinner6.setEnabled(true);
 
         planButton.setOnClickListener(new View.OnClickListener() {
             @Override
