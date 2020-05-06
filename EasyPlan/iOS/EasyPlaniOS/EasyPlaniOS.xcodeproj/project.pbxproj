@@ -20,6 +20,10 @@
 		365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */; };
 		365F795D2462CFEF006E2CE3 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F795C2462CFEF006E2CE3 /* Animator.swift */; };
 		365F795F2462D021006E2CE3 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F795E2462D021006E2CE3 /* Animation.swift */; };
+		365F796224634060006E2CE3 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 365F796124634060006E2CE3 /* Onboarding.storyboard */; };
+		365F796424634915006E2CE3 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F796324634915006E2CE3 /* WalkthroughContentViewController.swift */; };
+		365F796624634AA9006E2CE3 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F796524634AA9006E2CE3 /* WalkthroughPageViewController.swift */; };
+		365F796824634FCE006E2CE3 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365F796724634FCE006E2CE3 /* WalkthroughViewController.swift */; };
 		36710B21246194F3000ED356 /* plannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36710B20246194F3000ED356 /* plannerTableViewCell.swift */; };
 		36710B2324619532000ED356 /* plannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36710B2224619532000ED356 /* plannerViewController.swift */; };
 		36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B52EBC2415AA3500F86894 /* HelpViewController.swift */; };
@@ -72,6 +76,10 @@
 		365BB49D2419BDD3004A3AC3 /* koc_tanitim.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = koc_tanitim.mp4; sourceTree = "<group>"; };
 		365F795C2462CFEF006E2CE3 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		365F795E2462D021006E2CE3 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		365F796124634060006E2CE3 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		365F796324634915006E2CE3 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		365F796524634AA9006E2CE3 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		365F796724634FCE006E2CE3 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		36710B20246194F3000ED356 /* plannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerTableViewCell.swift; sourceTree = "<group>"; };
 		36710B2224619532000ED356 /* plannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = plannerViewController.swift; sourceTree = "<group>"; };
 		36B52EBC2415AA3500F86894 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +179,15 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		365F79602463403E006E2CE3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F9B7E4FF240816B5001C7FB1 /* Main.storyboard */,
+				365F796124634060006E2CE3 /* Onboarding.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		36E66FCA24082F9E0017AB05 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +202,9 @@
 				F9BFF68C244763BC00A85278 /* TermsOfServiceViewController.swift */,
 				F9BFF68E2447672400A85278 /* PersonalInformationViewController.swift */,
 				36710B2224619532000ED356 /* plannerViewController.swift */,
+				365F796324634915006E2CE3 /* WalkthroughContentViewController.swift */,
+				365F796524634AA9006E2CE3 /* WalkthroughPageViewController.swift */,
+				365F796724634FCE006E2CE3 /* WalkthroughViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -260,7 +280,7 @@
 				36E66FCA24082F9E0017AB05 /* ViewControllers */,
 				F9B7E4F9240816B5001C7FB1 /* AppDelegate.swift */,
 				F9B7E4FB240816B5001C7FB1 /* SceneDelegate.swift */,
-				F9B7E4FF240816B5001C7FB1 /* Main.storyboard */,
+				365F79602463403E006E2CE3 /* Storyboard */,
 				F9B7E502240816B8001C7FB1 /* Assets.xcassets */,
 				F9B7E504240816B8001C7FB1 /* LaunchScreen.storyboard */,
 				F9B7E507240816B8001C7FB1 /* Info.plist */,
@@ -353,6 +373,7 @@
 				F9B7E506240816B8001C7FB1 /* LaunchScreen.storyboard in Resources */,
 				F9374E75244798210081C0BC /* 40x40.png in Resources */,
 				365BB49E2419BDD4004A3AC3 /* koc_tanitim.mp4 in Resources */,
+				365F796224634060006E2CE3 /* Onboarding.storyboard in Resources */,
 				F9374E78244798210081C0BC /* 120x120.png in Resources */,
 				F9374E73244798210081C0BC /* 58x58.png in Resources */,
 				F9665826242252A700EAF683 /* GoogleService-Info.plist in Resources */,
@@ -433,14 +454,17 @@
 				364CC0D72423C4180098D42D /* CourseSearchTableViewCell.swift in Sources */,
 				36168B972437F1A300F5057D /* Schedule.swift in Sources */,
 				36DF2C082438CAF2002AA1AB /* ExpandablePlan.swift in Sources */,
+				365F796424634915006E2CE3 /* WalkthroughContentViewController.swift in Sources */,
 				363CA5872460D2A400773E04 /* easyPlan.swift in Sources */,
 				36710B21246194F3000ED356 /* plannerTableViewCell.swift in Sources */,
 				F9B7E4FE240816B5001C7FB1 /* ViewController.swift in Sources */,
 				3657984E2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift in Sources */,
 				364CC0D42423AD0E0098D42D /* Course.swift in Sources */,
+				365F796824634FCE006E2CE3 /* WalkthroughViewController.swift in Sources */,
 				36168B9F243816EA00F5057D /* PlanTableViewController.swift in Sources */,
 				F9BFF67D2447600F00A85278 /* ProfileTableViewCell.swift in Sources */,
 				F9B7E4FA240816B5001C7FB1 /* AppDelegate.swift in Sources */,
+				365F796624634AA9006E2CE3 /* WalkthroughPageViewController.swift in Sources */,
 				F9BFF68D244763BC00A85278 /* TermsOfServiceViewController.swift in Sources */,
 				365F795D2462CFEF006E2CE3 /* Animator.swift in Sources */,
 				363BD253242631BD00B40158 /* ConstraintViewController.swift in Sources */,
