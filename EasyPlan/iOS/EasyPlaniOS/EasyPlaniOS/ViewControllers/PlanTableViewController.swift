@@ -28,6 +28,10 @@ class PlanTableViewController: UITableViewController {
         loadPlans()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
 
     
     func loadPlans(){

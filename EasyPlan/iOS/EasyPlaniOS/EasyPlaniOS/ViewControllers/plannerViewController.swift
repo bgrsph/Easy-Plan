@@ -17,7 +17,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var nextButton: UIButton!
    
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
-    var favorited = false;
+   
     var rightSlide = true
     @IBOutlet weak var pageControl: UIPageControl!
     var page: Int?
@@ -77,17 +77,39 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     */
     
     @IBAction func trashTapped(_ sender: Any) {
+        let schedule = schedules[page!]
+        do {
+            try realm.write {
+                realm.delete(schedule)
+            }
+        } catch {
+            print("Error saving favorite status \(error)")
+        }
+        
+        tableView.reloadData()
+        
     }
     
     @IBAction func heartTapped(_ sender: Any) {
-       favorited = !favorited
-        favButton.image = favorited ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
-        
+        let schedule = schedules[page!]
+        favButton.image =  !schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
+        do {
+            try realm.write {
+                schedule.isFavorite = !schedule.isFavorite
+            }
+        } catch {
+            print("Error saving favorite status \(error)")
+        }
     }
     
     func checkButton(){
         prevButton.isEnabled = page == 0 ? false : true
         prevButton.alpha = prevButton.isEnabled ? 1.0 : 0.5
+    }
+    
+    func checkFavorite(){
+         let schedule = schedules[page!]
+         favButton.image =  schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
     }
     
     
@@ -97,6 +119,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         rightSlide = false
         tableView.reloadData()
         pageControl.currentPage = page! % 5
+        checkFavorite()
     }
     
     @IBAction func nextTapped(_ sender: Any) {
@@ -105,6 +128,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         rightSlide = true
         tableView.reloadData()
         pageControl.currentPage = page! % 5
+        checkFavorite()
     }
     
     func updatePageCont() -> Int {

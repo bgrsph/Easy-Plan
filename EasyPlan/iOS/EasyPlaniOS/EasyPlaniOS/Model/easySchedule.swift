@@ -11,6 +11,7 @@ import RealmSwift
 
 class easySchedule:Object {
     @objc dynamic var title : String = ""
+    @objc dynamic var isFavorite : Bool = false
     var courses = List<easyCourse>()
     var parentPlan = LinkingObjects(fromType: easyPlan.self, property: "schedules")
 }
