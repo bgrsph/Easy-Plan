@@ -1,6 +1,8 @@
 package com.example.easyplan;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +14,17 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +35,13 @@ import static com.example.easyplan.ClassSearchFragment.selectedLabs;
 import static com.example.easyplan.ClassSearchFragment.text1;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
-
+    Context context;
     private ArrayList<Course> courseList1 = new ArrayList<Course>();
     private ArrayList<Course> filterList = new ArrayList<Course>();
     private int size = 0;
 
-    public CourseAdapter(ArrayList<Course> courses) {
+    public CourseAdapter(Context context, ArrayList<Course> courses) {
+        this.context = context;
         courseList1 = courses;
         filterList = courses;
     }
@@ -39,19 +50,21 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
         public TextView nameTextView;
         public ImageView imageView;
+        public Button infoBtn;
         public LinearLayout layout;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             nameTextView = itemView.findViewById(R.id.courseName);
             imageView = itemView.findViewById(R.id.image);
+            infoBtn = itemView.findViewById(R.id.class_info_btn);
             layout = itemView.findViewById(R.id.layout);
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (imageView.getTag() == "plus") {
-                        imageView.setImageResource(R.drawable.check);
+                        imageView.setImageResource(R.drawable.done_icon);
                         imageView.setTag("check");
                         for (Course x : ClassSearchFragment.allSections) {
                             if ((x.getSubject() + x.getCatalog()).equals(nameTextView.getTag())) {
@@ -64,7 +77,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                             }
                         }
                     } else {
-                        imageView.setImageResource(R.drawable.plus);
+                        imageView.setImageResource(R.drawable.add_icon);
                         imageView.setTag("plus");
                         List<Course> courseDelete = new ArrayList<Course>();
                         for (Course x : selectedCourses) {
@@ -96,7 +109,12 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
                             key = x.getSubject() + x.getCatalog();
                         }
                     }
-                    text1.setText(ClassSearchFragment.noDupList.size() + " courses selected.");
+                    if (ClassSearchFragment.noDupList.size() == 0 || ClassSearchFragment.noDupList.size() == 1) {
+                        text1.setText(ClassSearchFragment.noDupList.size() + " course selected.");
+                    } else {
+                        text1.setText(ClassSearchFragment.noDupList.size() + " courses selected.");
+                    }
+
                     ClassSearchFragment.noDupList.clear();
 
                 }
@@ -106,13 +124,11 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, final int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         // Inflate the custom layout
         View contactView = inflater.inflate(R.layout.class_list_item, parent, false);
-
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
@@ -120,21 +136,61 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Course course = courseList1.get(position);
+        final Course course = courseList1.get(position);
 
         // Set item views based on your views and data model
         TextView textView1 = holder.nameTextView;
         textView1.setText(course.getSubject() + course.getCatalog());
         textView1.setTag(course.getSubject() + course.getCatalog());
         ImageView image = holder.imageView;
-        for (Course x : ClassSearchFragment.selectedCourses) {
+        Button infoBtn = holder.infoBtn;
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String name = course.getSubject()+ "- " + course.getCatalog();;
+                final SharedPreferenceBot bot = new SharedPreferenceBot();
+                final ArrayList<CourseInfoItemHelper> allSections = new ArrayList<>();
+                bot.setSharedPrefC("courseInfoList", context, allSections);
+                FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+                DatabaseReference mReference = mDatabase.getReference().child("ugradCourses");
+                mReference.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            Course course = dataSnapshot1.getValue(Course.class);
+                            String courseName = course.getSubject() + "- " + course.getCatalog();
+                            if (courseName.equalsIgnoreCase(name)) {
+                                String courseProf = course.getProf() + "";
+                                String meetingTime = course.getMeetingDays() + " " + course.getMtgStart() + " - " + course.getMtgEnd();
+                                String section = course.getSection();
+                                allSections.add(new CourseInfoItemHelper(courseName, courseProf, meetingTime, section));
+                            }
+                        }
+                        bot.setSharedPrefC("courseInfoList", context, allSections);
+                    }
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+                context.startActivity(new
+
+                        Intent(context, CourseInformationPopup.class));
+            }
+        });
+        for (
+                Course x : ClassSearchFragment.selectedCourses) {
             if ((x.getSubject() + x.getCatalog()).equals(textView1.getTag())) {
-                image.setImageResource(R.drawable.check);
+                image.setImageResource(R.drawable.done_icon);
                 image.setTag("check");
             }
         }
         if (image.getTag() != "check") {
-            image.setImageResource(R.drawable.plus);
+            image.setImageResource(R.drawable.add_icon);
             image.setTag("plus");
         }
     }

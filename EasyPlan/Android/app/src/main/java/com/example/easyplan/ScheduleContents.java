@@ -15,10 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.OnSwipeTouchListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -33,6 +35,7 @@ public class ScheduleContents extends Fragment {
     ImageView favorite_star;
     ArrayList<ScheduleContentItem> courseList;
     ScheduleContentAdapter adapter;
+    Button prev, next;
     static boolean isFavorite;
     static int planID, scheduleID;
     static String spCode;
@@ -47,13 +50,29 @@ public class ScheduleContents extends Fragment {
         scheduleID = child;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_schedule_contents, container, false);
+
         courseRecycler = view.findViewById(R.id.schedule_courses_recyler);
         delete = view.findViewById(R.id.schedule_delete_btn);
         favorite_star = view.findViewById(R.id.favorite_schedule_content);
+        prev = view.findViewById(R.id.schedule_prev);
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPrevSchedule();
+            }
+        });
+        next = view.findViewById(R.id.schedule_next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNextSchedule();
+            }
+        });
         favorite_star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +104,76 @@ public class ScheduleContents extends Fragment {
         return view;
     }
 
+    private void openPrevSchedule() {
+        courseList = new ArrayList<>();
+        adapter = new ScheduleContentAdapter(getContext(), courseList);
+        courseRecycler.setAdapter(adapter);
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
+        Plan plan = plans.get(planID);
+        if (scheduleID == 0) {
+            scheduleID = plan.getSchedules().size() - 1;
+        } else {
+            scheduleID--;
+        }
+        Schedule currSchedule = plan.getSchedules().get(scheduleID);
+        spCode = plan.getPlanName() + "-" + scheduleID;
+        SharedPreferences sp = getActivity().getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
+        Boolean isFavorite = sp.getBoolean(spCode, false);
+        if (isFavorite) {
+            favorite_star.setImageResource(R.drawable.favorite_filled36);
+        } else {
+            favorite_star.setImageResource(R.drawable.favorite_empty36);
+        }
+        ArrayList<Course> courses = currSchedule.getCourseList();
+        scheduleName.setText(plan.getPlanName() + " Schedule #" + (scheduleID + 1));
+        for (Course c : courses) {
+            String courseName = c.getSubject() + " " + c.getCatalog() + " - " + c.getSection();
+            String instructorName = c.getProf();
+            String meetingTime = c.getMeetingDays() + " " + c.getMtgStart() + " - " + c.getMtgEnd();
+            courseList.add(new ScheduleContentItem(courseName, instructorName, meetingTime));
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
+    private void openNextSchedule() {
+        courseList = new ArrayList<>();
+        adapter = new ScheduleContentAdapter(getContext(), courseList);
+        courseRecycler.setAdapter(adapter);
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
+        List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
+        Plan plan = plans.get(planID);
+        if (scheduleID + 1 != plan.getSchedules().size()) {
+            scheduleID++;
+        } else {
+            scheduleID = 0;
+        }
+        Schedule currSchedule = plan.getSchedules().get(scheduleID);
+        spCode = plan.getPlanName() + "-" + scheduleID;
+        SharedPreferences sp = getActivity().getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
+        Boolean isFavorite = sp.getBoolean(spCode, false);
+        if (isFavorite) {
+            favorite_star.setImageResource(R.drawable.favorite_filled36);
+        } else {
+            favorite_star.setImageResource(R.drawable.favorite_empty36);
+        }
+        ArrayList<Course> courses = currSchedule.getCourseList();
+        scheduleName.setText(plan.getPlanName() + " Schedule #" + (scheduleID + 1));
+        for (Course c : courses) {
+            String courseName = c.getSubject() + " " + c.getCatalog() + " - " + c.getSection();
+            String instructorName = c.getProf();
+            String meetingTime = c.getMeetingDays() + " " + c.getMtgStart() + " - " + c.getMtgEnd();
+            courseList.add(new ScheduleContentItem(courseName, instructorName, meetingTime));
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
     private void addScheduleToFavorites(String spCode) {
         SharedPreferences sp = getActivity().getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
         Boolean isFavorite = sp.getBoolean(spCode, false);
@@ -96,7 +185,6 @@ public class ScheduleContents extends Fragment {
         } else {
             favorite_star.setImageResource(R.drawable.favorite_empty36);
             editor.putBoolean(spCode, false);
-            ;
         }
         editor.commit();
     }

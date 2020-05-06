@@ -54,7 +54,7 @@ public class ClassSearchFragment extends Fragment {
     public static ArrayList<Course> courseList1 = new ArrayList<>();
     public static ArrayList<Course> allSections = new ArrayList<>();
     private SearchView search;
-    final CourseAdapter adapter = new CourseAdapter(courseList1);
+    final CourseAdapter adapter = new CourseAdapter(getContext(), courseList1);
     View view;
 
     public ClassSearchFragment() {
@@ -202,7 +202,12 @@ public class ClassSearchFragment extends Fragment {
                 selectedCourses.clear();
                 noDupList.clear();
                 updateView(courseList);
-                text1.setText(noDupList.size() + " courses selected.");
+                if(noDupList.size() == 0 ||noDupList.size() == 1){
+                    text1.setText(noDupList.size() + " course selected.");
+                }else{
+                    text1.setText(noDupList.size() + " courses selected.");
+                }
+
             }
         });
 
@@ -216,7 +221,11 @@ public class ClassSearchFragment extends Fragment {
                 key = x.getSubject() + x.getCatalog();
             }
         }
-        text1.setText(noDupList.size() + " courses selected.");
+        if(noDupList.size() == 0 ||noDupList.size() == 1){
+            text1.setText(noDupList.size() + " course selected.");
+        }else{
+            text1.setText(noDupList.size() + " courses selected.");
+        }
 
         return view;
     }
@@ -233,7 +242,7 @@ public class ClassSearchFragment extends Fragment {
     }
 
     private void updateView(ArrayList<Course> list) {
-        CourseAdapter adapter = new CourseAdapter(list);
+        CourseAdapter adapter = new CourseAdapter(getContext(),list);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

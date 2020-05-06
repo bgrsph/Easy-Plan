@@ -63,6 +63,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 SharedPreferences.Editor editor = sp.edit();
                 editor.remove("remember");
                 editor.commit();
+                SharedPreferences onBoardingPref = getActivity().getSharedPreferences("onBoardingScreen", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = onBoardingPref.edit();
+                editor2.remove("firstTime");
+                editor2.commit();
                 startActivity(new Intent(getActivity(), WelcomePage.class));
                 getActivity().finish();
             }
@@ -81,7 +85,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 faq_tr.commit();
                 break;
             case R.id.NotificationsText:
-                /*** TO DO: App is not found error ***/
                 Intent intent = new Intent();
                 intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
 
@@ -102,6 +105,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                     startActivity(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("http://play.google.com/store/apps/details?id=" + getContext().getPackageName())));
                 }
+                break;
             case R.id.ShareText:
                 Intent a = new Intent(Intent.ACTION_SEND);
                 final String appPackageName = getContext().getApplicationContext().getPackageName();
@@ -119,6 +123,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                         "\n"+""+strAppLink;
                 a.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(a, "Share Via"));
+                break;
             case R.id.TermsText:
                 TermsAndServices terms = new TermsAndServices();
                 FragmentTransaction terms_tr = getFragmentManager().beginTransaction();

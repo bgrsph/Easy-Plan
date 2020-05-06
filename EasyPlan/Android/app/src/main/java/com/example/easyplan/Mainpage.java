@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -38,6 +39,14 @@ public class Mainpage extends AppCompatActivity {
         setContentView(R.layout.activity_mainpage);
         bottomMenu = findViewById(R.id.NavigationBot);
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
+
+        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            bottomMenu.setVisibility(View.INVISIBLE);
+        } else if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            bottomMenu.setVisibility(View.VISIBLE);
+        }
+
+
         Bundle bundle = new Bundle();
         mDatabase = FirebaseDatabase.getInstance();
         mGetReference = mDatabase.getReference("asda");

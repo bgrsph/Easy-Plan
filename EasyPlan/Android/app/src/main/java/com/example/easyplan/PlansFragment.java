@@ -57,18 +57,23 @@ public class PlansFragment extends Fragment {
         planExpandable.setAdapter(adapter);
         initListData();
         for (int i = 0; i < listPlanGroups.size(); i++) {
-            planExpandable.expandGroup(i);
+            String spCodeExp = "exp" + i;
+            SharedPreferences expandSP = getContext().getSharedPreferences(spCodeExp , Context.MODE_PRIVATE);
+            Boolean isExpanded = expandSP.getBoolean("isExpanded", true);
+            if(isExpanded){
+                planExpandable.expandGroup(i);
+            }
         }
         planExpandable.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE) {
+                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                     ScheduleWeeklyView sch = new ScheduleWeeklyView(groupPosition, childPosition);
                     FragmentTransaction trans = getFragmentManager().beginTransaction();
                     trans.replace(R.id.fragment, sch, "Weekly");
                     getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
                     trans.commit();
-                } else if(getResources().getConfiguration().orientation==Configuration.ORIENTATION_PORTRAIT) {
+                } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                     ScheduleContents sch = new ScheduleContents(groupPosition, childPosition);
                     FragmentTransaction trans = getFragmentManager().beginTransaction();
                     trans.replace(R.id.fragment, sch, "ScheduleContents");
@@ -84,21 +89,22 @@ public class PlansFragment extends Fragment {
 
     private void initListData() {
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Plan>>(){}.getType();
+        Type type = new TypeToken<List<Plan>>() {
+        }.getType();
         List<Plan> plans = gson.fromJson((String) bot.getSharedPref("plans", getActivity()), type);
         if (plans != null) {
             for (int i = 0; i < plans.size(); i++) {
                 Plan p = plans.get(i);
-                if(p.getPlanName().equals("")){
-                    p.setPlanName("Plan #" + (i+1));
+                if (p.getPlanName().equals("")) {
+                    p.setPlanName("Plan #" + (i + 1));
                 }
                 listPlanGroups.add(p.getPlanName());
                 List<String> planArr = new ArrayList<>();
                 ArrayList<Schedule> schedules = p.getSchedules();
-                    for (int j = 0; j < schedules.size(); j++) {
-                        String name = "Schedule#" + (j + 1);
-                        planArr.add(name);
-                    }
+                for (int j = 0; j < schedules.size(); j++) {
+                    String name = "Schedule#" + (j + 1);
+                    planArr.add(name);
+                }
                 mapSchedulePlan.put(listPlanGroups.get(i), planArr);
             }
         }

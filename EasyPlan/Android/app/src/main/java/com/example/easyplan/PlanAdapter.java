@@ -90,6 +90,9 @@ public class PlanAdapter extends BaseExpandableListAdapter {
 /*        if(planName.equals("")){
             planName = "Plan #" + (groupPosition + 1);
         }*/
+        String spCode = "exp" + groupPosition;
+        SharedPreferences expandSP = context.getSharedPreferences(spCode , Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = expandSP.edit();
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.plan_group, null);
@@ -104,9 +107,12 @@ public class PlanAdapter extends BaseExpandableListAdapter {
 
                 if (isExpanded) {
                     indicatorImage.setImageResource(R.drawable.expand_less);
+                    editor.putBoolean("isExpanded", true);
                 } else {
                     indicatorImage.setImageResource(R.drawable.expand_more);
+                    editor.putBoolean("isExpanded", false);
                 }
+                editor.commit();
             }
         }
 
@@ -122,7 +128,11 @@ public class PlanAdapter extends BaseExpandableListAdapter {
                     editor.remove(spCode);
                     editor.commit();
                 }
-
+                String spCodeExp = "exp" + groupPosition;
+                SharedPreferences expandSP = context.getSharedPreferences(spCodeExp , Context.MODE_PRIVATE);
+                SharedPreferences.Editor editorDelete = expandSP.edit();
+                editorDelete.remove("isExpanded");
+                editorDelete.commit();
                 deletePlan(groupPosition);
                 PlansFragment plansFrag = new PlansFragment();
                 FragmentTransaction trans = ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction();
@@ -148,9 +158,9 @@ public class PlanAdapter extends BaseExpandableListAdapter {
         String spCode = getGroup(groupPosition) + "-" + childPosition;
         SharedPreferences sp = context.getSharedPreferences("favSchedules", Context.MODE_PRIVATE);
         Boolean isFavorite = sp.getBoolean(spCode, false);
-        if(isFavorite){
+        if (isFavorite) {
             favorite_star.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             favorite_star.setVisibility(View.INVISIBLE);
         }
 
