@@ -35,7 +35,7 @@ class PlanTableViewController: UITableViewController {
 
     
     func loadPlans(){
-        plans = realm.objects(easyPlan.self)
+        plans = realm.objects(easyPlan.self).sorted(byKeyPath: "title", ascending: true)
     }
     
     // MARK: - Table view data source
@@ -66,8 +66,8 @@ class PlanTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "planCell", for: indexPath) as! PlanTableViewCell
-        let plan = plans[indexPath.section].schedules[indexPath.row]
-        cell.nameLabel.text = "Schedule #\(Int(plan.title)!+1)"
+        let schedule = plans[indexPath.section].schedules[indexPath.row]
+        cell.nameLabel.text = "Schedule #\(schedule.title)"
         return cell
     }
     

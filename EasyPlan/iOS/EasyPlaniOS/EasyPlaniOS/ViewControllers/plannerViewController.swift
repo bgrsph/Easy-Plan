@@ -63,6 +63,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadPlans(){
+        
         schedules = realm.objects(easySchedule.self)
     }
     
@@ -80,6 +81,9 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         let schedule = schedules[page!]
         do {
             try realm.write {
+                for course in schedule.courses{
+                    realm.delete(course)
+                }
                 realm.delete(schedule)
             }
         } catch {
@@ -90,6 +94,33 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    @IBAction func pencilTapped(_ sender: Any) {
+        let schedule = schedules[page!]
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Change Schedule Name", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Done", style: .default) { (action) in
+            self.scheduleLabel.text = textField.text
+            do {
+                try self.realm.write {
+                    schedule.title = self.scheduleLabel.text!
+                }
+            } catch {
+                print("Error renaming schedule \(error)")
+            }
+        }
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "New Schedule Name"
+            textField = alertTextField
+        }
+       
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        alert.addAction(cancelAction)
+        alert.addAction(action)
+         
+         alert.preferredAction = cancelAction
+        present(alert, animated: true, completion: nil)
+    }
     @IBAction func heartTapped(_ sender: Any) {
         let schedule = schedules[page!]
         favButton.image =  !schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
@@ -114,8 +145,10 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func prevTapped(_ sender: Any) {
+       
         page = (page! - 1) % schedules.count
-        scheduleLabel.text = "Schedule #\(page!+1)"
+        let schedule = schedules[page!]
+        scheduleLabel.text = "Schedule #\(schedule.title)"
         rightSlide = false
         tableView.reloadData()
         pageControl.currentPage = page! % 5
@@ -124,7 +157,8 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func nextTapped(_ sender: Any) {
         page = (page! + 1) % schedules.count
-        scheduleLabel.text = "Schedule #\(page!+1)"
+        let schedule = schedules[page!]
+        scheduleLabel.text = "Schedule #\(schedule.title)"
         rightSlide = true
         tableView.reloadData()
         pageControl.currentPage = page! % 5
@@ -149,12 +183,13 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
         for: indexPath) as! plannerTableViewCell
+        let schedule = schedules[page!]
         checkButton()
-        scheduleLabel.text = "Schedule #\(page!+1)"
+        scheduleLabel.text = "Schedule #\(schedule.title)"
         scheduleLabel.textColor = burgundy
         cell.bgView.backgroundColor = UIColor.randomColor()
         
-        let course = schedules[page!].courses[indexPath.row]
+        let course = schedule.courses[indexPath.row]
         cell.courseNameLabel.text = "\(course.subject) \(course.catalog) - \(course.section)"
         
         var days = ""

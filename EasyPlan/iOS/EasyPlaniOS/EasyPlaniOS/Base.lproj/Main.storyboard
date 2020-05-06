@@ -1095,19 +1095,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ImU-gh-n1c">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abk-C7-wmn">
-                                                <rect key="frame" x="15" y="0.0" width="384" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abk-C7-wmn">
+                                                <rect key="frame" x="20" y="5" width="31" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-cl-Uhh">
+                                                <rect key="frame" x="372" y="5" width="75" height="20"/>
+                                                <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button" image="square.and.pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="pencilTapped:" destination="1is-oN-G9k" eventType="touchUpInside" id="RFv-JJ-h9d"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="abk-C7-wmn" secondAttribute="trailing" constant="15" id="2c2-Zx-LxK"/>
-                                            <constraint firstItem="abk-C7-wmn" firstAttribute="top" secondItem="ImU-gh-n1c" secondAttribute="top" id="VH4-ZT-7XU"/>
+                                            <constraint firstItem="abk-C7-wmn" firstAttribute="centerY" secondItem="Gup-cl-Uhh" secondAttribute="centerY" id="1uv-6c-ac2"/>
+                                            <constraint firstItem="abk-C7-wmn" firstAttribute="top" secondItem="Gup-cl-Uhh" secondAttribute="top" id="OlX-j5-ks7"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gup-cl-Uhh" secondAttribute="trailing" constant="-33" id="exU-sm-OXB"/>
+                                            <constraint firstItem="Gup-cl-Uhh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="abk-C7-wmn" secondAttribute="trailing" symbolic="YES" id="fDJ-Vw-EBA"/>
+                                            <constraint firstItem="abk-C7-wmn" firstAttribute="centerY" secondItem="ImU-gh-n1c" secondAttribute="centerY" id="i2z-sh-QLF"/>
                                             <constraint firstAttribute="height" constant="30" id="kRf-Ls-jng"/>
-                                            <constraint firstItem="abk-C7-wmn" firstAttribute="leading" secondItem="ImU-gh-n1c" secondAttribute="leading" constant="15" id="vUY-4i-e0h"/>
+                                            <constraint firstItem="abk-C7-wmn" firstAttribute="top" secondItem="ImU-gh-n1c" secondAttribute="top" constant="5" id="ubG-mM-2ha"/>
+                                            <constraint firstItem="abk-C7-wmn" firstAttribute="leading" secondItem="ImU-gh-n1c" secondAttribute="leading" constant="20" id="z5N-fV-11u"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bsx-6F-CfD">
@@ -1272,6 +1284,7 @@
         <image name="questionmark.circle.fill" catalog="system" width="64" height="62"/>
         <image name="questionmark.square" catalog="system" width="64" height="56"/>
         <image name="square" catalog="system" width="64" height="56"/>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
         <image name="suit.heart" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
