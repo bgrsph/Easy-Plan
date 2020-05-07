@@ -24,5 +24,10 @@
     <color name="seagreen">#00bfa5</color>
     <color name="darkGray">#2f3e46</color>
     <color name="transparentWhite">#00000000</color>
+    <color name="PS1">#c6def1</color>
+    <color name="PS2">#dbcdf0</color>
+    <color name="LAB1">#f9c6c9</color>
+    <color name="LAB2">#ffc971</color>
+
 
 </resources>
