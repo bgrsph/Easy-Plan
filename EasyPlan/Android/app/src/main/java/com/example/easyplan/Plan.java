@@ -11,6 +11,7 @@ import com.google.common.collect.Sets;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Plan implements Parcelable {
 
@@ -106,8 +107,12 @@ public class Plan implements Parcelable {
                 newList.add(x);
             }
         }
-
-        this.schedules = newList;
+        Random rng = new Random();
+        ArrayList<Schedule> tmpList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            tmpList.add(newList.get(rng.nextInt(newList.size())));
+        }
+        this.schedules = tmpList;
     }
 
     private List<List<Course>> scheduleLabs (ArrayList<Course> labs, ArrayList<ArrayList<Course>> a) {
