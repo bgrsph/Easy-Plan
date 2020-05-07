@@ -21,8 +21,10 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     var rightSlide = true
     @IBOutlet weak var pageControl: UIPageControl!
     var page: Int?
+    var plan: Int?
     let realm = try! Realm()
     var schedules : Results<easySchedule>!
+    var plans : Results<easyPlan>!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -35,27 +37,29 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         pageControl.currentPageIndicatorTintColor = .systemPink
         pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
 //        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: burgundy]
-        checkButton()
+        checkPrevButton()
+        checkNextButton()
+        checkFavorite()
+//        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
+//        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
+//        swipeRecognizerRight.delegate = self
+//        tableView.addGestureRecognizer(swipeRecognizerRight)
         
-        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
-        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
-        swipeRecognizerRight.delegate = self
-        tableView.addGestureRecognizer(swipeRecognizerRight)
+//        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
+//        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.right
+//        swipeRecognizerLeft.delegate = self
+//        tableView.addGestureRecognizer(swipeRecognizerLeft)
         
-        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
-        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.right
-        swipeRecognizerLeft.delegate = self
-        tableView.addGestureRecognizer(swipeRecognizerLeft)
-        
-    }
- 
-   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
-            print("swiped right")
     }
     
-    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
-            print("swiped left")
-    }
+ 
+//   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
+//            print("swiped right")
+//    }
+    
+//    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
+//            print("swiped left")
+//    }
     
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -63,7 +67,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadPlans(){
-        
+        plans = realm.objects(easyPlan.self)
         schedules = realm.objects(easySchedule.self)
     }
     
@@ -78,7 +82,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     */
     
     @IBAction func trashTapped(_ sender: Any) {
-        let schedule = schedules[page!]
+        let schedule = plans[plan!].schedules[page!]
         do {
             try realm.write {
                 for course in schedule.courses{
@@ -95,7 +99,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func pencilTapped(_ sender: Any) {
-        let schedule = schedules[page!]
+        let schedule = plans[plan!].schedules[page!]
         var textField = UITextField()
         let alert = UIAlertController(title: "Change Schedule Name", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Done", style: .default) { (action) in
@@ -122,7 +126,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         present(alert, animated: true, completion: nil)
     }
     @IBAction func heartTapped(_ sender: Any) {
-        let schedule = schedules[page!]
+        let schedule = plans[plan!].schedules[page!]
         favButton.image =  !schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
         do {
             try realm.write {
@@ -133,13 +137,18 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func checkButton(){
+    func checkPrevButton(){
         prevButton.isEnabled = page == 0 ? false : true
         prevButton.alpha = prevButton.isEnabled ? 1.0 : 0.5
     }
     
+    func checkNextButton(){
+        nextButton.isEnabled = page == plans[plan!].schedules.count - 1 ? false : true
+        nextButton.alpha = nextButton.isEnabled ? 1.0 : 0.5
+    }
+    
     func checkFavorite(){
-         let schedule = schedules[page!]
+         let schedule = plans[plan!].schedules[page!]
          favButton.image =  schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
     }
     
@@ -147,7 +156,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func prevTapped(_ sender: Any) {
        
         page = (page! - 1) % schedules.count
-        let schedule = schedules[page!]
+        let schedule = plans[plan!].schedules[page!]
         scheduleLabel.text = "Schedule #\(schedule.title)"
         rightSlide = false
         tableView.reloadData()
@@ -157,7 +166,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func nextTapped(_ sender: Any) {
         page = (page! + 1) % schedules.count
-        let schedule = schedules[page!]
+        let schedule = plans[plan!].schedules[page!]
         scheduleLabel.text = "Schedule #\(schedule.title)"
         rightSlide = true
         tableView.reloadData()
@@ -177,15 +186,25 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return schedules[page!].courses.count
+        return plans[plan!].schedules[page!].courses.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let capitalTitle = plans[plan!].title.capitalized
+        self.navigationItem.title = "\(capitalTitle)"
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
         for: indexPath) as! plannerTableViewCell
-        let schedule = schedules[page!]
-        checkButton()
-        scheduleLabel.text = "Schedule #\(schedule.title)"
+        let schedule = plans[plan!].schedules[page!]
+        checkPrevButton()
+        checkNextButton()
+      
+        if schedule.title.count < 3 {
+            scheduleLabel.text = "Schedule \(Int(schedule.title)! + 1)"
+        } else {
+            scheduleLabel.text = "\(schedule.title)"
+        }
+        
         scheduleLabel.textColor = burgundy
         cell.bgView.backgroundColor = UIColor.randomColor()
         
