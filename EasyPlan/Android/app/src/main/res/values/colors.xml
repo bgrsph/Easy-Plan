@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="mainColor">#EF946C</color>
+    <color name="textColor">#454372</color>
+    <color name="textColorGreen">#70877F</color>
+    <color name="textColorLight">#55547E</color>
+    <color name = "black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#70877F</color>
+    <color name="hyperlinkBlue">#2F2963</color>
+    <color name="googleBlue">#4c8bf5</color>
+    <color name="hyperlinkBlueDark">#2F2963</color>
+    <color name="textHintColorEmailPass">#97F3F1F1</color>
+    <color name="textColorAlmostWhite">#EBEBEB</color>
+    <color name="mainColorDarker">#DA8763</color>
+    <color name="seablue">#007991</color>
+    <color name="silversand">#BCD8C1</color>
+    <color name="button_green">#369F3B</color>
+    <color name="button_red">#990000</color>
+    <color name="yellow">#ffb300</color>
+    <color name="seagreen">#00bfa5</color>
+    <color name="darkGray">#2f3e46</color>
+    <color name="transparentWhite">#00000000</color>
+
+</resources>

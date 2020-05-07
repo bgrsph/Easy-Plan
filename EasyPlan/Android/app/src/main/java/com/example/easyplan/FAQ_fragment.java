@@ -1,6 +1,8 @@
 package com.example.easyplan;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -42,11 +44,11 @@ public class FAQ_fragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_faq_fragment, container, false);
         expandableListView = (ExpandableListView) view.findViewById(R.id.faqExpandible);
-        expandableListDetail = ExpandableListDataPump.getData();
+        expandableListDetail = getData();
         expandableListTitle = new ArrayList<>(expandableListDetail.keySet());
         expandableListAdapter = new CustomExpandableListAdapter(getActivity(), expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
-
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
 
 
 
@@ -54,5 +56,15 @@ public class FAQ_fragment extends Fragment {
         return view;
     }
 
+    public HashMap<String, String> getData(){
+        Resources res = getResources();
+        String[] questions = res.getStringArray(R.array.question_list);
+        String[] answers = res.getStringArray(R.array.answer_list);
+        HashMap<String, String> expandableListDetail = new HashMap<>();
+        for(int i = 0; i<questions.length; i++){
+            expandableListDetail.put(questions[i], answers[i]);
+        }
+        return expandableListDetail;
+    }
 
 }

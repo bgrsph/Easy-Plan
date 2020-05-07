@@ -4,24 +4,47 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.VideoView;
 
-public class WelcomePage extends AppCompatActivity {
-    Button signUpButton;
-    Button loginButton;
-    VideoView vv;
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+import android.util.Pair;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+
+public class WelcomePage extends AppCompatActivity {
+    /*    Button signUpButton;
+        Button loginButton;*/
+    Animation bottomAnim;
+    VideoView vv;
+    SharedPreferences onBoardingPref;
+    SharedPreferences loggedIn;
+    private static int SPLASH_SCREEN = 3000;
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        vv =  (VideoView) findViewById(R.id.videoView);
+        vv = (VideoView) findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.koc_tanitim;
         Uri uri = Uri.parse(videoPath);
         vv.setVideoURI(uri);
@@ -37,22 +60,20 @@ public class WelcomePage extends AppCompatActivity {
 
         });
 
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        return;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
-        signUpButton = findViewById(R.id.welcomeSignUP);
-        loginButton = findViewById(R.id.welcomeLogin);
-
-        vv =  (VideoView) findViewById(R.id.videoView);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+        final TextView appName = findViewById(R.id.mainTextView);
+        appName.setAnimation(bottomAnim);
+       /* signUpButton = findViewById(R.id.welcomeSignUP);
+        loginButton = findViewById(R.id.welcomeLogin);*/
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        vv = (VideoView) findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.koc_tanitim;
         Uri uri = Uri.parse(videoPath);
         vv.setVideoURI(uri);
@@ -67,18 +88,43 @@ public class WelcomePage extends AppCompatActivity {
             }
 
         });
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent;
+                onBoardingPref = getSharedPreferences("onBoardingScreen", MODE_PRIVATE);
+                boolean isFirstTime = onBoardingPref.getBoolean("firstTime", true);
+                if(isFirstTime){
+                    intent = new Intent(WelcomePage.this, OnBoarding.class);
+                }else{
+                    SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
+                    String remembered = sp.getString("remember", "");
+                    if(!remembered.equals("true")){
+                        intent = new Intent(WelcomePage.this, LoginActivity.class);
+                    }else{
+                        intent = new Intent(WelcomePage.this, Mainpage.class);
+                    }
 
-        SharedPreferences sp = getSharedPreferences("checkbox", MODE_PRIVATE);
+                }
+                startActivity(intent);
+                finish();
+            }
+        }, SPLASH_SCREEN);
+
+  /*      SharedPreferences sp = getSharedPreferences("userPref", MODE_PRIVATE);
         String remembered = sp.getString("remember", "");
-        if(remembered.equals("true")){
+        if (remembered.equals("true")) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
             startActivity(new Intent(WelcomePage.this, Mainpage.class));
+            finish();
         }
-
-        signUpButton.setOnClickListener(new View.OnClickListener() {
+*/
+     /*   signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomePage.this, SignUp.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -87,8 +133,9 @@ public class WelcomePage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomePage.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
-        });
+        });*/
 
     }
 }

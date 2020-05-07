@@ -1,0 +1,190 @@
+<resources>
+    <string name="app_name">EasyPlan</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="wanttoregister">"Don't have an account?"</string>
+    <string name="signup">Sign Up</string>
+    <string name="signupGoogle">Sign Up via Google</string>
+    <string name="forgetpassword">"I forgot my password"</string>
+    <string name="usernotfound">"Username or password is wrong."</string>
+    <string name="kumailconstraint">"The email is not valid. Please try with your KU email."</string>
+    <string name="rememberme">Remember Me</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="Logout">Logout</string>
+    <string name="alreadyhaveaccount">"Already registered?"</string>
+
+
+    <!-- Onboarding Screen Strings -->
+    <string name="onboarding_title_1">Search available courses</string>
+    <string name="onboarding_title_2">Plan your semester as you desire</string>
+    <string name="onboarding_title_3">See your possible choices</string>
+    <string name="onboarding_title_4">Plan Easily!</string>
+
+    <string name="onboarding_descr_1">You can search through all of the courses that the university has offered for the next semester. You can create multiple plans to see your options.</string>
+    <string name="onboarding_descr_2">Most of the courses will have multiple sections, which means that you have many options. For a better performance and usability, use constraints on which days and hours you want to have classes.</string>
+    <string name="onboarding_descr_3">For a number of courses, you can have multiple schedules. Mark those you love the most, delete what you do not want. </string>
+    <string name="onboarding_descr_4">Start planning your semester now!</string>
+
+
+    <string name="classsearch">Class Search</string>
+    <string name="plans">Plans</string>
+    <string name="helpcenter">Help Center</string>
+    <string name="profile">Profile</string>
+    <string name="title_activity_bottom_navigation">bottom_navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <!-- HELP CENTER STRINGS-->
+    <string name="FAQ_msg">"Have a question about enrollment period?"</string>
+    <string name="FAQ_msg_click">FAQ!</string>
+    <string name="kusis_help_email_msg">"Send an e-mail to KUSIS Help Team!"</string>
+    <string name="kusis_help_email">kusis@ku.edu.tr</string>
+    <string name="registration_phone">tel:+902123381000</string>
+    <string name="kusis_help_phone_msg">"Call the Registration for urgent help!"</string>
+    <string name="kusis_help_working_hours">"KUSIS Help Team will guide during Enrollment process."</string>
+    <string name="kusis_help_msg">"Having a trouble on KUSIS?"</string>
+    <string name="contactUs">"Having a trouble on EASY PLAN? Send us an email."</string>
+    <string name="contactUsEmail">"mkavcioglu13@ku.edu.tr"</string>
+    <!-- FAQ and Answers-->
+
+
+    <!--  PROFILE STRINGS  -->
+    <string name="personal_info">Personal Information</string>
+    <string name="notif">Notifications</string>
+    <string name="rateApp">Rate the Application</string>
+    <string name="shareApp">Share Us!</string>
+    <string name="TermsOfService">Terms Of Services</string>
+
+    <!-- PERSONAL INFO TEXT -->
+    <string name="faculties">FACULTIES</string>
+    <string-array name="faculty_array">
+        <item>Select your faculty</item>
+        <item>College of Administrative Science and Economics</item>
+        <item>College of Engineering</item>
+        <item>College of Science</item>
+        <item>College of Social Sciences and Humanities</item>
+        <item>Law School</item>
+        <item>Nursing</item>
+        <item>School of Medicine</item>W
+    </string-array>
+
+    <string name="depts">DEPARTMENTS</string>
+    <string name="CASE">CASE</string>
+    <string-array name="case_dept">
+        <item>Select your department</item>
+        <item>Business</item>
+        <item>Economics</item>
+        <item>International Relations</item>
+    </string-array>
+
+    <string name="SCIENCE">SCIENCE</string>
+    <string-array name="scie_dept">
+        <item>Select your department</item>
+        <item>Chemistry</item>
+        <item>Mathematics</item>
+        <item>Molecular Biology and Genetics</item>
+        <item>Physics</item>
+    </string-array>
+
+    <string name="ENGINEERING">ENGINEERING</string>
+    <string-array name="eng_dept">
+        <item>Select your department</item>
+        <item>Chemical and Biological Engineering</item>
+        <item>Computer Engineering</item>
+        <item>Electrical and Electronics Engineering</item>
+        <item>Industrial Engineering</item>
+        <item>Mechanical Engineering</item>
+    </string-array>
+
+    <string name="CSSH">CSSH</string>
+    <string-array name="cssh_dept">
+        <item>Select your department</item>
+        <item>Archeology and Art History</item>
+        <item>Comparative Literature</item>
+        <item>History</item>
+        <item>Media and Visual Arts</item>
+        <item>Philosophy</item>
+        <item>Psychology</item>
+        <item>Sociology</item>
+    </string-array>
+
+    <string name="LAW">LAW</string>
+    <string-array name="law_dept">
+        <item>Law</item>
+    </string-array>
+
+    <string name="MED">MEDICINE</string>
+    <string-array name="med_dept">
+        <item>Medicine</item>
+    </string-array>
+
+    <string name="NURSING">NURSING</string>
+    <string-array name="nurse_dept">
+        <item>Nursing</item>
+    </string-array>
+
+    <string-array name="empty_array">
+
+    </string-array>
+
+    <string name="LEVEL">CURRENT ACADEMIC LEVEL</string>
+    <string-array name="levels">
+        <item>Select your current academic level</item>
+        <item>FRESHMAN</item>
+        <item>SOPHOMORE</item>
+        <item>JUNIOR</item>
+        <item>SENIOR</item>
+    </string-array>
+
+    <string-array name="levels_som">
+        <item>Select your current academic level</item>
+        <item>1 - FRESHMAN</item>
+        <item>2 - PRECLINIC 1ST YEAR</item>
+        <item>3 - PRECLINIC 2ND YEAR</item>
+        <item>4 - CLINIC 1ST YEAR</item>
+        <item>5 - CILINIC 2ND YEAR</item>
+        <item>6 - INTERNSHIP</item>
+    </string-array>
+    <string name="semester">SEMESTER</string>
+    <string-array name="semester">
+        <item>Select your current semester on that level</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_this_schedule">Delete Schedule</string>
+    <string name="plan_delete_msg">Are you sure you want to delete all of the schedules?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_plan">Delete Plan</string>
+
+    <!-- Weekly Schedule View Strings -->
+    <string name="time">Time</string>
+    <string name="time0830">08:30 -\n09:45</string>
+    <string name="time1000">10:00 -\n11:15</string>
+    <string name="time1130">11:30 -\n12:45</string>
+    <string name="time1300">13:00 -\n14:15</string>
+    <string name="tim1430">14:30 -\n15:45</string>
+    <string name="time1600">16:00 -\n17:15</string>
+    <string name="time1730">17:30 -\n18:45</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="FAQ">Frequently Asked Questions</string>
+    <string name="createPlan">Create Your Plan</string>
+    <string name="plan">Plan</string>
+    <string name="planName">New Plan Name</string>
+    <string name="desiredNumber">Number of courses in a plan</string>
+    <string name="start_button">LET\'S GET STARTED</string>
+    <string name="skip">skip</string>
+    <string name="ok">OK</string>
+
+</resources>
