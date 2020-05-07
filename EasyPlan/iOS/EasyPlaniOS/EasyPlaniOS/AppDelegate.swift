@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
@@ -20,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        do {
+            let realm = try Realm()
+        } catch {
+            print("Error initialising new realm, \(error)")
+        }
         return true
     }
     

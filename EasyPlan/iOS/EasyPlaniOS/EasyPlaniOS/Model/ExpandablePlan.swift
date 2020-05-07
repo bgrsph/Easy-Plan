@@ -18,4 +18,16 @@ class ExpandablePlan {
         self.isExpanded = isExpanded
         self.scheduleList = scheduleList
     }
+    
+    
+    func toString() -> String {
+        var res = "\nPrinting Plan: " + self.name + "\n"
+        
+        for schedule in self.scheduleList {
+            
+            res += schedule.toString()
+        }
+        res += "\n\n"
+        return res
+    }
 }
