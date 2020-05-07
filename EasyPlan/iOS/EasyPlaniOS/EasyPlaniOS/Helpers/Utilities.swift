@@ -85,3 +85,65 @@ class Utilities {
     return emailPred.evaluate(with: email)
     }
 }
+
+//color extension
+extension UIColor {
+    
+    class func randomColor() -> UIColor {
+        
+         let purple = UIColor(red:0.76, green:0.30, blue:0.96, alpha:1.00)
+                let blue = UIColor(red:0.00, green:0.66, blue:1.00, alpha:1.00)
+                 let green = UIColor(red:0.00, green:1.00, blue:0.76, alpha:1.00)
+                let turcoise = UIColor(red:0.00, green:1.00, blue:1.00, alpha:1.00)
+                let pink = UIColor(red:1.00, green:0.08, blue:0.58, alpha:1.00)
+                let yellow = UIColor(red:1.00, green:0.89, blue:0.01, alpha:1.00)
+                let red = UIColor(red:0.95, green:0.10, blue:0.11, alpha:1.00)
+                let orange = UIColor(red:1.00, green:0.51, blue:0.18, alpha:1.00)
+                let colorArray = [purple, blue, green, turcoise, pink, yellow, red, orange]
+        
+//        let hue = CGFloat(arc4random() % 100) / 100
+//        let saturation = CGFloat(arc4random() % 100) / 100
+//        let brightness = CGFloat(arc4random() % 100) / 100
+
+        let randomInt = Int.random(in: 0..<7)
+        let randomDarkness = CGFloat.random(in: -50..<75)
+//        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+        return colorArray[randomInt].adjust(by: randomDarkness)
+    }
+    
+    func lighter(by percentage: CGFloat = 10.0) -> UIColor {
+        return self.adjust(by: abs(percentage))
+    }
+
+    func darker(by percentage: CGFloat = 10.0) -> UIColor {
+        return self.adjust(by: -abs(percentage))
+    }
+
+    func adjust(by percentage: CGFloat) -> UIColor {
+        var alpha, hue, saturation, brightness, red, green, blue, white : CGFloat
+        (alpha, hue, saturation, brightness, red, green, blue, white) = (0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+
+        let multiplier = percentage / 100.0
+
+        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            let newBrightness: CGFloat = max(min(brightness + multiplier*brightness, 1.0), 0.0)
+            return UIColor(hue: hue, saturation: saturation, brightness: newBrightness, alpha: alpha)
+        }
+        else if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            let newRed: CGFloat = min(max(red + multiplier*red, 0.0), 1.0)
+            let newGreen: CGFloat = min(max(green + multiplier*green, 0.0), 1.0)
+            let newBlue: CGFloat = min(max(blue + multiplier*blue, 0.0), 1.0)
+            return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: alpha)
+        }
+        else if self.getWhite(&white, alpha: &alpha) {
+            let newWhite: CGFloat = (white + multiplier*white)
+            return UIColor(white: newWhite, alpha: alpha)
+        }
+
+        return self
+        }
+    
+    
+    
+    
+}

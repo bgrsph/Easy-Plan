@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Constraint { 
+class Constraint {
     
     var frChecked:Bool
     var tuThChecked:Bool
@@ -25,5 +25,7 @@ class Constraint {
         self.startTime = startTime
         self.endTime = endTime
     }
+    
+    
     
 }

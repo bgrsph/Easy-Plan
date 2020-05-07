@@ -14,6 +14,7 @@ class CoursePlanner {
     
     var allCoursesInDatabase:[Course]
     
+    
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
     
@@ -228,6 +229,8 @@ class CoursePlanner {
     func checkForConstraints(entity: EntitiesTBPlanned, constraint:Constraint) -> EntitiesTBPlanned {
         print("[DEBUG] Checking wheter selections conform contraints or not...")
         
+//        print("[DEBUG] Constraints: " + constraint.toString())
+        
         var dict = entity.uniqueEntityDict
         var courseList = entity.coursesTBPlanned
         
@@ -263,7 +266,6 @@ class CoursePlanner {
         
         if constraint.startTime != "" &&  constraint.endTime == "" {
             
-            print("1")
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "h:mm a"
@@ -289,9 +291,8 @@ class CoursePlanner {
             
         }
         
-        if constraint.startTime == "" &&  constraint.endTime != "" {
+        else if constraint.startTime == "" &&  constraint.endTime != "" {
             
-             print("2")
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "h:mm a"
             
@@ -318,9 +319,8 @@ class CoursePlanner {
             
         }
         
-        if constraint.startTime != "" &&  constraint.endTime != "" {
-            
-             print("3")
+        else if constraint.startTime != "" &&  constraint.endTime != "" {
+
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "h:mm a"
@@ -347,92 +347,96 @@ class CoursePlanner {
             
         }
         
-        
-        
-        if constraint.moWeChecked {
+        else {
             
-            if constraint.tuThChecked && constraint.frChecked { // GOES TO SCHOOL EVERY DAY
+            if constraint.moWeChecked {
                 
-                return true
-            }
-                
-            else if constraint.tuThChecked && !constraint.frChecked {
-                
-                if (course.friday == "Y") {
+                if constraint.tuThChecked && constraint.frChecked { // GOES TO SCHOOL EVERY DAY
                     
-                    return false
-                } else {
+                    return true
+                }
+                    
+                else if constraint.tuThChecked && !constraint.frChecked {
+                    
+                    if (course.friday == "Y") {
+                        
+                        return false
+                    } else {
+                        return true
+                    }
+                    
+                }
+                    
+                else if !constraint.tuThChecked && constraint.frChecked {
+                    
+                    if course.tuesday == "Y" || course.thursday == "Y" {
+                        
+                        return false
+                    } else {
+                        return true
+                    }
+                    
+                }
+                    
+                else if !constraint.tuThChecked && !constraint.frChecked {
+                    
+                    if course.tuesday == "Y" || course.thursday == "Y" || course.friday == "Y" {
+                        
+                        return false
+                    } else {
+                        return true
+                    }
+                    
+                }
+                
+            } else {
+                
+                if constraint.tuThChecked && constraint.frChecked {
+                    
+                    if course.monday == "Y" || course.wednesday == "Y" {
+                        
+                        return false
+                    } else {
+                        return true
+                    }
+                    
+                    
+                }
+                    
+                else if constraint.tuThChecked && !constraint.frChecked {
+                    
+                    if course.monday == "Y" || course.wednesday == "Y" || course.friday == "Y" {
+                        
+                        return false
+                    } else {
+                        
+                        return true
+                    }
+                    
+                }
+                    
+                else if !constraint.tuThChecked && constraint.frChecked {
+                    
+                    if course.monday == "Y" || course.wednesday == "Y" || course.tuesday == "Y" || course.thursday == "Y" {
+                        
+                        return false
+                    } else {
+                        
+                        return true
+                    }
+                    
+                }
+                    
+                else if !constraint.tuThChecked && !constraint.frChecked { // GOES TO SCHOOL EVERY DAY
+                    
                     return true
                 }
                 
             }
-                
-            else if !constraint.tuThChecked && constraint.frChecked {
-                
-                if course.tuesday == "Y" || course.thursday == "Y" {
-                    
-                    return false
-                } else {
-                    return true
-                }
-                
-            }
-                
-            else if !constraint.tuThChecked && !constraint.frChecked {
-                
-                if course.tuesday == "Y" || course.thursday == "Y" || course.friday == "Y" {
-                    
-                    return false
-                } else {
-                    return true
-                }
-                
-            }
-            
-        } else {
-            
-            if constraint.tuThChecked && constraint.frChecked {
-                
-                if course.monday == "Y" || course.wednesday == "Y" {
-                    
-                    return false
-                } else {
-                    return true
-                }
-                
-                
-            }
-                
-            else if constraint.tuThChecked && !constraint.frChecked {
-                
-                if course.monday == "Y" || course.wednesday == "Y" || course.friday == "Y" {
-                    
-                    return false
-                } else {
-                    
-                    return true
-                }
-                
-            }
-                
-            else if !constraint.tuThChecked && constraint.frChecked {
-                
-                if course.monday == "Y" || course.wednesday == "Y" || course.tuesday == "Y" || course.thursday == "Y" {
-                    
-                    return false
-                } else {
-                    
-                    return true
-                }
-                
-            }
-                
-            else if !constraint.tuThChecked && !constraint.frChecked { // GOES TO SCHOOL EVERY DAY
-                
-                return true
-            }
+
             
         }
+        
         
         return true
     }
