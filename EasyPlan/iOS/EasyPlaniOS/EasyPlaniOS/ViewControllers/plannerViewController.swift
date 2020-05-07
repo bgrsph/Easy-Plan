@@ -40,26 +40,27 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         checkPrevButton()
         checkNextButton()
         checkFavorite()
-//        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
-//        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
-//        swipeRecognizerRight.delegate = self
-//        tableView.addGestureRecognizer(swipeRecognizerRight)
         
-//        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
-//        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.right
-//        swipeRecognizerLeft.delegate = self
-//        tableView.addGestureRecognizer(swipeRecognizerLeft)
+        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
+        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
+        swipeRecognizerRight.delegate = self
+        tableView.addGestureRecognizer(swipeRecognizerRight)
+        
+        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
+        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.left
+        swipeRecognizerLeft.delegate = self
+        tableView.addGestureRecognizer(swipeRecognizerLeft)
         
     }
     
  
-//   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
-//            print("swiped right")
-//    }
+   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
+        getPrevSchedule()
+    }
     
-//    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
-//            print("swiped left")
-//    }
+    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
+        getNextSchedule()
+    }
     
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -154,7 +155,15 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func prevTapped(_ sender: Any) {
-       
+       getPrevSchedule()
+        
+    }
+    
+    @IBAction func nextTapped(_ sender: Any) {
+        getNextSchedule()
+    }
+    
+    func getPrevSchedule(){
         page = (page! - 1) % schedules.count
         let schedule = plans[plan!].schedules[page!]
         scheduleLabel.text = "Schedule #\(schedule.title)"
@@ -164,14 +173,14 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         checkFavorite()
     }
     
-    @IBAction func nextTapped(_ sender: Any) {
+    func getNextSchedule(){
         page = (page! + 1) % schedules.count
-        let schedule = plans[plan!].schedules[page!]
-        scheduleLabel.text = "Schedule #\(schedule.title)"
-        rightSlide = true
-        tableView.reloadData()
-        pageControl.currentPage = page! % 5
-        checkFavorite()
+               let schedule = plans[plan!].schedules[page!]
+               scheduleLabel.text = "Schedule #\(schedule.title)"
+               rightSlide = true
+               tableView.reloadData()
+               pageControl.currentPage = page! % 5
+               checkFavorite()
     }
     
     func updatePageCont() -> Int {
