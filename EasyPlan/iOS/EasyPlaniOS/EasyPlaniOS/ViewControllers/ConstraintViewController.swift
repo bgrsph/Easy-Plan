@@ -12,6 +12,11 @@ protocol EditItemViewControllerDelegate {
     func shouldAdd(param: [Course], param2: [Course])
 }
 
+
+
+
+
+
 class ConstraintViewController: UIViewController {
     
     var delegate: EditItemViewControllerDelegate!
@@ -28,7 +33,7 @@ class ConstraintViewController: UIViewController {
     var moWeChecked = false
     
     
-    var coursePlanner = CoursePlanner(planName: "testPlan")
+    var coursePlanner = CoursePlanner()
     
     enum Mode {
         case view
@@ -96,6 +101,7 @@ class ConstraintViewController: UIViewController {
         
         finish_picker.delegate = self
         finish_picker.dataSource = self
+        
         
         plan_picker.delegate = self
         plan_picker.dataSource = self
@@ -208,12 +214,51 @@ class ConstraintViewController: UIViewController {
     */
     
     @IBAction func planTapped(_ sender: Any) {
+        var courseNames:[String] = []
+        let numCourses = myCourses?.count ?? 0
         
-        let plan = coursePlanner.getPlan(selectedCourseNames: ["COMP 130", "ACWR 106", "ACWR 101"])
+        for i in 0..<numCourses {
+            
+            courseNames.append((myCourses?[i].subject)! + (myCourses?[i].catalog)!)
+        }
+        
+        let constraint = Constraint(frChecked: frChecked, tuThChecked: tuThChecked, moWeChecked: moWeChecked, startTime: String(startLabel.text!), endTime: String(finishLabel.text!))
+        let plan = coursePlanner.getPlan(selectedCourseNames: courseNames, planName: String(planLabel.text!), constraint: constraint)
+        
+        if plan.name == "Fail" {
+            
+            print("Failure.")
+        }
+ 
+
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "h:mm a"
+//
+//        let classStartDate = dateFormatter.date(from: plan.scheduleList[0].scheduleCourseList[0].mtgStart)
+//        let classEndDate = dateFormatter.date(from: plan.scheduleList[0].scheduleCourseList[0].mtgEnd)
+//        dateFormatter.dateFormat = "HH:mm"
+//
+//        let classStartTime = dateFormatter.string(from: classStartDate!)
+//        let classEndTime = dateFormatter.string(from: classEndDate!)
+//        print("CLASS START TIME",classStartTime)
+//        print("CLASS END TIME",classEndTime)
+//
+//
+//        let constraintStartDate = dateFormatter.date(from: constraint.startTime)
+//        let constraintEndDate = dateFormatter.date(from: constraint.endTime)
+//
+//        dateFormatter.dateFormat = "HH:mm"
+//
+//        let constraintStartTime = dateFormatter.string(from: constraintStartDate!)
+//        let constraintEndTime = dateFormatter.string(from: constraintEndDate!)
+//
+//        print("CONSTAINT START TIME",constraintStartTime)
+//        print("CONSTAINT END TIME",constraintEndTime)
+
+
         print(plan.toString())
         print("OK.")
         
-
     }
     
     @IBAction func frTapped(_ sender: Any) {

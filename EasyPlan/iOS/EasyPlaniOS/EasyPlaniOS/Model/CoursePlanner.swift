@@ -13,8 +13,6 @@ import FirebaseDatabase
 class CoursePlanner {
     
     var allCoursesInDatabase:[Course]
-    var planName:String
-    
     
     var ref:DatabaseReference?
     var databaseHandle:DatabaseHandle?
@@ -25,9 +23,10 @@ class CoursePlanner {
     }
     
     
-    init(planName:String) {
+    
+    
+    init() {
         allCoursesInDatabase = []
-        self.planName = planName
     }
     
     func downloadCourseData() {
@@ -79,17 +78,18 @@ class CoursePlanner {
     }
     
     
-    func getPlan(selectedCourseNames:[String]) -> ExpandablePlan {
+    func getPlan(selectedCourseNames:[String], planName:String, constraint: Constraint ) -> ExpandablePlan {
         print("[DEBUG] Starting plan calculations...")
         
         let entitiesTBPlannedPre = self.getEntitiesForPlanning(selectedCourseNames: selectedCourseNames)
-        let entitiesTBPlannedPost = self.checkForConstraints(entity: entitiesTBPlannedPre)
+        let entitiesTBPlannedPost = self.checkForConstraints(entity: entitiesTBPlannedPre, constraint: constraint)
+        
+        if entitiesTBPlannedPost.coursesTBPlanned.count == 0 {
+            return ExpandablePlan(name: "Fail", isExpanded: false, scheduleList: [])
+        }
         
         let schedules = getNonConflictingSchedules(entity: entitiesTBPlannedPost)
-        
-        
-        
-        let plan = ExpandablePlan(name: self.planName, isExpanded: false, scheduleList: schedules)
+        let plan = ExpandablePlan(name: planName, isExpanded: false, scheduleList: schedules)
         
         if (plan.scheduleList.count > 0) {
             print("[DEBUG] Plan has been calculated")
@@ -112,52 +112,76 @@ class CoursePlanner {
         
         var coursesTBPlanned =  entity.coursesTBPlanned
         
-        for course in coursesTBPlanned {
-            
-            print(course.toString() + "\n")
-        }
-       
+        //        for course in coursesTBPlanned {
+        //
+        //            print(course.toString() + "\n")
+        //        }
+        
         
         for courseA in coursesTBPlanned {
-            
+            coursesTBPlanned.shuffle()
             coursesForOneSchedule = []
             coursesForOneSchedule.append(courseA)
-           
+            
             for courseB in coursesTBPlanned {
                 
-                if (courseA == courseB) {
-                   
+                if self.isTheSameCourse(courseA: courseA, courseB: courseB) {
+                    
                     continue
                 }
                 
                 if self.isHappenAtTheSameTime(courseA: courseA, courseB: courseB) {
+                    
                     continue
                 }
                 
                 if self.isPreviouslyAddedWithSameType(course: courseB, prevAddedCourses: coursesForOneSchedule) {
+                    
                     continue
                 }
                 
                 coursesForOneSchedule.append(courseB)
+                
             }
             
             if entity.uniqueEntityDict.count > coursesForOneSchedule.count {
                 
                 continue
             }
-        
-//            //Add the schedule if unique
-//            if courseLists.contains(coursesForOneSchedule) {
-//
-//                continue
-//
-//            }
             
-            // Everything is OK; add the schedule to the list
+            var isAdded = true
+            
+            for c in coursesForOneSchedule {
+                
+                for c2 in coursesForOneSchedule {
+                    
+                    if !self.isTheSameCourse(courseA: c, courseB: c2) {
+                        
+                        if self.isHappenAtTheSameTime(courseA: c, courseB: c2) {
+                            
+                            //                            print("!! " + courseA.toString() + " ==== " + c2.toString())
+                            isAdded = false
+                            break
+                        }
+                        
+                    }
+                }
+                
+                if isAdded == false  {
+                    
+                    break
+                }
+            }
+            
+            if !isAdded {
+                continue
+            }
             
             courseLists.append(coursesForOneSchedule)
             schedules.append(Schedule(name: String(scheduleCounter), scheduleCourseList: coursesForOneSchedule))
             scheduleCounter += 1
+            
+            
         }
         
         if(schedules.count > 0) {
@@ -170,6 +194,13 @@ class CoursePlanner {
         
     }
     
+    func isTheSameCourse(courseA:Course, courseB: Course) -> Bool {
+        
+        return courseA.catalog == courseB.catalog && courseA.subject == courseB.subject && courseA.id == courseB.id && courseA.section == courseB.section
+        
+        
+    }
+    
     func isPreviouslyAddedWithSameType(course:Course, prevAddedCourses: [Course]) -> Bool {
         
         let courseTypeAndName = self.getCourseTypeAndName(course: course)
@@ -179,12 +210,10 @@ class CoursePlanner {
             let prevAddedCourseTypeAndName = self.getCourseTypeAndName(course: prevAddedCourse)
             
             if courseTypeAndName == prevAddedCourseTypeAndName {
-                
                 isAdded = true
             }
             
         }
-        
         return isAdded
     }
     
@@ -192,24 +221,218 @@ class CoursePlanner {
     func isHappenAtTheSameTime(courseA:Course, courseB:Course) -> Bool {
         
         return (courseA.monday == courseB.monday && courseA.tuesday == courseB.tuesday && courseA.wednesday == courseB.wednesday && courseA.thursday == courseB.thursday && courseA.friday == courseB.friday
-            && courseA.mtgStart == courseB.mtgStart && courseA.mtgEnd == courseB.mtgEnd)
+            && courseA.saturday == courseB.saturday && courseA.sunday == courseB.sunday && courseA.mtgStart == courseB.mtgStart && courseA.mtgEnd == courseB.mtgEnd)
     }
     
     
-    func checkForConstraints(entity: EntitiesTBPlanned) -> EntitiesTBPlanned {
+    func checkForConstraints(entity: EntitiesTBPlanned, constraint:Constraint) -> EntitiesTBPlanned {
         print("[DEBUG] Checking wheter selections conform contraints or not...")
         
-        for course in entity.coursesTBPlanned {
-            if !self.doesConformConstraints(course: course) {
+        var dict = entity.uniqueEntityDict
+        var courseList = entity.coursesTBPlanned
+        
+        for course in courseList {
+            if !self.doesConformConstraints(course: course, constraint:constraint) {
+                
                 //Decrease the dictionary, if its zero rise error and stop. else; remove course from course list
+                let courseTypeName = self.getCourseTypeAndName(course: course)
+                dict[courseTypeName, default:0] -= 1
+                
+                if dict[courseTypeName] == 0 {
+                    
+                    courseList.removeAll()
+                    dict.removeAll()
+                    return EntitiesTBPlanned(coursesTBPlanned: courseList, uniqueEntityDict: dict)
+                }
+                
+                courseList = courseList.filter { $0 != course }
+                
             }
         }
         
-        return entity
+        return EntitiesTBPlanned(coursesTBPlanned: courseList, uniqueEntityDict: dict)
     }
     
     
-    func doesConformConstraints(course: Course) -> Bool {
+    func doesConformConstraints(course: Course, constraint: Constraint) -> Bool {
+                
+        if constraint.startTime == "" && constraint.endTime == "" && !constraint.moWeChecked && !constraint.tuThChecked && !constraint.frChecked {
+            
+            return true
+        }
+        
+        if constraint.startTime != "" &&  constraint.endTime == "" {
+            
+            print("1")
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "h:mm a"
+            
+            let classStartDate = dateFormatter.date(from: course.mtgStart)
+            //            let classEndDate = dateFormatter.date(from: course.mtgEnd)
+            dateFormatter.dateFormat = "HH:mm"
+            let courseStartTime = dateFormatter.string(from: classStartDate!)
+            //            let courseEndTime = dateFormatter.string(from: classEndDate!)
+            
+            
+            let constraintStartDate = dateFormatter.date(from: constraint.startTime)
+            //            let constraintEndDate = dateFormatter.date(from: constraint.endTime)
+            dateFormatter.dateFormat = "HH:mm"
+            let constraintStartTime = dateFormatter.string(from: constraintStartDate!)
+            //            let constraintEndTime = dateFormatter.string(from: constraintEndDate!)
+            
+            if (courseStartTime < constraintStartTime) {
+                
+                return false
+            }
+            
+            
+        }
+        
+        if constraint.startTime == "" &&  constraint.endTime != "" {
+            
+             print("2")
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "h:mm a"
+            
+            //            let classStartDate = dateFormatter.date(from: course.mtgStart)
+            let classEndDate = dateFormatter.date(from: course.mtgEnd)
+            dateFormatter.dateFormat = "HH:mm"
+            //            let courseStartTime = dateFormatter.string(from: classStartDate!)
+            let courseEndTime = dateFormatter.string(from: classEndDate!)
+            
+            
+            //            let constraintStartDate = dateFormatter.date(from: constraint.startTime)
+            let constraintEndDate = dateFormatter.date(from: constraint.endTime)
+            dateFormatter.dateFormat = "HH:mm"
+            //            let constraintStartTime = dateFormatter.string(from: constraintStartDate!)
+            let constraintEndTime = dateFormatter.string(from: constraintEndDate!)
+            
+            
+            if (courseEndTime > constraintEndTime) {
+                
+                return false
+            }
+            
+            
+            
+        }
+        
+        if constraint.startTime != "" &&  constraint.endTime != "" {
+            
+             print("3")
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "h:mm a"
+            
+            let classStartDate = dateFormatter.date(from: course.mtgStart)
+            let classEndDate = dateFormatter.date(from: course.mtgEnd)
+            dateFormatter.dateFormat = "HH:mm"
+            let courseStartTime = dateFormatter.string(from: classStartDate!)
+            let courseEndTime = dateFormatter.string(from: classEndDate!)
+            
+            
+            let constraintStartDate = dateFormatter.date(from: constraint.startTime)
+            let constraintEndDate = dateFormatter.date(from: constraint.endTime)
+            dateFormatter.dateFormat = "HH:mm"
+            let constraintStartTime = dateFormatter.string(from: constraintStartDate!)
+            let constraintEndTime = dateFormatter.string(from: constraintEndDate!)
+            
+            if (courseStartTime < constraintStartTime || courseEndTime > constraintEndTime) {
+                
+                print("Course: " + course.toString())
+                print("Constraints: " + constraintStartTime + " -- " + constraintEndTime )
+                return false
+            }
+            
+        }
+        
+        
+        
+        if constraint.moWeChecked {
+            
+            if constraint.tuThChecked && constraint.frChecked { // GOES TO SCHOOL EVERY DAY
+                
+                return true
+            }
+                
+            else if constraint.tuThChecked && !constraint.frChecked {
+                
+                if (course.friday == "Y") {
+                    
+                    return false
+                } else {
+                    return true
+                }
+                
+            }
+                
+            else if !constraint.tuThChecked && constraint.frChecked {
+                
+                if course.tuesday == "Y" || course.thursday == "Y" {
+                    
+                    return false
+                } else {
+                    return true
+                }
+                
+            }
+                
+            else if !constraint.tuThChecked && !constraint.frChecked {
+                
+                if course.tuesday == "Y" || course.thursday == "Y" || course.friday == "Y" {
+                    
+                    return false
+                } else {
+                    return true
+                }
+                
+            }
+            
+        } else {
+            
+            if constraint.tuThChecked && constraint.frChecked {
+                
+                if course.monday == "Y" || course.wednesday == "Y" {
+                    
+                    return false
+                } else {
+                    return true
+                }
+                
+                
+            }
+                
+            else if constraint.tuThChecked && !constraint.frChecked {
+                
+                if course.monday == "Y" || course.wednesday == "Y" || course.friday == "Y" {
+                    
+                    return false
+                } else {
+                    
+                    return true
+                }
+                
+            }
+                
+            else if !constraint.tuThChecked && constraint.frChecked {
+                
+                if course.monday == "Y" || course.wednesday == "Y" || course.tuesday == "Y" || course.thursday == "Y" {
+                    
+                    return false
+                } else {
+                    
+                    return true
+                }
+                
+            }
+                
+            else if !constraint.tuThChecked && !constraint.frChecked { // GOES TO SCHOOL EVERY DAY
+                
+                return true
+            }
+            
+        }
         
         return true
     }

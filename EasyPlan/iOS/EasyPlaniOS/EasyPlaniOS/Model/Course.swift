@@ -59,6 +59,9 @@ class Course {
         if (self.thursday == "Y") {
             days += "Thursday "
         }
+        if (self.friday == "Y") {
+            days += "Friday "
+        }
         if (self.saturday == "Y") {
             days += "Saturday "
         }
@@ -66,7 +69,7 @@ class Course {
             days += "Sunday"
         }
     
-        return (self.subject + " -- " + self.catalog + " -- " +  self.section + " -- " + self.mtgStart + " -- " + self.mtgEnd + "--" + days)
+        return (self.subject + " -- " + self.catalog + " -- " +  self.section + " -- " + self.mtgStart + " -- " + self.mtgEnd +  " -- " + days)
         
     }
 }
