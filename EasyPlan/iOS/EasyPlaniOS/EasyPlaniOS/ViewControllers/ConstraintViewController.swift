@@ -229,31 +229,6 @@ class ConstraintViewController: UIViewController {
             
             print("Failure.")
         }
- 
-
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "h:mm a"
-//
-//        let classStartDate = dateFormatter.date(from: plan.scheduleList[0].scheduleCourseList[0].mtgStart)
-//        let classEndDate = dateFormatter.date(from: plan.scheduleList[0].scheduleCourseList[0].mtgEnd)
-//        dateFormatter.dateFormat = "HH:mm"
-//
-//        let classStartTime = dateFormatter.string(from: classStartDate!)
-//        let classEndTime = dateFormatter.string(from: classEndDate!)
-//        print("CLASS START TIME",classStartTime)
-//        print("CLASS END TIME",classEndTime)
-//
-//
-//        let constraintStartDate = dateFormatter.date(from: constraint.startTime)
-//        let constraintEndDate = dateFormatter.date(from: constraint.endTime)
-//
-//        dateFormatter.dateFormat = "HH:mm"
-//
-//        let constraintStartTime = dateFormatter.string(from: constraintStartDate!)
-//        let constraintEndTime = dateFormatter.string(from: constraintEndDate!)
-//
-//        print("CONSTAINT START TIME",constraintStartTime)
-//        print("CONSTAINT END TIME",constraintEndTime)
 
 
         print(plan.toString())
