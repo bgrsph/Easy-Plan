@@ -200,7 +200,7 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let capitalTitle = plans[plan!].title.capitalized
-        print("DEBUG: \(plan)")
+
         self.navigationItem.title = "\(capitalTitle)"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
