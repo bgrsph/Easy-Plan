@@ -169,7 +169,18 @@ class PlanTableViewController: UITableViewController {
      if editingStyle == .delete {
      // Delete the row from the data source
         let section = indexPath.section
-        plans[section].schedules.remove(at: indexPath.row)
+        let schedule = plans[section].schedules[indexPath.row]
+               do {
+                   try realm.write {
+                           for course in schedule.courses {
+                                realm.delete(course)
+                           }
+                          realm.delete(schedule)
+                   }
+               } catch {
+                   print("Error saving favorite status \(error)")
+               }
+
         tableView.reloadData()
 //        tableView.deleteRows(at: [indexPath.row], with: .fade)
 //     } else if editingStyle == .insert {

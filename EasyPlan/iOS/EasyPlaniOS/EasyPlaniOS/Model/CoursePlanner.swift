@@ -182,11 +182,6 @@ class CoursePlanner {
             schedules.append(Schedule(name: String(scheduleCounter), scheduleCourseList: coursesForOneSchedule))
             scheduleCounter += 1
             
-            if schedules.count == 10 {
-                
-                return schedules
-            }
-            
             
         }
         
@@ -319,6 +314,7 @@ class CoursePlanner {
                 
                 return false
             }
+            
             
             
         }

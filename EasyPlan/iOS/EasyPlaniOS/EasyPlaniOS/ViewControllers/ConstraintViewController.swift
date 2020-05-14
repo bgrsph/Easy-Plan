@@ -80,7 +80,7 @@ class ConstraintViewController: UIViewController {
     let finish_picker = UIPickerView()
     let finish_time = ["9:45", "11:15", "12:45", "14:15", "15:45", "17.15", "18.45"]
     
-    let plan_picker = UIPickerView()
+//    let plan_picker = UIPickerView()
     let plan_no = ["Plan 1", "Plan 2", "Plan 3", "Plan 4", "Plan 5", "Plan 6", "Plan 7", "Plan 8", "Plan 9", "Plan 10"]
     
     var colorChooser = 0
@@ -102,8 +102,8 @@ class ConstraintViewController: UIViewController {
         finish_picker.delegate = self
         finish_picker.dataSource = self
         
-        plan_picker.delegate = self
-        plan_picker.dataSource = self
+//        plan_picker.delegate = self
+//        plan_picker.dataSource = self
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -129,7 +129,7 @@ class ConstraintViewController: UIViewController {
         finishLabel.inputView = finish_picker
         
         planLabel.inputAccessoryView = toolbar
-        planLabel.inputView = plan_picker
+//        planLabel.inputView = plan_picker
     }
     
     func setUpBarButton(){
@@ -170,11 +170,11 @@ class ConstraintViewController: UIViewController {
             pickerView(start_picker, didSelectRow: row, inComponent:0)
             startPickerChosen = false
         }
-        if planPickerChosen {
-            let row = plan_picker.selectedRow(inComponent: 0)
-            pickerView(plan_picker, didSelectRow: row, inComponent:0)
-            planPickerChosen = false
-        }
+//        if planPickerChosen {
+//            let row = plan_picker.selectedRow(inComponent: 0)
+//            pickerView(plan_picker, didSelectRow: row, inComponent:0)
+//            planPickerChosen = false
+//        }
         self.view.endEditing(true)
     }
     
@@ -341,11 +341,11 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
             startPickerChosen = false
             planPickerChosen = false
             return finish_time.count
-        } else if pickerView == plan_picker {
-            finishPickerChosen = true
-            startPickerChosen = false
-            planPickerChosen = true
-            return plan_no.count
+//        } else if pickerView == plan_picker {
+//            finishPickerChosen = true
+//            startPickerChosen = false
+//            planPickerChosen = true
+//            return plan_no.count
         } else {
             finishPickerChosen = false
             startPickerChosen = true
@@ -360,11 +360,11 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
             startPickerChosen = false
             planPickerChosen = false
             return finish_time[row]
-        } else if pickerView == plan_picker {
-            finishPickerChosen = false
-            startPickerChosen = false
-            planPickerChosen = true
-            return plan_no[row]
+//        } else if pickerView == plan_picker {
+//            finishPickerChosen = false
+//            startPickerChosen = false
+//            planPickerChosen = true
+//            return plan_no[row]
         } else {
             finishPickerChosen = false
             startPickerChosen = true
@@ -379,12 +379,12 @@ extension ConstraintViewController: UIPickerViewDataSource, UIPickerViewDelegate
             startPickerChosen = false
             planPickerChosen = false
             finishLabel.text = finish_time[row]
-        } else if pickerView == plan_picker {
-            finishPickerChosen = false
-            startPickerChosen = false
-            planPickerChosen = false
-            planLabel.text = plan_no[row]
-            //        self.view.endEditing(true)
+//        } else if pickerView == plan_picker {
+//            finishPickerChosen = false
+//            startPickerChosen = false
+//            planPickerChosen = false
+//            planLabel.text = plan_no[row]
+//            //        self.view.endEditing(true)
         } else {
             finishPickerChosen = false
             startPickerChosen = false
