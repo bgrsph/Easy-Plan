@@ -8,16 +8,18 @@
 
 import UIKit
 import RealmSwift
+import KVKCalendar
 
-class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
-
+class plannerViewController: UIViewController, UIGestureRecognizerDelegate, CalendarDataSource, CalendarDelegate {
+    
+    
     @IBOutlet weak var scheduleLabel: UILabel!
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-   
+    
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
-   
+    
     var rightSlide = true
     @IBOutlet weak var pageControl: UIPageControl!
     var page: Int?
@@ -26,6 +28,24 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     var schedules : Results<easySchedule>!
     var plans : Results<easyPlan>!
     @IBOutlet weak var tableView: UITableView!
+    
+    var events = [Event]()
+    
+    
+    func eventsForCalendar() -> [Event] {
+        events
+    }
+    
+    func didSelectDate(date: Date?, type: CalendarType) {
+        print(date, type)
+    }
+    
+    func didSelectEvent(_ event: Event, type: CalendarType, frame: CGRect?) {
+        print(event)
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,34 +56,46 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         pageControl.numberOfPages = 5
         pageControl.currentPageIndicatorTintColor = .systemPink
         pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
-//        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: burgundy]
+        //        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: burgundy]
         checkPrevButton()
         checkNextButton()
         checkFavorite()
-//        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
-//        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
-//        swipeRecognizerRight.delegate = self
-//        tableView.addGestureRecognizer(swipeRecognizerRight)
+        //        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
+        //        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
+        //        swipeRecognizerRight.delegate = self
+        //        tableView.addGestureRecognizer(swipeRecognizerRight)
         
-//        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
-//        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.right
-//        swipeRecognizerLeft.delegate = self
-//        tableView.addGestureRecognizer(swipeRecognizerLeft)
+        //        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
+        //        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.right
+        //        swipeRecognizerLeft.delegate = self
+        //        tableView.addGestureRecognizer(swipeRecognizerLeft)
+        
+        
+//        let calendar = CalendarView(frame: self.view.frame)
+//        calendar.dataSource = self
+//        view.addSubview(calendar)
+//
+//        calendar.reloadData()
+//        calendar.delegate = self
+        
+        
+        
+        
         
     }
     
- 
-//   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
-//            print("swiped right")
-//    }
     
-//    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
-//            print("swiped left")
-//    }
+    //   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
+    //            print("swiped right")
+    //    }
+    
+    //    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
+    //            print("swiped left")
+    //    }
     
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-            return true
+        return true
     }
     
     func loadPlans(){
@@ -72,14 +104,14 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     @IBAction func trashTapped(_ sender: Any) {
         let schedule = plans[plan!].schedules[page!]
@@ -116,13 +148,13 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
             alertTextField.placeholder = "New Schedule Name"
             textField = alertTextField
         }
-       
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
+        
         alert.addAction(cancelAction)
         alert.addAction(action)
-         
-         alert.preferredAction = cancelAction
+        
+        alert.preferredAction = cancelAction
         present(alert, animated: true, completion: nil)
     }
     @IBAction func heartTapped(_ sender: Any) {
@@ -148,13 +180,13 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func checkFavorite(){
-         let schedule = plans[plan!].schedules[page!]
-         favButton.image =  schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
+        let schedule = plans[plan!].schedules[page!]
+        favButton.image =  schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
     }
     
     
     @IBAction func prevTapped(_ sender: Any) {
-       
+        
         page = (page! - 1) % schedules.count
         let schedule = plans[plan!].schedules[page!]
         scheduleLabel.text = "Schedule #\(schedule.title)"
@@ -178,7 +210,59 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         return page! % schedules.count
     }
     
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        let calendar = CalendarView(frame: self.tableView.frame)
+                   calendar.dataSource = self
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            
+           
+            tableView.removeFromSuperview()
+            view.addSubview(calendar)
+            
+            
+            calendar.reloadData()
+            calendar.delegate = self
+            
+        } else {
+            print("Portrait")
+
+        }
+    }
+    
+    
+    func createEvents(completion: ([Event]) -> Void) {
+        let models = ""// Get events from storage / API
+        var events = [Event]()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let someDateTime = formatter.date(from: "2020/05/07 10:00")
+        let someDateTime2 = formatter.date(from: "2020/05/07 11:00")
+            var event = Event()
+            event.id = 23
+            
+            event.start = someDateTime!
+            event.end = someDateTime2! // end date event
+            event.color = .green
+            event.isAllDay = false
+            event.isContainsFile = false
+            // Add text event (title, info, location, time)
+            event.text = "Heey"
+            events.append(event)
+        
+        completion(events)
+    }
+    
 }
+
+
+
+
+
 
 extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -194,11 +278,11 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
         self.navigationItem.title = "\(capitalTitle)"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
-        for: indexPath) as! plannerTableViewCell
+                                                 for: indexPath) as! plannerTableViewCell
         let schedule = plans[plan!].schedules[page!]
         checkPrevButton()
         checkNextButton()
-      
+        
         if schedule.title.count < 3 {
             scheduleLabel.text = "Schedule \(Int(schedule.title)! + 1)"
         } else {
@@ -216,17 +300,17 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
             days.append("Mo")
         }
         if(course.tuesday == "Y"){
-        days.append("Tu")
+            days.append("Tu")
         }
         if(course.wednesday == "Y"){
-        days.append("We")
+            days.append("We")
         }
         if(course.thursday == "Y"){
-                   days.append("Th")
-               }
-               if(course.friday == "Y"){
-               days.append("Fr")
-               }
+            days.append("Th")
+        }
+        if(course.friday == "Y"){
+            days.append("Fr")
+        }
         cell.profNameLabel.text = "\(course.mtgStart) - \(course.mtgEnd)"
         cell.dayLabel.text = "\(days)"
         cell.teacherLabel.text = "TBA"
@@ -243,11 +327,12 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            let animation = AnimationFactory.makeSlideIn(duration: 0.5, delayFactor: 0, right: rightSlide)
-            let animator = Animator(animation: animation)
-            animator.animate(cell: cell, at: indexPath, in: tableView)
+        let animation = AnimationFactory.makeSlideIn(duration: 0.5, delayFactor: 0, right: rightSlide)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
     }
 }
+
 
 extension UITableView {
     func isLastVisibleCell(at indexPath: IndexPath) -> Bool {
@@ -257,5 +342,39 @@ extension UITableView {
         return lastIndexPath == indexPath
     }
 }
+
+
+extension ViewController {
+    func createEvents(completion: ([Event]) -> Void) {
+        let models = ""// Get events from storage / API
+        var events = [Event]()
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        let someDateTime = formatter.date(from: "2020/05/07 10:00")
+        let someDateTime2 = formatter.date(from: "2020/05/07 11:00")
+            var event = Event()
+            event.id = 23
+            
+            event.start = someDateTime!
+            event.end = someDateTime2! // end date event
+            event.color = .green
+            event.isAllDay = false
+            event.isContainsFile = false
+            // Add text event (title, info, location, time)
+            event.text = "Heey"
+            events.append(event)
+        
+        completion(events)
+    }
+}
+
+
+
+
+
+
+
+
 
 
