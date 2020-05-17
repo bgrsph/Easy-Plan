@@ -10,6 +10,8 @@ import UIKit
 
 class PlanTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var favImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

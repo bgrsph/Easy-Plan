@@ -63,6 +63,9 @@ class PlanTableViewController: UITableViewController {
               } else {
                   cell.nameLabel.text = "\(schedule.title)"
               }
+        if schedule.isFavorite {
+            cell.favImage.image = UIImage(systemName: "heart.fill")
+        }
         return cell
     }
     
