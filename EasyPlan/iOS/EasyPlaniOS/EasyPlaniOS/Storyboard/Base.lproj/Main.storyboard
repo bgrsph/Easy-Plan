@@ -210,6 +210,7 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXf-OZ-SRO">
                                                 <rect key="frame" x="285" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -1288,6 +1289,6 @@
         <image name="suit.heart" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1J7-OW-yS6"/>
+        <segue reference="2fB-3Q-BiW"/>
     </inferredMetricsTieBreakers>
 </document>
