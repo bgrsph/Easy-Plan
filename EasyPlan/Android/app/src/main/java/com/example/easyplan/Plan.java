@@ -10,6 +10,7 @@ import com.google.common.collect.Sets;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -51,19 +52,53 @@ public class Plan implements Parcelable {
     }
 
     private void recursiveScheduleCreating(ArrayList<Course> input, Course list[], int start, int end, int index, int size) {
+        //if(schedules.size() == 10000) return;
         if (index == size)
         {
+            if (Arrays.asList(list).contains(null)) return;
             Schedule schedule = new Schedule();
             for (Course x : list) {
-                boolean add = true;
-                if (add) schedule.addToSchedule(x);
+                schedule.addToSchedule(x);
             }
-            this.schedules.add(schedule);
+
+            boolean add = true;
+            /*for (Schedule x : schedules) {
+                if (x.getCourseList().containsAll(schedule.getCourseList())) {
+                    add = false;
+                    break;
+                }
+            }*/
+            if (add) this.schedules.add(schedule);
             return;
         }
 
         for (int i = start; i <= end && end - i + 1 >= size - index; i++)
         {
+            /*
+            if (list[0] != null) {
+                boolean add = true;
+                for (Course y : list) {
+                    if (y == null) continue;
+                    Course z = input.get(i);
+                    add = true;
+                    if (y.equals(z)) continue;
+                    if (y.getSubject().equals(z.getSubject()) && y.getCatalog().equals(z.getCatalog())) {
+                        add = false;
+                        break;
+                    }
+                    if (y.getMtgStart().equals(z.getMtgStart()) &&
+                            ((y.getMonday().equals(z.getMonday()) && y.getMonday().equals("Y")) ||
+                                    (y.getTuesday().equals(z.getTuesday()) && y.getTuesday().equals("Y")) ||
+                                    (y.getWednesday().equals(z.getWednesday()) && y.getWednesday().equals("Y")) ||
+                                    (y.getThursday().equals(z.getThursday()) && y.getThursday().equals("Y")) ||
+                                    (y.getFriday().equals(z.getFriday()) && y.getFriday().equals("Y")))) {
+                        add = false;
+                        break;
+                    }
+                }
+                if (add) list[index] = input.get(i);
+            } else list[index] = input.get(i);
+            */
             list[index] = input.get(i);
             recursiveScheduleCreating(input, list, i + 1, end, index + 1, size);
         }
