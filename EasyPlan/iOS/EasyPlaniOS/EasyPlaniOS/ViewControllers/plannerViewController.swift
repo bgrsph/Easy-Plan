@@ -10,14 +10,14 @@ import UIKit
 import RealmSwift
 
 class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
-
+    
     @IBOutlet weak var scheduleLabel: UILabel!
     @IBOutlet weak var favButton: UIBarButtonItem!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
-   
+    
     let burgundy = UIColor(red:0.72, green:0.00, blue:0.00, alpha:1.00)
-   
+    
     var rightSlide = true
     @IBOutlet weak var pageControl: UIPageControl!
     var page: Int?
@@ -27,8 +27,20 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     var plans : Results<easyPlan>!
     @IBOutlet weak var tableView: UITableView!
     
+    // For the horizontal schedule
+    @IBOutlet weak var gridView: UICollectionView!
+    @IBOutlet weak var gridFlowLayout: UICollectionViewFlowLayout!
+    var schedule2d = [[String]]()
+//    layout.estimatedItemSize = CGSizeMake(1.f, 1.f);
+    
+    
+    
+    var hoursInDay = ["08:30 - 09:45", "10:00 - 11:15", "11:30 - 12:45", "13:00 - 14:15", "14:30 - 15:45", "16:00 - 17:15", "17:30 - 18:45"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        gridView.isHidden = true
         tableView.delegate = self
         tableView.dataSource = self
         loadPlans()
@@ -36,7 +48,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         pageControl.numberOfPages = 5
         pageControl.currentPageIndicatorTintColor = .systemPink
         pageControl.pageIndicatorTintColor = UIColor(red: 249/255, green: 207/255, blue: 224/255, alpha: 1)
-//        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: burgundy]
+        //        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: burgundy]
         checkPrevButton()
         checkNextButton()
         checkFavorite()
@@ -51,10 +63,16 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         swipeRecognizerLeft.delegate = self
         tableView.addGestureRecognizer(swipeRecognizerLeft)
         
+        gridView.dataSource = self
+        gridView.delegate = self
+        gridView.frame = tableView.frame
+        
+
+//
     }
     
- 
-   @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
+    
+    @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
         getPrevSchedule()
     }
     
@@ -64,7 +82,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-            return true
+        return true
     }
     
     func loadPlans(){
@@ -73,14 +91,14 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     @IBAction func trashTapped(_ sender: Any) {
         let schedule = plans[plan!].schedules[page!]
@@ -96,6 +114,8 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         tableView.reloadData()
+        removeAllDataFromGrid()
+        gridView.reloadData()
         
     }
     
@@ -117,13 +137,13 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
             alertTextField.placeholder = "New Schedule Name"
             textField = alertTextField
         }
-       
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
+        
         alert.addAction(cancelAction)
         alert.addAction(action)
-         
-         alert.preferredAction = cancelAction
+        
+        alert.preferredAction = cancelAction
         present(alert, animated: true, completion: nil)
     }
     @IBAction func heartTapped(_ sender: Any) {
@@ -149,18 +169,22 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func checkFavorite(){
-         let schedule = plans[plan!].schedules[page!]
-         favButton.image =  schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
+        let schedule = plans[plan!].schedules[page!]
+        favButton.image =  schedule.isFavorite ? UIImage(systemName: "suit.heart.fill") : UIImage(systemName: "suit.heart")
     }
     
     
     @IBAction func prevTapped(_ sender: Any) {
-       getPrevSchedule()
+        getPrevSchedule()
+        removeAllDataFromGrid()
+        gridView.reloadData()
         
     }
     
     @IBAction func nextTapped(_ sender: Any) {
         getNextSchedule()
+        removeAllDataFromGrid()
+        gridView.reloadData()
     }
     
     func getPrevSchedule(){
@@ -171,21 +195,684 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         tableView.reloadData()
         pageControl.currentPage = page! % 5
         checkFavorite()
+        
     }
     
     func getNextSchedule(){
         page = (page! + 1) % schedules.count
-               let schedule = plans[plan!].schedules[page!]
-               scheduleLabel.text = "Schedule #\(schedule.title)"
-               rightSlide = true
-               tableView.reloadData()
-               pageControl.currentPage = page! % 5
-               checkFavorite()
+        let schedule = plans[plan!].schedules[page!]
+        scheduleLabel.text = "Schedule #\(schedule.title)"
+        rightSlide = true
+        tableView.reloadData()
+        pageControl.currentPage = page! % 5
+        checkFavorite()
     }
     
     func updatePageCont() -> Int {
         return page! % schedules.count
     }
+    
+    
+    // Horizontal View Protocols
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            tableView.isHidden = true
+            self.tabBarController?.tabBar.isHidden = true
+            gridView.isHidden = false
+            removeAllDataFromGrid()
+            gridView.reloadData()
+            
+        } else {
+            print("Portrait")
+            tableView.isHidden = false
+            gridView.isHidden = true
+            self.tabBarController?.tabBar.isHidden = false
+            removeAllDataFromGrid()
+            
+        }
+    }
+    
+    
+    
+    func removeAllDataFromGrid() {
+        
+        for i in 0...gridView.numberOfSections-1
+        {
+            for j in 0...gridView.numberOfItems(inSection: i) - 1
+            {
+                gridView.cellForItem(at: NSIndexPath(row: j, section: i) as IndexPath)?.contentView.subviews[0].removeFromSuperview()
+                gridView.cellForItem(at: NSIndexPath(row: j, section: i) as IndexPath)?.backgroundColor = .white
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+}
+
+
+extension plannerViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 7
+    }
+    
+    
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //        title.text = String(indexPath.section) + "," + String(indexPath.row)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! HorizontalSectionCollectionViewCell
+        
+        let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: cell.bounds.size.height))
+        let schedule = plans[plan!].schedules[page!]
+        checkPrevButton()
+        checkNextButton()
+        
+        if indexPath.row == 0 {
+            title.text = hoursInDay[indexPath.section]
+            title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+            title.textAlignment = .center
+            cell.contentView.addSubview(title)
+            return cell
+        }
+
+        else {
+
+            if indexPath.row == 1 && indexPath.section == 0 {
+
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "08:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+            }
+
+            if indexPath.row == 1 && indexPath.section == 1 {
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "10:00 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 1 && indexPath.section == 2 {
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "11:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+            if indexPath.row == 1 && indexPath.section == 3 {
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "01:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 1 && indexPath.section == 4 {
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "02:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 1 && indexPath.section == 5 {
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "04:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 1 && indexPath.section == 6 {
+                for course in schedule.courses {
+
+                    if course.monday == "Y" && course.mtgStart == "17:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 0 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "08:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 1 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "10:00 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 2 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "11:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 3 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "01:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 4 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "02:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 5 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "04:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 2 && indexPath.section == 6 {
+                for course in schedule.courses {
+
+                    if course.tuesday == "Y" && course.mtgStart == "05:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 0 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "08:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 1 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "10:00 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 2 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "11:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 3 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "01:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 4 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "02:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 5 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "04:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 3 && indexPath.section == 6 {
+                for course in schedule.courses {
+
+                    if course.wednesday == "Y" && course.mtgStart == "05:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 0 {
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "08:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 1 {
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "10:00 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 2 {
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "11:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 3 {
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "01:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 4 {
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "02:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 5 {
+
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "04:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+            }
+
+            if indexPath.row == 4 && indexPath.section == 6 {
+
+                for course in schedule.courses {
+
+                    if course.thursday == "Y" && course.mtgStart == "05:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 0 {
+
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "08:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 1 {
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "10:00 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 2 {
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "11:30 AM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 3 {
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "01:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 4 {
+
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "02:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 5 {
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "04:00 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+
+            }
+
+            if indexPath.row == 5 && indexPath.section == 6 {
+                for course in schedule.courses {
+
+                    if course.friday == "Y" && course.mtgStart == "05:30 PM" {
+                        title.text = "\(course.subject) \(course.catalog)"
+                        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+                        title.textAlignment = .center
+                        cell.backgroundColor = .systemGreen
+                        cell.contentView.addSubview(title)
+                        return cell
+                    }
+                }
+
+            }
+
+        }
+            
+            
+            
+        title.text = ""
+        title.font = UIFont(name: "AvenirNext-Bold", size: 15)
+        title.textAlignment = .center
+        cell.contentView.addSubview(title)
+        return cell
+
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: (gridView.bounds.width)/7, height: (gridView.bounds.height)/8)
+    }
+    
+    
+    
+    
+    
     
 }
 
@@ -200,15 +887,15 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let capitalTitle = plans[plan!].title.capitalized
-
+        
         self.navigationItem.title = "\(capitalTitle)"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell",
-        for: indexPath) as! plannerTableViewCell
+                                                 for: indexPath) as! plannerTableViewCell
         let schedule = plans[plan!].schedules[page!]
         checkPrevButton()
         checkNextButton()
-      
+        
         if schedule.title.count < 3 {
             scheduleLabel.text = "Schedule \(Int(schedule.title)! + 1)"
         } else {
@@ -226,17 +913,17 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
             days.append("Mo")
         }
         if(course.tuesday == "Y"){
-        days.append("Tu")
+            days.append("Tu")
         }
         if(course.wednesday == "Y"){
-        days.append("We")
+            days.append("We")
         }
         if(course.thursday == "Y"){
-                   days.append("Th")
-               }
-               if(course.friday == "Y"){
-               days.append("Fr")
-               }
+            days.append("Th")
+        }
+        if(course.friday == "Y"){
+            days.append("Fr")
+        }
         cell.profNameLabel.text = "\(course.mtgStart) - \(course.mtgEnd)"
         cell.dayLabel.text = "\(days)"
         cell.teacherLabel.text = "TBA"
@@ -253,9 +940,9 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            let animation = AnimationFactory.makeSlideIn(duration: 0.5, delayFactor: 0, right: rightSlide)
-            let animator = Animator(animation: animation)
-            animator.animate(cell: cell, at: indexPath, in: tableView)
+        let animation = AnimationFactory.makeSlideIn(duration: 0.5, delayFactor: 0, right: rightSlide)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
     }
 }
 

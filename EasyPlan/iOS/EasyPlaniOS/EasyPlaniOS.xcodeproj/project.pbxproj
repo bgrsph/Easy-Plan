@@ -61,6 +61,7 @@
 		F9BFF689244761A700A85278 /* Rate the Application!.png in Resources */ = {isa = PBXBuildFile; fileRef = F9BFF684244761A700A85278 /* Rate the Application!.png */; };
 		F9BFF68D244763BC00A85278 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFF68C244763BC00A85278 /* TermsOfServiceViewController.swift */; };
 		F9BFF68F2447672400A85278 /* PersonalInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BFF68E2447672400A85278 /* PersonalInformationViewController.swift */; };
+		F9F64B5B2473DBDA008C93B0 /* HorizontalSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F64B5A2473DBDA008C93B0 /* HorizontalSectionCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		F9BFF684244761A700A85278 /* Rate the Application!.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rate the Application!.png"; sourceTree = "<group>"; };
 		F9BFF68C244763BC00A85278 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		F9BFF68E2447672400A85278 /* PersonalInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformationViewController.swift; sourceTree = "<group>"; };
+		F9F64B5A2473DBDA008C93B0 /* HorizontalSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				3657984D2426DD6700C5F3C2 /* CourseConstraintCollectionViewCell.swift */,
+				F9F64B5A2473DBDA008C93B0 /* HorizontalSectionCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				36E66FCC24082FD40017AB05 /* SignUpViewController.swift in Sources */,
 				365F795F2462D021006E2CE3 /* Animation.swift in Sources */,
 				F969F049245EB58600589256 /* CoursePlanner.swift in Sources */,
+				F9F64B5B2473DBDA008C93B0 /* HorizontalSectionCollectionViewCell.swift in Sources */,
 				36B52EBD2415AA3500F86894 /* HelpViewController.swift in Sources */,
 				36E66FCE24082FF60017AB05 /* LoginViewController.swift in Sources */,
 				F9BFF68F2447672400A85278 /* PersonalInformationViewController.swift in Sources */,
