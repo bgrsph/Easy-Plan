@@ -23,6 +23,8 @@ class HelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Help Center"
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         // Do any additional setup after loading the view.
     }

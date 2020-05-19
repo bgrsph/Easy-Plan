@@ -53,15 +53,16 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
         checkNextButton()
         checkFavorite()
         
-        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
-        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
-        swipeRecognizerRight.delegate = self
-        tableView.addGestureRecognizer(swipeRecognizerRight)
-        
-        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
-        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.left
-        swipeRecognizerLeft.delegate = self
-        tableView.addGestureRecognizer(swipeRecognizerLeft)
+//        PATLIYOR
+//        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeRight))
+//        swipeRecognizerRight.direction = UISwipeGestureRecognizer.Direction.right
+//        swipeRecognizerRight.delegate = self
+//        tableView.addGestureRecognizer(swipeRecognizerRight)
+//
+//        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.handleSwipeLeft))
+//        swipeRecognizerLeft.direction = UISwipeGestureRecognizer.Direction.left
+//        swipeRecognizerLeft.delegate = self
+//        tableView.addGestureRecognizer(swipeRecognizerLeft)
         
         gridView.dataSource = self
         gridView.delegate = self
@@ -71,19 +72,19 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
 //
     }
     
-    
-    @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
-        getPrevSchedule()
-    }
-    
-    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
-        getNextSchedule()
-    }
-    
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
+//    PATLIYOR
+//    @objc func handleSwipeRight(gesture: UISwipeGestureRecognizer) {
+//        getPrevSchedule()
+//    }
+//
+//    @objc func handleSwipeLeft(gesture: UISwipeGestureRecognizer) {
+//        getNextSchedule()
+//    }
+//
+//
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return true
+//    }
     
     func loadPlans(){
         plans = realm.objects(easyPlan.self).sorted(byKeyPath: "title", ascending: true)
@@ -219,7 +220,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
+            
             tableView.isHidden = true
             self.tabBarController?.tabBar.isHidden = true
             gridView.isHidden = false
@@ -227,7 +228,7 @@ class plannerViewController: UIViewController, UIGestureRecognizerDelegate {
             gridView.reloadData()
             
         } else {
-            print("Portrait")
+           
             tableView.isHidden = false
             gridView.isHidden = true
             self.tabBarController?.tabBar.isHidden = false
@@ -903,8 +904,8 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         scheduleLabel.textColor = burgundy
-        cell.bgView.backgroundColor = UIColor.randomColor()
-        
+//        cell.bgView.backgroundColor = UIColor.randomColor()
+        cell.bgView.backgroundColor = .systemGreen
         let course = schedule.courses[indexPath.row]
         cell.courseNameLabel.text = "\(course.subject) \(course.catalog) - \(course.section)"
         
@@ -936,7 +937,7 @@ extension plannerViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
