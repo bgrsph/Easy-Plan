@@ -166,13 +166,17 @@ public class PlanCourseFragment extends Fragment {
                         Toast.makeText(getActivity(), "Start time cannot be equal or later than the end time.", Toast.LENGTH_LONG).show();
                         return;
                     }
+                    Gson gson = new Gson();
+                    Type type = new TypeToken<List<Plan>>(){}.getType();
+                    List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
+
                     Plan plan = new Plan("");
                     if(planSpinner.getSelectedItem().toString().equals("New Plan...")) {
 
+
+
                         if (bot.sharedPref(getActivity()).contains("plans")) {
-                            Gson gson = new Gson();
-                            Type type = new TypeToken<List<Plan>>(){}.getType();
-                            List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
+
 
                             plan.setPlanName(planName.getText().toString());
                             int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
@@ -205,10 +209,8 @@ public class PlanCourseFragment extends Fragment {
                             }
                             plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
-                            plans.add(plan);
-                            bot.setSharedPref("plans", getActivity(), plans);
                         } else {
-                            List<Plan> plans = new ArrayList<Plan>();
+                            //List<Plan> plans = new ArrayList<Plan>();
                             plan.setPlanName(planName.getText().toString());
                             int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
                             ArrayList<Course> tempList = new ArrayList<Course>();
@@ -249,9 +251,6 @@ public class PlanCourseFragment extends Fragment {
                         }
                     } else {
                         String s = planSpinner.getSelectedItem().toString();
-                        Gson gson = new Gson();
-                        Type type = new TypeToken<List<Plan>>(){}.getType();
-                        List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
 
                         plan.setPlanName(planName.getText().toString());
                         int size = Integer.valueOf(sizeSpinner.getSelectedItem().toString());
@@ -297,10 +296,11 @@ public class PlanCourseFragment extends Fragment {
                             }
                         }
                         plans.remove(tmp);
-                        plans.add(plan);
-                        bot.setSharedPref("plans", getActivity(), plans);
+
                     }
                     if (plan.getSchedules().size() > 0) {
+                        plans.add(plan);
+                        bot.setSharedPref("plans", getActivity(), plans);
                         PlansFragment plansFrag = new PlansFragment();
                         FragmentTransaction trans = getFragmentManager().beginTransaction();
                         trans.replace(R.id.fragment, plansFrag, "Plans");

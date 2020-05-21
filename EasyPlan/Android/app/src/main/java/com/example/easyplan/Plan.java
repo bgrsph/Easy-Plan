@@ -144,11 +144,14 @@ public class Plan implements Parcelable {
         }
         Random rng = new Random();
         ArrayList<Schedule> tmpList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Schedule tmp = newList.get(rng.nextInt(newList.size()));
-            tmp.setName("Schedule #" + Integer.toString(i + 1));
-            tmpList.add(tmp);
-        }
+        if (newList.size() > 10) {
+            for (int i = 0; i < 10; i++) {
+                Schedule tmp = newList.get(rng.nextInt(newList.size()));
+                tmp.setName("Schedule #" + Integer.toString(i + 1));
+                tmpList.add(tmp);
+            }
+        } else tmpList = newList;
+
         this.schedules = tmpList;
     }
 
