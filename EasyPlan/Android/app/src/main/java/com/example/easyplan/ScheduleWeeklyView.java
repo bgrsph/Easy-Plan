@@ -295,6 +295,8 @@ public class ScheduleWeeklyView extends Fragment {
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
         courses = currSchedule.getCourseList();
         setUpScheduleView(courses);
+        setUpScheduleViewLab(courses);
+        setUpScheduleViewPS(courses);
     }
 
     private void openNextSchedule() {
@@ -312,6 +314,8 @@ public class ScheduleWeeklyView extends Fragment {
         Schedule currSchedule = plan.getSchedules().get(scheduleID);
         courses = currSchedule.getCourseList();
         setUpScheduleView(courses);
+        setUpScheduleViewLab(courses);
+        setUpScheduleViewPS(courses);
 
     }
 
