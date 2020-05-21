@@ -8,12 +8,64 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:357353831267:android:7c6168ccc18a1d0b8eb156",
+        "mobilesdk_app_id": "1:357353831267:android:ee1f0f9a3d57dfa48eb156",
         "android_client_info": {
-          "package_name": "com.example.easyplan"
+          "package_name": "com.easyplan.easyplan"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "357353831267-grdc3kqvpeoedoat268bjrjvuatp48q8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.easyplan.easyplan",
+            "certificate_hash": "38fea6d49abd3d7a289afad3635c18a8c2325d85"
+          }
+        },
+        {
+          "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGBT7bcpgpli9Cdw3kHyqXwzfLvEDEoBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "357353831267-0alb0lbglsi3mhe5qdric4f9l9rbb0pf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "CStudy.EasyPlaniOS"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357353831267:android:7c6168ccc18a1d0b8eb156",
+        "android_client_info": {
+          "package_name": "com.easyplan.easyplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357353831267-b94kdcs688l5qaarj3okm2admqh8qlv7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+              "package_name": "com.easyplan.easyplan;",
+            "certificate_hash": "38fea6d49abd3d7a289afad3635c18a8c2325d85"
+          }
+        },
         {
           "client_id": "357353831267-jaq7hgaiqh81clgidimdh0ccultpdtnk.apps.googleusercontent.com",
           "client_type": 3

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.easyplan">
+    package="com.easyplan.easyplan">
 
     <application
         android:allowBackup="true"
@@ -9,24 +9,24 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CourseInformationPopup"
+        <activity android:name="com.easyplan.easyplan.CourseInformationPopup"
             android:excludeFromRecents="true"
             android:label=""
             android:theme="@style/Theme.MyDialog"></activity>
-        <activity android:name=".OnBoarding" />
+        <activity android:name="com.easyplan.easyplan.OnBoarding" />
         <activity
-            android:name=".Video_Background"
+            android:name="com.easyplan.easyplan.Video_Background"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".bottom_navigator"
+            android:name="com.easyplan.easyplan.bottom_navigator"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Mainpage"
+            android:name="com.easyplan.easyplan.Mainpage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".WelcomePage"
+            android:name="com.easyplan.easyplan.WelcomePage"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -36,13 +36,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUp"
+            android:name="com.easyplan.easyplan.SignUp"
             android:configChanges="orientation"
             android:label="@string/title_activity_sign_up"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.easyplan.easyplan.LoginActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
 
