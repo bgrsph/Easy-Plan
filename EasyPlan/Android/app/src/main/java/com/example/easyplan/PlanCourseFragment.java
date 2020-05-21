@@ -247,8 +247,8 @@ public class PlanCourseFragment extends Fragment {
                             plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
                             plans = new ArrayList<Plan>();
-                            plans.add(plan);
-                            bot.setSharedPref("plans", getActivity(), plans);
+                            //plans.add(plan);
+                            //bot.setSharedPref("plans", getActivity(), plans);
                         }
                     } else {
                         String s = planSpinner.getSelectedItem().toString();
