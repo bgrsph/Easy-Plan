@@ -117,6 +117,7 @@ public class PlanCourseFragment extends Fragment {
                     spinner1.setEnabled(true); spinner2.setEnabled(true);
                 } else {
                     spinner1.setEnabled(false); spinner2.setEnabled(false);
+                    spinner1.setSelection(0); spinner2.setSelection(6);
                 }
             }
         });
@@ -128,6 +129,7 @@ public class PlanCourseFragment extends Fragment {
                     spinner3.setEnabled(true); spinner4.setEnabled(true);
                 } else {
                     spinner3.setEnabled(false); spinner4.setEnabled(false);
+                    spinner3.setSelection(0); spinner4.setSelection(6);
                 }
             }
         });
@@ -139,6 +141,7 @@ public class PlanCourseFragment extends Fragment {
                     spinner5.setEnabled(true); spinner6.setEnabled(true);
                 } else {
                     spinner5.setEnabled(false); spinner6.setEnabled(false);
+                    spinner5.setSelection(0); spinner6.setSelection(6);
                 }
             }
         });
@@ -151,6 +154,12 @@ public class PlanCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (filteredList.size() >= Integer.valueOf(sizeSpinner.getSelectedItem().toString())){
+                    if (spinner1.getSelectedItemPosition() > spinner2.getSelectedItemPosition() ||
+                            spinner3.getSelectedItemPosition() > spinner4.getSelectedItemPosition() ||
+                            spinner5.getSelectedItemPosition() > spinner6.getSelectedItemPosition()) {
+                        Toast.makeText(getActivity(), "Start time cannot be equal or later than the end time.", Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     Plan plan = new Plan("");
                     if(planSpinner.getSelectedItem().toString().equals("New Plan...")) {
 
@@ -183,6 +192,10 @@ public class PlanCourseFragment extends Fragment {
                                            tempList.add(x); continue;
                                     }
                                 }
+                            }
+                            if (tempList.size() >= 30) {
+                                Toast.makeText(getActivity(), "Please add some constraints; the possible schedule size is too big.", Toast.LENGTH_LONG).show();
+                                return;
                             }
                             plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
@@ -218,6 +231,10 @@ public class PlanCourseFragment extends Fragment {
                                         tempList.add(x); continue;
                                     }
                                 }
+                            }
+                            if (tempList.size() >= 30) {
+                                Toast.makeText(getActivity(), "Please add some constraints; the possible schedule size is too big.", Toast.LENGTH_LONG).show();
+                                return;
                             }
                             plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
@@ -259,6 +276,10 @@ public class PlanCourseFragment extends Fragment {
                                 }
                             }
                         }
+                        if (tempList.size() >= 30) {
+                            Toast.makeText(getActivity(), "Please add some constraints; the possible schedule size is too big.", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         plan.createSchedules(tempList, tempList.size(), size, labs);
                         //.deleteDuplicates();
 
@@ -280,9 +301,13 @@ public class PlanCourseFragment extends Fragment {
                         trans.commit();
                     } else {
                         Toast.makeText(getActivity(), "No schedule can be created with these courses/constraints.", Toast.LENGTH_LONG).show();
+                        return;
                     }
 
-                } else Toast.makeText(getActivity(), "Please make sure to select more courses than the selected size.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), "Please make sure to select more courses than the selected size.", Toast.LENGTH_LONG).show();
+                    return;
+                }
             }
         });
 
@@ -384,6 +409,9 @@ public class PlanCourseFragment extends Fragment {
         planSpinner.setAdapter(dataAdapter7);
         planSpinner.setSelection(0);
         sizeSpinner.setSelection(3);
+        spinner1.setSelection(0);
+        spinner3.setSelection(0);
+        spinner5.setSelection(0);
         spinner2.setSelection(6);
         spinner4.setSelection(6);
         spinner6.setSelection(6);

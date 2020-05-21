@@ -55,6 +55,10 @@ public class FirebaseHelper {
                     for (DataSnapshot keyNode : dataSnapshot.getChildren()) {
                         keys.add(keyNode.getKey());
                         Course course = keyNode.getValue(Course.class);
+                        if ((course.getSubject() + course.getCatalog()).equals("PHYS 101L")) course.setCatalog(" 101");
+                        else if ((course.getSubject() + course.getCatalog()).equals("PHYS 102L")) course.setCatalog(" 102");
+                        else if ((course.getSubject() + course.getCatalog()).equals("MBGE 201L")) course.setCatalog(" 201");
+                        else if ((course.getSubject() + course.getCatalog()).equals("MBGE 202L")) course.setCatalog(" 202");
                         labList.add(course);
                     }
                     dataStatus.DataIsLoaded(labList, keys);
