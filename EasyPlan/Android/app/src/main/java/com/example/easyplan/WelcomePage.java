@@ -65,7 +65,7 @@ public class WelcomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,textView);
         setContentView(R.layout.activity_welcome);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         final TextView appName = findViewById(R.id.mainTextView);
