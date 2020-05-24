@@ -97,12 +97,12 @@ public class PlanCourseFragment extends Fragment {
         planName.setText("Plan " + n);
         n++;
 
-        for(int i = 0; i<n; i++){
-            if(plans.get(i).getPlanName().equalsIgnoreCase(name)){
-                name = "Plan " + (++n);
-            }
-        }
-        planName.setText(name);
+//        for(int i = 0; i<n; i++){
+//            if(plans.get(i).getPlanName().equalsIgnoreCase(name)){
+//                name = "Plan " + (++n);
+//            }
+//        }
+//        planName.setText(name);
 
         Bundle bundle = getArguments();
         courseList = bundle.getParcelableArrayList("courseList");

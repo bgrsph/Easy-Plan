@@ -36,6 +36,7 @@ public class Mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         bottomMenu = findViewById(R.id.NavigationBot);
+        bottomMenu.clearAnimation();
         bottomMenu.setOnNavigationItemSelectedListener(NavigationItemSelectedListener);
 
         if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {

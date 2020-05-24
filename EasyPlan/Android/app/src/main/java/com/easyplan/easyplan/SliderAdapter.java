@@ -1,6 +1,7 @@
 package com.easyplan.easyplan;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,9 @@ public class SliderAdapter extends PagerAdapter {
         ImageView imageView = view.findViewById(R.id.sliderImg);
         TextView title = view.findViewById(R.id.slider_title);
         TextView desc = view.findViewById(R.id.slider_descr);
-
+        desc.setTextSize(15);
+        desc.setTypeface(Typeface.create("chivo", Typeface.NORMAL));
+        title.setTypeface(Typeface.create("chivo", Typeface.BOLD));
         imageView.setImageResource(images[position]);
         title.setText(headings[position]);
         desc.setText(descriptions[position]);
