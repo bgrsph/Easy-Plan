@@ -104,12 +104,28 @@ public class Plan implements Parcelable {
         //Create ALL the schedules!
         Course data[] = new Course[size];
         recursiveScheduleCreating(input, data, 0, n-1, 0, size);
+        /*
+        ArrayList<ArrayList<Course>> list = new ArrayList<ArrayList<Course>>();
+        for (int i = 0; i < size; i++) {
+            list.add(input);
+        }
+        List<List<Course>> list1 = Lists.cartesianProduct(list);
+        for (List<Course> x : list1) {
+            Schedule temp = new Schedule();
+            for (Course y : x) {
+                temp.addToSchedule(y);
+            }
+            schedules.add(temp);
+        }
+*/
+
         if (labs.size() > 0) addLabs(labs);
         obliterateConflicts();
     }
 
     private void obliterateConflicts() {
         ArrayList<Schedule> newList = new ArrayList<>();
+        /*
         for (Schedule x : schedules) {
             boolean add = true;
             for (Course y : x.getCourseList()) {
@@ -138,7 +154,45 @@ public class Plan implements Parcelable {
                 newList.add(x);
             }
         }
+
+         */
         Random rng = new Random();
+        int count = 0;
+        while (count < schedules.size()) {
+            if (newList.size() == 10) break;
+            //Schedule current = schedules.get(count);
+            Schedule current = schedules.get(rng.nextInt(schedules.size()));
+            boolean add = true;
+            boolean same = true;
+            for (Course y : current.getCourseList()) {
+                for (Course z : current.getCourseList()) {
+                    add = true;
+                    if (y.equals(z)) continue;
+                    same = false;
+                    if (y.getSubject().equals(z.getSubject()) && y.getCatalog().equals(z.getCatalog()) &&
+                            !(y.getSection().startsWith("PS") || y.getSection().startsWith("DS") || y.getSection().startsWith("LAB")) &&
+                            !(z.getSection().startsWith("PS") || z.getSection().startsWith("DS") || z.getSection().startsWith("LAB"))) {
+                        add = false;
+                        break;
+                    }
+                    if (y.getMtgStart().equals(z.getMtgStart()) &&
+                            ((y.getMonday().equals(z.getMonday()) && y.getMonday().equals("Y")) ||
+                                    (y.getTuesday().equals(z.getTuesday()) && y.getTuesday().equals("Y")) ||
+                                    (y.getWednesday().equals(z.getWednesday()) && y.getWednesday().equals("Y")) ||
+                                    (y.getThursday().equals(z.getThursday()) && y.getThursday().equals("Y")) ||
+                                    (y.getFriday().equals(z.getFriday()) && y.getFriday().equals("Y")))) {
+                        add = false;
+                        break;
+                    }
+                }
+                if (!add || same) break;
+            }
+            if (!newList.contains(current) && add && !same) {
+                newList.add(current);
+            }
+            count++;
+        }
+        /*
         ArrayList<Schedule> tmpList = new ArrayList<>();
         if (newList.size() > 10) {
             for (int i = 0; i < 10; i++) {
@@ -148,7 +202,9 @@ public class Plan implements Parcelable {
             }
         } else tmpList = newList;
 
-        this.schedules = tmpList;
+         */
+
+        this.schedules = newList;
     }
 
     private List<List<Course>> scheduleLabs (ArrayList<Course> labs, ArrayList<ArrayList<Course>> a) {

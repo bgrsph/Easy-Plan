@@ -195,6 +195,8 @@ public class ClassSearchFragment extends Fragment {
             }
         });
 
+        unselector.performClick();
+
         String key = "";
         for (Course x : selectedCourses) {
             if (key.equals("")) {

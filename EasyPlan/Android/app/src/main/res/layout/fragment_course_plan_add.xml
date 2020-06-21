@@ -31,7 +31,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/delete"
+                android:id="@+id/advanced"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -295,6 +295,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="-16dp">
 
+            <!--
             <TextView
                 android:id="@+id/text6"
                 android:layout_width="0dp"
@@ -315,6 +316,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/button_red"
                 android:fontFamily="sans-serif-condensed" />
+                -->
 
 
         </LinearLayout>

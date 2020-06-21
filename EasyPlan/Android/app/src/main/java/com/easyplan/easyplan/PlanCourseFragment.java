@@ -33,7 +33,7 @@ public class PlanCourseFragment extends Fragment {
     private EditText planName;
     private CheckBox MWCheckbox, TTCheckbox, FCheckbox;
     private Spinner spinner1, spinner2, spinner3, spinner4, spinner5, spinner6, planSpinner, sizeSpinner;
-    private Button course1, course2, course3, course4, course5, course6, course7, course8, planButton, deleteButton;
+    private Button course1, course2, course3, course4, course5, course6, course7, course8, planButton, advancedButton;
     private ArrayList<Course> courseList, labs;
     private ArrayList<Course> filteredList;
     private ArrayList<Button> buttonList = new ArrayList<Button>();
@@ -44,7 +44,7 @@ public class PlanCourseFragment extends Fragment {
 
 
         view = inflater.inflate(R.layout.fragment_course_plan_add, container, false);
-        planSpinner = view.findViewById(R.id.planSpinner);
+        //planSpinner = view.findViewById(R.id.planSpinner);
         spinner1 = view.findViewById(R.id.spinner1);
         spinner2 = view.findViewById(R.id.spinner2);
         spinner3 = view.findViewById(R.id.spinner3);
@@ -63,7 +63,7 @@ public class PlanCourseFragment extends Fragment {
         spinner5.setEnabled(false); spinner6.setEnabled(false);
 
         planButton = view.findViewById(R.id.planButton);
-        deleteButton = view.findViewById(R.id.delete);
+        advancedButton = view.findViewById(R.id.advanced);
         course1 = view.findViewById(R.id.course1); course2 = view.findViewById(R.id.course2);
         course3 = view.findViewById(R.id.course3); course4 = view.findViewById(R.id.course4);
         course5 = view.findViewById(R.id.course5); course6 = view.findViewById(R.id.course6);
@@ -176,7 +176,7 @@ public class PlanCourseFragment extends Fragment {
                     List<Plan> plans = gson.fromJson((String)bot.getSharedPref("plans", getActivity()), type);
 
                     Plan plan = new Plan("");
-                    if(planSpinner.getSelectedItem().toString().equals("New Plan...")) {
+                    if(true) {
 
 
 
@@ -208,10 +208,13 @@ public class PlanCourseFragment extends Fragment {
                                     }
                                 }
                             }
+                            
                             if (tempList.size() >= 30) {
                                 Toast.makeText(getActivity(), "Please add some constraints; the possible schedule size is too big.", Toast.LENGTH_LONG).show();
                                 return;
                             }
+
+
                             plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
                         } else {
@@ -245,10 +248,13 @@ public class PlanCourseFragment extends Fragment {
                                     }
                                 }
                             }
+
                             if (tempList.size() >= 30) {
                                 Toast.makeText(getActivity(), "Please add some constraints; the possible schedule size is too big.", Toast.LENGTH_LONG).show();
                                 return;
                             }
+
+
                             plan.createSchedules(tempList, tempList.size(), size, labs);
                             //plan.deleteDuplicates();
                             plans = new ArrayList<Plan>();
@@ -323,9 +329,10 @@ public class PlanCourseFragment extends Fragment {
             }
         });
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
+        advancedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*
                 String s = planSpinner.getSelectedItem().toString();
                 Gson gson = new Gson();
                 Type type = new TypeToken<List<Plan>>(){}.getType();
@@ -341,9 +348,12 @@ public class PlanCourseFragment extends Fragment {
                 plans.remove(tmp);
                 bot.setSharedPref("plans", getActivity(), plans);
                 populateSpinners(view);
+
+                 */
             }
         });
 
+        /*
         planSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -357,6 +367,8 @@ public class PlanCourseFragment extends Fragment {
 
             }
         });
+
+         */
         return view;
     }
 
@@ -418,8 +430,8 @@ public class PlanCourseFragment extends Fragment {
 
         ArrayAdapter<String> dataAdapter7 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, list3);
         dataAdapter7.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        planSpinner.setAdapter(dataAdapter7);
-        planSpinner.setSelection(0);
+        //planSpinner.setAdapter(dataAdapter7);
+        //planSpinner.setSelection(0);
         sizeSpinner.setSelection(3);
         spinner1.setSelection(0);
         spinner3.setSelection(0);
